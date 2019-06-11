@@ -1,0 +1,17 @@
+uuid: 37d2a6fc-8e8f-4585-bf1e-f6c75c31277f
+langcode: en
+status: true
+dependencies: {  }
+name: event_browser
+label: 'Event Browser'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select entities'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets: {  }

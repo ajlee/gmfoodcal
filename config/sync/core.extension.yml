@@ -1,6 +1,9 @@
 module:
   admin_toolbar: 0
+  admin_toolbar_links_access_filter: 0
   admin_toolbar_tools: 0
+  adminimal_admin_toolbar: 0
+  allowed_formats: 0
   amswap: 0
   antibot: 0
   automated_cron: 0
@@ -25,35 +28,42 @@ module:
   dblog: 0
   dynamic_page_cache: 0
   editor: 0
+  entity_browser: 0
+  entity_browser_example: 0
+  entity_reference_views_select: 0
   field: 0
   field_group: 0
   field_ui: 0
   file: 0
   filter: 0
-  fullcalendar: 0
-  fullcalendar_legend: 0
-  fullcalendar_options: 0
   google_analytics: 0
   history: 0
   honeypot: 0
   image: 0
+  inline_form_errors: 0
   jsonapi: 0
   kint: 0
   libraries: 0
   link: 0
+  linkit: 0
   masquerade: 0
+  media: 0
   menu_ui: 0
   metatag: 0
+  module_filter: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
   quickedit: 0
   rdf: 0
+  responsive_image: 0
   rest: 0
   search: 0
   serialization: 0
+  settings_tray: 0
   shortcut: 0
+  simplenews: 0
   simplify: 0
   statistics: 0
   syslog: 0
@@ -94,6 +104,7 @@ theme:
   radix: 0
   bootstrap_barrio: 0
   bootstrap_barrio_subtheme: 0
+  bootstrap_sass: 0
 profile: standard
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
