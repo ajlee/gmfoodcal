@@ -22,3 +22,6 @@
 
 # Ignore .env files as they are personal
 /.env
+
+# Ignore node_modules
+/web/bootstrap_sass/node_modules
