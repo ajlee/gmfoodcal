@@ -24,4 +24,4 @@
 /.env
 
 # Ignore node_modules
-/web/bootstrap_sass/node_modules
+/web/themes/bootstrap_sass/node_modules
