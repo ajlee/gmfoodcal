@@ -20,12 +20,16 @@ class SubToNodeController extends ControllerBase {
     $submission_array = $node_details->getOriginalData();
     $title = $submission_array['title'];
     $body = $submission_array['body'];
+    /*
+
     $contact_name = $submission_array['contact_name'];
     $contact_email = $submission_array['contact_email'];
     $contact_website_uri = $submission_array['website'];
     $contact_website_title = $submission_array['website'];
     $des_pub_date = $submission_array['bulletin_publish_date'];
     $image_fid = $submission_array['image'];
+
+    */
 
 
 // Create file object from remote URL.
@@ -40,13 +44,14 @@ class SubToNodeController extends ControllerBase {
 
 // Create node object with attached file.
     $node = Node::create([
-      'type' => 'bulletin',
+      'type' => 'event',
       'title' => $title,
       'body' => [
         'value' => $body,
         'summary' => '',
         'format' => 'markdown',
       ],
+      /*
       'field_bulletin_audience' => '',
       'field_bulletin_contact_name' => $contact_name,
       'field_contact_name' => '',
@@ -66,8 +71,10 @@ class SubToNodeController extends ControllerBase {
         'alt' => 'Hello world',
         'title' => 'Goodbye world'
       ],
+      */
     ]);
 
+    /*
     $target_ids_aud = $submission_array['audience'];
     foreach($target_ids_aud as $target_id){
       $node->field_bulletin_audience->AppendItem($target_id);
@@ -77,6 +84,7 @@ class SubToNodeController extends ControllerBase {
     foreach($target_ids_cat as $target_id){
       $node->field_bulletin_category->AppendItem($target_id);
     }
+    */
 
     $node->save();
 
