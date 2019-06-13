@@ -40,7 +40,7 @@ class SubToNodeController extends ControllerBase {
       $node_img_file = file_save_data($data, 'public://' . $file->getFilename(), FILE_EXISTS_REPLACE);
     }
 
-    $timestamp = date("Y-m-d\TH:i:s", strtotime($des_pub_date));
+    //$timestamp = date("Y-m-d\TH:i:s", strtotime($des_pub_date));
 
 // Create node object with attached file.
     $node = Node::create([
