@@ -22,9 +22,9 @@
 # Ignore .env files as they are personal
 /.env
 
-# Ignore node_modules
-/web/themes/bootstrap_sass/node_modules
-
 # Ignore contrib folder except bootstrap_sass (recommended to edit this directly)
 /web/themes/contrib/*
 !/web/themes/contrib/bootstrap_sass
+
+# Ignore node_modules
+/web/themes/contrib/bootstrap_sass/node_modules
