@@ -3,7 +3,6 @@
 /vendor/
 /web/core/
 /web/modules/contrib/
-/web/themes/contrib/
 /web/profiles/contrib/
 /web/libraries/
 
@@ -25,3 +24,7 @@
 
 # Ignore node_modules
 /web/themes/bootstrap_sass/node_modules
+
+# Ignore contrib folder except bootstrap_sass (recommended to edit this directly)
+/web/themes/contrib/*
+!/web/themes/contrib/bootstrap_sass
