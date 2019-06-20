@@ -13,6 +13,10 @@
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
         }
     ],
     "require": {
@@ -24,6 +28,7 @@
         "drupal/admin_toolbar_tools": "^1.27",
         "drupal/adminimal_admin_toolbar": "^1.9",
         "drupal/administration_language_negotiation": "^1.6",
+        "drupal/allow_iframed_site": "^2.0",
         "drupal/allowed_formats": "^1.1",
         "drupal/amswap": "^2.0@beta",
         "drupal/antibot": "^1.2",
@@ -44,6 +49,7 @@
         "drupal/ctools": "^3.2",
         "drupal/date_recur": "^1.0",
         "drupal/datetime_extras": "^1.0@alpha",
+        "drupal/discourse_sso": "^1.0@beta",
         "drupal/ds": "^3.3",
         "drupal/editor_advanced_link": "^1.4",
         "drupal/entity_browser": "^2.1",
@@ -51,7 +57,8 @@
         "drupal/extlink": "^1.1",
         "drupal/field_group": "^1.0",
         "drupal/fitvids": "^1.0",
-        "drupal/fullcalendar": "^1.0@alpha",
+        "drupal/fullcalendar": "1.x-dev",
+        "drupal/fullcalendar_view": "^2.2",
         "drupal/google_analytics": "^3.0",
         "drupal/honeypot": "^1.29",
         "drupal/imce": "^1.7",
@@ -75,9 +82,12 @@
         "drupal/twig_tweak": "^2.3",
         "drupal/video_embed_field": "^2.1",
         "drupal/views_fieldsets": "^3.3",
+        "drupal/views_ical": "1.x-dev",
         "drupal/webform": "^5.2",
         "drush/drush": "^9.0.0",
         "fullcalendar/fullcalendar": "^3.10",
+        "npm-asset/fullcalendar": "^3",
+        "oomphinc/composer-installers-extender": "^1.1",
         "vlucas/phpdotenv": "^2.4",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
@@ -120,9 +130,17 @@
         "patchLevel": {
             "drupal/core": "-p2"
         },
+        "installer-types": [
+                 "npm-asset",
+                 "bower-asset"
+        ],
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:npm-asset",
+                "type:bower-asset"
+            ],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
