@@ -1,0 +1,4 @@
+request_path:
+  id: request_path
+  pages: '/embed/*'
+  negate: 0

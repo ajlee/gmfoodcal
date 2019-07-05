@@ -1,0 +1,29 @@
+uuid: a73167e0-0313-403f-bda8-93fb70116cb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_calendar
+    - node.type.event
+    - taxonomy.vocabulary.calendars
+id: node.event.field_calendar
+field_name: field_calendar
+entity_type: node
+bundle: event
+label: Calendar
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      calendars: calendars
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

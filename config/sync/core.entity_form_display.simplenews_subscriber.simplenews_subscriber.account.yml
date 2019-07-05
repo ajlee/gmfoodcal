@@ -6,7 +6,13 @@ dependencies:
     - core.entity_form_mode.simplenews_subscriber.account
     - field.field.simplenews_subscriber.simplenews_subscriber.subscriptions
   module:
+    - field_layout
+    - layout_discovery
     - simplenews
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: wsSwexy6Zc4ZKCF3dNzcg9vwvZeAsOKhe-WpASvCLIs
 id: simplenews_subscriber.simplenews_subscriber.account

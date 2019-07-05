@@ -1,0 +1,7 @@
+discourse_server: 'https://forum.gmfoodforum.org'
+discourse_sso_secret: systemchangenotclimatechange
+_core:
+  default_config_hash: X86Lu47CsL5n0GazykwnSu1g1RXA07DcnUrtMmGnbXM
+api_username: alex
+api_key: cd60c6b0f05267370fce3f0ebee9c0d63cb02ef028296df6f52d48b929779cf8
+user_real_name_field: null

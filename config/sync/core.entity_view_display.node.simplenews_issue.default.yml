@@ -4,12 +4,69 @@ status: true
 dependencies:
   config:
     - field.field.node.simplenews_issue.body
-    - field.field.node.simplenews_issue.field_events_
+    - field.field.node.simplenews_issue.field_events_reference
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
+    - field_layout
+    - layout_builder
+    - layout_discovery
     - text
     - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+  layout_builder:
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components:
+          98438234-550e-4eee-a68c-71ac13331489:
+            uuid: 98438234-550e-4eee-a68c-71ac13331489
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:simplenews_issue:body'
+              formatter:
+                type: text_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 0
+          0aaab2d2-1df3-4064-a71b-03a909da2ecc:
+            uuid: 0aaab2d2-1df3-4064-a71b-03a909da2ecc
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:simplenews_issue:links'
+            additional: {  }
+            weight: 1
+          768e05a7-76e3-4995-8c76-dfb46ff68f0d:
+            uuid: 768e05a7-76e3-4995-8c76-dfb46ff68f0d
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:simplenews_issue:field_events_reference'
+              formatter:
+                label: hidden
+                settings:
+                  view_mode: email_html
+                  link: false
+                third_party_settings: {  }
+                type: entity_reference_entity_view
+            additional: {  }
+            weight: 2
+        third_party_settings: {  }
 _core:
   default_config_hash: 2uFXyR4335F9Qrls0Lx2QTobeBiF6FN1PeDjJEv47Yw
 id: node.simplenews_issue.default
@@ -24,18 +81,20 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_events_:
+  field_events_reference:
     weight: 2
-    label: above
+    label: hidden
     settings:
-      link: true
+      view_mode: email_html
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   links:
     weight: 1
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
+  langcode: true
   simplenews_issue: true

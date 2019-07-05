@@ -3,6 +3,7 @@ module:
   admin_toolbar_links_access_filter: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
+  allow_iframed_site: 0
   allowed_formats: 0
   amswap: 0
   antibot: 0
@@ -12,7 +13,6 @@ module:
   block_class: 0
   block_content: 0
   breakpoint: 0
-  calendar: 0
   calendar_datetime: 0
   ckeditor: 0
   coffee: 0
@@ -22,10 +22,11 @@ module:
   config: 0
   contextual: 0
   ctools: 0
-  date_recur: 0
   datetime: 0
+  datetime_extras: 0
   datetime_range: 0
   dblog: 0
+  discourse_sso: 0
   dynamic_page_cache: 0
   editor: 0
   entity_browser: 0
@@ -33,9 +34,13 @@ module:
   entity_reference_views_select: 0
   field: 0
   field_group: 0
+  field_layout: 0
   field_ui: 0
   file: 0
   filter: 0
+  fullcalendar: 0
+  fullcalendar_options: 0
+  geolocation: 0
   google_analytics: 0
   history: 0
   honeypot: 0
@@ -43,20 +48,29 @@ module:
   inline_form_errors: 0
   jsonapi: 0
   kint: 0
+  language: 0
+  layout_builder: 0
+  layout_discovery: 0
   libraries: 0
   link: 0
   linkit: 0
+  locale: 0
+  markdown: 0
   masquerade: 0
   media: 0
   menu_ui: 0
   metatag: 0
   module_filter: 0
+  multiple_fields_remove_button: 0
   node: 0
+  optional_end_date: 0
   options: 0
   page_cache: 0
   path: 0
   quickedit: 0
+  radix_layouts: 0
   rdf: 0
+  redirect: 0
   responsive_image: 0
   rest: 0
   search: 0
@@ -65,7 +79,9 @@ module:
   shortcut: 0
   simplenews: 0
   simplify: 0
+  smtp: 0
   statistics: 0
+  subtonode: 0
   syslog: 0
   system: 0
   taxonomy: 0
@@ -77,6 +93,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  views_ical: 0
   views_templates: 0
   views_ui: 0
   webform: 0
@@ -102,9 +119,7 @@ theme:
   bartik: 0
   seven: 0
   radix: 0
-  bootstrap_barrio: 0
-  bootstrap_barrio_subtheme: 0
-  bootstrap_sass: 0
+  gmfoodtheme: 0
 profile: standard
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc

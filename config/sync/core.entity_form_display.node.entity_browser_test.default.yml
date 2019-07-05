@@ -17,8 +17,14 @@ dependencies:
       - entity_browser_example
   module:
     - entity_browser
+    - field_layout
+    - layout_discovery
     - path
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: Oq6aFeQZ6Jqh4ddei6-yd1c-evb7oiauRNwsH3j4bis
 id: node.entity_browser_test.default
@@ -105,6 +111,13 @@ content:
       field_widget_replace: false
     third_party_settings: {  }
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
     weight: 30

@@ -1,0 +1,10 @@
+uuid: 44290576-ffe5-4ba1-878a-5d3f1963d2f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.newsletter_view
+label: 'Newsletter View'
+targetEntityType: node
+cache: true

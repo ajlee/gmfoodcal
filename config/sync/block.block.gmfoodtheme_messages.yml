@@ -1,0 +1,22 @@
+uuid: fc0b5dad-ea06-4c77-b28e-b735b0226d85
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gmfoodtheme
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: gmfoodtheme_messages
+theme: gmfoodtheme
+region: header
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

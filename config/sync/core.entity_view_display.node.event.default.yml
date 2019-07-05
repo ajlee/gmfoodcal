@@ -1,88 +1,265 @@
-uuid: 6f275d17-19d9-4aa0-9faa-0757d4ff493a
+uuid: e84506eb-286d-48ea-ad62-b8bd87cb700a
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.node.event.body
+    - field.field.node.event.field_address
+    - field.field.node.event.field_calendar
     - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
-    - field.field.node.event.field_end_date
+    - field.field.node.event.field_date
+    - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
     - field.field.node.event.field_start_date
     - node.type.event
   module:
-    - datetime
-    - link
-    - text
+    - layout_builder
+    - layout_discovery
+    - radix_layouts
     - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: radix_bartlett
+        layout_settings: {  }
+        components:
+          90a49ae4-cfe2-42d0-9a2c-2b637ab5841b:
+            uuid: 90a49ae4-cfe2-42d0-9a2c-2b637ab5841b
+            region: contentheader
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:event:links'
+            additional: {  }
+            weight: 0
+          26ead1ef-8189-4ec6-a48c-6db7bed0156f:
+            uuid: 26ead1ef-8189-4ec6-a48c-6db7bed0156f
+            region: contentheader
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:event:field_address'
+              formatter:
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+                type: string
+            additional: {  }
+            weight: 2
+          bd6a2b87-34e4-4ff9-adfc-309ecff5735b:
+            uuid: bd6a2b87-34e4-4ff9-adfc-309ecff5735b
+            region: contentheader
+            configuration:
+              id: 'field_block:node:event:body'
+              label: Body
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 1
+          531d8c97-f881-4f48-86ab-4692c0f95fee:
+            uuid: 531d8c97-f881-4f48-86ab-4692c0f95fee
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_address'
+              label: Address
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: hidden
+                type: string
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
+          3c7c1746-2de8-462f-bb9e-9a4653a0ff03:
+            uuid: 3c7c1746-2de8-462f-bb9e-9a4653a0ff03
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_date'
+              label: 'Date & Time'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: datetime_default
+                settings:
+                  timezone_override: Europe/London
+                  format_type: medium
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 1
+          97ac64a2-df94-4ebe-8e38-c444c2339216:
+            uuid: 97ac64a2-df94-4ebe-8e38-c444c2339216
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_contact_email'
+              label: 'Contact Email'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: basic_string
+                settings: {  }
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 2
+          16e960f7-394b-4938-9abd-587c40abd20f:
+            uuid: 16e960f7-394b-4938-9abd-587c40abd20f
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_contact_phone'
+              label: 'Contact Phone'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: telephone_link
+                settings:
+                  title: ''
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 3
+          301ea071-5b9e-43bb-8012-433e348ed638:
+            uuid: 301ea071-5b9e-43bb-8012-433e348ed638
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_more_information_link'
+              label: 'More Information'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: link
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: '0'
+                  target: '0'
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 4
+          33bd56f7-1dc6-48b9-91dc-065943d0391c:
+            uuid: 33bd56f7-1dc6-48b9-91dc-065943d0391c
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_calendar'
+              label: Calendar
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: entity_reference_label
+                settings:
+                  link: true
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 5
+          07c80fb9-a7f3-4440-87eb-1286fd996b66:
+            uuid: 07c80fb9-a7f3-4440-87eb-1286fd996b66
+            region: contentheader
+            configuration:
+              id: 'field_block:node:event:field_geolocation'
+              label: Location
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: geolocation_map
+                settings:
+                  set_marker: '0'
+                  title: ''
+                  info_text: ''
+                  replacement_patterns:
+                    token_geolocation:
+                      token_items: ''
+                  google_map_settings:
+                    height: 400px
+                    width: 100%
+                    type: ROADMAP
+                    zoom: '10'
+                    maxZoom: 18
+                    minZoom: 0
+                    mapTypeControl: 0
+                    streetViewControl: 0
+                    zoomControl: 0
+                    rotateControl: 0
+                    fullscreenControl: 0
+                    scrollwheel: 0
+                    gestureHandling: auto
+                    draggable: 0
+                    preferScrollingToZooming: 0
+                    disableDoubleClickZoom: 0
+                    style: ''
+                    info_auto_display: 0
+                    marker_icon_path: ''
+                    disableAutoPan: 0
+                  use_overridden_map_settings: 0
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 3
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components: {  }
+        third_party_settings: {  }
 id: node.event.default
 targetEntityType: node
 bundle: event
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_category:
-    weight: 104
+  field_address:
+    weight: 1
     label: above
     settings:
-      link: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_contact_email:
-    weight: 105
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_contact_phone:
-    weight: 107
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: content
-  field_end_date:
-    weight: 103
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
-  field_more_information_link:
-    weight: 106
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
-  field_start_date:
-    weight: 102
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
+    type: string
     region: content
   links:
-    weight: 100
+    weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
-hidden: {  }
+hidden:
+  body: true
+  field_calendar: true
+  field_category: true
+  field_contact_email: true
+  field_contact_phone: true
+  field_date: true
+  field_geolocation: true
+  field_more_information_link: true
+  field_start_date: true
+  langcode: true

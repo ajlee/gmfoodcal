@@ -1,0 +1,22 @@
+uuid: bf199c3f-d45c-4a89-a23e-afde02aeadc1
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gmfoodtheme
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: gmfoodtheme_local_tasks
+theme: gmfoodtheme
+region: header
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

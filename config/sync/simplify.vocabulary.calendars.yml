@@ -1,0 +1,5 @@
+simplify_taxonomies:
+  - format
+  - relations
+  - path
+  - metatags

@@ -7,9 +7,15 @@ dependencies:
     - field.field.node.webform.webform
     - node.type.webform
   module:
+    - field_layout
+    - layout_discovery
     - path
     - text
     - webform
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: A3evv2pt6d-bKCPcgjXA5VGTemXWOxG3lSXvWiRWcck
 id: node.webform.default
@@ -32,6 +38,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
     weight: 30

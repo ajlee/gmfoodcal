@@ -1,0 +1,8 @@
+uuid: 7e7ea438-d355-42e5-8c15-b6170d5b371f
+langcode: en
+status: true
+dependencies: {  }
+name: Calendars
+vid: calendars
+description: ''
+weight: 0

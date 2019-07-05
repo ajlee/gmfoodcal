@@ -7,8 +7,14 @@ dependencies:
     - image.style.thumbnail
     - media.type.image
   module:
+    - field_layout
     - image
+    - layout_discovery
     - path
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: gq3bovy8uSTqVRHoDwFOwJfaaAzyEE8Hzjk-CkPG4uU
 id: media.image.default
@@ -30,6 +36,13 @@ content:
     type: image_image
     weight: 0
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
     weight: 30

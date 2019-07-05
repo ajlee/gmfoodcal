@@ -1,0 +1,22 @@
+uuid: bda202cb-5dfb-4cbd-afc1-27f991b14d06
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gmfoodtheme
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: gmfoodtheme_content
+theme: gmfoodtheme
+region: content
+weight: -7
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

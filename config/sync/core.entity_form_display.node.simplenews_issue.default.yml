@@ -5,13 +5,19 @@ dependencies:
   config:
     - entity_browser.browser.test_nodes
     - field.field.node.simplenews_issue.body
-    - field.field.node.simplenews_issue.field_events_
+    - field.field.node.simplenews_issue.field_events_reference
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
     - entity_browser
+    - field_layout
+    - layout_discovery
     - path
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
 _core:
   default_config_hash: WqeUSrMFjkfE6sD1OFP-91spC9kIXK8gtJ_qXf4bKDg
 id: node.simplenews_issue.default
@@ -34,20 +40,27 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_events_:
+  field_events_reference:
     weight: 121
     settings:
       entity_browser: test_nodes
       field_widget_display: label
       field_widget_edit: true
       field_widget_remove: true
-      field_widget_replace: true
       selection_mode: selection_append
+      field_widget_replace: false
       open: false
       field_widget_display_settings: {  }
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
   path:
     type: path
     weight: 30

@@ -5,11 +5,42 @@ dependencies:
   config:
     - core.entity_view_mode.node.email_textalt
     - field.field.node.simplenews_issue.body
+    - field.field.node.simplenews_issue.field_events_reference
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
+    - field_layout
+    - layout_builder
+    - layout_discovery
     - text
     - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+  layout_builder:
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components:
+          b12ef2fc-05e4-4507-98ad-7bd2f6aa7c19:
+            uuid: b12ef2fc-05e4-4507-98ad-7bd2f6aa7c19
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:simplenews_issue:body'
+              formatter:
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+                label: hidden
+            additional: {  }
+            weight: 0
+        third_party_settings: {  }
 _core:
   default_config_hash: nbS6YErkrJfcf1Lgbd-MEFDZvatGhf9ZYEdg7_phgRU
 id: node.simplenews_issue.email_textalt
@@ -25,5 +56,7 @@ content:
     label: hidden
     region: content
 hidden:
+  field_events_reference: true
+  langcode: true
   links: true
   simplenews_issue: true
