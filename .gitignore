@@ -4,7 +4,6 @@
 /web/core/
 /web/modules/contrib/
 /web/profiles/contrib/
-/web/libraries/
 
 # Ignore sensitive information
 /web/sites/*/settings.php

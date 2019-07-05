@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ab85cd174e1460c9e0eb2a634f3918e",
+    "content-hash": "db023484f6e6877d65d9f174bb4265b3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5348,6 +5348,57 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/radix",
                 "issues": "https://www.drupal.org/project/issues/radix"
+            }
+        },
+        {
+            "name": "drupal/radix_layouts",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/radix_layouts.git",
+                "reference": "8.x-4.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/radix_layouts-8.x-4.1.zip",
+                "reference": "8.x-4.1",
+                "shasum": "c5aa0e5a72e13c2f163cc4a18d0816cb11018357"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.1",
+                    "datestamp": "1551641284",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arshadcn",
+                    "homepage": "https://www.drupal.org/user/571032"
+                },
+                {
+                    "name": "dsnopek",
+                    "homepage": "https://www.drupal.org/user/266527"
+                }
+            ],
+            "description": "Responsive layouts built on the Bootstrap 3 grid system.",
+            "homepage": "https://www.drupal.org/project/radix_layouts",
+            "support": {
+                "source": "https://git.drupalcode.org/project/radix_layouts"
             }
         },
         {
