@@ -1,0 +1,11 @@
+uuid: cc208500-446d-48b7-9905-c92d8fc8cd1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.calendar
+id: node.calendar
+target_entity_type_id: node
+target_bundle: calendar
+default_langcode: site_default
+language_alterable: false

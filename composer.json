@@ -80,6 +80,7 @@
         "drupal/radix_layouts": "^4.1",
         "drupal/redirect": "^1.4",
         "drupal/simple_gmap": "^1.4",
+        "drupal/simple_user_management": "^1.2",
         "drupal/simplenews": "^1.0@beta",
         "drupal/simplify": "^1.0",
         "drupal/smtp": "^1.0@beta",
@@ -163,6 +164,9 @@
 	    },
             "drupal/fullcalendar": {
                     "FullCalendar block error on installing legend": "https://www.drupal.org/files/issues/fullcalendar-notice_undefined_index_module_in_fullcalendar_legend_preprocess_block-2854562-2.patch"
+            },
+            "drupal/core": {
+                    "Provide default region value for layout builder": "https://www.drupal.org/files/issues/2019-06-18/3053906-11-default-region-value.patch"
             }
         }
     }

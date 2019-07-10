@@ -1,0 +1,29 @@
+uuid: 0d14eeb6-7a98-4a9a-a6a4-f31e4c3a1b1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.calendar.body
+    - node.type.calendar
+  module:
+    - text
+    - user
+id: node.calendar.default
+targetEntityType: node
+bundle: calendar
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

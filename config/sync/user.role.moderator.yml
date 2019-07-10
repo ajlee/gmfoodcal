@@ -1,0 +1,49 @@
+uuid: 13c4de82-ad48-44dc-9efd-a34208b65c91
+langcode: en
+status: true
+dependencies: {  }
+id: moderator
+label: Moderator
+weight: 4
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access taxonomy overview'
+  - 'add terms in calendars'
+  - 'add terms in tags'
+  - 'bypass honeypot protection'
+  - 'create media'
+  - 'create terms in calendars'
+  - 'create terms in tags'
+  - 'create url aliases'
+  - 'delete any article content'
+  - 'delete any event content'
+  - 'delete article revisions'
+  - 'delete event revisions'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own event content'
+  - 'edit any article content'
+  - 'edit any event content'
+  - 'edit own article content'
+  - 'edit own comments'
+  - 'edit own event content'
+  - 'edit terms in calendars'
+  - 'edit terms in tags'
+  - 'reorder terms in calendars'
+  - 'reorder terms in tags'
+  - 'revert article revisions'
+  - 'revert event revisions'
+  - 'update media'
+  - 'use advanced search'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
+  - 'view article revisions'
+  - 'view event revisions'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view terms in calendars'
+  - 'view terms in tags'
