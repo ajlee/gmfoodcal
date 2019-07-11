@@ -4,28 +4,20 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.calendar.body
+    - field.field.node.calendar.field_moderator
     - node.type.calendar
   module:
-    - text
     - user
 id: node.calendar.teaser
 targetEntityType: node
 bundle: calendar
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     settings: {  }
     third_party_settings: {  }
     region: content
 hidden:
+  field_moderator: true
   langcode: true

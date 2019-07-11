@@ -1,16 +1,16 @@
-uuid: 18e3368d-24c3-4da9-aa21-b43b62fec832
+uuid: 9f4ea0f5-3f8a-4e46-8dec-c07254c50efc
 langcode: en
 status: true
 dependencies:
   module:
+    - link
     - node
-id: node.field_calendar
-field_name: field_calendar
+id: node.field_link_to_article
+field_name: field_link_to_article
 entity_type: node
-type: entity_reference
-settings:
-  target_type: node
-module: core
+type: link
+settings: {  }
+module: link
 locked: false
 cardinality: 1
 translatable: true

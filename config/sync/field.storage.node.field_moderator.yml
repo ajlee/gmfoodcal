@@ -1,18 +1,19 @@
-uuid: 18e3368d-24c3-4da9-aa21-b43b62fec832
+uuid: 00fec524-9aa0-401d-b586-d10a03cb4148
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_calendar
-field_name: field_calendar
+    - user
+id: node.field_moderator
+field_name: field_moderator
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: user
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

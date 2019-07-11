@@ -1,0 +1,69 @@
+uuid: 91355376-2bc3-442e-b00b-3292f3fa9aa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.news_link.field_calendar_reference
+    - field.field.node.news_link.field_link_to_article
+    - field.field.node.news_link.field_news_category
+    - field.field.node.news_link.field_news_summary
+    - field.field.node.news_link.field_related_news
+    - node.type.news_link
+  module:
+    - link
+    - user
+id: node.news_link.default
+targetEntityType: node
+bundle: news_link
+mode: default
+content:
+  field_calendar_reference:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_link_to_article:
+    weight: 106
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_news_category:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_news_summary:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_related_news:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

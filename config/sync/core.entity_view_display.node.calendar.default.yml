@@ -3,27 +3,158 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.calendar.body
+    - field.field.node.calendar.field_calendar_description
+    - field.field.node.calendar.field_calendar_term
+    - field.field.node.calendar.field_moderator
     - node.type.calendar
+    - system.menu.public-sidebar-links
+    - views.view.calendar_page_blocks
   module:
+    - layout_builder
+    - layout_discovery
+    - radix_layouts
+    - system
     - text
     - user
+    - views
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components:
+          684df8b8-e135-4dd7-b4a5-2e6cb4b603c5:
+            uuid: 684df8b8-e135-4dd7-b4a5-2e6cb4b603c5
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:calendar:links'
+            additional: {  }
+            weight: 0
+          870e874a-d35c-4b11-ab33-9dc22e18a602:
+            uuid: 870e874a-d35c-4b11-ab33-9dc22e18a602
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:calendar:field_calendar_term'
+              formatter:
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+                type: entity_reference_label
+            additional: {  }
+            weight: 1
+        third_party_settings: {  }
+      -
+        layout_id: radix_bryant_flipped
+        layout_settings: {  }
+        components:
+          7bee6c61-0809-4db8-9a68-afa4ce78545e:
+            uuid: 7bee6c61-0809-4db8-9a68-afa4ce78545e
+            region: sidebar
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:calendar:field_moderator'
+              formatter:
+                label: above
+                settings:
+                  view_mode: calendar_moderator
+                  link: false
+                third_party_settings: {  }
+                type: entity_reference_entity_view
+            additional: {  }
+            weight: 0
+          1caa6461-6b42-478f-a7b7-a63e219703a2:
+            uuid: 1caa6461-6b42-478f-a7b7-a63e219703a2
+            region: contentmain
+            configuration:
+              id: 'views_block:calendar_page_blocks-block_1'
+              label: ''
+              provider: views
+              label_display: '0'
+              views_label: ''
+              items_per_page: none
+              context_mapping: {  }
+            additional: {  }
+            weight: 1
+          e6d5a2ef-adcf-4b22-b2d9-211cf9e4916f:
+            uuid: e6d5a2ef-adcf-4b22-b2d9-211cf9e4916f
+            region: contentmain
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:calendar:field_calendar_description'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: text_default
+            additional: {  }
+            weight: 0
+          2315f3be-7fbe-4c14-8e98-9f899fa8e0a2:
+            uuid: 2315f3be-7fbe-4c14-8e98-9f899fa8e0a2
+            region: sidebar
+            configuration:
+              id: 'system_menu_block:public-sidebar-links'
+              label: Links
+              provider: system
+              label_display: visible
+              level: 1
+              depth: 0
+              expand_all_items: false
+              context_mapping: {  }
+            additional: {  }
+            weight: 1
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components: {  }
+        third_party_settings: {  }
 id: node.calendar.default
 targetEntityType: node
 bundle: calendar
 mode: default
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
+  field_calendar_description:
+    weight: 103
+    label: above
     settings: {  }
     third_party_settings: {  }
+    type: text_default
+    region: content
+  field_calendar_term:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_moderator:
+    weight: 102
+    label: above
+    settings:
+      view_mode: calendar_moderator
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
     region: content
   links:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true

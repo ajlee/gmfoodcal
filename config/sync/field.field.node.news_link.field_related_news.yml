@@ -1,16 +1,15 @@
-uuid: a73167e0-0313-403f-bda8-93fb70116cb1
+uuid: 8df2c435-5d55-4f7f-97c0-2bada95a9012
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_calendar
-    - node.type.calendar
-    - node.type.event
-id: node.event.field_calendar
-field_name: field_calendar
+    - field.storage.node.field_related_news
+    - node.type.news_link
+id: node.news_link.field_related_news
+field_name: field_related_news
 entity_type: node
-bundle: event
-label: Calendar
+bundle: news_link
+label: 'Related News'
 description: ''
 required: false
 translatable: false
@@ -20,10 +19,9 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      calendar: calendar
+      news_link: news_link
     sort:
-      field: title
-      direction: ASC
+      field: _none
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

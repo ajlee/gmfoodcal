@@ -1,0 +1,10 @@
+uuid: 9eb19f1b-0ada-483b-854c-ccc463a1afd2
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.calendar_moderator
+label: 'Calendar Moderator'
+targetEntityType: user
+cache: true

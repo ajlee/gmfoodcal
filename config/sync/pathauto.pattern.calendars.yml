@@ -1,0 +1,22 @@
+uuid: b399edb1-9773-4336-a787-cfcb38c502b4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: calendars
+label: Calendars
+type: 'canonical_entities:node'
+pattern: 'calendar/[node:title]'
+selection_criteria:
+  8fbe174a-2877-4293-8959-dd356b5f750a:
+    id: node_type
+    bundles:
+      calendar: calendar
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 8fbe174a-2877-4293-8959-dd356b5f750a
+selection_logic: and
+weight: -5
+relationships: {  }

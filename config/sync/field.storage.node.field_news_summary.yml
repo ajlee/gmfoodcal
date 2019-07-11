@@ -1,15 +1,15 @@
-uuid: 18e3368d-24c3-4da9-aa21-b43b62fec832
+uuid: fc409f47-41ea-4efd-9991-ca27c93ccb37
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_calendar
-field_name: field_calendar
+id: node.field_news_summary
+field_name: field_news_summary
 entity_type: node
-type: entity_reference
+type: string_long
 settings:
-  target_type: node
+  case_sensitive: false
 module: core
 locked: false
 cardinality: 1

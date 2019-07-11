@@ -1,15 +1,16 @@
-uuid: 18e3368d-24c3-4da9-aa21-b43b62fec832
+uuid: a8eb41b9-45a3-4f70-9354-73f00af06e4c
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_calendar
-field_name: field_calendar
+    - taxonomy
+id: node.field_calendar_term
+field_name: field_calendar_term
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: 1

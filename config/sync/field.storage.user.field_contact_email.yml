@@ -1,15 +1,14 @@
-uuid: 18e3368d-24c3-4da9-aa21-b43b62fec832
+uuid: 947164e5-35b8-4b3c-bb5d-ae4470764b1a
 langcode: en
 status: true
 dependencies:
   module:
-    - node
-id: node.field_calendar
-field_name: field_calendar
-entity_type: node
-type: entity_reference
-settings:
-  target_type: node
+    - user
+id: user.field_contact_email
+field_name: field_contact_email
+entity_type: user
+type: email
+settings: {  }
 module: core
 locked: false
 cardinality: 1

@@ -1,0 +1,21 @@
+uuid: 777744df-65f4-451d-85e8-48e79bec8adc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_moderator
+    - node.type.calendar
+id: node.calendar.field_moderator
+field_name: field_moderator
+entity_type: node
+bundle: calendar
+label: Moderator
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings: {  }
+field_type: entity_reference

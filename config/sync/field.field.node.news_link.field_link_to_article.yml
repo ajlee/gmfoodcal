@@ -1,0 +1,23 @@
+uuid: a531b11a-2485-44c3-ba43-a5ee92b906db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_to_article
+    - node.type.news_link
+  module:
+    - link
+id: node.news_link.field_link_to_article
+field_name: field_link_to_article
+entity_type: node
+bundle: news_link
+label: 'Link to Article'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

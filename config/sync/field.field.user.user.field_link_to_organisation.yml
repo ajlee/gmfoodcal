@@ -1,0 +1,23 @@
+uuid: 272cf97d-e5a6-44d8-8f9b-a8a12944fd15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_link_to_organisation
+  module:
+    - link
+    - user
+id: user.user.field_link_to_organisation
+field_name: field_link_to_organisation
+entity_type: user
+bundle: user
+label: 'Link to Organisation'
+description: 'If you are supporting as part of another organisation, please put the link to their website here'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

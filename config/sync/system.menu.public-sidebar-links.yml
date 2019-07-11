@@ -1,0 +1,8 @@
+uuid: 1241f0cd-5931-43b1-bfa7-51ec4e1cd119
+langcode: en
+status: true
+dependencies: {  }
+id: public-sidebar-links
+label: 'Public Sidebar Links'
+description: ''
+locked: false

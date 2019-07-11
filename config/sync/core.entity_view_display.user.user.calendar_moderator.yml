@@ -1,0 +1,97 @@
+uuid: 88e4c750-d57e-46f2-851a-ed683129ddc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.calendar_moderator
+    - field.field.user.user.field_about_me
+    - field.field.user.user.field_contact_email
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_link_to_organisation
+    - field.field.user.user.field_organisation_name
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_public_name
+    - field.field.user.user.field_surname
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - field_layout
+    - image
+    - layout_builder
+    - link
+    - telephone
+    - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.calendar_moderator
+targetEntityType: user
+bundle: user
+mode: calendar_moderator
+content:
+  field_contact_email:
+    type: basic_string
+    weight: 4
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_link_to_organisation:
+    type: link
+    weight: 3
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_organisation_name:
+    type: string
+    weight: 2
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_phone:
+    type: telephone_link
+    weight: 5
+    region: content
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_public_name:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  field_about_me: true
+  field_first_name: true
+  field_surname: true
+  langcode: true
+  masquerade: true
+  member_for: true
+  simplenews: true
