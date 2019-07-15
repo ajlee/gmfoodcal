@@ -22,6 +22,8 @@ Remove modules:
 - geolocation?
 - phayes/geophp drupal/geofield drupal/geofield_map
 - GMapss needs credit card info
+- paragraphs
+- webform helpers
 
 - Create GMaps webform location select OR just a simple address field that simple_gmaps uses to lookup
 - Create newsletter process
