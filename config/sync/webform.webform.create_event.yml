@@ -12,7 +12,7 @@ id: create_event
 title: 'Create Event'
 description: ''
 category: EventForm
-elements: "title:\n  '#type': textfield\n  '#title': Title\nbody:\n  '#type': textarea\n  '#title': 'Event Description'\nstart_date:\n  '#type': datetime\n  '#title': 'Start Date'\n  '#date_time_step': '60'\nend_date:\n  '#type': datetime\n  '#title': 'End Date'\n  '#date_time_step': '60'\ncontact_phone:\n  '#type': tel\n  '#title': 'Contact Phone'\ncontact_email:\n  '#type': email\n  '#title': 'Contact Email'\nmore_information_link:\n  '#type': webform_link\n  '#title': 'More Information Link'\n  '#title__access': false\n  '#flexbox': '0'\ncaptcha:\n  '#type': captcha"
+elements: "title:\n  '#type': textfield\n  '#title': Title\nbody:\n  '#type': textarea\n  '#title': 'Event Description'\ncontact_phone:\n  '#type': tel\n  '#title': 'Contact Phone'\ncontact_email:\n  '#type': email\n  '#title': 'Contact Email'\nmore_information_link:\n  '#type': webform_link\n  '#title': 'More Information Link'\n  '#title__access': false\n  '#flexbox': '0'\ncaptcha:\n  '#type': captcha\ndate:\n  '#type': datetime\n  '#title': Date(s)\n  '#multiple': true\n  '#date_year_range': '2019:2050'\n  '#date_time_step': '300'\nlocation:\n  '#type': webform_location_places\n  '#title': Location\n  '#app_id': plZEG30OB7VQ\n  '#api_key': 3fc8c0d41beb26e1a3e8850a245aab90"
 css: ''
 javascript: ''
 settings:

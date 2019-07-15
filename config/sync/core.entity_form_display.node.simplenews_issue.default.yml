@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.test_nodes
+    - entity_browser.browser.event_browser
     - field.field.node.simplenews_issue.body
-    - field.field.node.simplenews_issue.field_events_reference
+    - field.field.node.simplenews_issue.field_test
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
@@ -40,17 +40,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_events_reference:
+  field_test:
     weight: 121
     settings:
-      entity_browser: test_nodes
-      field_widget_display: label
+      entity_browser: event_browser
+      field_widget_display: rendered_entity
       field_widget_edit: true
       field_widget_remove: true
+      field_widget_replace: true
+      open: true
       selection_mode: selection_append
-      field_widget_replace: false
-      open: false
-      field_widget_display_settings: {  }
+      field_widget_display_settings:
+        view_mode: teaser
     third_party_settings: {  }
     type: entity_browser_entity_reference
     region: content
@@ -111,4 +112,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden: {  }

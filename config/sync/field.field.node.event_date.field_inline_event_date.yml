@@ -1,0 +1,24 @@
+uuid: 78c5a0c1-0013-4dd5-b6d8-63b2786eba2f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_inline_event_date
+    - node.type.event_date
+  module:
+    - datetime
+id: node.event_date.field_inline_event_date
+field_name: field_inline_event_date
+entity_type: node
+bundle: event_date
+label: 'Inline Event Date'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

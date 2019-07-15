@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.email_textalt
-    - field.field.node.event.body
+    - field.field.node.event.field_address
     - field.field.node.event.field_calendar
     - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
@@ -12,13 +12,13 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_start_date
     - node.type.event
   module:
     - field_layout
     - layout_builder
     - layout_discovery
     - link
-    - text
     - user
 third_party_settings:
   field_layout:
@@ -41,21 +41,6 @@ third_party_settings:
               id: 'extra_field_block:node:event:links'
             additional: {  }
             weight: 0
-          f13f18f1-8d36-41f6-9548-d3e4bd50e09e:
-            uuid: f13f18f1-8d36-41f6-9548-d3e4bd50e09e
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:event:body'
-              formatter:
-                label: hidden
-                type: text_default
-                settings: {  }
-                third_party_settings: {  }
-            additional: {  }
-            weight: 1
           d9b46092-a9c2-408c-a088-0e3e7ed77dbd:
             uuid: d9b46092-a9c2-408c-a088-0e3e7ed77dbd
             region: content
@@ -128,13 +113,6 @@ targetEntityType: node
 bundle: event
 mode: email_textalt
 content:
-  body:
-    label: hidden
-    type: text_default
-    weight: 101
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_category:
     weight: 104
     label: above
@@ -175,7 +153,9 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_address: true
   field_calendar: true
   field_date: true
   field_geolocation: true
+  field_start_date: true
   langcode: true

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.email_plain
-    - field.field.node.event.body
+    - field.field.node.event.field_address
     - field.field.node.event.field_calendar
     - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.event.field_date
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_start_date
     - node.type.event
   module:
     - field_layout
@@ -19,7 +20,6 @@ dependencies:
     - layout_discovery
     - link
     - telephone
-    - text
     - user
 third_party_settings:
   field_layout:
@@ -42,22 +42,6 @@ third_party_settings:
               id: 'extra_field_block:node:event:links'
             additional: {  }
             weight: 0
-          9e430668-2471-40eb-8c31-f252bc066f89:
-            uuid: 9e430668-2471-40eb-8c31-f252bc066f89
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:event:body'
-              formatter:
-                label: hidden
-                type: text_summary_or_trimmed
-                settings:
-                  trim_length: 600
-                third_party_settings: {  }
-            additional: {  }
-            weight: 1
           169291f9-df15-4679-8473-2beb9078bb00:
             uuid: 169291f9-df15-4679-8473-2beb9078bb00
             region: content
@@ -131,14 +115,6 @@ targetEntityType: node
 bundle: event
 mode: email_plain
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   field_category:
     weight: 104
     label: above
@@ -180,7 +156,9 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_address: true
   field_calendar: true
   field_date: true
   field_geolocation: true
+  field_start_date: true
   langcode: true

@@ -29,10 +29,12 @@ module:
   datetime_range: 0
   dblog: 0
   discourse_sso: 0
+  dynamic_entity_reference: 0
   dynamic_page_cache: 0
   editor: 0
   entity_browser: 0
   entity_browser_example: 0
+  entity_reference_revisions: 0
   entity_reference_views_select: 0
   field: 0
   field_group: 0
@@ -43,11 +45,13 @@ module:
   fullcalendar: 0
   fullcalendar_options: 0
   geolocation: 0
+  gmfood_auto_nodetitle: 0
   google_analytics: 0
   history: 0
   honeypot: 0
   image: 0
   image_captcha: 0
+  inline_entity_form: 0
   inline_form_errors: 0
   jsonapi: 0
   kint: 0
@@ -76,11 +80,13 @@ module:
   redirect: 0
   responsive_image: 0
   rest: 0
+  reverse_entity_reference: 0
   role_delegation: 0
   search: 0
   serialization: 0
   settings_tray: 0
   shortcut: 0
+  simple_gmap: 0
   simple_user_management: 0
   simplenews: 0
   simplify: 0
@@ -118,6 +124,7 @@ module:
   pathauto: 1
   webform_bootstrap: 1
   views: 10
+  paragraphs: 11
   standard: 1000
 theme:
   stable: 0

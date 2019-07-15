@@ -84,6 +84,7 @@
         "drupal/radix": "^4.3",
         "drupal/radix_layouts": "^4.1",
         "drupal/redirect": "^1.4",
+        "drupal/reverse_entity_reference": "^2.7@RC",
         "drupal/simple_gmap": "^1.4",
         "drupal/simple_user_management": "^1.2",
         "drupal/simplenews": "^1.0@beta",

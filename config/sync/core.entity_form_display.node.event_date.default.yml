@@ -1,0 +1,43 @@
+uuid: 77e0d025-b1de-4d90-83aa-ddd61a0f619e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event_date.field_inline_event_date
+    - node.type.event_date
+  module:
+    - datetime
+    - field_layout
+    - layout_discovery
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+id: node.event_date.default
+targetEntityType: node
+bundle: event_date
+mode: default
+content:
+  field_inline_event_date:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
+  url_redirects: true

@@ -1,7 +1,11 @@
 uuid: 37d2a6fc-8e8f-4585-bf1e-f6c75c31277f
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - views.view.entity_browser_event_dates
+  module:
+    - views
 name: event_browser
 label: 'Event Browser'
 display: modal
@@ -14,4 +18,14 @@ selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs
 widget_selector_configuration: {  }
-widgets: {  }
+widgets:
+  9da4923c-8af6-4a28-9f0a-eb42920c24b2:
+    settings:
+      view: entity_browser_event_dates
+      view_display: entity_browser_event_dates
+      submit_text: 'Include events'
+      auto_select: false
+    uuid: 9da4923c-8af6-4a28-9f0a-eb42920c24b2
+    weight: 1
+    label: view
+    id: view

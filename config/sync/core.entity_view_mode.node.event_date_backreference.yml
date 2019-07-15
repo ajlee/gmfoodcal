@@ -1,0 +1,10 @@
+uuid: 6fe39ff4-82b1-446c-8101-3da3e7ea2a85
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.event_date_backreference
+label: 'Event Date Backreference'
+targetEntityType: node
+cache: true

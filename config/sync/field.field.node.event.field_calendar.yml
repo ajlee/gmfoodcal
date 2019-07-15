@@ -6,15 +6,19 @@ dependencies:
     - field.storage.node.field_calendar
     - node.type.calendar
     - node.type.event
+  content:
+    - 'node:calendar:d027f02e-9ebc-4259-a557-8310903e0df4'
 id: node.event.field_calendar
 field_name: field_calendar
 entity_type: node
 bundle: event
 label: Calendar
 description: ''
-required: false
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: d027f02e-9ebc-4259-a557-8310903e0df4
 default_value_callback: ''
 settings:
   handler: 'default:node'

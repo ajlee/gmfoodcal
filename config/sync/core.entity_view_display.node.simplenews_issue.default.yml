@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.simplenews_issue.body
-    - field.field.node.simplenews_issue.field_events_reference
+    - field.field.node.simplenews_issue.field_test
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
@@ -49,21 +49,20 @@ third_party_settings:
               id: 'extra_field_block:node:simplenews_issue:links'
             additional: {  }
             weight: 1
-          768e05a7-76e3-4995-8c76-dfb46ff68f0d:
-            uuid: 768e05a7-76e3-4995-8c76-dfb46ff68f0d
+          6be6eb95-7da5-428f-b782-603611fa4f1e:
+            uuid: 6be6eb95-7da5-428f-b782-603611fa4f1e
             region: content
             configuration:
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'field_block:node:simplenews_issue:field_events_reference'
+              id: 'field_block:node:simplenews_issue:field_test'
               formatter:
-                label: hidden
+                label: above
                 settings:
-                  view_mode: email_html
-                  link: false
+                  link: true
                 third_party_settings: {  }
-                type: entity_reference_entity_view
+                type: entity_reference_label
             additional: {  }
             weight: 2
         third_party_settings: {  }
@@ -81,14 +80,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_events_reference:
+  field_test:
     weight: 2
-    label: hidden
+    label: above
     settings:
-      view_mode: email_html
-      link: false
+      link: true
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: entity_reference_label
     region: content
   links:
     weight: 1

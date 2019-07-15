@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.event.body
     - field.field.node.event.field_address
     - field.field.node.event.field_calendar
     - field.field.node.event.field_category
@@ -18,8 +17,6 @@ dependencies:
   module:
     - field_layout
     - layout_builder
-    - layout_discovery
-    - text
     - user
 third_party_settings:
   field_layout:
@@ -33,14 +30,6 @@ targetEntityType: node
 bundle: event
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
   links:
     weight: 100
     settings: {  }

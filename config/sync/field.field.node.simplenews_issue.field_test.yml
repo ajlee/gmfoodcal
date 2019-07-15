@@ -1,16 +1,16 @@
-uuid: 0f07f299-451f-4bfc-9f2c-e075e6062aee
+uuid: f3cea773-a0cb-4a70-8ec5-18fc5f9de5ee
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_events_reference
-    - node.type.event
+    - field.storage.node.field_test
+    - node.type.event_date
     - node.type.simplenews_issue
-id: node.simplenews_issue.field_events_reference
-field_name: field_events_reference
+id: node.simplenews_issue.field_test
+field_name: field_test
 entity_type: node
 bundle: simplenews_issue
-label: 'Events Reference'
+label: Test
 description: ''
 required: false
 translatable: false
@@ -20,10 +20,9 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      event: event
+      event_date: event_date
     sort:
-      field: field_start_date
-      direction: DESC
+      field: _none
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference
