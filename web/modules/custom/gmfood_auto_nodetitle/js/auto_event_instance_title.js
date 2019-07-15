@@ -8,8 +8,13 @@
         var inline_form_selector = 'edit-field-event-dates-wrapper';
 	$("[data-drupal-selector='" + date_selector + "']").on('change', generateInlineNodeTitle);
 
-	jQuery('[data-drupal-selector^="edit-field-event-dates-"][data-drupal-selector$="-inline-entity-form"]').each(function (index, value) { 
-		console.log(index); 
+	jQuery('.field--name-field-inline-event-date').each(function (index, value) { 
+		console.log('test ' + index); 
+		console.log(jQuery(this).find('input').val());
+		var fieldset= jQuery(this).parentsUntil('fieldset');
+		console.log(fieldset);
+		var inline_event_title = fieldset.find('[data-drupal-selector^="edit-field-event-dates-"][data-drupal-selector$="-inline-entity-form-title-0-value"]');
+		inline_event_title.val('bleh');
 	});
  
 	function generateInlineNodeTitle(e) {
