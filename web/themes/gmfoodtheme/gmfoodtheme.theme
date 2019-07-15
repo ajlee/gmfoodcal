@@ -3,9 +3,22 @@
  * @file
  * Theme functions
  */
-
 // Include all files from the includes directory.
 $includes_path = dirname(__FILE__) . '/includes/*.inc';
 foreach (glob($includes_path) as $filename) {
   require_once dirname(__FILE__) . '/includes/' . basename($filename);
+}
+function gmfoodtheme_preprocess_node($variables) {
+  $referenced_entity_type = 'node';
+  kint($variables['node']);
+  kint($variables['node']->id());
+
+ $referencing_entities = \Drupal::service('entity_type.manager')
+    ->getStorage($referenced_entity_type)
+    ->load($variables['node']->id())
+    ->get('reverse_entity_reference')
+    ->getValue();
+  $variables['reverse_entity_reference'] = $referencing_entities;
+  kint($referencing_entities);
+
 }
