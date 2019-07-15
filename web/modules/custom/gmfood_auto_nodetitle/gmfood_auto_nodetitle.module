@@ -1,0 +1,15 @@
+<?php 
+
+/**
+ * from https://stackoverflow.com/questions/52438482/add-a-popup-in-drupal-8-admin
+ */
+
+/**
+ * Implements hook_form_alter().
+ */
+function gmfood_auto_nodetitle_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Add here other form_ids if needed
+  if (in_array($form_id, ['node_event_form'])) {
+    $form["#attached"]["library"][] = 'gmfood_auto_nodetitle/auto_event_instance_title';
+  }
+}

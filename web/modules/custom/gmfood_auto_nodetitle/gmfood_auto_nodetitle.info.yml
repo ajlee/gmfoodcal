@@ -1,0 +1,5 @@
+name: 'gmfood_auto_nodetitle'
+type: module
+description: 'Adds a js script to the node event add pages to autogenerate event instance titles based on the parent title and the date'
+core: 8.x
+package: 'gmfood'

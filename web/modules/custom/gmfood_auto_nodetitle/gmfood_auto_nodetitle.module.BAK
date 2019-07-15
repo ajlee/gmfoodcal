@@ -1,0 +1,20 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+//Implements hook_form_FORM_ID_alter()
+function agenda_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+    $form['title']['#access'] = FALSE;
+    $form['#entity_builders'][] = 'agenda_node_builder';
+
+}
+
+function agenda_node_builder($entity_type, NodeInterface $node, $form, FormStateInterface $form_state)
+{
+
+    $date_of_meeting = $node->field_date_of_meeting->date->format('Y-m-d');
+    $node->setTitle('Agenda for meeting on '.$date_of_meeting);
+
+}    
