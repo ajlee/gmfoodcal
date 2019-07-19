@@ -1,0 +1,20 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
+
+function gmfood_general_node_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  kint($entity);
+
+  \Drupal::logger('gmfood_general_node_access')->notice($entity->getEntityTypeId());
+  \Drupal::logger('gmfood_general_node_access')->notice($entity->bundle());
+
+  if ($operation == 'delete') {
+    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'event_date') {
+      return AccessResult::forbidden();
+    }
+  }
+
+  return AccessResult::neutral();
+}
