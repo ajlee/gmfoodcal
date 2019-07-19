@@ -15,15 +15,17 @@
 ]
 %}
 <hr/>
+
 <article{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {{ title_suffix }}
+  <h3{{ title_attributes }}>{{ date_time_plain | date('d/m/Y') }}: {{ event_node_title }}</h3>
 
-  <h3{{ title_attributes }}>
-    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-  </h3>
   <div{{ content_attributes }}>
+    {{ event_node_edit_link }}
+    {{ content.field_inline_event_date }}
     {{ event_node }}
+
   </div>
 </article>
 

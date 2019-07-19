@@ -20,25 +20,27 @@ function gmfoodtheme_preprocess_node(&$variables) {
   $referenced_entity_type = 'node';
   //kint($variables['node']);
   //kint($variables['node']->id());
+  $node = $variables['node'];
   $type = $variables['node']->getType();
   $nid = $variables['node']->id();
 
 
   if ($type == 'event') {
-    /* create event edit link */
-    $url = Url::fromRoute('entity.node.edit_form', ['node' => $nid]);
-    $link = Link::fromTextAndUrl('edit', $url);
-    $build = [
-      'link' => $link->toRenderable(),
-    ];
-    $variables['edit_link'] = $build;
+    $variables['edit_link'] = get_node_edit_link($nid);
   }
-  /*
-   * Use reverse entity reference to find events referencing 'event_date' nodes
-   * The 'event' node will be rendered on the twig template instead of the 'event_date' node
-   */
+
+
 
   else if ($type == 'event_date'){
+
+    // get the date in plain format
+    $variables['date_time_plain'] = $node->get('field_inline_event_date')->getValue()[0]['value'];
+    // kint('aaa');
+
+    /*
+     * Use reverse entity reference to find events referencing 'event_date' nodes
+     * The 'event' node will be rendered on the twig template instead of the 'event_date' node
+     */
 
     $moduleHandler = \Drupal::service('module_handler');
     if ($moduleHandler->moduleExists('reverse_entity_reference')){
@@ -66,6 +68,8 @@ function gmfoodtheme_preprocess_node(&$variables) {
             $build = $view_builder->view($event_node, 'event_date_newsletter_standard_view');
             $html = \Drupal::service('renderer')->renderPlain($build);
             $variables['event_node'] = $html;
+            $variables['event_node_title'] = $event_node->getTitle();
+            $variables['event_node_edit_link'] = get_node_edit_link($event_node->id());
             //kint($html);
             //kint('zzz');
             break; // will take the first event node reference found
@@ -75,4 +79,17 @@ function gmfoodtheme_preprocess_node(&$variables) {
     }
   }
 
+}
+
+/*
+ * Create an edit link from a node id
+ */
+function get_node_edit_link($nid) {
+  /* create event edit link */
+  $url = Url::fromRoute('entity.node.edit_form', ['node' => $nid]);
+  $link = Link::fromTextAndUrl('edit', $url);
+  $build = [
+    'link' => $link->toRenderable(),
+  ];
+  return $build;
 }
