@@ -14,17 +14,17 @@
   node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
 ]
 %}
-<hr/>
 <article{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {{ title_suffix }}
 
-  <h3{{ title_attributes }}>
-    <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-  </h3>
-  <div{{ content_attributes }}>
-    {{ event_node }}
-  </div>
+  {{ edit_link }}
+
+  {% block content %}
+    {% block title %}{% endblock %}
+
+    <div{{ content_attributes }}>
+      {{ content }}
+    </div>
+  {% endblock %}
 </article>
-
-

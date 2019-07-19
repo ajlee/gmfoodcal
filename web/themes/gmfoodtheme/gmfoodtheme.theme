@@ -1,5 +1,7 @@
 <?php
 use Drupal\node\Entity\Node;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * @file
@@ -19,13 +21,24 @@ function gmfoodtheme_preprocess_node(&$variables) {
   //kint($variables['node']);
   //kint($variables['node']->id());
   $type = $variables['node']->getType();
+  $nid = $variables['node']->id();
 
+
+  if ($type == 'event') {
+    /* create event edit link */
+    $url = Url::fromRoute('entity.node.edit_form', ['node' => $nid]);
+    $link = Link::fromTextAndUrl('edit', $url);
+    $build = [
+      'link' => $link->toRenderable(),
+    ];
+    $variables['edit_link'] = $build;
+  }
   /*
    * Use reverse entity reference to find events referencing 'event_date' nodes
    * The 'event' node will be rendered on the twig template instead of the 'event_date' node
    */
 
-  if ($type == 'event_date'){
+  else if ($type == 'event_date'){
 
     $moduleHandler = \Drupal::service('module_handler');
     if ($moduleHandler->moduleExists('reverse_entity_reference')){
