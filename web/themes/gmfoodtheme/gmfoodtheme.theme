@@ -1,4 +1,6 @@
 <?php
+use Drupal\node\Entity\Node;
+
 /**
  * @file
  * Theme functions
@@ -8,17 +10,56 @@ $includes_path = dirname(__FILE__) . '/includes/*.inc';
 foreach (glob($includes_path) as $filename) {
   require_once dirname(__FILE__) . '/includes/' . basename($filename);
 }
-function gmfoodtheme_preprocess_node($variables) {
-  $referenced_entity_type = 'node';
-  kint($variables['node']);
-  kint($variables['node']->id());
 
- $referencing_entities = \Drupal::service('entity_type.manager')
-    ->getStorage($referenced_entity_type)
-    ->load($variables['node']->id())
-    ->get('reverse_entity_reference')
-    ->getValue();
-  $variables['reverse_entity_reference'] = $referencing_entities;
-  kint($referencing_entities);
+/*
+ * extends theme_preprocess_node()
+ */
+function gmfoodtheme_preprocess_node(&$variables) {
+  $referenced_entity_type = 'node';
+  //kint($variables['node']);
+  //kint($variables['node']->id());
+  $type = $variables['node']->getType();
+
+  /*
+   * Use reverse entity reference to find events referencing 'event_date' nodes
+   * The 'event' node will be rendered on the twig template instead of the 'event_date' node
+   */
+
+  if ($type == 'event_date'){
+
+    $moduleHandler = \Drupal::service('module_handler');
+    if ($moduleHandler->moduleExists('reverse_entity_reference')){
+      //kint('xxx');
+      $referencing_entities = \Drupal::service('entity_type.manager')
+        ->getStorage($referenced_entity_type)
+        ->load($variables['node']->id())
+        ->get('reverse_entity_reference')
+        ->getValue();
+      $variables['reverse_entity_reference'] = $referencing_entities;
+      //kint($referencing_entities);
+
+      // loop over all referencing entities
+      // we are only interested in the event nodes though
+      foreach($referencing_entities as $entity_ref) {
+        //kint('yyy');
+
+        if ($entity_ref['field_name'] == 'field_event_dates') {
+          $event_node = Node::Load($entity_ref['target_id']);
+          //kint($event_node->getType());
+
+          if($event_node->getType() == 'event') {
+            // build the node and pass it to the twig template
+            $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+            $build = $view_builder->view($event_node, 'event_date_newsletter_standard_view');
+            $html = \Drupal::service('renderer')->renderPlain($build);
+            $variables['event_node'] = $html;
+            //kint($html);
+            //kint('zzz');
+            break; // will take the first event node reference found
+          }
+        }
+      }
+    }
+  }
 
 }
