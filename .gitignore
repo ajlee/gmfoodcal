@@ -27,3 +27,6 @@
 
 # Ignore node_modules
 /web/themes/contrib/bootstrap_sass/node_modules
+
+# Private Config files
+/config/sync/geolocation.settings.yml
