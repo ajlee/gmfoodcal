@@ -1,0 +1,7 @@
+gmfood_general.newsletter_view:
+ path: '/node/{node}/teaser'
+ defaults:
+   _title: 'Teaser View'
+   _entity_view:  node.teaser
+ requirements:
+   _permission: 'access content'
