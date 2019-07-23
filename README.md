@@ -23,6 +23,7 @@ Remove modules:
 - phayes/geophp drupal/geofield drupal/geofield_map
 - GMapss needs credit card info
 - paragraphs
+- hide node title event date
 - webform helpersunknown
 
 Enable modules
@@ -30,6 +31,9 @@ Enable modules
 
 - Create GMaps webform location select OR just a simple address field that simple_gmaps uses to lookup
 - Create newsletter process
+- Leaflet to replace GMAPs?
+- URL alias on events
+- delete gmfood_general_node_access?
 
 Remove fields:
 - event/start_date
