@@ -1,4 +1,4 @@
-newsletter.teaser:
+simplenews.teaser:
   route_name : gmfood_general.newsletter_view
   title: Teaser
   base_route: entity.node.canonical

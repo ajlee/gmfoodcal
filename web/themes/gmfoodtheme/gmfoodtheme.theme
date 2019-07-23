@@ -20,17 +20,21 @@ function gmfoodtheme_preprocess_node(&$variables) {
   $referenced_entity_type = 'node';
   //kint($variables['node']);
   //kint($variables['node']->id());
+
   $node = $variables['node'];
   $type = $variables['node']->getType();
   $nid = $variables['node']->id();
-
+  $view_mode = $variables['view_mode'];
+  $variables['view_mode'] = $view_mode;
 
   if ($type == 'event') {
     $variables['edit_link'] = get_node_edit_link($nid);
   }
 
 
-
+  //
+  // Custom code for preprocessing event_dates
+  //
   else if ($type == 'event_date'){
 
     // get the date in plain format
@@ -63,9 +67,16 @@ function gmfoodtheme_preprocess_node(&$variables) {
           //kint($event_node->getType());
 
           if($event_node->getType() == 'event') {
+
+            // use the same view mode as current node if its email plain or newsletter standard
+            // otherwise use default
+            $event_view_mode = 'full';
+            if($view_mode == "email_plain" || $view_mode == "event_date_newsletter_standard_view") {
+              $event_view_mode = $view_mode;
+            }
             // build the node and pass it to the twig template
             $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
-            $build = $view_builder->view($event_node, 'event_date_newsletter_standard_view');
+            $build = $view_builder->view($event_node, $event_view_mode);
             $html = \Drupal::service('renderer')->renderPlain($build);
             $variables['event_node'] = $html;
             $variables['event_node_title'] = $event_node->getTitle();
@@ -79,8 +90,24 @@ function gmfoodtheme_preprocess_node(&$variables) {
     }
   }
 
+  // Preprocessing newsletters
+  else if ($type == "simplenews_issue") {
+    if ($view_mode == 'full') {
+      $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+      $build = $view_builder->view($node, 'email_plain');
+      $html = \Drupal::service('renderer')->renderPlain($build);
+      $variables['plain_text_newsletter'] = $html;
+    }
+  }
 }
 
+
+/*
+ * extends theme_preprocess_node()
+ */
+function gmfoodtheme_preprocess_menu(&$variables) {
+  kint($variables);
+}
 /*
  * Create an edit link from a node id
  */
