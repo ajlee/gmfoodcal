@@ -1,0 +1,7 @@
+name: 'gmfood_discourse'
+type: module
+description: 'Posts Newsletters to the GMFood Forum'
+core: 8.x
+package: 'gmfood'
+dependencies:
+  - simplenews
