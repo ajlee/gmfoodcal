@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_calendar
-    - field.storage.node.field_date
+    - field.storage.node.field_inline_event_date
     - node.type.event
   module:
     - datetime
@@ -91,7 +91,7 @@ display:
             title_field: field_calendar
             url: false
             url_field: title
-            date: false
+            date: true
             date_field: {  }
           fullcalendar_options:
             firstHour: 6
@@ -157,70 +157,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_date:
-          id: field_date
-          table: node__field_date
-          field: field_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_default
-          settings:
-            timezone_override: Europe/London
-            format_type: medium
-          group_column: value
-          group_columns: {  }
-          group_rows: false
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_calendar:
           id: field_calendar
           table: node__field_calendar
@@ -284,6 +220,70 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_inline_event_date:
+          id: field_inline_event_date
+          table: node__field_inline_event_date
+          field: field_inline_event_date
+          relationship: field_event_dates
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: fallback
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -305,23 +305,8 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
-      title: 'Calendar Page Blocks'
+      sorts: {  }
+      title: 'All Events Block'
       header: {  }
       footer: {  }
       empty: {  }
@@ -335,6 +320,15 @@ display:
           admin_label: 'field_calendar: Content'
           required: true
           plugin_id: standard
+        field_event_dates:
+          id: field_event_dates
+          table: node__field_event_dates
+          field: field_event_dates
+          relationship: none
+          group_type: group
+          admin_label: 'field_event_dates: Content'
+          required: true
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
@@ -346,14 +340,76 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_calendar'
-        - 'config:field.storage.node.field_date'
-  block_1:
+        - 'config:field.storage.node.field_inline_event_date'
+  all_events_block:
     display_plugin: block
-    id: block_1
+    id: all_events_block
     display_title: 'All Events Block'
-    position: 1
+    position: 2
     display_options:
       display_extenders: {  }
+      style:
+        type: fullcalendar
+        options:
+          grouping: {  }
+          uses_fields: false
+          defaultView: month
+          firstDay: '0'
+          weekMode: fixed
+          left: 'today prev,next'
+          center: title
+          right: 'month agendaWeek agendaDay'
+          timeformat: 'h:mm'
+          advanced: false
+          slotLabelFormat: 'h(:mm)a'
+          timeformatMonth: 'h:mm'
+          titleformatMonth: 'MMMM YYYY'
+          columnformatMonth: ddd
+          timeformatWeek: 'h:mm'
+          titleformatWeek: 'MMM D YYYY'
+          columnformatWeek: 'ddd M/D'
+          timeformatDay: 'h:mm'
+          titleformatDay: 'MMMM D YYYY'
+          columnformatDay: dddd
+          theme: true
+          sameWindow: false
+          modalWindow: false
+          contentHeight: 0
+          droppable: false
+          editable: false
+          times:
+            default_date: false
+            date:
+              year: '1900'
+              month: '1'
+              day: '1'
+          fields:
+            title_field: title
+            url_field: title
+            date_field: {  }
+            title: false
+            url: false
+            date: false
+          fullcalendar_options:
+            firstHour: 6
+            minTime: 0
+            maxTime: 24
+            slotMinutes: 30
+            defaultEventMinutes: 120
+            allDaySlot: true
+            weekends: true
+            lazyFetching: true
+            disableDragging: false
+            disableResizing: false
+            dragRevertDuration: 500
+            dayClick: false
+            dayClickView: agendaWeek
+      defaults:
+        style: false
+        row: false
+      row:
+        type: fields
+        options: {  }
       display_description: ''
     cache_metadata:
       max-age: -1
@@ -364,4 +420,4 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_calendar'
-        - 'config:field.storage.node.field_date'
+        - 'config:field.storage.node.field_inline_event_date'

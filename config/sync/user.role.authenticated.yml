@@ -21,6 +21,8 @@ permissions:
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
+  - 'subscribe to newsletters'
   - 'use advanced search'
   - 'use text format basic_html'
   - 'view media'
+  - 'view simplenews subscriptions'

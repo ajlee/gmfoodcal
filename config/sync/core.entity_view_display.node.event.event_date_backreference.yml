@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
-    - field.field.node.event.field_dates_times
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
@@ -18,7 +17,6 @@ dependencies:
     - field.field.node.event.field_start_date
     - node.type.event
   module:
-    - entity_reference_revisions
     - layout_builder
     - user
 third_party_settings:
@@ -38,15 +36,6 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_dates_times:
-    type: entity_reference_revisions_entity_view
-    weight: 3
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: sidebar
   field_event_dates:
     weight: 4
     label: above

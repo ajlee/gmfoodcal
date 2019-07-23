@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
-    - field.field.node.event.field_dates_times
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
@@ -18,7 +17,7 @@ dependencies:
     - field.field.node.event.field_start_date
     - node.type.event
   module:
-    - geolocation
+    - gmfood_general
     - layout_builder
     - link
     - telephone
@@ -63,7 +62,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_geolocation:
-    type: geolocation_latlng
+    type: geolocation_link_formatter
     weight: 2
     region: content
     label: above
@@ -85,7 +84,6 @@ hidden:
   field_calendar: true
   field_category: true
   field_date: true
-  field_dates_times: true
   field_event_dates: true
   field_start_date: true
   langcode: true
