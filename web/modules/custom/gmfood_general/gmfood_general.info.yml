@@ -1,0 +1,5 @@
+name: 'gmfood_general'
+type: module
+description: 'Various functions for the gmfood site'
+core: 8.x
+package: 'gmfood'

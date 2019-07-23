@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
-    - field.field.node.event.field_dates_times
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
@@ -22,7 +21,6 @@ dependencies:
     - inline_entity_form
     - layout_discovery
     - link
-    - paragraphs
     - telephone
 third_party_settings:
   field_layout:
@@ -67,18 +65,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
-    region: content
-  field_dates_times:
-    type: entity_reference_paragraphs
-    weight: 26
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
     region: content
   field_event_dates:
     weight: 27

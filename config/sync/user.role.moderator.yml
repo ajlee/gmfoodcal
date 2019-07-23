@@ -8,6 +8,7 @@ weight: 4
 is_admin: null
 permissions:
   - 'access content overview'
+  - 'access in-place editing'
   - 'access taxonomy overview'
   - 'add terms in calendars'
   - 'add terms in tags'

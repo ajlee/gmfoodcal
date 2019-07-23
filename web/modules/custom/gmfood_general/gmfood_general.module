@@ -1,0 +1,28 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Access\AccessResult;
+
+
+/*
+ * TODO: DOESN'T WORK AT THE MOMENT. Should prevent direct access to the event_date node
+ */
+function gmfood_general_node_access(EntityInterface $entity, $operation, AccountInterface $account) {
+ /* kint($entity);
+
+  \Drupal::logger('gmfood_general_node_access')->notice($entity->getEntityTypeId());
+  \Drupal::logger('gmfood_general_node_access')->notice($entity->bundle());
+
+  if ($operation == 'delete') {
+    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'event_date') {
+      return AccessResult::forbidden();
+    }
+  }
+
+  return AccessResult::neutral();*/
+}
+
+function gmfood_general_local_tasks_alter(&$data, $router_item, $root_path) {
+  kint($router_item);
+}

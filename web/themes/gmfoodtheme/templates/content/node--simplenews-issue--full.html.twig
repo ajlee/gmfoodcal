@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Template for a Node.
+ */
+#}
+{%
+  set classes = [
+  'node',
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  node.bundle|clean_class,
+  node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+
+  <div class="newsletter__links">
+    <a href="#newsletter__copybox">Send your newsletter</a>
+  </div>
+  {% block content %}
+    {% block title %}{% endblock %}
+
+    <div{{ content_attributes }}>
+      {{ content }}
+    </div>
+  {% endblock %}
+
+  <div class="newsletter__copyarea">
+    <h3>To create your HTML newsletter:</h3>
+    <ol>
+      <li>Click on the text area below</li>
+      <li>Press CTRL+A to select it all</li>
+      <li>Press CTRL+C to copy it</li>
+      <li>Open your email program</li>
+      <li>Click on Edit HTML <small><a href="#edithtml-help">Help</a></small></li>
+      <li>Press CTRL+V to paste</li>
+      <li>Click Edit HTML button again</li>
+      <li>Edit the text if you wish, add the recipients, and press send</li>
+    </ol>
+    <textarea id="newsletter__copybox" class="newsletter__copybox" width="100%" height="400px" style="overflow: scroll; color:white; background-color: #333;">
+      {{ plain_text_newsletter }}
+    </textarea>
+  </div>
+</article>

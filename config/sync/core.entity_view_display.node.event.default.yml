@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
-    - field.field.node.event.field_dates_times
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
@@ -19,13 +18,217 @@ dependencies:
   module:
     - geolocation
     - layout_builder
+    - layout_discovery
     - link
+    - radix_layouts
     - telephone
     - user
 third_party_settings:
   layout_builder:
     allow_custom: false
-    enabled: false
+    enabled: true
+    sections:
+      -
+        layout_id: radix_bartlett
+        layout_settings: {  }
+        components:
+          a0a79f1d-3994-4e25-94d6-ccc7a39ef42a:
+            uuid: a0a79f1d-3994-4e25-94d6-ccc7a39ef42a
+            region: contentheader
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:event:field_event_description'
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 1
+          9b0a69c2-fa73-48bd-b4ff-220c90f7dd23:
+            uuid: 9b0a69c2-fa73-48bd-b4ff-220c90f7dd23
+            region: contentheader
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:event:links'
+            additional: {  }
+            weight: 0
+          35dea09b-29e0-451c-9756-1381ecf861eb:
+            uuid: 35dea09b-29e0-451c-9756-1381ecf861eb
+            region: sidebar
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:event:field_address'
+              formatter:
+                type: string
+                label: above
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            additional: {  }
+            weight: 0
+          25fdd2e8-b488-4924-8277-33f90e02f9ea:
+            uuid: 25fdd2e8-b488-4924-8277-33f90e02f9ea
+            region: contentheader
+            configuration:
+              id: 'field_block:node:event:field_geolocation'
+              label: Location
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: geolocation_map
+                settings:
+                  set_marker: '1'
+                  title: ''
+                  info_text: ''
+                  replacement_patterns:
+                    token_geolocation:
+                      token_items: ''
+                  google_map_settings:
+                    height: 400px
+                    width: 100%
+                    type: ROADMAP
+                    zoom: '10'
+                    maxZoom: 18
+                    minZoom: 0
+                    mapTypeControl: 0
+                    streetViewControl: 0
+                    zoomControl: 0
+                    rotateControl: 0
+                    fullscreenControl: 0
+                    scrollwheel: 0
+                    gestureHandling: auto
+                    draggable: 0
+                    preferScrollingToZooming: 0
+                    disableDoubleClickZoom: 0
+                    style: ''
+                    info_auto_display: 0
+                    marker_icon_path: ''
+                    disableAutoPan: 0
+                  use_overridden_map_settings: 1
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 3
+          d332b15f-581f-4137-9e9e-d46d0b98b142:
+            uuid: d332b15f-581f-4137-9e9e-d46d0b98b142
+            region: sidebar
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:event:field_contact_phone'
+              formatter:
+                type: telephone_link
+                label: above
+                settings:
+                  title: ''
+                third_party_settings: {  }
+            additional: {  }
+            weight: 2
+          a407429c-db8e-4852-8fb0-f53c47869555:
+            uuid: a407429c-db8e-4852-8fb0-f53c47869555
+            region: sidebar
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:event:field_contact_email'
+              formatter:
+                type: basic_string
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            additional: {  }
+            weight: 1
+          774229fb-f2ff-4d09-b12b-ee2360884a20:
+            uuid: 774229fb-f2ff-4d09-b12b-ee2360884a20
+            region: sidebar
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:event:field_more_information_link'
+              formatter:
+                type: link
+                label: above
+                settings:
+                  trim_length: 80
+                  url_only: false
+                  url_plain: false
+                  rel: ''
+                  target: ''
+                third_party_settings: {  }
+            additional: {  }
+            weight: 3
+          b332ffa1-ba66-4cd4-8165-aa8b6639fc6d:
+            uuid: b332ffa1-ba66-4cd4-8165-aa8b6639fc6d
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_calendar'
+              label: Calendar
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: entity_reference_label
+                settings:
+                  link: true
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 4
+          b9bbf13f-8bd0-4571-998f-f250a0aae84a:
+            uuid: b9bbf13f-8bd0-4571-998f-f250a0aae84a
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_event_dates'
+              label: 'Event Dates'
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: entity_reference_label
+                settings:
+                  link: true
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 5
+          877e6eea-bf70-4118-9cd0-4b79693da256:
+            uuid: 877e6eea-bf70-4118-9cd0-4b79693da256
+            region: sidebar
+            configuration:
+              id: 'field_block:node:event:field_category'
+              label: Category
+              provider: layout_builder
+              label_display: '0'
+              formatter:
+                label: above
+                type: entity_reference_label
+                settings:
+                  link: true
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 6
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components: {  }
+        third_party_settings: {  }
 id: node.event.default
 targetEntityType: node
 bundle: event
@@ -33,7 +236,7 @@ mode: default
 content:
   field_address:
     type: string
-    weight: 1
+    weight: 2
     region: content
     label: above
     settings:
@@ -41,14 +244,14 @@ content:
     third_party_settings: {  }
   field_contact_email:
     type: basic_string
-    weight: 3
+    weight: 4
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_contact_phone:
     type: telephone_link
-    weight: 4
+    weight: 5
     region: content
     label: above
     settings:
@@ -56,21 +259,21 @@ content:
     third_party_settings: {  }
   field_event_description:
     type: basic_string
-    weight: 0
+    weight: 1
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_geolocation:
     type: geolocation_latlng
-    weight: 2
+    weight: 3
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_more_information_link:
     type: link
-    weight: 5
+    weight: 6
     region: content
     label: above
     settings:
@@ -80,12 +283,15 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_calendar: true
   field_category: true
   field_date: true
-  field_dates_times: true
   field_event_dates: true
   field_start_date: true
   langcode: true
-  links: true
