@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains gmfood_discourse.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function gmfood_discourse_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the gmfood_discourse module.
+    case 'help.page.gmfood_discourse':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Posts Newsletters to the GMFood Forum') . '</p>';
+      return $output;
+
+    default:
+  }
+}
