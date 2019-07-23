@@ -42,6 +42,10 @@ Update Dev modules
 - entity_reference_revisions
 - fullcalendar
 
+Newsletter
+- unsubscribe link
+- use HTML mail for Discourse
+
 
 ## How to edit CSS / template files / etc for non-Drupal users
 - Editing CSS
