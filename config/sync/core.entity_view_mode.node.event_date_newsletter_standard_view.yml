@@ -1,0 +1,10 @@
+uuid: b71e8e79-c22d-4de2-8e34-538499ed1297
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.event_date_newsletter_standard_view
+label: 'Event Date Newsletter Standard View'
+targetEntityType: node
+cache: true

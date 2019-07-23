@@ -1,0 +1,33 @@
+uuid: 15d2af78-52dc-456d-8677-83a1862d28ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.event_date_newsletter_standard_view
+    - field.field.node.event_date.field_inline_event_date
+    - node.type.event_date
+  module:
+    - datetime
+    - layout_builder
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.event_date.event_date_newsletter_standard_view
+targetEntityType: node
+bundle: event_date
+mode: event_date_newsletter_standard_view
+content:
+  field_inline_event_date:
+    weight: 0
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden:
+  langcode: true
+  links: true
