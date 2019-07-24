@@ -1,6 +1,7 @@
 <?php
 
-require_once "vendor/discourse_api/lib/DiscourseAPI.php";
+namespace richp10\discourseAPI;
+require_once "vendor/discourse_api/src/DiscourseAPI.php";
 
 
 echo getenv('DISCOURSE_KEY');
@@ -16,9 +17,9 @@ echo "create cat";
 $r = $api->createCategory('a new category', 'cc2222');
 print_r($r);
 
-// $category = $api->getCategories();
+$category = $api->getCategory('development');
 
-//print_r($category);
+print_r($category);
 
 // create a topic
 echo "create topic";
@@ -30,4 +31,8 @@ $r = $api->createTopic(
 );
 print_r($r);
 
+echo "get development category";
+$category = $api->getCategories();
+print_r($category);
 
+print_r(get_class_methods($api));

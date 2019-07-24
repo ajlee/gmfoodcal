@@ -1,0 +1,5 @@
+gmfood_discourse.post_to_discourse_task:
+  route_name : gmfood_discourse.post_to_discourse
+  title: Post to Discourse
+  base_route: entity.node.canonical
+  weight: 10

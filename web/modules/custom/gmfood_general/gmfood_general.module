@@ -22,7 +22,3 @@ function gmfood_general_node_access(EntityInterface $entity, $operation, Account
 
   return AccessResult::neutral();*/
 }
-
-function gmfood_general_local_tasks_alter(&$data, $router_item, $root_path) {
-  kint($router_item);
-}

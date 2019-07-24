@@ -106,8 +106,9 @@ function gmfoodtheme_preprocess_node(&$variables) {
  * extends theme_preprocess_node()
  */
 function gmfoodtheme_preprocess_menu(&$variables) {
-  kint($variables);
+  //kint($variables);
 }
+
 /*
  * Create an edit link from a node id
  */
