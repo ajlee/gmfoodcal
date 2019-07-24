@@ -1,0 +1,15 @@
+gmfood_discourse.post_to_discourse:
+ path: '/node/{node}/post-to-discourse'
+ defaults:
+   _title: 'Post to Discourse'
+   _entity_view:  node.email_plain
+ requirements:
+   _permission: 'edit content'
+
+gmfood_discourse.content:
+ path: '/node/{node}/discourse-test'
+ defaults:
+   _controller: '\Drupal\gmfood_discourse\Controller\DiscourseController::content'
+   _title: 'Hello World'
+ requirements:
+   _permission: 'access content'
