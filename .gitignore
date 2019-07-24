@@ -20,6 +20,7 @@
 
 # Ignore Sublime Text files
 /sftp-config.json
+/sftp-config.json.*
 
 # Ignore .env files as they are personal
 /.env
