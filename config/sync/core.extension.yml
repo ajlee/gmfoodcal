@@ -45,6 +45,7 @@ module:
   fullcalendar_options: 0
   geolocation: 0
   gmfood_auto_nodetitle: 0
+  gmfood_discourse: 0
   gmfood_general: 0
   google_analytics: 0
   history: 0
@@ -87,7 +88,6 @@ module:
   serialization: 0
   settings_tray: 0
   shortcut: 0
-  simple_gmap: 0
   simple_user_management: 0
   simplenews: 0
   simplify: 0

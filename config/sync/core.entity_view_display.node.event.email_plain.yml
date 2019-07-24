@@ -10,137 +10,78 @@ dependencies:
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
+    - field.field.node.event.field_event_dates
+    - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
     - field.field.node.event.field_start_date
     - node.type.event
   module:
     - field_layout
+    - gmfood_general
     - layout_builder
-    - layout_discovery
     - link
-    - telephone
     - user
 third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
   layout_builder:
-    enabled: true
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings: {  }
-        components:
-          ad3aaadd-f2e9-424a-98cb-0a25f478cff3:
-            uuid: ad3aaadd-f2e9-424a-98cb-0a25f478cff3
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'extra_field_block:node:event:links'
-            additional: {  }
-            weight: 0
-          169291f9-df15-4679-8473-2beb9078bb00:
-            uuid: 169291f9-df15-4679-8473-2beb9078bb00
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:event:field_category'
-              formatter:
-                label: above
-                settings:
-                  link: true
-                third_party_settings: {  }
-                type: entity_reference_label
-            additional: {  }
-            weight: 4
-          07659150-44ec-42a8-b762-6e8fc2393420:
-            uuid: 07659150-44ec-42a8-b762-6e8fc2393420
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:event:field_contact_email'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: basic_string
-            additional: {  }
-            weight: 5
-          80bfdc09-3a37-4631-8b52-c5af07a91c91:
-            uuid: 80bfdc09-3a37-4631-8b52-c5af07a91c91
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:event:field_more_information_link'
-              formatter:
-                label: above
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: ''
-                  target: ''
-                third_party_settings: {  }
-                type: link
-            additional: {  }
-            weight: 6
-          0dff6fbd-3cc6-4637-a211-18b578b0fe4d:
-            uuid: 0dff6fbd-3cc6-4637-a211-18b578b0fe4d
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:event:field_contact_phone'
-              formatter:
-                label: above
-                settings:
-                  title: ''
-                third_party_settings: {  }
-                type: telephone_link
-            additional: {  }
-            weight: 7
-        third_party_settings: {  }
+    enabled: false
+    allow_custom: false
 id: node.event.email_plain
 targetEntityType: node
 bundle: event
 mode: email_plain
 content:
+  field_address:
+    type: string
+    weight: 5
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
   field_category:
-    weight: 104
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_contact_email:
-    weight: 105
-    label: above
+    weight: 2
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_contact_phone:
-    weight: 107
-    label: above
+    weight: 4
+    label: hidden
     settings:
-      title: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: telephone_link
+    type: string
     region: content
+  field_event_description:
+    type: basic_string
+    weight: 6
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_geolocation:
+    type: geolocation_link_formatter
+    weight: 7
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
   field_more_information_link:
-    weight: 106
-    label: above
+    weight: 3
+    label: hidden
     settings:
       trim_length: 80
       url_only: false
@@ -148,17 +89,16 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    type: link
+    type: link_separate
     region: content
   links:
-    weight: 100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_address: true
   field_calendar: true
   field_date: true
-  field_geolocation: true
+  field_event_dates: true
   field_start_date: true
   langcode: true

@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.simplenews_issue.body
+    - field.field.node.simplenews_issue.field_events
+    - field.field.node.simplenews_issue.field_newsletter_intro
     - field.field.node.simplenews_issue.field_test
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
@@ -26,27 +27,27 @@ targetEntityType: node
 bundle: simplenews_issue
 mode: default
 content:
-  body:
-    type: text_default
-    weight: 0
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_test:
+  field_events:
     weight: 2
     label: above
     settings:
-      view_mode: event_date_newsletter_standard_view
-      link: false
+      link: true
     third_party_settings: {  }
-    type: entity_reference_entity_view
+    type: entity_reference_label
+    region: content
+  field_newsletter_intro:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   links:
-    weight: 1
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_test: true
   langcode: true
   simplenews_issue: true

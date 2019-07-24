@@ -32,12 +32,11 @@ bundle: event
 mode: event_date_newsletter_standard_view
 content:
   field_address:
-    type: string
+    type: text_box_plain_formatter
     weight: 1
     region: content
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
   field_contact_email:
     type: basic_string

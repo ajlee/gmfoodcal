@@ -4,14 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.email_plain
-    - field.field.node.simplenews_issue.body
+    - field.field.node.simplenews_issue.field_events
     - field.field.node.simplenews_issue.field_test
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
     - field_layout
     - layout_builder
-    - text
     - user
 third_party_settings:
   field_layout:
@@ -27,13 +26,6 @@ targetEntityType: node
 bundle: simplenews_issue
 mode: email_plain
 content:
-  body:
-    type: text_default
-    weight: 0
-    settings: {  }
-    third_party_settings: {  }
-    label: hidden
-    region: content
   field_test:
     type: entity_reference_entity_view
     weight: 1
@@ -44,6 +36,7 @@ content:
       link: false
     third_party_settings: {  }
 hidden:
+  field_events: true
   langcode: true
   links: true
   simplenews_issue: true
