@@ -21,7 +21,7 @@ mode: event_date_newsletter_standard_view
 content:
   field_inline_event_date:
     weight: 0
-    label: above
+    label: hidden
     settings:
       timezone_override: ''
       format_type: medium

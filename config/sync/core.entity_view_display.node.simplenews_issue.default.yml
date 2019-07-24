@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.simplenews_issue.field_events
+    - field.field.node.simplenews_issue.field_newsletter_footer
     - field.field.node.simplenews_issue.field_newsletter_intro
     - field.field.node.simplenews_issue.field_test
     - field.field.node.simplenews_issue.simplenews_issue
@@ -31,9 +32,17 @@ content:
     weight: 2
     label: above
     settings:
-      link: true
+      view_mode: event_date_newsletter_standard_view
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
+    region: content
+  field_newsletter_footer:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
     region: content
   field_newsletter_intro:
     weight: 1

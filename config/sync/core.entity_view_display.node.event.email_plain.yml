@@ -73,7 +73,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_geolocation:
-    type: geolocation_link_formatter
+    type: geolocation_link_url_formatter
     weight: 7
     region: content
     label: hidden
