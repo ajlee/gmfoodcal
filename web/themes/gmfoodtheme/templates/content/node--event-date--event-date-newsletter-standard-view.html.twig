@@ -14,11 +14,9 @@
   node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
 ]
 %}
-<hr/>
 
-<article{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {{ title_suffix }}
+<div{{ attributes.addClass(classes) }}>
+
   <h3{{ title_attributes }}>{{ date_time_plain | date('d/m/Y') }}: {{ event_node_title }}</h3>
 
   <div{{ content_attributes }}>
@@ -26,6 +24,6 @@
     {{ content.field_inline_event_date }}
     {{ event_node }}
   </div>
-</article>
+</div>
 
 

@@ -1,8 +1,27 @@
 {{ content.field_event_description.0 }}
-<pre>
+
 <br/>
-</pre>
+&nbsp;
+
+{% if content.field_address.0 %}
 Address: {{ content.field_address.0 }}
+{% endif %}
+
+{% if content.field_geolocation.0 %}
+Location: {{ content.field_geolocation.0 }}
+{% endif %}
+
+{% if content.field_contact_phone.0 %}
 Contact Phone: {{ content.field_contact_phone.0 }}
+{% endif %}
+
+{% if content.field_contact_email.0 %}
 Contact Email: {{ content.field_contact_email.0 }}
+{% endif %}
+
+{% if content.field_more_information_link.0 %}
+More info link: {{ content.field_more_information_link.0['#url'] }}
+{% endif %}
+
 <br/>
+&nbsp;

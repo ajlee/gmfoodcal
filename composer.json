@@ -53,6 +53,7 @@
         "drupal/discourse_sso": "^1.0@beta",
         "drupal/ds": "^3.3",
         "drupal/duration_field": "^1.6",
+        "drupal/dynamic_entity_reference": "^2.0-alpha9",
         "drupal/editor_advanced_link": "^1.4",
         "drupal/entity_browser": "^2.2",
         "drupal/entity_reference_revisions": "1.x-dev",
