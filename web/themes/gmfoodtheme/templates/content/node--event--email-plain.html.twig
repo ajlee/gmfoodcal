@@ -1,27 +1,25 @@
 {{ content.field_event_description.0 }}
-
-<br/>
 &nbsp;
+<br/>
 
 {% if content.field_address.0 %}
-Address: {{ content.field_address.0 }}
+<strong>Address:</strong> {{ content.field_address.0 }}<br/>
 {% endif %}
 
 {% if content.field_geolocation.0 %}
-Location: {{ content.field_geolocation.0 }}
+<strong>Location</strong> {{ content.field_geolocation.0 }}<br/>
 {% endif %}
 
 {% if content.field_contact_phone.0 %}
-Contact Phone: {{ content.field_contact_phone.0 }}
+<strong>Contact Phone:</strong> {{ content.field_contact_phone.0 }}<br/>
 {% endif %}
 
 {% if content.field_contact_email.0 %}
-Contact Email: {{ content.field_contact_email.0 }}
+<strong>Contact Email:</strong> {{ content.field_contact_email.0 }}<br/>
 {% endif %}
 
 {% if content.field_more_information_link.0 %}
-More info link: {{ content.field_more_information_link.0['#url'] }}
+<strong>More info link:</strong> {{ content.field_more_information_link.0['#url'] }}<br/>
 {% endif %}
 
-<br/>
 &nbsp;

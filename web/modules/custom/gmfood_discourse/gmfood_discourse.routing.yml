@@ -9,3 +9,11 @@ gmfood_discourse.post_to_discourse:
    parameters:
      node1:
        type: entity:node
+
+gmfood_discourse.email_plain_view:
+ path: '/node/{node}/email-plain-view'
+ defaults:
+   _title: 'Email View'
+   _entity_view:  node.email_plain
+ requirements:
+   _permission: 'edit content'
