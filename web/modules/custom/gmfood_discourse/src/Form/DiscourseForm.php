@@ -161,8 +161,9 @@ class DiscourseForm extends FormBase {
       $form['category'] = [
         '#type' => 'select',
         '#title' => $this->t('Select category to post to'),
-        '#options' => array(),
-        '#default_value' => 24, // TODO: load last submitted category from DB
+        '#options' => array('' => 'Please select a category'),
+        '#default_value' => '',
+        '#required' => TRUE,
       ];
       // loop through the category results and add to the select box
       foreach ($categories as $key => $category) {
@@ -177,8 +178,9 @@ class DiscourseForm extends FormBase {
 
       $form['nodehtml'] = [
         '#type' => 'textarea',
-        '#title' => $this->t('HTML of the ' . $type . ' node'),
+        '#title' => $this->t('HTML of the ' . $type . ' node (you can edit this if you want, or even copy and paste it into an email to send manually)'),
         '#default_value' => $nodehtml,
+        '#required' => TRUE,
       ];
 
       // Add a submit button that handles the submission of the form.
@@ -219,35 +221,34 @@ class DiscourseForm extends FormBase {
      *   The current state of the form.
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
-      // Rebuild the form
-      //
-      // try submit to Discourse
 
+      // Get the module configuration object
+      $config = $this->configFactory->get('gmfood_discourse.settings');
+
+      // Get the value of the user to post as
+      $user = $config->get('post_as_user');
+      if (empty($user)) {
+        $user = 'alex';
+      }
+
+      // get the values
       $values = $form_state->getValues();
 
-
-      /*
-       * TODO: set defaults config page?
-       */
+      // build the submission
       if (!empty($values)) {
         $title = $values['title'];
-        $body = $values['nodehtml'];
+        $body = $values['intro'] . '<hr/><br/>' . $values['nodehtml'];
         $category = $values['category'];
         $user = 'alex';
       }
 
-
+      // submit to discourse and get the result
       if(is_object($this->discourseApi)) {
         $result = $this->discourseApi->createTopic($title, $body, $category, $user);
         $form_state->setValue('api_result',$result);
       }
-      // TODO: store last submitted category in DB
-      //kint ($result);
 
-      //
-      // catch errors
-      //
-      // set Drupal status
+      // reload the page
       $form_state->setRebuild();
     }
 
@@ -259,7 +260,7 @@ class DiscourseForm extends FormBase {
       *
       */
      public function validateForm(array &$form, FormStateInterface $form_state) {
-
+      // TODO: validate that category, title, body exist
      }
 
     function remove_html_comments($content = '') {
@@ -267,6 +268,11 @@ class DiscourseForm extends FormBase {
     }
 
 
+    //
+    // Load the list of available categories
+    // Returns -1 on failure
+    // Returns an array in form [ 0...n ][ id, name ] on success
+    //
     public function getDiscourseCategories () {
       $categories_result = array();
       // kint ('categories');

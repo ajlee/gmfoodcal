@@ -1,0 +1,6 @@
+gmfood_discourse.settings:
+  title: 'GMFood Discourse settings'
+  description: 'Change the settings for integration with the GMFood Discourse site'
+  parent: system.admin_config_services
+  url: internal:/admin/config/services/gmfood_discourse/settings
+  weight: 100

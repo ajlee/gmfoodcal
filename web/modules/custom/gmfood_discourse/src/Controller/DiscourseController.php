@@ -53,10 +53,7 @@ class DiscourseController extends ControllerBase {
     //
     $build['#title'] = $node->getTitle();
     $build['form'] = $this->formBuilder()->getForm('Drupal\gmfood_discourse\Form\DiscourseForm', $node);
-    $build['footer'] = [
-      '#type' => 'markup',
-      '#markup' => '<h2>Discourse view</h2><hr/><article>' . $titlehtml . $nodehtml . '</article>',
-    ];
+
     return $build;
   }
 
