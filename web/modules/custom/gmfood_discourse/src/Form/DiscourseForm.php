@@ -23,6 +23,8 @@ class DiscourseForm extends FormBase {
   {
     // initialise the API
     $this->discourseApiKey = getenv('DISCOURSE_KEY');
+    // $this->discourseApiKey = 'sdgfdsgfdfhgfhgfhgfhjj';
+
     $this->discourseApi = new \richp10\discourseAPI\DiscourseAPI("forum.gmfoodforum.org", $this->discourseApiKey, 'https');
   }
 
@@ -46,20 +48,87 @@ class DiscourseForm extends FormBase {
       $nodehtml = null;
       $titlehtml = null;
       $type = $node->getType();
+      $success = false;
 
       //
       // Has the form been submitted or is this the initial loading of the form?
       //
       $values = $form_state->getValues();
 
+
       // form submitted - so show the result page
       if (!empty($values)) {
-        drupal_set_message('Node posted to Discourse Forum!');
-        $form_state->setRedirect('<front>');
+
+        // Discourse response is in the api_result field
+        if ($values['api_result']) {
+
+          $apiresult = $values['api_result']->apiresult;
+          if (is_object($apiresult)) {
+            // kint($values['api_result']->http_code);
+            //kint($apiresult);
+            //kint($apiresult->actions_summary);
+            //kint($apiresult->actions_summary[0]);
+            // kint($values['api_result']->apiresult->errors);
+
+            // check for success or failure in posting to discourse
+            $http_code = $values['api_result']->http_code;
+            $success = ((int) $http_code >= 200) && ((int)$http_code <= 299);
+            if($success) {
+
+              // tell the user it was a success
+              $message = 'Node posted to Discourse Forum!';
+              drupal_set_message($message,'status');
+              \Drupal::logger('gmfood_discourse')->notice($message);
+
+              // disable the form
+              $form['actions']['submit']['#disabled'] = true;
+            }
+            else if (isset($values['api_result']->apiresult->errors)) {
+
+              // loop through the errors from discourse
+              $errors = $apiresult->errors;
+
+              foreach ($errors as $key => $error) {
+
+                // output the error
+                $message = 'Discourse error: ' . $error;
+                drupal_set_message($message, 'error');
+                \Drupal::logger('gmfood_discourse')->error($message);
+
+                // don't show more than 5 errors (hopefully won't come to that!)
+                if($key > 5) {
+                  break;
+                }
+              }
+            }
+          }
+          else if (is_string($apiresult)) {
+
+            // probably api key failure
+            $message = 'Discourse warning: ' . $apiresult;
+            drupal_set_message($message, 'warning');
+            \Drupal::logger('gmfood_discourse')->warning($message);
+
+          }
+          else {
+            // unknown result from api
+            // kint (gettype($apiresult));
+            $message = 'Discourse warning';
+            drupal_set_message($message, 'warning');
+            \Drupal::logger('gmfood_discourse')->warning($message);
+          }
+        }
+        // no api result field - something odd happening
+        else {
+          drupal_set_message(t('Unknown error posting to Discourse'),'error');
+        }
       }
 
-      // form not submitted - so show the submit form
-      else {
+        // get the categories list
+        $categories = $this->getDiscourseCategories();
+        // kint($categories);
+
+
         // Preprocessing newsletters
         if ($type == "simplenews_issue") {
           $view_mode = 'email_plain';
@@ -75,38 +144,67 @@ class DiscourseForm extends FormBase {
           $nodehtml = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $nodehtml);
         }
 
-        $form['title'] = [
-          '#type' => 'textfield',
-          '#title' => $this->t('New Post Title'),
-          '#description' => $this->t('Enter the title of the post. Note that the title must be at least 10 characters in length.'),
-          '#required' => TRUE,
-          '#default_value' => $node->getTitle(),
 
-        ];
+      /*
+       * TODO: set the default values to the submitted form values
+       */
 
-        $form['category'] = [
-          '#type' => 'select',
-          '#title' => $this->t('Select category to post to'),
-          '#options' => [
-            '1' => $this->t('Development'),
-            '2' => $this->t('Events'),
-            '3' => $this->t('Food Waste'),
-          ],
-        ];
+      $form['title'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('New Post Title'),
+        '#description' => $this->t('Enter the title of the post. Note that the title must be at least 10 characters in length.'),
+        '#required' => TRUE,
+        '#default_value' => $node->getTitle(),
 
+      ];
 
-        $form['nodehtml'] = [
-          '#type' => 'textarea',
-          '#title' => $this->t('HTML of the ' . $type . ' node'),
-          '#default_value' => $nodehtml,
-        ];
-
-        // Add a submit button that handles the submission of the form.
-        $form['actions']['submit'] = [
-          '#type' => 'submit',
-          '#value' => $this->t('Post to Discourse'),
-        ];
+      $form['category'] = [
+        '#type' => 'select',
+        '#title' => $this->t('Select category to post to'),
+        '#options' => array(),
+        '#default_value' => 24, // TODO: load last submitted category from DB
+      ];
+      // loop through the category results and add to the select box
+      foreach ($categories as $key => $category) {
+        $form['category']['#options'][$category->id] = $category->name;
       }
+
+      $form['intro'] = [
+        '#type' => 'textarea',
+        '#title' => $this->t('Additional text to insert at the top of the post'),
+        '#default_value' => 'Please find the latest newsletter below',
+      ];
+
+      $form['nodehtml'] = [
+        '#type' => 'textarea',
+        '#title' => $this->t('HTML of the ' . $type . ' node'),
+        '#default_value' => $nodehtml,
+      ];
+
+      // Add a submit button that handles the submission of the form.
+      $form['actions']['submit'] = [
+        '#type' => 'submit',
+        '#value' => $this->t('Post to Discourse'),
+      ];
+      $form['actions']['#weight'] = 100;
+
+      // if the form was submitted successfully
+      if ($values && $success) {
+
+        $form['intro'] = [
+          '#markup' => '<div class="form-item"><span class="alert-success">' . t('You have already posted this content to Discourse') . '</span></div>',
+          '#weight' => -50,
+        ];
+
+        // disable the form if its been posted already
+        $form['title']['#disabled'] = TRUE;
+        $form['intro']['#disabled'] = TRUE;
+        $form['nodehtml']['#disabled'] = TRUE;
+        $form['category']['#disabled'] = TRUE;
+        $form['actions']['submit']['#disabled'] =TRUE;
+        $form['actions']['#weight'] = 100;
+      }
+
 
       return $form;
 
@@ -122,6 +220,34 @@ class DiscourseForm extends FormBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
       // Rebuild the form
+      //
+      // try submit to Discourse
+
+      $values = $form_state->getValues();
+
+
+      /*
+       * TODO: set defaults config page?
+       */
+      if (!empty($values)) {
+        $title = $values['title'];
+        $body = $values['nodehtml'];
+        $category = $values['category'];
+        $user = 'alex';
+      }
+
+
+      if(is_object($this->discourseApi)) {
+        $result = $this->discourseApi->createTopic($title, $body, $category, $user);
+        $form_state->setValue('api_result',$result);
+      }
+      // TODO: store last submitted category in DB
+      //kint ($result);
+
+      //
+      // catch errors
+      //
+      // set Drupal status
       $form_state->setRebuild();
     }
 
@@ -139,5 +265,88 @@ class DiscourseForm extends FormBase {
     function remove_html_comments($content = '') {
       return preg_replace('/<!--(.|\s)*?-->/', '', $content);
     }
+
+
+    public function getDiscourseCategories () {
+      $categories_result = array();
+      // kint ('categories');
+      if (is_object($this->discourseApi)) {
+      $result = $this->discourseApi->getCategories();
+      $apiresult = $result->apiresult;
+      // kint ($result->apiresult);
+      // kint ($result->apiresult->errors);
+
+      if (is_object($apiresult)) {
+        // kint('is object');
+        // kint($values['api_result']->http_code);
+        //kint($apiresult);
+        //kint($apiresult->actions_summary);
+        //kint($apiresult->actions_summary[0]);
+        // kint($values['api_result']->apiresult->errors);
+
+        // check for success or failure connecting to discourse
+        $http_code = $result->http_code;
+        $success = ((int) $http_code >= 200) && ((int)$http_code <= 299);
+
+        // success
+        if ($success) {
+          //kint($apiresult->category_list);
+          //kint($apiresult->category_list->categories);
+
+          // loop through the categories
+          if(is_array($apiresult->category_list->categories)) {
+
+            $categories = $apiresult->category_list->categories;
+
+            // for each category store the name and id
+            foreach ($categories as $key => $category) {
+              // kint($category);
+              $categories_result[$key]['id'] = $category->id;
+              $categories_result[$key]['name'] = $category->name;
+            }
+          }
+          return $categories;
+        }
+        else if (is_array($apiresult->errors)) {
+
+          // kint ('error...');
+          // loop through the errors from discourse
+
+          $errors = $apiresult->errors;
+          // kint($apiresult->errors);
+
+          foreach ($errors as $key => $error) {
+
+            // output the error
+            $message = 'Discourse error: ' . $error;
+            drupal_set_message($message, 'error');
+            \Drupal::logger('gmfood_discourse')->error($message);
+
+            // don't show more than 5 errors (hopefully won't come to that!)
+            if($key > 5) {
+              break;
+            }
+          }
+          return -1;
+        }
+        else {
+          // unknown result from api
+          // kint (gettype($apiresult));
+          $message = 'Discourse warning';
+          drupal_set_message($message, 'warning');
+          \Drupal::logger('gmfood_discourse')->warning($message);
+        }
+      }
+      else {
+
+        // unknown result from api
+        // kint (gettype($apiresult));
+        $message = 'Discourse warning';
+        drupal_set_message($message, 'warning');
+        \Drupal::logger('gmfood_discourse')->warning($message);
+      }
+      // check for success
+    }
+  }
 }
 
