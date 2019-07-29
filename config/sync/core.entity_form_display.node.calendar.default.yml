@@ -4,13 +4,16 @@ status: true
 dependencies:
   config:
     - field.field.node.calendar.field_calendar_description
-    - field.field.node.calendar.field_calendar_term
+    - field.field.node.calendar.field_calendar_serial
+    - field.field.node.calendar.field_colour
     - field.field.node.calendar.field_moderator
     - node.type.calendar
   module:
+    - color_field
     - field_layout
     - layout_discovery
     - path
+    - serial
     - text
 third_party_settings:
   field_layout:
@@ -35,14 +38,23 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_calendar_term:
+  field_calendar_serial:
+    weight: 125
+    settings: {  }
+    third_party_settings: {  }
+    type: serial_default_widget
+    region: content
+  field_colour:
     weight: 124
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      cell_width: '10'
+      cell_height: '10'
+      cell_margin: '1'
+      box_width: '115'
+      box_height: '20'
+      columns: '16'
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: color_field_widget_grid
     region: content
   field_moderator:
     weight: 122
@@ -106,7 +118,7 @@ content:
     third_party_settings: {  }
   url_redirects:
     weight: 50
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden: {  }

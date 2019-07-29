@@ -4,15 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.calendar.field_calendar_description
-    - field.field.node.calendar.field_calendar_term
+    - field.field.node.calendar.field_calendar_serial
+    - field.field.node.calendar.field_colour
     - field.field.node.calendar.field_moderator
     - node.type.calendar
     - system.menu.public-sidebar-links
     - views.view.calendar_page_blocks
   module:
+    - color_field
     - layout_builder
     - layout_discovery
     - radix_layouts
+    - serial
     - system
     - text
     - user
@@ -36,22 +39,38 @@ third_party_settings:
               id: 'extra_field_block:node:calendar:links'
             additional: {  }
             weight: 0
-          870e874a-d35c-4b11-ab33-9dc22e18a602:
-            uuid: 870e874a-d35c-4b11-ab33-9dc22e18a602
+          789e8cbd-75c2-42f8-b34b-e7efce5c0891:
+            uuid: 789e8cbd-75c2-42f8-b34b-e7efce5c0891
             region: content
             configuration:
               label_display: '0'
               context_mapping:
                 entity: layout_builder.entity
-              id: 'field_block:node:calendar:field_calendar_term'
+              id: 'field_block:node:calendar:field_colour'
               formatter:
                 label: above
                 settings:
-                  link: true
+                  format: hex
+                  opacity: '1'
                 third_party_settings: {  }
-                type: entity_reference_label
+                type: color_field_formatter_text
             additional: {  }
             weight: 1
+          5c0390e7-f935-47c9-b50c-069eceb93a07:
+            uuid: 5c0390e7-f935-47c9-b50c-069eceb93a07
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:calendar:field_calendar_serial'
+              formatter:
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+                type: serial_default_formatter
+            additional: {  }
+            weight: 2
         third_party_settings: {  }
       -
         layout_id: radix_bryant_flipped
@@ -134,13 +153,21 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_calendar_term:
+  field_calendar_serial:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: serial_default_formatter
+    region: content
+  field_colour:
     weight: 104
     label: above
     settings:
-      link: true
+      format: hex
+      opacity: '1'
     third_party_settings: {  }
-    type: entity_reference_label
+    type: color_field_formatter_text
     region: content
   field_moderator:
     weight: 102

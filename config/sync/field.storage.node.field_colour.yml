@@ -1,17 +1,17 @@
-uuid: a8eb41b9-45a3-4f70-9354-73f00af06e4c
+uuid: 9a04c63c-0918-4261-bc7f-bc59b389dbd9
 langcode: en
 status: true
 dependencies:
   module:
+    - color_field
     - node
-    - taxonomy
-id: node.field_calendar_term
-field_name: field_calendar_term
+id: node.field_colour
+field_name: field_colour
 entity_type: node
-type: entity_reference
+type: color_field_type
 settings:
-  target_type: taxonomy_term
-module: core
+  format: '#HEXHEX'
+module: color_field
 locked: false
 cardinality: 1
 translatable: true

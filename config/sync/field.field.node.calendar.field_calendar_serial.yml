@@ -1,0 +1,23 @@
+uuid: 0baa6c7a-6669-4c43-a171-09c77196f618
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_calendar_serial
+    - node.type.calendar
+  module:
+    - serial
+id: node.calendar.field_calendar_serial
+field_name: field_calendar_serial
+entity_type: node
+bundle: calendar
+label: 'Calendar Serial'
+description: 'Creates a unique ID for each calendar'
+required: true
+translatable: false
+default_value:
+  -
+    value: '1'
+default_value_callback: ''
+settings: {  }
+field_type: serial

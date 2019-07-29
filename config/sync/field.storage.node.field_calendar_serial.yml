@@ -1,0 +1,21 @@
+uuid: 3336023a-e21a-4ba0-b999-5023baa8dc80
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - serial
+id: node.field_calendar_serial
+field_name: field_calendar_serial
+entity_type: node
+type: serial
+settings:
+  start_value: '1'
+  init_existing_entities: '1'
+module: serial
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
