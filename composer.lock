@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e279afcda4033d4f70d4c3b5af2de43e",
+    "content-hash": "3be79555a0f50737a379e896a8f128cf",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -352,6 +352,24 @@
                 "webdriver"
             ],
             "time": "2018-10-10T12:39:06+00:00"
+        },
+        {
+            "name": "bower-asset/jquery-simple-color",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:recurser/jquery-simple-color.git",
+                "reference": "ebe0b2c0db639584e81499bd29d6619abb9a2599"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/recurser/jquery-simple-color/zipball/ebe0b2c0db639584e81499bd29d6619abb9a2599",
+                "reference": "ebe0b2c0db639584e81499bd29d6619abb9a2599"
+            },
+            "type": "bower-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "brumann/polyfill-unserialize",
@@ -2634,6 +2652,67 @@
                 "source": "https://cgit.drupalcode.org/coffee",
                 "issues": "https://drupal.org/project/issues/coffee",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/color_field",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/color_field.git",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/color_field-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "27c510d258e409e1d029d69cf7747e96c1087df6"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "require-dev": {
+                "drupal/token": "~1.3"
+            },
+            "suggest": {
+                "bower-asset/jquery-simple-color": "^v1.2.2: Provides JavaScript library necessary for the Color Grid widget",
+                "bower-asset/spectrum": "^1.8: Provides JavaScript library necessary for Spectrum widget."
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1536168780",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "targoo",
+                    "homepage": "https://www.drupal.org/user/431910",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Nick Wilde",
+                    "homepage": "https://www.drupal.org/user/nickwilde",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Provides a color field type to store the color value and opacity",
+            "homepage": "https://www.drupal.org/project/color_field",
+            "support": {
+                "source": "http://cgit.drupalcode.org/color_field",
+                "issues": "https://www.drupal.org/project/issues/color_field?version=8.x"
             }
         },
         {
@@ -5714,6 +5793,69 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/role_delegation",
                 "issues": "http://drupal.org/project/role_delegation"
+            }
+        },
+        {
+            "name": "drupal/serial",
+            "version": "1.0.0-alpha1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/serial.git",
+                "reference": "8.x-1.0-alpha1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/serial-8.x-1.0-alpha1.zip",
+                "reference": "8.x-1.0-alpha1",
+                "shasum": "d238d44f329618be20b54bc59200c057292da66c"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha1",
+                    "datestamp": "1559668085",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "BR0kEN",
+                    "homepage": "https://www.drupal.org/user/2802285"
+                },
+                {
+                    "name": "colan",
+                    "homepage": "https://www.drupal.org/user/58704"
+                },
+                {
+                    "name": "colorfield",
+                    "homepage": "https://www.drupal.org/user/2295486"
+                },
+                {
+                    "name": "kirsh",
+                    "homepage": "https://www.drupal.org/user/422425"
+                }
+            ],
+            "description": "Defines atomic auto increment (serial) field type.",
+            "homepage": "https://www.drupal.org/project/serial",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/serial",
+                "issues": "https://www.drupal.org/project/issues/serial"
             }
         },
         {
@@ -13302,6 +13444,7 @@
         "drupal/multiple_fields_remove_button": 15,
         "drupal/optional_end_date": 10,
         "drupal/reverse_entity_reference": 5,
+        "drupal/serial": 15,
         "drupal/simplenews": 10,
         "drupal/smtp": 10,
         "drupal/views_ical": 20

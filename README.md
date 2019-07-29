@@ -46,6 +46,15 @@ Newsletter
 - unsubscribe link
 - use HTML mail for Discourse
 
+From meeting
+optional map feature (hide unless box is ticked?)
+show / hide map
+phone / email required
+phone / email accept general text information
+Save button - should be publish?
+Add another item - add another date
+estimate costs of GMaps
+js hide email
 
 ## How to edit CSS / template files / etc for non-Drupal users
 - Editing CSS

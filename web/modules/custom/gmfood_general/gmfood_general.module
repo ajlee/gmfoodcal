@@ -3,6 +3,7 @@
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Language;
 
 
 /*
@@ -22,3 +23,122 @@ function gmfood_general_node_access(EntityInterface $entity, $operation, Account
 
   return AccessResult::neutral();*/
 }
+
+
+/*
+ * uses hook_fullcalendar_classes
+ */
+function gmfood_general_fullcalendar_classes($entity) {
+  //kint($entity->field_calendar);
+  //kint($entity->field_calendar[0]);
+  //kint($entity->field_calendar[0]->entity);
+  $calendar_class = '';
+  $calendar_class_id = '';
+  $max_length = 32;
+
+
+  //kint(is_object($entity->field_calendar));
+
+  // check the calendar field is valid
+  if(isset($entity->field_calendar) && is_object($entity->field_calendar)) {
+    // get transliteration service
+    $tr = \Drupal::service('transliteration');
+    //kint($entity->field_calendar[0]->entity->getTitle());
+
+    // get the related calendar
+    // NOTE: in the case of multiple calendars being referenced, it will pick the first one
+    $calendar_title = t($entity->field_calendar[0]->entity->getTitle());
+
+    $calendar_field = $entity->field_calendar[0]->entity->get('field_calendar_serial');
+    if (!empty($calendar_field)) {
+      $calendar_id = $calendar_field[0]->value;
+      $calendar_class_id = 'fc-calendar-' . $calendar_id;
+    }
+    // kint('serial');
+    // kint($calendar_id[0]->value);
+    //kint($calendar_id[0]);
+
+    // get default language
+    $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    // remove problematic chars
+    $sanitised = $tr->transliterate($calendar_title, $lang_code, $max_length);
+
+    // replace spaces with hypens and lower case string
+    $clean_string =  preg_replace('/\-+/', '-', strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '', str_replace(' ', '-', $sanitised))));
+    $calendar_class = 'fc-' . $clean_string;
+
+  }
+  // Add the entity type as a class.
+  return [
+    $entity->entity_type,
+    $calendar_class,
+    $calendar_class_id
+  ];
+}
+
+/* NOT WORKING YET
+function gmfood_general_preprocess_fullcalendar_event(&$variables) {
+  $variables['element'] = [
+    '#type'       => 'container',
+    '#attributes' => [
+      'class' => [
+        'fullcalendar-event',
+      ],
+      'style' => [
+        'border-color:red'
+      ]
+    ],
+    'title'       => [
+      '#prefix' => '<h3 class="title" style="color:red">',
+      '#suffix' => '</h3>',
+      '#markup' => $variables['entity']->label(),
+    ],
+  ];
+
+  foreach ($variables['event'] as $instance) {
+    $variables['element'][] = [
+      '#type'       => 'container',
+      '#attributes' => [
+        'class' => [
+          'fullcalendar-instance',
+        ],
+      ],
+      [$instance],
+    ];
+  }
+}
+
+
+function gmfood_general_get_calendar_colour($entity) {
+
+  $calendar_class = '';
+  $max_length = 32;
+
+  // check the calendar field is valid
+  if(isset($entity->field_calendar) && is_object($entity->field_calendar)) {
+    // get transliteration service
+    $tr = \Drupal::service('transliteration');
+    //kint($entity->field_calendar[0]->entity->getTitle());
+
+    // get the related calendar
+    // NOTE: in the case of multiple calendars being referenced, it will pick the first one
+    $calendar_title = t($entity->field_calendar[0]->entity->getTitle());
+
+    $calendar_id = t($entity->field_calendar[0]->entity->id());
+
+    // get default language
+    $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    // remove problematic chars
+    $sanitised = $tr->transliterate($calendar_title, $lang_code, $max_length);
+
+    // replace spaces with hypens and lower case string
+    $clean_string =  preg_replace('/\-+/', '-', strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '', str_replace(' ', '-', $sanitised))));
+    $calendar_class = 'fc-' . $clean_string;
+    $calendar_class_id = 'fc-calendar-' . $calendar_id;
+    kint($clean_string);
+  }
+}
+
+*/
