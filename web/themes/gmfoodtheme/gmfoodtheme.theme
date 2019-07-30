@@ -127,17 +127,12 @@ function get_node_edit_link($nid) {
  * uses hook_fullcalendar_classes
  */
 function gmfood_theme_fullcalendar_classes($entity) {
-  kint('1');
   // Add the entity type as a class.
   return [
     $entity->entity_type,
   ];
 }
 
-function  gmfood_theme_preprocess_views_view_fields(&$variables) {
-  kint('yyy');
-}
-
-function gmfood_theme_preprocess_fullcalendar_event(&$variables) {
-  kint('aaaaaa');
+function gmfoodtheme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+ // kint('trses');
 }

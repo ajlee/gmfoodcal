@@ -1,0 +1,7 @@
+gmfood_forms.moderator_access:
+ path: '/form/request-moderator-access'
+ defaults:
+   _form: 'Drupal\gmfood_forms\Form\ModeratorAccessForm'
+   _title: 'Request Moderator Access'
+ requirements:
+   _user_is_logged_in: 'TRUE'

@@ -45,16 +45,14 @@ Update Dev modules
 Newsletter
 - unsubscribe link
 - use HTML mail for Discourse
+- send grid setup
+- include link to discourse post in email
 
-From meeting
-optional map feature (hide unless box is ticked?)
-show / hide map
-phone / email required
-phone / email accept general text information
-Save button - should be publish?
-Add another item - add another date
-estimate costs of GMaps
-js hide email
+Other
+- disable anon kint view
+- terms of use https://www.rocketlawyer.co.uk/documents-and-forms/website-terms-and-conditions.rl#
+- cookies agreement
+- privacy policy https://www.rocketlawyer.co.uk/documents-and-forms/website-terms-and-conditions.rl#
 
 ## How to edit CSS / template files / etc for non-Drupal users
 - Editing CSS

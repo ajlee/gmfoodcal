@@ -129,83 +129,24 @@ function gmfood_general_node_view(array &$build, EntityInterface $entity, Entity
 }
 
 /*
-function gmfood_general_preprocess_views_view_field(&$variables) {
-  $view = $variables['view'];
-  $field = $variables['field'];
-  // kint($view->storage->id() );
-  //kint($field->field);
-  //kint($view->current_display);
-  if ($view->storage->id() == 'single_calendar_view' &&
-  $view->current_display == 'single_calendar_view_block' &&
-  $field->field == 'view_node') {
-    //$variables['output'] = 'https://bbc.co.uk';
-    kint($field);
-    kint($field);
-    kint($field->field);
+ * Uses hook_form_alter
+ * $form: Nested array of form elements that comprise the form.
+ *
+ * $form_state: The current state of the form. The arguments that \Drupal::formBuilder()->getForm() was originally called
+ * with are available in the array $form_state->getBuildInfo()['args'].
+ * $form_id: String representing the name of the form itself. Typically this is the name of the function that generated the
+ * form.
+ */
+function gmfood_general_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  // check its the node_event_form
+  if (in_array($form_id,['node_event_form'])){
+    // check the forms have the right fields
+    if (is_array($form['field_event_dates']) && is_array($form['field_event_dates']['widget']['add_more'])) {
+      // change the label for the add more field
+      $form['field_event_dates']['widget']['add_more']['#value'] = t('Add another date');
+      // change the label for the save field
+      $form['actions']['submit']['#value'] = t('Submit this Event');
+    }
   }
 }
-/* NOT WORKING YET
-function gmfood_general_preprocess_fullcalendar_event(&$variables) {
-  $variables['element'] = [
-    '#type'       => 'container',
-    '#attributes' => [
-      'class' => [
-        'fullcalendar-event',
-      ],
-      'style' => [
-        'border-color:red'
-      ]
-    ],
-    'title'       => [
-      '#prefix' => '<h3 class="title" style="color:red">',
-      '#suffix' => '</h3>',
-      '#markup' => $variables['entity']->label(),
-    ],
-  ];
-
-  foreach ($variables['event'] as $instance) {
-    $variables['element'][] = [
-      '#type'       => 'container',
-      '#attributes' => [
-        'class' => [
-          'fullcalendar-instance',
-        ],
-      ],
-      [$instance],
-    ];
-  }
-}
-
-
-function gmfood_general_get_calendar_colour($entity) {
-
-  $calendar_class = '';
-  $max_length = 32;
-
-  // check the calendar field is valid
-  if(isset($entity->field_calendar) && is_object($entity->field_calendar)) {
-    // get transliteration service
-    $tr = \Drupal::service('transliteration');
-    //kint($entity->field_calendar[0]->entity->getTitle());
-
-    // get the related calendar
-    // NOTE: in the case of multiple calendars being referenced, it will pick the first one
-    $calendar_title = t($entity->field_calendar[0]->entity->getTitle());
-
-    $calendar_id = t($entity->field_calendar[0]->entity->id());
-
-    // get default language
-    $lang_code = \Drupal::languageManager()->getCurrentLanguage()->getId();
-
-    // remove problematic chars
-    $sanitised = $tr->transliterate($calendar_title, $lang_code, $max_length);
-
-    // replace spaces with hypens and lower case string
-    $clean_string =  preg_replace('/\-+/', '-', strtolower(preg_replace('/[^a-zA-Z0-9_-]+/', '', str_replace(' ', '-', $sanitised))));
-    $calendar_class = 'fc-' . $clean_string;
-    $calendar_class_id = 'fc-calendar-' . $calendar_id;
-    kint($clean_string);
-  }
-}
-
-*/

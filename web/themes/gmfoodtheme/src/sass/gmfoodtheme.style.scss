@@ -50,11 +50,12 @@
 
 // Component
 // -----------------------------------------------------------------------------
-@import "../components/node/node";
 
-// Other
-// -----------------------------------------------------------------------------
+@import "form/form";
 @import "block/block";
 @import "content/node.page";
 @import "content/node.article";
 @import "view/calendar";
+
+// Other
+// -----------------------------------------------------------------------------

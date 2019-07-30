@@ -1,0 +1,26 @@
+
+.form-required:after {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 0.3em;
+  content: "";
+  vertical-align: super;
+  /* Use a background image to prevent screen readers from announcing the text. */
+  background-image: url(../../../../core/misc/icons/ee0000/required.svg);
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+}
+
+
+/*
+ * /node/add/event form
+ */
+
+.field--name-field-event-dates.field--widget-inline-entity-form-simple {
+
+  // hide the title on inkine event dates items
+  div[data-drupal-selector$='-inline-entity-form-title-wrapper'] {
+    display: none;
+  }
+}
