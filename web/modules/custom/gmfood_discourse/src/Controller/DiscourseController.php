@@ -7,6 +7,7 @@ require_once "/var/www/drupal8/web/modules/custom/gmfood_discourse/vendor/discou
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
 
 /**
  * An example controller.
@@ -22,7 +23,12 @@ class DiscourseController extends ControllerBase {
     $this->discourseApi = new \richp10\discourseAPI\DiscourseAPI("forum.gmfoodforum.org", $this->discourseApiKey, 'https');
   }
 
+
   /**
+   * Displays the form and custom HTML for the Post to discourse page
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   The node where the tab should be added
    * Returns a render-able array for a test page.
    */
   public function displayForm(NodeInterface $node) {
@@ -57,7 +63,28 @@ class DiscourseController extends ControllerBase {
     return $build;
   }
 
-  public function postToDiscourse() {
+  /**
+   * Checks access for the simplenews node tab.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   *   The node where the tab should be added.
+   *
+   * @return \Drupal\Core\Access\AccessResult
+   *   An access result object.
+   */
+  public function checkAccess(NodeInterface $node) {
+    $account = $this->currentUser();
+    $node_type = $node->getType();
 
+    // the node types that can be posted to discourse
+    $allowed_node_types = ['simplenews_issue', 'event','news'];
+
+    if (in_array($node_type, $allowed_node_types)) {
+      // requires simplenews permissions to be able to post to discourse
+      return AccessResult::allowedIfHasPermission($account, 'administer newsletters')
+        ->orIf(AccessResult::allowedIfHasPermission($account, 'send newsletter'));
+    }
+    return AccessResult::neutral();
   }
+
 }

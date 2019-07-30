@@ -1,0 +1,7 @@
+gmfood_general.teaser:
+ path: '/node/{node}/teaser'
+ defaults:
+   _title: 'Teaser'
+   _entity_view:  node.teaser
+ requirements:
+   _permission: 'view content'

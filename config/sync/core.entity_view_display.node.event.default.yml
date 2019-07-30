@@ -223,6 +223,16 @@ third_party_settings:
                 entity: layout_builder.entity
             additional: {  }
             weight: 6
+          f735b29d-224e-40b2-8fe6-ad81b2b756fd:
+            uuid: f735b29d-224e-40b2-8fe6-ad81b2b756fd
+            region: sidebar
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:event:my_own_pseudo_field'
+            additional: {  }
+            weight: 7
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -288,6 +298,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  my_own_pseudo_field:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: sidebar
 hidden:
   field_calendar: true
   field_category: true

@@ -4,7 +4,7 @@ gmfood_discourse.post_to_discourse:
    _controller: '\Drupal\gmfood_discourse\Controller\DiscourseController::displayForm'
    _title: 'Post to Discourse'
  requirements:
-   _permission: 'edit content'
+  _custom_access: 'Drupal\gmfood_discourse\Controller\DiscourseController::checkAccess'
  options:
    parameters:
      node1:
@@ -25,3 +25,4 @@ gmfood_discourse.settings:
    _title: 'GMFood Discourse Settings'
  requirements:
    _permission: 'administer site configuration'
+

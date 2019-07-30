@@ -21,7 +21,11 @@
     {% block title %}{% endblock %}
 
     <div{{ content_attributes }}>
-      {{ content }}
+      {{ content.read_more_1 }}
+
+      {{ content|without('read_more_1')|without('read_more_2') }}
+
+      {{ content.read_more_2 }}
     </div>
   {% endblock %}
 </article>

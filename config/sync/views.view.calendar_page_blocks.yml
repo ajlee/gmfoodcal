@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_calendar
     - field.storage.node.field_inline_event_date
+    - node.type.calendar
     - node.type.event
   module:
     - datetime
@@ -306,7 +307,7 @@ display:
           entity_field: type
           plugin_id: bundle
       sorts: {  }
-      title: 'All Events Block'
+      title: 'Single Calendar Block'
       header: {  }
       footer: {  }
       empty: {  }
@@ -416,6 +417,68 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_calendar'
+        - 'config:field.storage.node.field_inline_event_date'
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 2
+    display_options:
+      display_extenders: {  }
+      arguments:
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: field_calendar
+          group_type: group
+          admin_label: ''
+          default_action: default
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: '{{ arguments.nid }}'
+          default_argument_type: node
+          default_argument_options: {  }
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            items_per_page: 25
+            override: false
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: true
+          validate:
+            type: 'entity:node'
+            fail: 'access denied'
+          validate_options:
+            bundles:
+              calendar: calendar
+            operation: view
+            multiple: 0
+            access: false
+          break_phrase: false
+          not: false
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
+      defaults:
+        arguments: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.permissions
       tags:

@@ -61,13 +61,13 @@ display:
           display:
             defaultView: month
             firstDay: '0'
-            weekMode: fixed
+            weekMode: variable
           times:
             default_date: false
             date: ''
-          left: 'today prev,next'
+          left: 'prev,next'
           center: title
-          right: 'month agendaWeek agendaDay'
+          right: today
           timeformat: 'h:mm'
           advanced: false
           slotLabelFormat: 'h(:mm)a'

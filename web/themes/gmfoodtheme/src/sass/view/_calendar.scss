@@ -106,11 +106,34 @@
   }
 }
 
+.fc-time {
+  display:block;
+}
+
 .view-block.calendar-legend {
   margin:$spacer/2 0;
 
   .views-row {
     display: inline-block;
     margin:$spacer/8 0;
+  }
+}
+
+// display the node differently in the pop-up modal
+#drupal-modal {
+  padding-bottom:$spacer*4;
+
+  .col-md-4, .col-md-8 {
+    width: 100%;
+    max-width: 100%;
+    flex:none;
+  }
+  .event__field-more-information-link, .event__field-contact-phone, .event__field-contact-email, .event__field-calendar, .event__field-geolocation, .event__dates {
+    display:none;
+  }
+  .event__read-more-link {
+    margin:$spacer 0;
+    display:inline-block;
+    color:#fff;
   }
 }

@@ -8,3 +8,4 @@ style:
   dependencies:
     - core/jquery
     - core/drupal
+    - core/drupal.dialog.ajax

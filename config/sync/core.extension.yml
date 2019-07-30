@@ -108,6 +108,7 @@ module:
   twig_tweak: 0
   update: 0
   user: 0
+  view_mode_page: 0
   views_ical: 0
   views_templates: 0
   views_ui: 0

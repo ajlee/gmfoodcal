@@ -9589,6 +9589,10 @@ a.text-dark:hover, a.text-dark:focus {
   display: none !important;
 }
 
+.node .event__read-more-link {
+  display: none;
+}
+
 .fc-calendar-1 {
   background-color: #0099FF;
   border-color: #0066CC;
@@ -9697,10 +9701,31 @@ a.text-dark:hover, a.text-dark:focus {
   color: #fff;
 }
 
+.fc-time {
+  display: block;
+}
+
 .view-block.calendar-legend {
   margin: 0.5rem 0;
 }
 .view-block.calendar-legend .views-row {
   display: inline-block;
   margin: 0.125rem 0;
+}
+
+#drupal-modal {
+  padding-bottom: 4rem;
+}
+#drupal-modal .col-md-4, #drupal-modal .col-md-8 {
+  width: 100%;
+  max-width: 100%;
+  flex: none;
+}
+#drupal-modal .event__field-more-information-link, #drupal-modal .event__field-contact-phone, #drupal-modal .event__field-contact-email, #drupal-modal .event__field-calendar, #drupal-modal .event__field-geolocation, #drupal-modal .event__dates {
+  display: none;
+}
+#drupal-modal .event__read-more-link {
+  margin: 1rem 0;
+  display: inline-block;
+  color: #fff;
 }

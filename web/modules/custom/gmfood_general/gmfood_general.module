@@ -4,7 +4,11 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Language;
-
+use Drupal\node\Entity\NodeType;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use \Drupal\views\ViewExecutable;
 
 /*
  * TODO: DOESN'T WORK AT THE MOMENT. Should prevent direct access to the event_date node
@@ -77,6 +81,69 @@ function gmfood_general_fullcalendar_classes($entity) {
   ];
 }
 
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function gmfood_general_entity_extra_field_info() {
+  $extra = array();
+
+  foreach (NodeType::loadMultiple() as $bundle) {
+    $extra['node'][$bundle->Id()]['display']['read_more'] = array(
+      'label' => t('Read More Link'),
+      'description' => t('Displays a read more link to the content'),
+      'weight' => 100,
+      'visible' => TRUE,
+    );
+  }
+
+  return $extra;
+}
+
+function gmfood_general_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  //kint($entity->getType());
+  //kint($build);
+  $valid_types = [ 'event' ];
+  if (in_array($entity->getType(), $valid_types)) {
+    if ($display->getComponent('read_more')) {
+        $url = Url::fromRoute('entity.node.canonical', array('node' => $entity->id()));
+        $build['read_more_1'] = [
+          '#type' => 'link',
+          '#url' => $url,
+          '#title' => t('Read More'),
+          '#weight' => -5,
+          '#attributes' => [
+            'class' => 'btn btn-primary event__read-more-link'
+          ],
+        ];
+        $build['read_more_2'] = [
+          '#type' => 'link',
+          '#url' => $url,
+          '#title' => t('Read More'),
+          '#weight' => 50,
+          '#attributes' => [
+            'class' => 'btn btn-primary event__read-more-link'
+          ],
+      ];
+    }
+  }
+}
+
+/*
+function gmfood_general_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+  $field = $variables['field'];
+  // kint($view->storage->id() );
+  //kint($field->field);
+  //kint($view->current_display);
+  if ($view->storage->id() == 'single_calendar_view' &&
+  $view->current_display == 'single_calendar_view_block' &&
+  $field->field == 'view_node') {
+    //$variables['output'] = 'https://bbc.co.uk';
+    kint($field);
+    kint($field);
+    kint($field->field);
+  }
+}
 /* NOT WORKING YET
 function gmfood_general_preprocess_fullcalendar_event(&$variables) {
   $variables['element'] = [

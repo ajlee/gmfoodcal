@@ -9,7 +9,7 @@ dependencies:
     - field.field.node.calendar.field_moderator
     - node.type.calendar
     - system.menu.public-sidebar-links
-    - views.view.calendar_page_blocks
+    - views.view.single_calendar_view
   module:
     - color_field
     - layout_builder
@@ -39,38 +39,6 @@ third_party_settings:
               id: 'extra_field_block:node:calendar:links'
             additional: {  }
             weight: 0
-          789e8cbd-75c2-42f8-b34b-e7efce5c0891:
-            uuid: 789e8cbd-75c2-42f8-b34b-e7efce5c0891
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:calendar:field_colour'
-              formatter:
-                label: above
-                settings:
-                  format: hex
-                  opacity: '1'
-                third_party_settings: {  }
-                type: color_field_formatter_text
-            additional: {  }
-            weight: 1
-          5c0390e7-f935-47c9-b50c-069eceb93a07:
-            uuid: 5c0390e7-f935-47c9-b50c-069eceb93a07
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:node:calendar:field_calendar_serial'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: serial_default_formatter
-            additional: {  }
-            weight: 2
         third_party_settings: {  }
       -
         layout_id: radix_bryant_flipped
@@ -122,19 +90,32 @@ third_party_settings:
               context_mapping: {  }
             additional: {  }
             weight: 1
-          a11cd1d2-5709-4272-a932-947c68257cbc:
-            uuid: a11cd1d2-5709-4272-a932-947c68257cbc
+          97f05288-ed27-4468-be8a-0ce6ba5c477c:
+            uuid: 97f05288-ed27-4468-be8a-0ce6ba5c477c
             region: contentmain
             configuration:
-              id: 'views_block:calendar_page_blocks-all_events_block'
+              id: 'views_block:single_calendar_view-block_2'
               label: ''
               provider: views
-              label_display: '0'
+              label_display: visible
               views_label: ''
               items_per_page: none
               context_mapping: {  }
             additional: {  }
             weight: 1
+          f61da715-794b-4297-ba38-081f7f7c2bc3:
+            uuid: f61da715-794b-4297-ba38-081f7f7c2bc3
+            region: contentmain
+            configuration:
+              id: 'views_block:single_calendar_view-single_calendar_view_block'
+              label: ''
+              provider: views
+              label_display: visible
+              views_label: ''
+              items_per_page: none
+              context_mapping: {  }
+            additional: {  }
+            weight: 2
         third_party_settings: {  }
       -
         layout_id: layout_onecol
