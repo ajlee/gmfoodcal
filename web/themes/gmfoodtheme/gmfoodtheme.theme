@@ -133,6 +133,62 @@ function gmfood_theme_fullcalendar_classes($entity) {
   ];
 }
 
+
 function gmfoodtheme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
- // kint('trses');
+
+  /*kint ($form_id);
+  kint ($form);
+  kint ($form['#attributes']);
+*/
+
+  // add more templating suggestions
+  foreach (\Drupal\Core\Render\Element::children($form) as $key) {
+    $form[$key]['#attributes']['data-twig-suggestion'] = $form['#id'];
+  }
+  $form['actions']['submit']['#attributes']['data-twig-suggestion'] = $form['#id'];
+
+
+  // alter search block form
+  if ($form_id == 'search_block_form') {
+    $form['keys']['#size'] = 10;
+    $form['keys']['#placeholder'] = 'Search for...';
+    $form['actions']['#attributes']['class'][] = 'col-xs-12 col-md-4';
+    $form['actions']['submit']['#value'] = t('Go');
+    $form['#attributes']['class'][] = 'container';
+
+    kint($form['keys']);
+    kint($form['actions']);
+    kint($form['actions']['submit']);
+  }
+}
+
+/*
+ * add more template suggestions for input fields
+ */
+function gmfoodtheme_theme_suggestions_input_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+  if (isset($element['#attributes']['data-twig-suggestion'])) {
+    $suggestion_suffix = str_replace(['-'], '_', $element['#attributes']['data-twig-suggestion']);
+    $suggestions[] = 'input__' . $element['#type'] . '__' . $suggestion_suffix;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_container_alter().
+ */
+function gmfoodtheme_theme_suggestions_container_alter(&$suggestions, array $variables) {
+  $element = $variables['element'];
+
+  if(isset($element['#type']) && $element['#type'] == 'actions') {
+    $suggestions[] = 'container__' . $element['#type'];
+  }
+
+  if (isset($element['#type']) && $element['#type'] == 'view') {
+    $suggestions[] = 'container__' . $element['#name'];
+    $suggestions[] = 'container__' . $element['#name'] . '__' . $element['#display_id'];
+  }
+
+  if (isset($element['#type']) && $element['#type'] == 'container' && isset($element['children']['#type'])) {
+    $suggestions[] = 'container__' . $element['children']['#type'];
+  }
 }

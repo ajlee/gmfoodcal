@@ -1,3 +1,4 @@
+@import "../base/variables";
 
 .form-required:after {
   display: inline-block;
@@ -22,5 +23,30 @@
   // hide the title on inkine event dates items
   div[data-drupal-selector$='-inline-entity-form-title-wrapper'] {
     display: none;
+  }
+}
+
+
+/*
+ * Search form
+ */
+
+.search-block-form {
+
+  input[type='search'] {
+    text-align: center;
+    width:100%;
+
+    @media only screen and (min-width: map-get($grid-breakpoints, 'lg')) {
+      text-align: left;
+    }
+  }
+  input[type='submit'] {
+    text-align: center;
+    background-color:#66CC00;
+    border-color:#339900;
+  }
+  .form-item-keys {
+    flex-grow:1;
   }
 }
