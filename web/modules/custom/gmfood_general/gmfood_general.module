@@ -9,6 +9,7 @@ use Drupal\Core\Link;
 use Drupal\Core\Url;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\views\ViewExecutable;
+use Drupal\Core\Database\Query\AlterableInterface;
 
 /*
  * TODO: DOESN'T WORK AT THE MOMENT. Should prevent direct access to the event_date node
@@ -148,5 +149,34 @@ function gmfood_general_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
       // change the label for the save field
       $form['actions']['submit']['#value'] = t('Submit this Event');
     }
+  }
+}
+
+
+/**
+ * Implements hook_query_TAG_alter().
+ */
+function gmfood_general_query_search_node_search_alter(AlterableInterface $query) {
+
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_alias = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+
+  if($current_alias == '/search/events') {
+    // Only show article and blogpost content in the search results.
+    $query->condition('n.type', ['event'], 'IN');
+    kint($query);
+    //kint($query->having);
+    //kint($query->fields);
+    //kint($query->condition);
+  }
+  else if($current_alias == '/search/node') {
+    // Only show article and blogpost content in the search results.
+    $query->condition('n.type', ['article', 'event', 'page', 'news_link'], 'IN');
+  }
+  else if($current_alias == '/search/user') {
+    // Only show article and blogpost content in the search results.
+    // TODO: filter some users
+    // by active, admin, public
+    // permissions to do this limited?
   }
 }

@@ -1,1 +1,42 @@
 <?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function gmfood_forms_form_user_register_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // TODO: multiple pages - see https://www.philfrilling.com/blog/2018-09/drupal-8-change-user-registration-form-multi-step-form
+
+  $form['field_about_me']['#access'] = FALSE;
+  $form['field_contact_email']['#access'] = FALSE;
+  $form['field_phone']['#access'] = FALSE;
+  $form['field_hidden_account']['#access'] = FALSE;
+  $form['field_link_to_organisation']['#access'] = FALSE;
+  $form['field_organisation_name']['#access'] = FALSE;
+  $form['field_public_name']['#access'] = FALSE;
+  $form['user_picture']['#access'] = FALSE;
+}
+
+  /**
+   * Implementing hook_mail()
+   */
+  function gmfood_forms_mail($key, &$message, $params) {
+
+  // E-mail formatting will be exactly as below, so do not use indenting!
+  $body =
+"Someone has requested to be a moderator. The details of this request are below:
+
+Username:  " . $params['id'] . "
+Email: " . $params['email'] . "
+Phone: " . $params['phone'] . "
+Message: " . $params['message'] . "
+
+You can approve this request by going to " . $params['url'] . " and selecting the role - moderator option.
+
+Sent by the GM Food Forum Calendar";
+
+  $unsubscribe_text = '';
+  $footer = $unsubscribe_text;
+  $message['subject'] = "Moderator request from " . $params['id'];
+  $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
+  $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($footer);
+}
