@@ -2,10 +2,11 @@
 
 namespace Drupal\gmfood_forms\Form;
 
-use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Access\AccessResult;
+use \Drupal\Core\Form\FormBase;
+use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Session\AccountInterface;
+use \Drupal\Core\Access\AccessResult;
+use \Drupal\user\Entity\User;
 
 class ModeratorAccessForm extends FormBase {
 
@@ -38,18 +39,37 @@ class ModeratorAccessForm extends FormBase {
 
       $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
       //kint()
+      //
+
+
+      kint($user);
 
       // find out if the user profile fields are complete
       $user_picture = !$user->user_picture->isEmpty();
       $field_about_me = !$user->field_about_me->isEmpty();
       $field_public_name = !$user->field_public_name->isEmpty();
+      $user_phone = $user->get('field_phone')[0]->getValue();
+      $user_public_email = $user->get('field_contact_email')[0]->getValue();
+      $user_private_email = $user->getEmail();
+
+      // get account link to edit profile
+      $options = ['absolute' => TRUE];
+      $url = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()], $options);
+      $url = $url->toString();
+
+      kint($user_public_email);
 
       // check if the required form fields are completed
       // these must be filled in before requesting moderator access
       if ($field_about_me && $user_picture && $field_about_me) {
+
             $form['description'] = [
               '#type' => 'item',
               '#markup' => $this->t('Please explain why you want moderator access to the site.'),
+            ];
+            $form['description'] = [
+              '#type' => 'item',
+              '#markup' => $this->t('We may need to contact you to confirm your request. Currently we have the following details for you: <ul><li>Phone: ' . $user_phone['value'] . '</li><li>Account Email: ' .$user_private_email . '</li><li>Public email: ' . $user_public_email['value'] . '</ul><br/>If you need to edit these details please go to your <a href="' . $url . '">Profile Edit page</a> before submitting your request.'),
             ];
             $form['title'] = [
               '#type' => 'textarea',
@@ -80,9 +100,7 @@ class ModeratorAccessForm extends FormBase {
       }
       //
       else {
-        $options = ['absolute' => TRUE];
-        $url = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()], $options);
-        $url = $url->toString();
+
         $form['description'] = [
           '#type' => 'item',
           '#markup' => $this->t('<h4>Please complete your account</h4>In order to be a moderator, you need to complete your profile. Please add a photo, description, and contact information, then you can request moderator access using this form. <ul><li><a href="' . $url . '">Edit your profile</a>'),
@@ -142,7 +160,8 @@ class ModeratorAccessForm extends FormBase {
          $mailManager = \Drupal::service('plugin.manager.mail');
          $module = 'gmfood_forms';
          $key = 'moderator_access_request';
-         $to = 'alexjameslee@gmail.com';
+         $to = '';
+         $emails = array();
          $langcode = 'en';
          $params['email'] = 'alexjameslee@example.com';
          $params['user'] = 'super user';
@@ -151,9 +170,25 @@ class ModeratorAccessForm extends FormBase {
 
          // get a link to edit the user profile
          $options = ['absolute' => TRUE];
+         $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
          $url = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()], $options);
          $url = $url->toString();
          $params['url'] = $url;
+
+
+         // get users with manager role and email them a notification
+         $ids = \Drupal::entityQuery('user')
+         ->condition('status', 1)
+         ->condition('roles', 'manager')
+         ->execute();
+         $users = User::loadMultiple($ids);
+         kint($users);
+         foreach($users as $user) {
+           $emails[] = $user->getEmail();
+         }
+         // convert array to a string separated by commas
+         $to = implode(",", $emails);;
+         kint($emails);
 
          // send it!
          $send = TRUE;
@@ -168,6 +203,7 @@ class ModeratorAccessForm extends FormBase {
          }
          // Redirect to home
          $form_state->setRedirect('<front>');
+
 
          // TODO: send email to admin
          // TODO: send email to user
