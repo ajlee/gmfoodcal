@@ -57,41 +57,56 @@ class ModeratorAccessForm extends FormBase {
       $url = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()], $options);
       $url = $url->toString();
 
-      kint($user_public_email);
+      kint($user);
 
       // check if the required form fields are completed
       // these must be filled in before requesting moderator access
       if ($field_about_me && $user_picture && $field_about_me) {
 
-            $form['description'] = [
-              '#type' => 'item',
-              '#markup' => $this->t('Please explain why you want moderator access to the site.'),
-            ];
+            // intro text
             $form['description'] = [
               '#type' => 'item',
               '#markup' => $this->t('We may need to contact you to confirm your request. Currently we have the following details for you: <ul><li>Phone: ' . $user_phone['value'] . '</li><li>Account Email: ' .$user_private_email . '</li><li>Public email: ' . $user_public_email['value'] . '</ul><br/>If you need to edit these details please go to your <a href="' . $url . '">Profile Edit page</a> before submitting your request.'),
             ];
-            $form['title'] = [
+
+            //
+            $form['details'] = [
               '#type' => 'textarea',
-              '#title' => $this->t('Title'),
-              '#description' => $this->t('Please provide the reason you want access to moderate a calendar.'),
+              '#title' => $this->t('Details'),
+              '#description' => $this->t('Please provide the reason you want access to moderate a calendar and your connection to sustainability organisations in Manchester.'),
               '#required' => TRUE,
             ];
-            $form['title'] = [
-                  '#type' => 'textarea',
+
+            // create options to select the calendars
+            $calendar_nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
+              'type' => 'calendar',
+            ]);
+            $checkbox_options = array();
+            foreach ($calendar_nodes as $calendar_node) {
+              $checkbox_options[$calendar_node->id()] = $calendar_node->label();
+            }
+            $form['calendars'] = [
+                  '#type' => 'checkboxes',
                   '#title' => $this->t('Calendars'),
-                  '#description' => $this->t('Please explain which calendar you want to moderate.'),
+                  '#description' => $this->t('Please select which calendar you want to moderate.'),
                   '#required' => TRUE,
+                  '#options' => $checkbox_options,
+                  '#multiple' => TRUE,
                 ];
+
+            // TODO: finish terms and conditions
             $form['accept'] = array(
               '#type' => 'checkbox',
               '#title' => $this
                 ->t('I accept the terms of moderating this site'),
               '#description' => $this->t('Please read and accept the terms of use'),
             );
+
+            // container for the form buttons
             $form['actions'] = [
-              '#type' => 'actions',
+              '#type' => 'actions'
             ];
+
             // Add a submit button that handles the submission of the form.
             $form['actions']['submit'] = [
               '#type' => 'submit',
@@ -101,6 +116,7 @@ class ModeratorAccessForm extends FormBase {
       //
       else {
 
+        // display if the user has not completed their profile
         $form['description'] = [
           '#type' => 'item',
           '#markup' => $this->t('<h4>Please complete your account</h4>In order to be a moderator, you need to complete your profile. Please add a photo, description, and contact information, then you can request moderator access using this form. <ul><li><a href="' . $url . '">Edit your profile</a>'),
@@ -153,6 +169,23 @@ class ModeratorAccessForm extends FormBase {
          $messenger->addMessage('Title: '.$form_state->getValue('title'));
          $messenger->addMessage('Accept: '.$form_state->getValue('accept'));
 
+         // parse the calendars info
+         $calendars = $form_state->getValue('calendars');
+         $calendar_string = '';
+         kint($form_state);
+         foreach ($calendars as $key => $calendar_id) {
+           if (!empty($calendar_id)) {
+            $node = \Drupal\node\Entity\Node::load($calendar_id);
+            // TODO: check this for validity
+            if (is_object($node)) {
+              $options = ['absolute' => TRUE];
+              $url = \Drupal\Core\Url::fromRoute('entity.node.edit_form', ['node' => $calendar_id], $options);
+              $url = $url->toString();
+              $calendar_string .= $node->getTitle() . ' - ' . $url . '<br/>';
+            }
+           }
+         }
+
 
          //
          // send email to admin: provides a link for the admin to authorise the request for calendar moderator access
@@ -163,10 +196,6 @@ class ModeratorAccessForm extends FormBase {
          $to = '';
          $emails = array();
          $langcode = 'en';
-         $params['email'] = 'alexjameslee@example.com';
-         $params['user'] = 'super user';
-         $params['phone'] = '07988 883764';
-         $params['message'] = 'dsf ohsdfoh  soihdsohso hodshf oihds oihfh';
 
          // get a link to edit the user profile
          $options = ['absolute' => TRUE];
@@ -174,7 +203,22 @@ class ModeratorAccessForm extends FormBase {
          $url = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()], $options);
          $url = $url->toString();
          $params['url'] = $url;
-
+         $params['email'] = $user->getEmail();
+         $params['user'] = $user->getUsername();
+         if(!$user->field_about_me->isEmpty()) {
+           $params['about_me'] = $user->get('field_about_me')[0]->getValue()['value'];
+         }
+         if(!$user->field_public_name->isEmpty()) {
+           $params['public_name'] = $user->get('field_public_name')[0]->getValue()['value'];
+         }
+         if(!$user->field_phone->isEmpty()) {
+           $params['phone'] = $user->get('field_phone')[0]->getValue()['value'];
+         }
+         if(!$user->field_contact_email->isEmpty()) {
+           $params['public_email'] = $user->get('field_contact_email')[0]->getValue()['value'];
+         }
+         $params['calendars'] = $calendar_string;
+         $params['details'] = $form_state->getValue('details');
 
          // get users with manager role and email them a notification
          $ids = \Drupal::entityQuery('user')
@@ -186,6 +230,7 @@ class ModeratorAccessForm extends FormBase {
          foreach($users as $user) {
            $emails[] = $user->getEmail();
          }
+
          // convert array to a string separated by commas
          $to = implode(",", $emails);;
          kint($emails);

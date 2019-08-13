@@ -1,0 +1,24 @@
+d: 52085bbf-c311-4af4-b6c2-64c6918af2b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: event
+label: Event
+type: 'canonical_entities:node'
+pattern: /%/teaser
+view_mode: teaser
+selection_criteria:
+  bf160e90-4c3b-41b2-814b-68c8411651e3:
+    id: node_type
+    bundles:
+      event: event 
+    negate: false
+    context_mapping:
+      node: node
+    uuid: bf160e90-4c3b-41b2-814b-68c8411651e3
+selection_logic: and
+weight: -5
+relationships: {  }
+

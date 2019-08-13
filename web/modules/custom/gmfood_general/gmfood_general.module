@@ -1,34 +1,16 @@
 <?php
 
-use Drupal\Core\Entity\EntityInterface;
-use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Language;
-use Drupal\node\Entity\NodeType;
-use Drupal\Core\Link;
-use Drupal\Core\Url;
+use \Drupal\Core\Entity\EntityInterface;
+use \Drupal\Core\Session\AccountInterface;
+use \Drupal\Core\Access\AccessResult;
+use \Drupal\Core\Language;
+use \Drupal\node\Entity\NodeType;
+use \Drupal\Core\Link;
+use \Drupal\Core\Url;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\views\ViewExecutable;
-use Drupal\Core\Database\Query\AlterableInterface;
-
-/*
- * TODO: DOESN'T WORK AT THE MOMENT. Should prevent direct access to the event_date node
- */
-function gmfood_general_node_access(EntityInterface $entity, $operation, AccountInterface $account) {
- /* kint($entity);
-
-  \Drupal::logger('gmfood_general_node_access')->notice($entity->getEntityTypeId());
-  \Drupal::logger('gmfood_general_node_access')->notice($entity->bundle());
-
-  if ($operation == 'delete') {
-    if ($entity->getEntityTypeId() == 'node' && $entity->bundle() == 'event_date') {
-      return AccessResult::forbidden();
-    }
-  }
-
-  return AccessResult::neutral();*/
-}
-
+use \Drupal\Core\Database\Query\AlterableInterface;
+use \Drupal\node\Entity\Node;
 
 /*
  * uses hook_fullcalendar_classes
@@ -179,4 +161,130 @@ function gmfood_general_query_search_node_search_alter(AlterableInterface $query
     // by active, admin, public
     // permissions to do this limited?
   }
+}
+
+function gmfood_general_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
+  $type = $node->bundle();
+  $current_user = $account->id();
+  //kint($type);
+
+
+  //
+  // Permissions for event item
+  //
+  if(in_array($type,array('event'))) {
+    switch ($op) {
+
+      // public can create event and event date nodes,
+      // but this is controlled by the permissions page
+      // so this module has no opinion on it
+      case 'create':
+        return AccessResult::neutral();
+
+      case 'update':
+        //kint($node->get('field_calendar')[0]);
+        //kint($node->get('field_calendar')[0]->entity);
+        // kint($account);
+
+        // get the mods for the event
+        $calendar_mods = get_moderators_from_event($node);
+
+        if (in_array($current_user,$calendar_mods)) {
+          kint('access granted');
+          return AccessResult::allowed()
+            ->cachePerPermissions();
+        }
+      default:
+        // No opinion - anything else like delete or view is not part of this module
+        return AccessResult::neutral();
+      }
+    }
+
+  //
+  // Permissions for event_date item
+  //
+  if(in_array($type,array('event_date'))) {
+    switch ($op) {
+
+      // public can create event and event date nodes,
+      // but this is controlled by the permissions page
+      // so this module has no opinion on it
+      case 'create':
+        return AccessResult::neutral();
+
+      case 'update':
+        // get the event that this event_date is part of
+
+        $calendar_mods = get_moderators_from_event_date($node);
+
+        if (in_array($current_user,$calendar_mods)) {
+          kint('access granted');
+          return AccessResult::allowed()
+            ->cachePerPermissions();
+        }
+      default:
+        // No opinion - anything else like delete or view is not part of this module
+        return AccessResult::neutral();
+      }
+    }
+  return AccessResult::neutral();
+}
+
+
+/*
+ * TODO: function to return an array of moderator IDs from an event_date node
+ */
+function get_moderators_from_event_date(Node $node) {
+  $referenced_entity_type = 'node';
+  $calendar_mods = null;
+
+  if($node->getType() == 'event_date') {
+    $referencing_entities = \Drupal::service('entity_type.manager')
+      ->getStorage($referenced_entity_type)
+      ->load($node->id())
+      ->get('reverse_entity_reference')
+      ->getValue();
+
+    foreach ($referencing_entities as $key => $referencing_entity) {
+      kint($referencing_entity);
+      $event = Node::Load($referencing_entity['target_id']);
+      if($event->getType() == 'event') {
+        kint('got event');
+
+        // TODO: turn this into a function
+        $calendar_mods = get_moderators_from_event($event);
+        // kint('event date mods');
+        //kint($calendar_mods);
+      }
+    }
+  }
+  return $calendar_mods;
+}
+
+/*
+ * function to return an array of moderator IDs from an event node
+ */
+function get_moderators_from_event(Node $node) {
+  $calendar_mods = array();
+
+  //kint('get mod from event');
+  //kint($node);
+  if($node->getType() == 'event') {
+    $calendar = $node;
+    $calendar = $node->get('field_calendar')[0]->entity;
+    $moderators = $calendar->get('field_moderator');
+    //kint($moderators);
+    //kint($moderators->count());
+
+    foreach ($moderators as $key => $moderator) {
+      //kint($moderator);
+      //kint($moderator->getValue());
+      $calendar_mods[] = $moderator->getValue()['target_id'];
+      //kint('mod id');
+      //kint($moderator->getValue()['target_id']);
+      //kint('account id');
+      //kint($account->id());
+    }
+  }
+  return $calendar_mods;
 }

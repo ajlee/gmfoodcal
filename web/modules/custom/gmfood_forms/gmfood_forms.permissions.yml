@@ -1,0 +1,4 @@
+administer stuff:
+  title: 'Administer stuff'
+  description: 'Promote, change ownership, edit revisions, and perform other tasks across all stuff types.'
+  restrict access: true

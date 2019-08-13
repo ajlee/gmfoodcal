@@ -25,14 +25,32 @@ function gmfood_forms_form_user_register_form_alter(&$form, \Drupal\Core\Form\Fo
   $body =
 "Someone has requested to be a moderator. The details of this request are below:
 
-Username:  " . $params['id'] . "
+Username:  " . $params['user'] . "
 Email: " . $params['email'] . "
+Public Name: " . $params['public_name'] . "
+Public Email: " . $params['public_email'] . "
 Phone: " . $params['phone'] . "
-Message: " . $params['message'] . "
+About Me: " . $params['about_me'] . "
+
+
+Details of the Request: " . $params['details'] . "
+
 
 You can approve this request by going to " . $params['url'] . " and selecting the role - moderator option.
 
-Sent by the GM Food Forum Calendar";
+
+Once you have given them moderator access, you need to edit the calendar pages to add them as a moderator.
+The calendars requested are:
+
+" . $params['calendars'] . "
+
+
+---
+
+
+Sent by
+The Drupal Fairy,
+The GM Food Forum Calendar";
 
   $unsubscribe_text = '';
   $footer = $unsubscribe_text;
