@@ -54,3 +54,7 @@ strong {
 small {
 
 }
+
+.ui-dialog.ui-widget {
+  z-index: 1050 !important;
+}

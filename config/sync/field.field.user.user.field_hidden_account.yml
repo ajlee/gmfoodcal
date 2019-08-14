@@ -1,0 +1,24 @@
+uuid: 402163c0-eed4-46f4-84cd-9b2aeeb3ac15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_hidden_account
+  module:
+    - user
+id: user.user.field_hidden_account
+field_name: field_hidden_account
+entity_type: user
+bundle: user
+label: 'Hidden Account'
+description: 'Enable this option to prevent the account being visible to the public. However, this means the account *cannot* be listed as a moderator for a calendar.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

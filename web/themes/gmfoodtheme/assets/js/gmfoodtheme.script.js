@@ -17551,8 +17551,16 @@ __webpack_require__.r(__webpack_exports__);
 (function () {
   'use strict';
 
-  Drupal.behaviors.helloWorld = {
-    attach: function attach(context) {// console.log('Hello World');
+  Drupal.behaviors.enableDatePicker = {
+    attach: function attach(context) {
+      jQuery('[type="date"]').datepicker();
+    }
+  };
+  Drupal.behaviors.enableTimePicker = {
+    attach: function attach(context) {
+      jQuery('[type="time"]').jonthorntonTimepicker({
+        'timeFormat': 'H:i:s'
+      });
     }
   };
 })(jQuery, Drupal);

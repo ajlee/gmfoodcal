@@ -1,0 +1,15 @@
+uuid: c859be7f-37b4-41ec-9a2a-71fd172dbe4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: event_search
+label: Events
+path: events
+weight: 0
+plugin: node_search
+configuration:
+  rankings:
+    recent: 10
+    relevance: 6

@@ -6,6 +6,7 @@ dependencies:
     - field.field.user.user.field_about_me
     - field.field.user.user.field_contact_email
     - field.field.user.user.field_first_name
+    - field.field.user.user.field_hidden_account
     - field.field.user.user.field_link_to_organisation
     - field.field.user.user.field_organisation_name
     - field.field.user.user.field_phone
@@ -148,6 +149,24 @@ third_party_settings:
                 type: link
             additional: {  }
             weight: 2
+          f02c8b02-a484-4f81-97f3-ac73b31d7c39:
+            uuid: f02c8b02-a484-4f81-97f3-ac73b31d7c39
+            region: slider
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:user:user:field_hidden_account'
+              formatter:
+                label: above
+                settings:
+                  format: default
+                  format_custom_false: ''
+                  format_custom_true: ''
+                third_party_settings: {  }
+                type: boolean
+            additional: {  }
+            weight: 3
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -184,6 +203,16 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_hidden_account:
+    weight: 59
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: slider
   field_link_to_organisation:
     weight: 51
     label: above

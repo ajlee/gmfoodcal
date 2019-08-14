@@ -8,12 +8,12 @@ name: 'GM Sustainable Food Bulletin'
 id: default
 description: 'This is an example newsletter. Change it.'
 format: plain
-priority: 2
+priority: 0
 receipt: false
 from_name: 'TurnKey Drupal8'
 subject: 'TEST [[simplenews-newsletter:name]] [node:title] [random:number]'
 from_address: alex+webwork.turnkey@amanita.pw
-hyperlinks: false
-new_account: none
+hyperlinks: true
+new_account: 'off'
 opt_inout: single
 weight: 0

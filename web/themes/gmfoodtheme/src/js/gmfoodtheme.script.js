@@ -5,9 +5,16 @@ import 'bootstrap';
 
   'use strict';
 
-  Drupal.behaviors.helloWorld = {
+  Drupal.behaviors.enableDatePicker = {
     attach: function (context) {
-      // console.log('Hello World');
+      jQuery('[type="date"]').datepicker();
+    }
+  };
+
+
+  Drupal.behaviors.enableTimePicker = {
+    attach: function (context) {
+      jQuery('[type="time"]').jonthorntonTimepicker({'timeFormat':'H:i:s'});
     }
   };
 

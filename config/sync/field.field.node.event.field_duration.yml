@@ -1,0 +1,28 @@
+uuid: 904abe42-03f6-461c-b9ce-9830899c2315
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration
+    - node.type.event
+  module:
+    - duration_field
+id: node.event.field_duration
+field_name: field_duration
+entity_type: node
+bundle: event
+label: Duration
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  granularity:
+    day: true
+    hour: true
+    minute: true
+    year: false
+    month: false
+    second: false
+field_type: duration

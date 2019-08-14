@@ -9,6 +9,7 @@ dependencies:
     - datetime
     - field_layout
     - layout_discovery
+    - timepicker
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -21,7 +22,12 @@ content:
   field_inline_event_date:
     weight: 26
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      timepicker:
+        enabled: '1'
+        type: timepicker_jonthornton
+        js_options:
+          value: ''
     type: datetime_default
     region: content
   title:

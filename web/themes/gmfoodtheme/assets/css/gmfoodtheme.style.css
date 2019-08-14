@@ -9585,6 +9585,26 @@ a.text-dark:hover, a.text-dark:focus {
   visibility: hidden !important;
 }
 
+.ui-dialog.ui-widget {
+  z-index: 1050 !important;
+}
+
+/*
+ * General forms
+ */
+input[type=submit] {
+  text-align: center;
+  background-color: #669933;
+  border-color: #666633;
+}
+
+input[type=submit][name=op] {
+  text-align: center;
+  background-color: #66CC00;
+  border-color: #66AA00;
+  font-weight: bold;
+}
+
 .form-required:after {
   display: inline-block;
   width: 6px;
@@ -9601,7 +9621,13 @@ a.text-dark:hover, a.text-dark:focus {
 /*
  * /node/add/event form
  */
-.field--name-field-event-dates.field--widget-inline-entity-form-simple div[data-drupal-selector$=-inline-entity-form-title-wrapper] {
+.node-event-form .tabledrag-toggle-weight {
+  display: none;
+}
+.node-event-form .field--name-field-event-dates.field--widget-inline-entity-form-simple div[data-drupal-selector$=-inline-entity-form-title-wrapper] {
+  display: none;
+}
+.node-event-form .js-form-type-vertical-tabs {
   display: none;
 }
 
@@ -9624,6 +9650,22 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .search-block-form .form-item-keys {
   flex-grow: 1;
+}
+
+/*
+ * General admin forms
+ */
+div[data-drupal-selector=edit-field-layout] {
+  padding-bottom: 1rem;
+}
+
+.collapse.in:not(.show) {
+  display: block;
+}
+
+.field--type-duration .form-item {
+  display: inline-block;
+  margin-right: 1rem;
 }
 
 .node.event-date > .contextual {

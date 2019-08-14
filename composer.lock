@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6d04b0a229b046eb26bd7c9c8d489f3",
+    "content-hash": "c8d3933fb90150397bd439f2e3c4760f",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2263,6 +2263,60 @@
             }
         },
         {
+            "name": "drupal/bootstrap_datetime_picker",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/bootstrap_datetime_picker.git",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/bootstrap_datetime_picker-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "5b4a79b4d5aa91a420c0d9d54db7f70056e007f9"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1535537884",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Prashant.c",
+                    "homepage": "https://www.drupal.org/user/1936756"
+                },
+                {
+                    "name": "deepakkumar14",
+                    "homepage": "https://www.drupal.org/user/2186826"
+                },
+                {
+                    "name": "vakulrai",
+                    "homepage": "https://www.drupal.org/user/3524052"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/bootstrap_datetime_picker",
+            "support": {
+                "source": "https://git.drupalcode.org/project/bootstrap_datetime_picker"
+            }
+        },
+        {
             "name": "drupal/bootstrap_sass",
             "version": "1.9.0",
             "source": {
@@ -2551,7 +2605,7 @@
             "version": "8.3.3",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/coder.git",
+                "url": "https://git.drupalcode.org/project/coder.git",
                 "reference": "a33d3388fb2e1d94bd2aee36a8ff79186e9d8f43"
             },
             "require": {
@@ -3799,6 +3853,57 @@
             }
         },
         {
+            "name": "drupal/eat",
+            "version": "2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/eat.git",
+                "reference": "8.x-2.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/eat-8.x-2.3.zip",
+                "reference": "8.x-2.3",
+                "shasum": "94aa490fe9095ef90a12e80e88b38a54dc686742"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.3",
+                    "datestamp": "1517576880",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "aburrows",
+                    "homepage": "https://www.drupal.org/user/577844"
+                },
+                {
+                    "name": "chandraraj",
+                    "homepage": "https://www.drupal.org/user/2393416"
+                }
+            ],
+            "description": "Upon creation of entities generates a term to give taxonomy vocabulary.",
+            "homepage": "https://www.drupal.org/project/eat",
+            "support": {
+                "source": "https://git.drupalcode.org/project/eat"
+            }
+        },
+        {
             "name": "drupal/editor_advanced_link",
             "version": "1.4.0",
             "source": {
@@ -4871,6 +4976,53 @@
             }
         },
         {
+            "name": "drupal/login_emailusername",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/login_emailusername.git",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/login_emailusername-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "f484b76b538f4dbbae5a75b49577f4ddf576809e"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1483456142",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "rjjakes",
+                    "homepage": "https://www.drupal.org/user/3457245"
+                }
+            ],
+            "description": "Allow users to log in with either their username OR email address using the same input box on the login form.",
+            "homepage": "https://www.drupal.org/project/login_emailusername",
+            "support": {
+                "source": "https://git.drupalcode.org/project/login_emailusername"
+            }
+        },
+        {
             "name": "drupal/mailsystem",
             "version": "4.1.0",
             "source": {
@@ -5531,6 +5683,58 @@
             "homepage": "https://www.drupal.org/project/pathauto",
             "support": {
                 "source": "https://git.drupalcode.org/project/pathauto"
+            }
+        },
+        {
+            "name": "drupal/permissions_by_term",
+            "version": "2.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/permissions_by_term.git",
+                "reference": "8.x-2.10"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/permissions_by_term-8.x-2.10.zip",
+                "reference": "8.x-2.10",
+                "shasum": "e23b500de3645b42416652830b1300f37a68c5df"
+            },
+            "require": {
+                "drupal/core": "^8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.10",
+                    "datestamp": "1552509784",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Peter Majmesku",
+                    "homepage": "https://www.drupal.org/user/786132",
+                    "email": "p.majmesku@gmail.com"
+                },
+                {
+                    "name": "SaschaHannes",
+                    "homepage": "https://www.drupal.org/user/3536189"
+                }
+            ],
+            "description": "Restricts access to nodes by taxonomy terms in relation to users and their roles.",
+            "homepage": "https://www.drupal.org/project/permissions_by_term",
+            "support": {
+                "source": "https://git.drupalcode.org/project/permissions_by_term"
             }
         },
         {
@@ -6258,6 +6462,68 @@
             }
         },
         {
+            "name": "drupal/timepicker-timepicker",
+            "version": "1.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/timepicker.git",
+                "reference": "8.x-1.11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/timepicker-8.x-1.11.zip",
+                "reference": "8.x-1.11",
+                "shasum": "934865ddc92383c4c3c68320f4892f68f2ed9c9e"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.11",
+                    "datestamp": "1557739086",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "liliancatanoi90",
+                    "homepage": "https://www.drupal.org/user/2900327"
+                },
+                {
+                    "name": "optasy",
+                    "homepage": "https://www.drupal.org/user/3164223"
+                },
+                {
+                    "name": "radu.simileanu",
+                    "homepage": "https://www.drupal.org/user/2617123"
+                },
+                {
+                    "name": "tibezh",
+                    "homepage": "https://www.drupal.org/user/1491908"
+                },
+                {
+                    "name": "web247",
+                    "homepage": "https://www.drupal.org/user/176346"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/timepicker",
+            "support": {
+                "source": "https://git.drupalcode.org/project/timepicker"
+            }
+        },
+        {
             "name": "drupal/token",
             "version": "1.5.0",
             "source": {
@@ -6437,59 +6703,6 @@
             "homepage": "https://www.drupal.org/project/video_embed_field",
             "support": {
                 "source": "https://git.drupalcode.org/project/video_embed_field"
-            }
-        },
-        {
-            "name": "drupal/view_mode_page",
-            "version": "3.0.0-rc1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/view_mode_page.git",
-                "reference": "8.x-3.0-rc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/view_mode_page-8.x-3.0-rc1.zip",
-                "reference": "8.x-3.0-rc1",
-                "shasum": "58103c89b9bd07c7bde2e98efc553ddf19d6f083"
-            },
-            "require": {
-                "drupal/core": "^8.1.0",
-                "drupal/ctools": "*",
-                "drupal/token": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-3.0-rc1",
-                    "datestamp": "1485946989",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "davy-r",
-                    "homepage": "https://www.drupal.org/user/3278771"
-                },
-                {
-                    "name": "rballou",
-                    "homepage": "https://www.drupal.org/user/1840982"
-                }
-            ],
-            "description": "Makes it possible to create (additional) paths where entities will be shown in a given view_mode",
-            "homepage": "https://www.drupal.org/project/view_mode_page",
-            "support": {
-                "source": "https://git.drupalcode.org/project/view_mode_page"
             }
         },
         {
@@ -13064,6 +13277,59 @@
                 "source": "http://cgit.drupalcode.org/devel",
                 "issues": "http://drupal.org/project/devel",
                 "irc": "irc://irc.freenode.org/drupal-contribute"
+            }
+        },
+        {
+            "name": "drupal/view_mode_page",
+            "version": "3.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/view_mode_page.git",
+                "reference": "8.x-3.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/view_mode_page-8.x-3.0-rc1.zip",
+                "reference": "8.x-3.0-rc1",
+                "shasum": "58103c89b9bd07c7bde2e98efc553ddf19d6f083"
+            },
+            "require": {
+                "drupal/core": "^8.1.0",
+                "drupal/ctools": "*",
+                "drupal/token": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.0-rc1",
+                    "datestamp": "1485946989",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "davy-r",
+                    "homepage": "https://www.drupal.org/user/3278771"
+                },
+                {
+                    "name": "rballou",
+                    "homepage": "https://www.drupal.org/user/1840982"
+                }
+            ],
+            "description": "Makes it possible to create (additional) paths where entities will be shown in a given view_mode",
+            "homepage": "https://www.drupal.org/project/view_mode_page",
+            "support": {
+                "source": "https://git.drupalcode.org/project/view_mode_page"
             }
         },
         {

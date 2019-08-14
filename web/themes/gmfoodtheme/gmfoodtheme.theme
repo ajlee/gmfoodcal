@@ -155,10 +155,6 @@ function gmfoodtheme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $fo
     $form['actions']['#attributes']['class'][] = 'col-xs-12 col-md-4';
     $form['actions']['submit']['#value'] = t('Go');
     $form['#attributes']['class'][] = 'container';
-
-    kint($form['keys']);
-    kint($form['actions']);
-    kint($form['actions']['submit']);
   }
 }
 
@@ -192,3 +188,5 @@ function gmfoodtheme_theme_suggestions_container_alter(&$suggestions, array $var
     $suggestions[] = 'container__' . $element['children']['#type'];
   }
 }
+
+

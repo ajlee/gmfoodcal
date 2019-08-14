@@ -1,5 +1,26 @@
 @import "../base/variables";
 
+/*
+ * General forms
+ */
+
+
+// make form buttons light green
+ input[type='submit'] {
+   text-align: center;
+   background-color:#669933;
+   border-color:#666633;
+ }
+
+// make all form add / delete / edit buttons bright green
+input[type='submit'][name='op'] {
+  text-align: center;
+  background-color:#66CC00;
+  border-color:#66AA00;
+  font-weight: bold;
+}
+
+
 .form-required:after {
   display: inline-block;
   width: 6px;
@@ -17,11 +38,19 @@
 /*
  * /node/add/event form
  */
+.node-event-form {
+  .tabledrag-toggle-weight {
+    display:none;
+  }
+  .field--name-field-event-dates.field--widget-inline-entity-form-simple {
 
-.field--name-field-event-dates.field--widget-inline-entity-form-simple {
-
-  // hide the title on inkine event dates items
-  div[data-drupal-selector$='-inline-entity-form-title-wrapper'] {
+    // hide the title on inkine event dates items
+    div[data-drupal-selector$='-inline-entity-form-title-wrapper'] {
+      display: none;
+    }
+  }
+  // hide the URL form item
+  .js-form-type-vertical-tabs {
     display: none;
   }
 }
@@ -41,12 +70,36 @@
       text-align: left;
     }
   }
+
   input[type='submit'] {
     text-align: center;
     background-color:#66CC00;
     border-color:#339900;
   }
+
   .form-item-keys {
     flex-grow:1;
   }
 }
+
+/*
+ * General admin forms
+ */
+div[data-drupal-selector="edit-field-layout"] {
+  padding-bottom: 1rem;
+}
+
+// fix bug with bootstrap timepicker not showing
+.collapse.in:not(.show) {
+  display: block;
+}
+
+// put duration fields on the same line
+.field--type-duration {
+  .form-item {
+    display: inline-block;
+    margin-right: $spacer;
+  }
+}
+
+

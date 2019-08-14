@@ -39,6 +39,16 @@ third_party_settings:
               id: 'extra_field_block:node:calendar:links'
             additional: {  }
             weight: 0
+          fe086462-5662-48e3-a992-5ff69dadcd4e:
+            uuid: fe086462-5662-48e3-a992-5ff69dadcd4e
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:calendar:read_more'
+            additional: {  }
+            weight: 1
         third_party_settings: {  }
       -
         layout_id: radix_bryant_flipped
@@ -48,17 +58,18 @@ third_party_settings:
             uuid: 7bee6c61-0809-4db8-9a68-afa4ce78545e
             region: sidebar
             configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
               id: 'field_block:node:calendar:field_moderator'
+              label: Moderator
+              provider: layout_builder
+              label_display: '0'
               formatter:
                 label: above
+                type: entity_reference_label
                 settings:
-                  view_mode: calendar_moderator
-                  link: false
+                  link: true
                 third_party_settings: {  }
-                type: entity_reference_entity_view
+              context_mapping:
+                entity: layout_builder.entity
             additional: {  }
             weight: 0
           e6d5a2ef-adcf-4b22-b2d9-211cf9e4916f:
@@ -90,22 +101,14 @@ third_party_settings:
               context_mapping: {  }
             additional: {  }
             weight: 1
-          97f05288-ed27-4468-be8a-0ce6ba5c477c:
-            uuid: 97f05288-ed27-4468-be8a-0ce6ba5c477c
-            region: contentmain
-            configuration:
-              id: 'views_block:single_calendar_view-block_2'
-              label: ''
-              provider: views
-              label_display: visible
-              views_label: ''
-              items_per_page: none
-              context_mapping: {  }
-            additional: {  }
-            weight: 1
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings: {  }
+        components:
           f61da715-794b-4297-ba38-081f7f7c2bc3:
             uuid: f61da715-794b-4297-ba38-081f7f7c2bc3
-            region: contentmain
+            region: content
             configuration:
               id: 'views_block:single_calendar_view-single_calendar_view_block'
               label: ''
@@ -115,12 +118,7 @@ third_party_settings:
               items_per_page: none
               context_mapping: {  }
             additional: {  }
-            weight: 2
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings: {  }
-        components: {  }
+            weight: 0
         third_party_settings: {  }
 id: node.calendar.default
 targetEntityType: node
@@ -164,5 +162,10 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   langcode: true

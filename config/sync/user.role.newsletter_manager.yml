@@ -1,0 +1,12 @@
+uuid: 6935ce44-3bf3-47ad-9a2e-7f879a5c3335
+langcode: en
+status: true
+dependencies: {  }
+id: newsletter_manager
+label: 'Newsletter Manager'
+weight: 7
+is_admin: null
+permissions:
+  - 'send newsletter'
+  - 'subscribe to newsletters'
+  - 'view simplenews subscriptions'

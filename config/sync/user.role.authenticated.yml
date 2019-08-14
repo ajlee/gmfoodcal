@@ -11,6 +11,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access kint'
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'access user profiles'
@@ -23,7 +24,7 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'subscribe to newsletters'
-  - 'use advanced search'
   - 'use text format basic_html'
+  - 'use text format restricted_html'
   - 'view media'
   - 'view simplenews subscriptions'

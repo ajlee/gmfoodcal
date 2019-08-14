@@ -15,7 +15,7 @@ entity_type: user
 bundle: user
 label: Picture
 description: 'Your virtual face or picture.'
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

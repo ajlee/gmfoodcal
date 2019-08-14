@@ -11,6 +11,7 @@ is_admin: false
 permissions:
   - 'access comments'
   - 'access content'
+  - 'access kint'
   - 'access site-wide contact form'
   - 'access user profiles'
   - 'create calendar content'
@@ -18,6 +19,7 @@ permissions:
   - 'create event_date content'
   - 'create news_link content'
   - 'search content'
-  - 'use advanced search'
+  - 'subscribe to newsletters'
   - 'use text format restricted_html'
   - 'view media'
+  - 'view simplenews subscriptions'

@@ -129,7 +129,7 @@ function gmfood_general_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
       // change the label for the add more field
       $form['field_event_dates']['widget']['add_more']['#value'] = t('Add another date');
       // change the label for the save field
-      $form['actions']['submit']['#value'] = t('Submit this Event');
+      $form['actions']['submit']['#value'] = t('Publish this Event');
     }
   }
 }
@@ -168,71 +168,86 @@ function gmfood_general_node_access(\Drupal\node\NodeInterface $node, $op, \Drup
   $current_user = $account->id();
   //kint($type);
 
+  if ($account->hasPermission("moderate authorised events")) {
+    //
+    // check for calendar content
+    //
+    if(in_array($type,array('calendar'))) {
+      switch ($op) {
+        case 'create':
+          return AccessResult::neutral();
+        case 'update':
+          $calendar_mods[] = array();
+          $moderators = $node->get('field_moderator');
 
-  //
-  // Permissions for event item
-  //
-  if(in_array($type,array('event'))) {
-    switch ($op) {
-
-      // public can create event and event date nodes,
-      // but this is controlled by the permissions page
-      // so this module has no opinion on it
-      case 'create':
-        return AccessResult::neutral();
-
-      case 'update':
-        //kint($node->get('field_calendar')[0]);
-        //kint($node->get('field_calendar')[0]->entity);
-        // kint($account);
-
-        // get the mods for the event
-        $calendar_mods = get_moderators_from_event($node);
-
-        if (in_array($current_user,$calendar_mods)) {
-          kint('access granted');
-          return AccessResult::allowed()
-            ->cachePerPermissions();
-        }
-      default:
-        // No opinion - anything else like delete or view is not part of this module
-        return AccessResult::neutral();
+          foreach ($moderators as $key => $moderator) {
+            $calendar_mods[] = $moderator->getValue()['target_id'];
+          }
+          if (in_array($current_user,$calendar_mods)) {
+            return AccessResult::allowed()
+              ->cachePerPermissions();
+          }
+        default:
+          // No opinion - anything else like delete or view is not part of this module
+          return AccessResult::neutral();
+      }
+    }
+    //
+    // Permissions for event item
+    //
+    if(in_array($type,array('event'))) {
+      switch ($op) {
+        // public can create event and event date nodes,
+        // but this is controlled by the permissions page
+        // so this module has no opinion on it
+        case 'create':
+          return AccessResult::neutral();
+        case 'update':
+          // get the mods for the event
+          $calendar_mods = get_moderators_from_event($node);
+          // is user in the list of mods for the calendar?
+          if (in_array($current_user,$calendar_mods)) {
+            //kint('access granted');
+            return AccessResult::allowed()
+              ->cachePerPermissions();
+          }
+        default:
+          // No opinion - anything else like delete or view is not part of this module
+          return AccessResult::neutral();
       }
     }
 
-  //
-  // Permissions for event_date item
-  //
-  if(in_array($type,array('event_date'))) {
-    switch ($op) {
 
-      // public can create event and event date nodes,
-      // but this is controlled by the permissions page
-      // so this module has no opinion on it
-      case 'create':
-        return AccessResult::neutral();
-
-      case 'update':
-        // get the event that this event_date is part of
-
-        $calendar_mods = get_moderators_from_event_date($node);
-
-        if (in_array($current_user,$calendar_mods)) {
-          kint('access granted');
-          return AccessResult::allowed()
-            ->cachePerPermissions();
-        }
-      default:
-        // No opinion - anything else like delete or view is not part of this module
-        return AccessResult::neutral();
+    //
+    // Permissions for event_date item
+    //
+    if(in_array($type,array('event_date'))) {
+      switch ($op) {
+        // public can create event and event date nodes,
+        // but this is controlled by the permissions page
+        // so this module has no opinion on it
+        case 'create':
+          return AccessResult::neutral();
+        case 'update':
+          // get the event that this event_date is part of
+          $calendar_mods = get_moderators_from_event_date($node);
+          // is user in the list of mods
+          if (in_array($current_user,$calendar_mods)) {
+            return AccessResult::allowed()
+              ->cachePerPermissions();
+          }
+        default:
+          // No opinion - anything else like delete or view is not part of this module
+          return AccessResult::neutral();
       }
     }
+  }
   return AccessResult::neutral();
 }
 
 
 /*
- * TODO: function to return an array of moderator IDs from an event_date node
+ * function to return an array of moderator IDs from an event_date node
  */
 function get_moderators_from_event_date(Node $node) {
   $referenced_entity_type = 'node';
@@ -246,10 +261,10 @@ function get_moderators_from_event_date(Node $node) {
       ->getValue();
 
     foreach ($referencing_entities as $key => $referencing_entity) {
-      kint($referencing_entity);
+      //kint($referencing_entity);
       $event = Node::Load($referencing_entity['target_id']);
       if($event->getType() == 'event') {
-        kint('got event');
+        //kint('got event');
 
         // TODO: turn this into a function
         $calendar_mods = get_moderators_from_event($event);
