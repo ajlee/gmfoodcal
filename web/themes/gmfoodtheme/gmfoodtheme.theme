@@ -110,6 +110,21 @@ function gmfoodtheme_preprocess_menu(&$variables) {
 }
 
 /*
+ * extends theme_preprocess_page_title()
+ *
+ * simply replaces the page title with field_page_heading if it is set
+ */
+function gmfoodtheme_preprocess_page_title(&$variables) {
+  $node = \Drupal::request()->attributes->get('node');
+  if(!empty($node) && $node->hasField('field_page_heading')) {
+    if(!$node->get('field_page_heading')->isEmpty()){
+      $subtitle = $node->get('field_page_heading')[0]->value;
+      $variables['subtitle'] = $subtitle;
+    }
+  }
+}
+
+/*
  * Create an edit link from a node id
  */
 function get_node_edit_link($nid) {
@@ -132,6 +147,7 @@ function gmfood_theme_fullcalendar_classes($entity) {
     $entity->entity_type,
   ];
 }
+
 
 
 function gmfoodtheme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {

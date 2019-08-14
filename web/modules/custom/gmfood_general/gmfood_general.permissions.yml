@@ -1,3 +1,7 @@
 'moderate authorised events':
   title: 'Moderate Authorized Events'
   description: 'Enable a user to edit events and calendars when they are registered as moderators.'
+
+'profile is publicly visible':
+  title: 'Profile is publicly visible'
+  description: 'The public can access their page with picture, about me, contact info etc.'

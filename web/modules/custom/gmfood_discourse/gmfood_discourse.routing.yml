@@ -13,10 +13,10 @@ gmfood_discourse.post_to_discourse:
 gmfood_discourse.email_plain_view:
  path: '/node/{node}/email-plain-view'
  defaults:
-   _title: 'View / Copy as Discourse Post'
+   _title: 'Preview Discourse Post'
    _entity_view:  node.email_plain
  requirements:
-   _permission: 'edit content'
+   _custom_access: 'Drupal\gmfood_discourse\Controller\DiscourseController::checkAccess'
 
 gmfood_discourse.settings:
  path: '/admin/config/services/gmfood_discourse/settings'

@@ -17549,13 +17549,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (function () {
-  'use strict';
+  'use strict'; // enable a datepicker
 
   Drupal.behaviors.enableDatePicker = {
     attach: function attach(context) {
-      jQuery('[type="date"]').datepicker();
+      jQuery('[type="date"]').datepicker({
+        'dateFormat': 'yy-mm-dd'
+      });
     }
-  };
+  }; // enable a timepicker
+
   Drupal.behaviors.enableTimePicker = {
     attach: function attach(context) {
       jQuery('[type="time"]').jonthorntonTimepicker({

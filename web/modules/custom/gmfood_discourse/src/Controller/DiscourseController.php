@@ -37,8 +37,17 @@ class DiscourseController extends ControllerBase {
     $titlehtml = null;
     $type = $node->getType();
 
+    kint ($type);
+
     // Preprocessing newsletters
     if ($type == "simplenews_issue") {
+      $view_mode = 'email_plain';
+      $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+      $build = $view_builder->view($node, $view_mode);
+      $nodehtml = \Drupal::service('renderer')->renderPlain($build);
+      $titlehtml = '<h3>' . $node->getTitle() . '</h3>';
+    }
+    else if ($type == "event") {
       $view_mode = 'email_plain';
       $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
       $build = $view_builder->view($node, $view_mode);
