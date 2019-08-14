@@ -1,0 +1,6 @@
+services:
+  # custom route access check for users to profile page user/{user}
+  gmfood_general.custom_route_subscriber:
+    class: Drupal\gmfood_general\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
