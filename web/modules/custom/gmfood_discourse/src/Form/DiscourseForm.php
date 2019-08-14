@@ -146,7 +146,7 @@ class DiscourseForm extends FormBase {
 
 
       /*
-       * TODO: set the default values to the submitted form values
+       * Create the form and the default values to the submitted form values
        */
 
       $form['title'] = [

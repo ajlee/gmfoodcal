@@ -1,7 +1,12 @@
+body {
+  background-color: rgb(241, 245, 248);
+}
+
 // Headings
 // -----------------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6 {
-
+  color:$primary;
+  font-weight:strong;
 }
 
 // Text

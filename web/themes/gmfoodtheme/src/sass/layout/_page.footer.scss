@@ -1,5 +1,14 @@
 // Page: Footer
 // -----------------------------------------------------------------------------
 .page__footer {
+  color: white;
+  background-color: $darker_green;
 
+  a {
+    color: white;
+
+    &:hover {
+      color:$pale_green;
+    }
+  }
 }
