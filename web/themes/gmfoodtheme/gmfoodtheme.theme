@@ -204,5 +204,3 @@ function gmfoodtheme_theme_suggestions_container_alter(&$suggestions, array $var
     $suggestions[] = 'container__' . $element['children']['#type'];
   }
 }
-
-

@@ -5310,7 +5310,7 @@ a.close.disabled {
 
 @media (min-width: 576px) {
   .modal-dialog {
-    max-width: 500px;
+    max-width: 600px;
     margin: 1.75rem auto;
   }
 
@@ -5329,18 +5329,18 @@ a.close.disabled {
   }
 
   .modal-sm {
-    max-width: 300px;
+    max-width: 600px;
   }
 }
 @media (min-width: 992px) {
   .modal-lg,
 .modal-xl {
-    max-width: 800px;
+    max-width: 600px;
   }
 }
 @media (min-width: 1200px) {
   .modal-xl {
-    max-width: 1140px;
+    max-width: 600px;
   }
 }
 .tooltip {
@@ -9621,6 +9621,11 @@ a:hover {
   color: white;
   background-color: #164d22;
 }
+.page__footer li.menu-item, .page__footer li.nav-item {
+  display: inline-block;
+  padding-right: 1rem;
+  padding-top: 1rem;
+}
 .page__footer a {
   color: white;
 }
@@ -9628,9 +9633,43 @@ a:hover {
   color: #aaff33;
 }
 
+@media only screen and (min-width: 0) and (max-width: 768px) {
+  .navbar {
+    text-align: center;
+    display: block !important;
+  }
+  .navbar > .container {
+    display: block !important;
+  }
+  .navbar .block--gmfoodtheme-branding {
+    width: 100%;
+  }
+  .navbar .block--gmfoodtheme-branding img {
+    margin: auto !important;
+  }
+}
 .navbar img {
   max-width: 300px;
   border: 3px solid #e9ecef;
+}
+.navbar ul.sf-menu.sf-style-white a {
+  color: #164d22;
+}
+@media only screen and (min-width: 0) and (max-width: 767px) {
+  .navbar div.sf-accordion-toggle.sf-style-white a {
+    background-color: #dee2e6;
+    color: #164d22;
+    border: 1px solid #adb5bd;
+  }
+  .navbar ul.sf-menu.sf-style-white li {
+    background-color: #dee2e6;
+    color: #164d22;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .navbar .sf-menu {
+    display: flex !important;
+  }
 }
 
 /*
@@ -9715,6 +9754,16 @@ div[data-drupal-selector=edit-field-layout] {
 @media only screen and (min-width: 0) and (max-width: 576px) {
   .block--gmfoodtheme-page-title h1 {
     font-size: 10vw;
+  }
+}
+
+.ui-dialog[role=dialog] {
+  width: 50% !important;
+}
+@media only screen and (min-width: 0) and (max-width: 576px) {
+  .ui-dialog[role=dialog] {
+    width: 300px !important;
+    max-width: 80% !important;
   }
 }
 

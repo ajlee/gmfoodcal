@@ -11,4 +11,4 @@ gmfood_general.calendars_page:
  defaults:
    _title: 'Calendars'
  requirements:
-   _permission: 'view content'
+   _access: 'TRUE'
