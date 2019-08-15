@@ -9594,8 +9594,27 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: strong;
 }
 
+h1 {
+  text-transform: uppercase;
+}
+
+h2, h3, h4, h5, h6 {
+  font-variant: small-caps;
+}
+
+a {
+  color: #164d22;
+}
+a:hover {
+  color: #aaff33;
+}
+
 .ui-dialog.ui-widget {
   z-index: 1050 !important;
+}
+
+.page__header .block--gmfoodtheme-page-title {
+  text-align: center;
 }
 
 .page__footer {
@@ -9607,6 +9626,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 .page__footer a:hover {
   color: #aaff33;
+}
+
+.navbar img {
+  max-width: 300px;
+  border: 3px solid #e9ecef;
 }
 
 /*
@@ -9686,6 +9710,12 @@ div[data-drupal-selector=edit-field-layout] {
 .field--type-duration .form-item {
   display: inline-block;
   margin-right: 1rem;
+}
+
+@media only screen and (min-width: 0) and (max-width: 576px) {
+  .block--gmfoodtheme-page-title h1 {
+    font-size: 10vw;
+  }
 }
 
 .node.event-date > .contextual {

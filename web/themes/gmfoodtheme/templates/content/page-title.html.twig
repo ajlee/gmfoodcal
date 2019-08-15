@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Template for the page title.
+ */
+#}
+{{ title_prefix }}
+{% if subtitle %}
+  <h1{{ title_attributes.addClass('display-4') }}>{{ subtitle }}</h1>
+{% else %}
+  <h1{{ title_attributes.addClass('display-4') }}>{{ title }}</h1>
+{% endif %}
+{{ title_suffix }}

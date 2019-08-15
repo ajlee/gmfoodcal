@@ -303,3 +303,6 @@ function get_moderators_from_event(Node $node) {
   }
   return $calendar_mods;
 }
+
+
+
