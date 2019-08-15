@@ -8,6 +8,7 @@ module:
   amswap: 0
   antibot: 0
   automated_cron: 0
+  ban: 0
   block: 0
   block_class: 0
   block_content: 0
@@ -56,6 +57,7 @@ module:
   google_analytics: 0
   history: 0
   honeypot: 0
+  httpbl: 0
   image: 0
   image_captcha: 0
   inline_entity_form: 0
@@ -75,7 +77,9 @@ module:
   masquerade: 0
   media: 0
   menu_ui: 0
+  menus_attribute: 0
   metatag: 0
+  metatag_dc: 0
   module_filter: 0
   multiple_fields_remove_button: 0
   node: 0
@@ -101,7 +105,7 @@ module:
   simplify: 0
   smtp: 0
   statistics: 0
-  subtonode: 0
+  superfish: 0
   syslog: 0
   system: 0
   taxonomy: 0
@@ -131,9 +135,11 @@ module:
   workflows: 0
   extlink: 1
   menu_admin_per_menu: 1
+  menu_force: 1
   menu_link_content: 1
   pathauto: 1
   webform_bootstrap: 1
+  xmlsitemap: 1
   views: 10
   paragraphs: 11
   standard: 1000

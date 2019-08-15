@@ -1,0 +1,13 @@
+uuid: 7ab6f25c-d750-48ed-b662-5c28b45a7f81
+langcode: en
+status: true
+dependencies:
+  module:
+    - httpbl
+_core:
+  default_config_hash: w44lv07doX3DQFQxbRCiywfJPHdvpKs7RjAyup1GiQU
+id: host_multiple_refresh_action
+label: 'Refresh Host Expiry'
+type: host
+plugin: host_multiple_refresh_action
+configuration: {  }

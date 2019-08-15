@@ -1,0 +1,13 @@
+uuid: d6207bdb-06a7-4398-9bf2-727c13a4fc99
+langcode: en
+status: true
+dependencies:
+  module:
+    - httpbl
+_core:
+  default_config_hash: 1LLILozk_ZCERO4ZJNq9hb3sYZqihJWMVf-5hLmBe_o
+id: host_multiple_delete_action
+label: 'Delete host(s)'
+type: host
+plugin: host_multiple_delete_action
+configuration: {  }

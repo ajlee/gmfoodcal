@@ -81,8 +81,8 @@ display:
           columnformatWeek: 'ddd M/D'
           columnformatDay: dddd
           theme: true
-          sameWindow: true
-          modalWindow: false
+          sameWindow: false
+          modalWindow: true
           contentHeight: 0
           editable: false
           fields:
@@ -322,7 +322,18 @@ display:
           granularity: second
       title: 'Home Page Calendar 2'
       header: {  }
-      footer: {  }
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<a href="/calendars">View Larger Calendar</a>'
+          plugin_id: text_custom
       empty: {  }
       relationships:
         field_event_dates:

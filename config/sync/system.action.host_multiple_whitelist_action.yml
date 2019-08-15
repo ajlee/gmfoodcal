@@ -1,0 +1,13 @@
+uuid: 3c07bf8c-dc80-46d9-a611-6ee70ef05e57
+langcode: en
+status: true
+dependencies:
+  module:
+    - httpbl
+_core:
+  default_config_hash: WGIbMmcBE7KUoAgJg3ggH0uLxKhN-7GQW-QNR5CLrBU
+id: host_multiple_whitelist_action
+label: 'White-list host(s)'
+type: host
+plugin: host_multiple_whitelist_action
+configuration: {  }

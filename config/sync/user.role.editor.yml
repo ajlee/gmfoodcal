@@ -93,6 +93,7 @@ permissions:
   - 'edit terms in calendars'
   - 'edit terms in tags'
   - 'moderate authorised events'
+  - 'profile is publicly visible'
   - 'reorder terms in calendars'
   - 'reorder terms in tags'
   - 'revert all revisions'

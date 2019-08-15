@@ -1,0 +1,13 @@
+uuid: 692bc296-c363-4b73-bdec-17c26f214f40
+langcode: en
+status: true
+dependencies:
+  module:
+    - httpbl
+_core:
+  default_config_hash: MZfmjajJwHiLi7lAY5DfrwB3kg6ul3YKv7i8nwxyHjE
+id: host_multiple_ban_action
+label: 'Blacklist and Ban host(s)'
+type: host
+plugin: host_multiple_ban_action
+configuration: {  }

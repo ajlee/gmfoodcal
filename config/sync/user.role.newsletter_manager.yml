@@ -7,6 +7,7 @@ label: 'Newsletter Manager'
 weight: 7
 is_admin: null
 permissions:
+  - 'profile is publicly visible'
   - 'send newsletter'
   - 'subscribe to newsletters'
   - 'view simplenews subscriptions'

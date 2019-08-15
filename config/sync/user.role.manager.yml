@@ -135,6 +135,7 @@ permissions:
   - 'masquerade as moderator'
   - 'masquerade as super user'
   - 'moderate authorised events'
+  - 'profile is publicly visible'
   - 'revert article revisions'
   - 'revert calendar revisions'
   - 'revert entity_browser_test revisions'

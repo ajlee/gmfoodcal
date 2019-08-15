@@ -13,7 +13,7 @@ _core:
 id: gmfoodtheme_tools
 theme: gmfoodtheme
 region: footer
-weight: -5
+weight: -4
 provider: null
 plugin: 'system_menu_block:tools'
 settings:
