@@ -9633,19 +9633,16 @@ a:hover {
   color: #aaff33;
 }
 
-@media only screen and (min-width: 0) and (max-width: 768px) {
-  .navbar {
-    text-align: center;
-    display: block !important;
-  }
-  .navbar > .container {
-    display: block !important;
-  }
+@media only screen and (min-width: 0) and (max-width: 767px) {
   .navbar .block--gmfoodtheme-branding {
-    width: 100%;
+    position: absolute;
+    right: 1rem;
+    top: 3px;
+    width: 50%;
   }
   .navbar .block--gmfoodtheme-branding img {
-    margin: auto !important;
+    width: 100%;
+    margin-left: 1rem;
   }
 }
 .navbar img {
@@ -9657,12 +9654,12 @@ a:hover {
 }
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .navbar div.sf-accordion-toggle.sf-style-white a {
-    background-color: #dee2e6;
+    background-color: #e9ecef;
     color: #164d22;
     border: 1px solid #adb5bd;
   }
   .navbar ul.sf-menu.sf-style-white li {
-    background-color: #dee2e6;
+    background-color: #e9ecef;
     color: #164d22;
   }
 }

@@ -7,7 +7,7 @@ gmfood_general.teaser:
    _permission: 'view content'
 
 gmfood_general.calendars_page:
- path: '/calendars'
+ url: 'internal:#nolink'
  defaults:
    _title: 'Calendars'
  requirements:

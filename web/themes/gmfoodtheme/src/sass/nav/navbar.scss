@@ -1,17 +1,16 @@
 .navbar {
   // bug fix for strange layout on mobile with flex
-  @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: map-get($grid-breakpoints, 'md')) {
-    text-align: center;
-    display: block !important;
+  @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: map-get($grid-breakpoints, 'md')-1) {
 
-    > .container {
-      display: block !important;
-    }
     .block--gmfoodtheme-branding {
-      width:100%;
+      position: absolute;
+      right:$spacer;
+      top:3px;
+      width: 50%;
 
       img {
-        margin: auto !important;
+        width: 100%;
+        margin-left: $spacer;
       }
     }
   }
@@ -28,12 +27,12 @@
 
   @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: map-get($grid-breakpoints, 'md')-1) {
     div.sf-accordion-toggle.sf-style-white a {
-      background-color: $gray-300;
+      background-color: $gray-200;
       color:$primary;
       border:1px solid $gray-500;
     }
     ul.sf-menu.sf-style-white li {
-      background-color: $gray-300;
+      background-color: $gray-200;
       color:$primary;
     }
   }
