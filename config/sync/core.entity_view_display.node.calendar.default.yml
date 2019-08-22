@@ -5,13 +5,11 @@ dependencies:
   config:
     - field.field.node.calendar.field_calendar_description
     - field.field.node.calendar.field_calendar_serial
-    - field.field.node.calendar.field_colour
     - field.field.node.calendar.field_moderator
     - node.type.calendar
     - system.menu.public-sidebar-links
     - views.view.single_calendar_view
   module:
-    - color_field
     - layout_builder
     - layout_discovery
     - radix_layouts
@@ -138,15 +136,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: serial_default_formatter
-    region: content
-  field_colour:
-    weight: 104
-    label: above
-    settings:
-      format: hex
-      opacity: '1'
-    third_party_settings: {  }
-    type: color_field_formatter_text
     region: content
   field_moderator:
     weight: 102

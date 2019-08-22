@@ -90,6 +90,7 @@ content:
 hidden:
   field_about_me: true
   field_first_name: true
+  field_hidden_account: true
   field_surname: true
   langcode: true
   masquerade: true

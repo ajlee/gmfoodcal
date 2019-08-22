@@ -23,7 +23,17 @@ third_party_settings:
       -
         layout_id: layout_onecol
         layout_settings: {  }
-        components: {  }
+        components:
+          c039b6e6-cc35-43d4-8fd8-855c0a2fb7ed:
+            uuid: c039b6e6-cc35-43d4-8fd8-855c0a2fb7ed
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:simplenews_issue:read_more'
+            additional: {  }
+            weight: 0
         third_party_settings: {  }
 _core:
   default_config_hash: k7huXut68pdao0qGHWeETfwtQudI0SZ260TyVyGTOFg
@@ -31,9 +41,16 @@ id: node.simplenews_issue.email_html
 targetEntityType: node
 bundle: simplenews_issue
 mode: email_html
-content: {  }
+content:
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_events: true
+  field_newsletter_footer: true
+  field_newsletter_intro: true
   field_test: true
   langcode: true
   links: true

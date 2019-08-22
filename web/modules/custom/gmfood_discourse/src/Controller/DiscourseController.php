@@ -3,7 +3,8 @@
 namespace richp10\discourseAPI;
 namespace Drupal\gmfood_discourse\Controller;
 
-require_once "/var/www/drupal8/web/modules/custom/gmfood_discourse/vendor/discourse_api/src/DiscourseAPI.php";
+//\Drupal::logger('my_module')->notice(getcwd());
+require_once DRUPAL_ROOT . "/modules/custom/gmfood_discourse/vendor/discourse_api/src/DiscourseAPI.php";
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\NodeInterface;

@@ -5,19 +5,15 @@ dependencies:
   config:
     - field.field.node.event.field_address
     - field.field.node.event.field_calendar
-    - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
-    - field.field.node.event.field_duration
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
-    - field.field.node.event.field_start_date
     - node.type.event
   module:
-    - duration_field
     - field_group
     - field_layout
     - geolocation
@@ -64,12 +60,6 @@ content:
     third_party_settings: {  }
     type: options_select
     region: content
-  field_category:
-    weight: 7
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_contact_email:
     weight: 3
     settings:
@@ -84,13 +74,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
-    region: content
-  field_duration:
-    weight: 9
-    settings:
-      duration: ''
-    third_party_settings: {  }
-    type: duration_widget
     region: content
   field_event_dates:
     weight: 10
@@ -172,7 +155,6 @@ content:
 hidden:
   created: true
   field_date: true
-  field_start_date: true
   langcode: true
   promote: true
   status: true

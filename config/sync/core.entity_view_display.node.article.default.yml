@@ -47,6 +47,16 @@ third_party_settings:
                 label: hidden
             additional: {  }
             weight: 0
+          291913b8-b823-454f-ac47-0b86cc40b927:
+            uuid: 291913b8-b823-454f-ac47-0b86cc40b927
+            region: sidebar
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:article:read_more'
+            additional: {  }
+            weight: 0
         third_party_settings: {  }
       -
         layout_id: layout_onecol
@@ -157,5 +167,10 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: sidebar
 hidden:
   langcode: true
