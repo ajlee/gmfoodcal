@@ -1,11 +1,14 @@
+.block {
+  margin:$spacer 0;
+}
+
 .block--gmfoodtheme-page-title h1 {
   @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: map-get($grid-breakpoints, 'sm')) {
     font-size: 10vw;
   }
 }
 
-
-
+// popups modal box styling
 .ui-dialog[role='dialog'] {
   width: 50% !important;
 

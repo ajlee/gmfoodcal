@@ -13,19 +13,8 @@
         margin-left: $spacer;
       }
     }
-  }
 
-  // max image size
-  img {
-    max-width:300px;
-    border:3px solid $gray-200;
-  }
-  // override superfish menu colour
-  ul.sf-menu.sf-style-white a {
-    color: $primary;
-  }
-
-  @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: map-get($grid-breakpoints, 'md')-1) {
+    // colour for mobile menus
     div.sf-accordion-toggle.sf-style-white a {
       background-color: $gray-200;
       color:$primary;
@@ -36,9 +25,24 @@
       color:$primary;
     }
   }
+
+  // on ipad, always show the menu
   @media only screen and (min-width: map-get($grid-breakpoints, 'md')) and (max-width: map-get($grid-breakpoints, 'lg')) {
     .sf-menu {
       display:flex !important;
+    }
+  }
+
+
+  // max image logo size
+  img {
+    max-width:300px;
+    border:3px solid $gray-200;
+  }
+  // override superfish menu colour
+  ul.sf-menu.sf-style-white {
+    a, span.nolink {
+      color: $primary;
     }
   }
 }
