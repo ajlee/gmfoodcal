@@ -306,3 +306,66 @@ function get_moderators_from_event(Node $node) {
 
 
 
+/**
+ * Implements hook_entity_view_mode_alter().
+ */
+/*
+function gmfood_general_preprocess_page(&$variables) {
+ // kint($variables['node']);
+
+
+    // Get the current URL and cut in parts you can later check more easily.
+    $current_uri = \Drupal::request()->getRequestUri(); // '/url/node1/rss'
+    //$current_uri = ltrim($current_uri, '/'); // 'url/node1/rss'
+
+    // RIGHT TRIM
+    $url_array = explode('/', $current_uri); // array [ url, node1, rss ]
+    $last_part = array_pop($url_array); // rss
+
+    // is the last part of the URL rss, ical or json
+    if (in_array($last_part, array('rss', 'ical', 'json'))){
+
+      $url_alias = implode('/', $url_array); // 'url/node1'
+      $langcode = 'en';
+
+      // does url/node1 match some content
+      //kint($current_uri);
+      //kint($url_alias);
+      $system_path = \Drupal::service('path.alias_manager')->getPathByAlias($url_alias, $langcode);
+
+      kint($system_path);
+      // change to node?
+      $new_url = Url::fromUri("internal:" . $system_path);
+      kint($new_url);
+
+      // is it a node url?
+      // if not it will trigger an exception and will run the catch () section
+      try {
+        // is it a node url
+        if($new_url->getRouteName() == 'entity.node.canonical') {
+          $node_id = $new_url->getRouteParameters('node');
+          $parent_node = \Node::Load($node_id);
+          $parent_type = $parent_node->getType();
+          if($parent_type == 'calendar') {
+
+          }
+        }
+      }
+      catch(Exception $e) {
+        kint('catch');
+      }
+      //$params = $new_url->getRouteParameters();
+
+      //$entity_type = key($params);
+      //$node = \Drupal::entityTypeManager()->getStorage($entity_type)->load($params[$entity_type]);
+      //kint($params);
+
+       $path_matches = \Drupal::service('path.matcher')->matchPath($path, $patterns);
+      // Check URL to match a certain pattern, and switch the view mode.
+      if ($arg[0] === 'url' && $arg[1] === 'alias2' && $arg[2] === 'path') {
+        $view_mode = 'teaser';
+      }
+    }
+
+}
+*/

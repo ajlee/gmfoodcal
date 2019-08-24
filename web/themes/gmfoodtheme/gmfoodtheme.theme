@@ -147,7 +147,7 @@ function gmfoodtheme_preprocess_menu(&$variables) {
  */
 function gmfoodtheme_preprocess_page_title(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
-  if(!empty($node) && $node->hasField('field_page_heading')) {
+  if(!empty($node) && is_object($node) && $node->hasField('field_page_heading')) {
     if(!$node->get('field_page_heading')->isEmpty()){
       $subtitle = $node->get('field_page_heading')[0]->value;
       $variables['subtitle'] = $subtitle;
