@@ -107,6 +107,16 @@ third_party_settings:
                 type: basic_string
             additional: {  }
             weight: 7
+          cbf2cec0-f391-41c8-81c5-93456552cc12:
+            uuid: cbf2cec0-f391-41c8-81c5-93456552cc12
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'extra_field_block:node:event:read_more'
+            additional: {  }
+            weight: 8
         third_party_settings: {  }
 id: node.event.email_textalt
 targetEntityType: node
@@ -152,10 +162,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_address: true
   field_calendar: true
   field_date: true
+  field_duration: true
+  field_event_dates: true
+  field_event_description: true
   field_geolocation: true
   field_start_date: true
   langcode: true

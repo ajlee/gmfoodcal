@@ -56,12 +56,18 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_calendar: true
   field_category: true
   field_contact_email: true
   field_contact_phone: true
   field_date: true
+  field_duration: true
   field_geolocation: true
   field_more_information_link: true
   field_start_date: true

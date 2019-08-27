@@ -31,10 +31,12 @@ function gmfoodtheme_preprocess_html(&$variables) {
 
   // add body classes for view pages
   $view_id = \Drupal::routeMatch()->getParameter('view_id');
+  if(!empty($view_id)) {
   $view = \Drupal\views\Views::getView($view_id);
-  if (!empty($view_id)) {
-   $variables['attributes']['class'][] = 'views-' . $view_id;
-   $variables['attributes']['class'][] = 'view-page';
+    if (!empty($view_id)) {
+     $variables['attributes']['class'][] = 'views-' . $view_id;
+     $variables['attributes']['class'][] = 'view-page';
+    }
   }
 }
 

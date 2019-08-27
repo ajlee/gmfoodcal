@@ -32,7 +32,7 @@ bundle: event
 mode: event_date_newsletter_standard_view
 content:
   field_address:
-    type: text_box_plain_formatter
+    type: basic_string
     weight: 1
     region: content
     label: above
@@ -79,10 +79,16 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_calendar: true
   field_category: true
   field_date: true
+  field_duration: true
   field_event_dates: true
   field_start_date: true
   langcode: true

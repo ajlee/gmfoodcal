@@ -70,5 +70,10 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   langcode: true

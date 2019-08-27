@@ -129,5 +129,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_duration: true
   field_start_date: true
   langcode: true

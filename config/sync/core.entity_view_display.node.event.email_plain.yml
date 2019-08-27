@@ -96,9 +96,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_calendar: true
   field_date: true
+  field_duration: true
   field_event_dates: true
   field_start_date: true
   langcode: true

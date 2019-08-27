@@ -70,10 +70,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  read_more:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_address: true
   field_calendar: true
   field_date: true
+  field_duration: true
+  field_event_dates: true
+  field_event_description: true
   field_geolocation: true
   field_start_date: true
   langcode: true

@@ -67,6 +67,7 @@ hidden:
   field_contact_email: true
   field_contact_phone: true
   field_date: true
+  field_duration: true
   field_geolocation: true
   field_more_information_link: true
   field_start_date: true
