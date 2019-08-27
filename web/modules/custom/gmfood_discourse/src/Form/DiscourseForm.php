@@ -8,7 +8,7 @@ namespace Drupal\gmfood_discourse\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
-require_once "/var/www/drupal8/web/modules/custom/gmfood_discourse/vendor/discourse_api/src/DiscourseAPI.php";
+require_once DRUPAL_ROOT . "/modules/custom/gmfood_discourse/vendor/discourse_api/src/DiscourseAPI.php";
 
 
 class DiscourseForm extends FormBase {
