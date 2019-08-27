@@ -13,15 +13,11 @@ dependencies:
     - field.field.user.user.field_public_name
     - field.field.user.user.field_surname
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
     - field_group
     - field_layout
-    - image
     - layout_discovery
-    - link
     - path
-    - telephone
     - user
 third_party_settings:
   field_layout:
@@ -52,7 +48,7 @@ third_party_settings:
         - field_organisation_name
         - field_link_to_organisation
       parent_name: ''
-      weight: 20
+      weight: 7
       format_type: fieldset
       format_settings:
         id: moderator
@@ -76,22 +72,6 @@ content:
   contact:
     weight: 5
     region: content
-  field_about_me:
-    weight: 39
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_contact_email:
-    weight: 41
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
   field_first_name:
     weight: 36
     settings:
@@ -106,37 +86,6 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
-    region: content
-  field_link_to_organisation:
-    weight: 44
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_organisation_name:
-    weight: 43
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_phone:
-    weight: 42
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
-    region: content
-  field_public_name:
-    weight: 38
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
     region: content
   field_surname:
     weight: 37
@@ -157,16 +106,15 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  user_picture:
-    type: image_image
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-    weight: 40
-    region: content
 hidden:
+  field_about_me: true
+  field_contact_email: true
+  field_link_to_organisation: true
+  field_organisation_name: true
+  field_phone: true
+  field_public_name: true
   google_analytics: true
   langcode: true
   language: true
   timezone: true
+  user_picture: true

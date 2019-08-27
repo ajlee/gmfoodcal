@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.node.event_date_backreference
     - field.field.node.event.field_address
     - field.field.node.event.field_calendar
-    - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
@@ -14,7 +13,6 @@ dependencies:
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
-    - field.field.node.event.field_start_date
     - node.type.event
   module:
     - layout_builder
@@ -63,12 +61,10 @@ content:
     region: content
 hidden:
   field_calendar: true
-  field_category: true
   field_contact_email: true
   field_contact_phone: true
   field_date: true
   field_duration: true
   field_geolocation: true
   field_more_information_link: true
-  field_start_date: true
   langcode: true
