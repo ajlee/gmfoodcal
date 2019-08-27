@@ -1,0 +1,43 @@
+// formatting for view pages
+.view-page {
+  .views-row--unformatted {
+
+    padding: $spacer $spacer*2;
+
+    &.views-row:nth-child(2n+1) {
+
+        background-color: #ded;
+
+    }
+    &.views-row:nth-child(2n) {
+
+        background-color: #efe;
+
+    }
+
+    .views-field-title {
+      @extend h3;
+    }
+    .views-field-view-node {
+      font-weight: $font-weight-bold;
+    }
+  }
+}
+
+.block {
+  .views-field-title {
+   font-weight: $font-weight-bold;
+  }
+  .views-row {
+    margin: $spacer/4 0 0 0;
+    padding: $spacer/2 0;
+    border-top: 1px solid $gray-200;
+  }
+  .more-link {
+    margin: $spacer/4 0 $spacer*2 0;
+    padding: $spacer/2 0;
+    border-top: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200;
+    font-weight: $font-weight-bold;
+  }
+}

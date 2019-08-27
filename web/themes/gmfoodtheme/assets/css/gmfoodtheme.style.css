@@ -36,13 +36,15 @@ img {
 
   p,
 h2,
-h3 {
+h3,
+.view-page .views-row--unformatted .views-field-title {
     orphans: 3;
     widows: 3;
   }
 
   h2,
-h3 {
+h3,
+.view-page .views-row--unformatted .views-field-title {
     page-break-after: avoid;
   }
 
@@ -131,7 +133,7 @@ hr {
   overflow: visible;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, .view-page .views-row--unformatted .views-field-title, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
@@ -414,7 +416,7 @@ template {
   display: none !important;
 }
 
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3, .view-page .views-row--unformatted .views-field-title, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-weight: 500;
@@ -429,7 +431,7 @@ h2, .h2 {
   font-size: 2rem;
 }
 
-h3, .h3 {
+h3, .view-page .views-row--unformatted .views-field-title, .h3 {
   font-size: 1.75rem;
 }
 
@@ -9589,7 +9591,7 @@ body {
   background-color: #f1f5f8;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, .view-page .views-row--unformatted .views-field-title, h4, h5, h6 {
   color: #164d22;
   font-weight: strong;
 }
@@ -9598,7 +9600,7 @@ h1 {
   text-transform: uppercase;
 }
 
-h2, h3, h4, h5, h6 {
+h2, h3, .view-page .views-row--unformatted .views-field-title, h4, h5, h6 {
   font-variant: small-caps;
 }
 
@@ -9644,15 +9646,6 @@ a:hover {
     width: 100%;
     margin-left: 1rem;
   }
-}
-.navbar img {
-  max-width: 300px;
-  border: 3px solid #e9ecef;
-}
-.navbar ul.sf-menu.sf-style-white a {
-  color: #164d22;
-}
-@media only screen and (min-width: 0) and (max-width: 767px) {
   .navbar div.sf-accordion-toggle.sf-style-white a {
     background-color: #e9ecef;
     color: #164d22;
@@ -9667,6 +9660,13 @@ a:hover {
   .navbar .sf-menu {
     display: flex !important;
   }
+}
+.navbar img {
+  max-width: 300px;
+  border: 3px solid #e9ecef;
+}
+.navbar ul.sf-menu.sf-style-white a, .navbar ul.sf-menu.sf-style-white span.nolink {
+  color: #164d22;
 }
 
 /*
@@ -9746,6 +9746,10 @@ div[data-drupal-selector=edit-field-layout] {
 .field--type-duration .form-item {
   display: inline-block;
   margin-right: 1rem;
+}
+
+.block {
+  margin: 1rem 0;
 }
 
 @media only screen and (min-width: 0) and (max-width: 576px) {
@@ -9907,4 +9911,33 @@ div[data-drupal-selector=edit-field-layout] {
   margin: 1rem 0;
   display: inline-block;
   color: #fff;
+}
+
+.view-page .views-row--unformatted {
+  padding: 1rem 2rem;
+}
+.view-page .views-row--unformatted.views-row:nth-child(2n+1) {
+  background-color: #ded;
+}
+.view-page .views-row--unformatted.views-row:nth-child(2n) {
+  background-color: #efe;
+}
+.view-page .views-row--unformatted .views-field-view-node {
+  font-weight: 700;
+}
+
+.block .views-field-title {
+  font-weight: 700;
+}
+.block .views-row {
+  margin: 0.25rem 0 0 0;
+  padding: 0.5rem 0;
+  border-top: 1px solid #e9ecef;
+}
+.block .more-link {
+  margin: 0.25rem 0 2rem 0;
+  padding: 0.5rem 0;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+  font-weight: 700;
 }

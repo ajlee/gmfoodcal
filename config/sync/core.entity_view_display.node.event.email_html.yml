@@ -6,13 +6,13 @@ dependencies:
     - core.entity_view_mode.node.email_html
     - field.field.node.event.field_address
     - field.field.node.event.field_calendar
+    - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
-    - field.field.node.event.field_event_dates
-    - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_start_date
     - node.type.event
   module:
     - field_layout
@@ -93,8 +93,8 @@ third_party_settings:
                 type: telephone_link
             additional: {  }
             weight: 6
-          822f2ec6-7da7-4b6f-a1a2-ca76ccf8f983:
-            uuid: 822f2ec6-7da7-4b6f-a1a2-ca76ccf8f983
+          b39f619a-7082-472d-879e-0df84da44dde:
+            uuid: b39f619a-7082-472d-879e-0df84da44dde
             region: content
             configuration:
               label_display: '0'
@@ -149,8 +149,11 @@ content:
 hidden:
   field_address: true
   field_calendar: true
+  field_category: true
   field_date: true
+  field_duration: true
   field_event_dates: true
   field_event_description: true
   field_geolocation: true
+  field_start_date: true
   langcode: true

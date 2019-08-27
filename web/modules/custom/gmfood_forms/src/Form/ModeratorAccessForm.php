@@ -48,8 +48,17 @@ class ModeratorAccessForm extends FormBase {
       $user_picture = !$user->user_picture->isEmpty();
       $field_about_me = !$user->field_about_me->isEmpty();
       $field_public_name = !$user->field_public_name->isEmpty();
-      $user_phone = $user->get('field_phone')[0]->getValue();
-      $user_public_email = $user->get('field_contact_email')[0]->getValue();
+      $field_public_email_set = !$user->field_contact_email->isEmpty();
+      $field_phone_set = !$user->field_phone->isEmpty();
+
+      $user_phone = null;
+      if($field_public_email_set) {
+        $user_phone = $user->get('field_phone')[0]->getValue();
+      }
+      $user_public_email = null;
+      if ($field_phone_set) {
+        $user_public_email = $user->get('field_contact_email')[0]->getValue();
+      }
       $user_private_email = $user->getEmail();
 
       // get account link to edit profile

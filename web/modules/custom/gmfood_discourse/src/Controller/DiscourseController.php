@@ -3,7 +3,6 @@
 namespace richp10\discourseAPI;
 namespace Drupal\gmfood_discourse\Controller;
 
-//\Drupal::logger('my_module')->notice(getcwd());
 require_once DRUPAL_ROOT . "/modules/custom/gmfood_discourse/vendor/discourse_api/src/DiscourseAPI.php";
 
 use Drupal\Core\Controller\ControllerBase;
@@ -11,7 +10,8 @@ use Drupal\node\NodeInterface;
 use Drupal\Core\Access\AccessResult;
 
 /**
- * An example controller.
+ * An controller for Discourse
+ * displays a form for discourse pages and checks permissions to view it
  */
 class DiscourseController extends ControllerBase {
   private $discourseApiKey = null;
@@ -37,8 +37,6 @@ class DiscourseController extends ControllerBase {
     $nodehtml = null;
     $titlehtml = null;
     $type = $node->getType();
-
-    kint ($type);
 
     // Preprocessing newsletters
     if ($type == "simplenews_issue") {

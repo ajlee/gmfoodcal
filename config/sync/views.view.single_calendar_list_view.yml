@@ -1,17 +1,18 @@
-uuid: 2ae3be38-08f1-4353-8eee-dce0432f00e3
+uuid: 707a9d72-d16c-4726-a024-7bc5c9043cb0
 langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_address
+    - field.storage.node.field_event_description
     - field.storage.node.field_inline_event_date
     - node.type.event
   module:
     - datetime
-    - fullcalendar
     - node
     - user
-id: single_calendar_view
-label: 'Single Calendar View'
+id: single_calendar_list_view
+label: 'Single Calendar List View'
 module: views
 description: ''
 tag: ''
@@ -55,56 +56,7 @@ display:
         options:
           offset: 0
       style:
-        type: fullcalendar
-        options:
-          display:
-            defaultView: month
-            firstDay: '1'
-            weekMode: fixed
-          times:
-            default_date: false
-            date: ''
-          left: 'prev,next'
-          center: title
-          right: today
-          timeformat: 'h:mm'
-          advanced: false
-          slotLabelFormat: 'h(:mm)a'
-          timeformatMonth: 'h:mm'
-          timeformatWeek: 'h:mm'
-          timeformatDay: 'h:mm'
-          titleformatMonth: 'MMMM YYYY'
-          titleformatWeek: 'MMM D YYYY'
-          titleformatDay: 'MMMM D YYYY'
-          columnformatMonth: ddd
-          columnformatWeek: 'ddd M/D'
-          columnformatDay: dddd
-          theme: true
-          sameWindow: false
-          modalWindow: false
-          contentHeight: 0
-          editable: false
-          fields:
-            title: false
-            title_field: title
-            url: false
-            url_field: title
-            date: false
-            date_field: {  }
-          fullcalendar_options:
-            firstHour: 6
-            minTime: 0
-            maxTime: 24
-            slotMinutes: 30
-            defaultEventMinutes: 120
-            allDaySlot: true
-            weekends: true
-            lazyFetching: true
-            disableDragging: false
-            disableResizing: false
-            dragRevertDuration: 500
-            dayClick: false
-            dayClickView: agendaWeek
+        type: default
       row:
         type: fields
       fields:
@@ -235,18 +187,18 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        view_node:
-          id: view_node
-          table: node_field_revision
-          field: view_node
+        field_address:
+          id: field_address
+          table: node__field_address
+          field: field_address
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: '<a href="{{ view_node }}/teaser">View</a>'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -278,16 +230,88 @@ display:
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: false
+          element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: view
-          output_url_as_text: false
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_event_description:
+          id: field_event_description
+          table: node__field_event_description
+          field: field_event_description
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -340,6 +364,49 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
+        field_inline_event_date_value:
+          id: field_inline_event_date_value
+          table: node__field_inline_event_date
+          field: field_inline_event_date_value
+          relationship: field_event_dates
+          group_type: group
+          admin_label: ''
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: today
+            type: offset
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: datetime
       sorts:
         created:
           id: created
@@ -428,11 +495,13 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
+        - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_event_description'
         - 'config:field.storage.node.field_inline_event_date'
-  block_1:
+  single_cal_test2:
     display_plugin: block
-    id: block_1
-    display_title: Block
+    id: single_cal_test2
+    display_title: 'List Block'
     position: 2
     display_options:
       display_extenders: {  }
@@ -475,287 +544,38 @@ display:
           plugin_id: node_nid
       defaults:
         arguments: false
-        style: false
-        row: false
-      style:
-        type: fullcalendar
-        options:
-          display:
-            defaultView: month
-            firstDay: '0'
-            weekMode: fixed
-          times:
-            default_date: false
-            date: ''
-          left: 'today prev,next'
-          center: title
-          right: 'month agendaWeek agendaDay'
-          timeformat: 'h:mm'
-          advanced: false
-          slotLabelFormat: 'h(:mm)a'
-          timeformatMonth: 'h:mm'
-          timeformatWeek: 'h:mm'
-          timeformatDay: 'h:mm'
-          titleformatMonth: 'MMMM YYYY'
-          titleformatWeek: 'MMM D YYYY'
-          titleformatDay: 'MMMM D YYYY'
-          columnformatMonth: ddd
-          columnformatWeek: 'ddd M/D'
-          columnformatDay: dddd
-          theme: true
-          sameWindow: false
-          modalWindow: false
-          contentHeight: 0
-          editable: false
-          fields:
-            title: false
-            title_field: title
-            url: false
-            url_field: title
-            date: false
-            date_field: {  }
-          fullcalendar_options:
-            firstHour: 6
-            minTime: 0
-            maxTime: 24
-            slotMinutes: 30
-            defaultEventMinutes: 120
-            allDaySlot: true
-            weekends: true
-            lazyFetching: true
-            disableDragging: false
-            disableResizing: false
-            dragRevertDuration: 500
-            dayClick: false
-            dayClickView: agendaWeek
-      row:
-        type: fields
-        options: {  }
-      enabled: false
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_inline_event_date'
-  block_list:
-    display_plugin: block
-    id: block_list
-    display_title: 'Single Calendar View Block'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      arguments:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: field_calendar
-          group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: true
-          title: '{{ raw_arguments.nid }} | {{ arguments.nid }}'
-          default_argument_type: node
-          default_argument_options: {  }
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          break_phrase: false
-          not: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: node_nid
-      defaults:
-        arguments: false
-        style: false
-        row: false
+        pager: false
+        use_ajax: false
       display_description: ''
-      style:
-        type: default
+      pager:
+        type: mini
         options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-      row:
-        type: fields
-        options: {  }
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: ‹‹
+            next: ››
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_inline_event_date'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 5
-    display_options:
-      display_extenders: {  }
-      path: page/iframe
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_inline_event_date'
-  single_calendar:
-    display_plugin: block
-    id: single_calendar
-    display_title: Block
-    position: 1
-    display_options:
-      display_extenders: {  }
-      enabled: false
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.field_inline_event_date'
-  single_calendar_view_block:
-    display_plugin: block
-    id: single_calendar_view_block
-    display_title: 'Single Calendar View Block'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      arguments:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: field_calendar
-          group_type: group
-          admin_label: ''
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: true
-          title: '{{ raw_arguments.nid }} | {{ arguments.nid }}'
-          default_argument_type: node
-          default_argument_options: {  }
-          default_argument_skip_url: false
-          summary_options:
-            base_path: ''
-            count: true
-            items_per_page: 25
-            override: false
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          break_phrase: false
-          not: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: node_nid
-      defaults:
-        arguments: false
-        style: false
-        row: false
-      display_description: ''
-      style:
-        type: fullcalendar
-        options:
-          display:
-            defaultView: month
-            firstDay: '1'
-            weekMode: fixed
-          times:
-            default_date: false
-            date: ''
-          left: 'prev,next'
-          center: title
-          right: today
-          timeformat: 'h:mm'
-          advanced: false
-          slotLabelFormat: 'h(:mm)a'
-          timeformatMonth: 'h:mm'
-          timeformatWeek: 'h:mm'
-          timeformatDay: 'h:mm'
-          titleformatMonth: 'MMMM YYYY'
-          titleformatWeek: 'MMM D YYYY'
-          titleformatDay: 'MMMM D YYYY'
-          columnformatMonth: ddd
-          columnformatWeek: 'ddd M/D'
-          columnformatDay: dddd
-          theme: true
-          sameWindow: false
-          modalWindow: true
-          contentHeight: 0
-          editable: false
-          fields:
-            title: false
-            title_field: title
-            url: false
-            url_field: title
-            date: false
-            date_field: {  }
-          fullcalendar_options:
-            firstHour: 6
-            minTime: 0
-            maxTime: 24
-            slotMinutes: 30
-            defaultEventMinutes: 120
-            allDaySlot: true
-            weekends: true
-            lazyFetching: true
-            disableDragging: true
-            disableResizing: true
-            dragRevertDuration: 500
-            dayClick: true
-            dayClickView: basicDay
-      row:
-        type: fields
-        options: {  }
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
+        - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_event_description'
         - 'config:field.storage.node.field_inline_event_date'

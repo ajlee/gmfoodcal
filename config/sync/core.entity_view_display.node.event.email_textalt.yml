@@ -6,13 +6,13 @@ dependencies:
     - core.entity_view_mode.node.email_textalt
     - field.field.node.event.field_address
     - field.field.node.event.field_calendar
+    - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
-    - field.field.node.event.field_event_dates
-    - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_start_date
     - node.type.event
   module:
     - field_layout
@@ -41,6 +41,22 @@ third_party_settings:
               id: 'extra_field_block:node:event:links'
             additional: {  }
             weight: 0
+          d9b46092-a9c2-408c-a088-0e3e7ed77dbd:
+            uuid: d9b46092-a9c2-408c-a088-0e3e7ed77dbd
+            region: content
+            configuration:
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              id: 'field_block:node:event:field_category'
+              formatter:
+                label: above
+                settings:
+                  link: true
+                third_party_settings: {  }
+                type: entity_reference_label
+            additional: {  }
+            weight: 4
           a415ec2f-a88c-4d55-9f5b-cdf5b362f68c:
             uuid: a415ec2f-a88c-4d55-9f5b-cdf5b362f68c
             region: content
@@ -91,8 +107,8 @@ third_party_settings:
                 type: basic_string
             additional: {  }
             weight: 7
-          4ace2f25-cd96-4591-8024-904e6588f228:
-            uuid: 4ace2f25-cd96-4591-8024-904e6588f228
+          cbf2cec0-f391-41c8-81c5-93456552cc12:
+            uuid: cbf2cec0-f391-41c8-81c5-93456552cc12
             region: content
             configuration:
               label_display: '0'
@@ -107,6 +123,14 @@ targetEntityType: node
 bundle: event
 mode: email_textalt
 content:
+  field_category:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_contact_email:
     weight: 105
     label: above
@@ -147,7 +171,9 @@ hidden:
   field_address: true
   field_calendar: true
   field_date: true
+  field_duration: true
   field_event_dates: true
   field_event_description: true
   field_geolocation: true
+  field_start_date: true
   langcode: true

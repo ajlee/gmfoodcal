@@ -49,8 +49,8 @@ third_party_settings:
               id: 'extra_field_block:node:page:links'
             additional: {  }
             weight: 1
-          6030cbb1-7181-45ba-9aac-77d0350caf5e:
-            uuid: 6030cbb1-7181-45ba-9aac-77d0350caf5e
+          7b1df14e-a17d-4b6f-b511-55756f87dc1d:
+            uuid: 7b1df14e-a17d-4b6f-b511-55756f87dc1d
             region: content
             configuration:
               label_display: '0'

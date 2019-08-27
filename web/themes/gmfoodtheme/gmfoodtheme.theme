@@ -13,6 +13,33 @@ foreach (glob($includes_path) as $filename) {
   require_once dirname(__FILE__) . '/includes/' . basename($filename);
 }
 
+
+/*
+ * extends theme_preprocess_html()
+ */
+function gmfoodtheme_preprocess_html(&$variables) {
+
+  // add node classes to the body
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if ($node instanceof NodeInterface) {
+    $variables['attributes']['class'][] = 'page-node-' . $node->getType();
+    $variables['attributes']['class'][] = 'page-node-' . $node->id();
+  }
+  else {
+    $variables['attributes']['class'][] = 'page-no-node';
+  }
+
+  // add body classes for view pages
+  $view_id = \Drupal::routeMatch()->getParameter('view_id');
+  if(!empty($view_id)) {
+  $view = \Drupal\views\Views::getView($view_id);
+    if (!empty($view_id)) {
+     $variables['attributes']['class'][] = 'views-' . $view_id;
+     $variables['attributes']['class'][] = 'view-page';
+    }
+  }
+}
+
 /*
  * extends theme_preprocess_node()
  */
@@ -81,8 +108,6 @@ function gmfoodtheme_preprocess_node(&$variables) {
             $variables['event_node'] = $html;
             $variables['event_node_title'] = $event_node->getTitle();
             $variables['event_node_edit_link'] = get_node_edit_link($event_node->id());
-            //kint($html);
-            //kint('zzz');
             break; // will take the first event node reference found
           }
         }
@@ -97,6 +122,14 @@ function gmfoodtheme_preprocess_node(&$variables) {
       $build = $view_builder->view($node, 'email_plain');
       $html = \Drupal::service('renderer')->renderPlain($build);
       $variables['plain_text_newsletter'] = $html;
+    }
+  }
+
+  // Preprocessing calendars
+  else if ($type == "calendar") {
+    if ($view_mode == 'full') {
+      $variables['json_link'] = 'http://myamanita.tklapp.com/calendar/14/feed?_format=json';
+      $variables['xml_link'] = 'http://myamanita.tklapp.com/calendar/14/feed?_format=xml';
     }
   }
 }
@@ -116,7 +149,7 @@ function gmfoodtheme_preprocess_menu(&$variables) {
  */
 function gmfoodtheme_preprocess_page_title(&$variables) {
   $node = \Drupal::request()->attributes->get('node');
-  if(!empty($node) && $node->hasField('field_page_heading')) {
+  if(!empty($node) && is_object($node) && $node->hasField('field_page_heading')) {
     if(!$node->get('field_page_heading')->isEmpty()){
       $subtitle = $node->get('field_page_heading')[0]->value;
       $variables['subtitle'] = $subtitle;
@@ -174,6 +207,22 @@ function gmfoodtheme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $fo
   }
 }
 
+
+/*
+ * extends hook_theme_suggestions_page_alter
+ * set template for iframe pages
+ */
+function gmfoodtheme_theme_suggestions_page_alter(&$suggestions, array $variables) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
+
+  kint($result);
+  $iframe_page = '/page/iframe';
+  if($result == $iframe_page) {
+    $suggestions[] = array('iframe');
+  }
+}
+
 /*
  * add more template suggestions for input fields
  */
@@ -204,3 +253,56 @@ function gmfoodtheme_theme_suggestions_container_alter(&$suggestions, array $var
     $suggestions[] = 'container__' . $element['children']['#type'];
   }
 }
+
+/*
+ * Impements hook_preprocess_views_view_fields
+ */
+function gmfoodtheme_preprocess_views_view_fields (&$variables) {
+  $view_id = $variables['view']->id();
+  $display = $variables['view']->current_display;
+
+ // custom vars for the "recently added events" view
+ if(in_array($view_id, array('recently_added_events'))) {
+    $event_node = $variables['row']->_entity;
+    $event_dates = $event_node->get('field_event_dates');
+
+    // display dates differently on the block and on the page
+    // block view
+    if (strstr($display, 'block') !== FALSE) {
+      // get the date field
+      $event_date_detail = $event_dates[0]->entity->get('field_inline_event_date');
+      // get a string
+      $event_date_value = $event_date_detail[0]->date->format('d/m/Y H:i');
+      // count the dates and use this info on twig template
+      $no_of_dates = count($event_dates);
+      $variables['no_of_dates'] = $no_of_dates;
+      $variables['first_date_formatted'] = $event_date_value;
+    }
+    // page view
+    else {
+      $date_array = array();
+      // get each date
+      foreach ($event_dates as $key => $event_date) {
+        $event_date_detail = $event_date->entity->get('field_inline_event_date');
+        $date = $event_date_detail->date;
+        if(!empty($date)) {
+          // add date to the array
+          $date_array[] = $date->format('l H:i d/m/Y');
+        }
+      }
+      // turn array into a string
+      $date_string = implode(', ', $date_array);
+      // pass to twig template
+      $variables['date_string'] = $date_string;
+    }
+  }
+}
+
+/*
+ * uses hook theme_fullcalendar_event from fullcalendar module
+ *
+ */
+/* function gmfoodtheme_fullcalendar_event(&$variables) {
+  //kint('event');
+}
+*/

@@ -12,3 +12,40 @@ gmfood_general.calendars_page:
    _title: 'Calendars'
  requirements:
    _access: 'TRUE'
+
+gmfood_general.rest_single_calendar:
+  path: '/calendar/{node}/xml'
+  defaults:
+    _controller: '\Drupal\gmfood_general\Controller\RestFeedsController::displayXml'
+    _title: 'XML Feed'
+  requirements:
+   _custom_access: 'Drupal\gmfood_general\Controller\RestFeedsController::checkAccess'
+  options:
+    parameters:
+      node1:
+        type: entity:node
+
+
+gmfood_general.rest_event_ical_1:
+  path: '/event/{node}/ical'
+  defaults:
+    _controller: '\Drupal\gmfood_general\Controller\RestFeedsController::displayICal'
+    _title: 'iCal display'
+  requirements:
+    _custom_access: 'Drupal\gmfood_general\Controller\RestFeedsController::checkAccess'
+
+gmfood_general.rest_event_ical_2:
+  path: '/event/{node1}/{node2}/ical'
+  defaults:
+    _controller: '\Drupal\gmfood_general\Controller\RestFeedsController::displayICal'
+    _title: 'ical display'
+  requirements:
+    _custom_access: 'Drupal\gmfood_general\Controller\RestFeedsController::checkAccess'
+
+gmfood_general.rest_event_ical_3:
+  path: '/node/{node}/ical'
+  defaults:
+    _controller: '\Drupal\gmfood_general\Controller\RestFeedsController::displayICal'
+    _title: 'iCal display'
+  requirements:
+    _custom_access: 'Drupal\gmfood_general\Controller\RestFeedsController::checkAccess'
