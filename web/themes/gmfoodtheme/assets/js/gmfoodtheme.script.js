@@ -17588,8 +17588,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/drupal8/web/themes/gmfoodtheme/src/js/gmfoodtheme.script.js */"./src/js/gmfoodtheme.script.js");
-module.exports = __webpack_require__(/*! /var/www/drupal8/web/themes/gmfoodtheme/src/sass/gmfoodtheme.style.scss */"./src/sass/gmfoodtheme.style.scss");
+__webpack_require__(/*! /home/gmfoodforum/sites/dev/web/themes/gmfoodtheme/src/js/gmfoodtheme.script.js */"./src/js/gmfoodtheme.script.js");
+module.exports = __webpack_require__(/*! /home/gmfoodforum/sites/dev/web/themes/gmfoodtheme/src/sass/gmfoodtheme.style.scss */"./src/sass/gmfoodtheme.style.scss");
 
 
 /***/ })
