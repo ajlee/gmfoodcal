@@ -9,14 +9,14 @@ label: Events
 type: 'canonical_entities:node'
 pattern: 'event/[node:field_event_dates:0:entity:title]/'
 selection_criteria:
-  a5406c9b-45ba-4f79-a17e-ce4b5e01c61c:
+  2e268cad-c9dd-44f7-999a-f88dff98dbbf:
     id: node_type
     bundles:
       event: event
     negate: false
     context_mapping:
       node: node
-    uuid: a5406c9b-45ba-4f79-a17e-ce4b5e01c61c
+    uuid: 2e268cad-c9dd-44f7-999a-f88dff98dbbf
 selection_logic: and
-weight: -8
+weight: -10
 relationships: {  }

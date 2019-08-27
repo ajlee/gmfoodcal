@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.event_date_newsletter_standard_view
     - field.field.node.event.field_address
     - field.field.node.event.field_calendar
+    - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
@@ -13,6 +14,7 @@ dependencies:
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_start_date
     - node.type.event
   module:
     - gmfood_general
@@ -30,7 +32,7 @@ bundle: event
 mode: event_date_newsletter_standard_view
 content:
   field_address:
-    type: basic_string
+    type: text_box_plain_formatter
     weight: 1
     region: content
     label: above
@@ -77,14 +79,11 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-  read_more:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
   field_calendar: true
+  field_category: true
   field_date: true
   field_event_dates: true
+  field_start_date: true
   langcode: true
   links: true

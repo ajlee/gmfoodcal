@@ -5,11 +5,14 @@ dependencies:
   config:
     - field.field.node.calendar.field_calendar_description
     - field.field.node.calendar.field_calendar_serial
+    - field.field.node.calendar.field_colour
     - field.field.node.calendar.field_moderator
     - node.type.calendar
     - system.menu.public-sidebar-links
+    - views.view.single_calendar_list_view
     - views.view.single_calendar_view
   module:
+    - color_field
     - layout_builder
     - layout_discovery
     - radix_layouts
@@ -117,6 +120,19 @@ third_party_settings:
               context_mapping: {  }
             additional: {  }
             weight: 0
+          3ac52804-27a8-419b-8a3a-965e35f0fcf6:
+            uuid: 3ac52804-27a8-419b-8a3a-965e35f0fcf6
+            region: content
+            configuration:
+              id: 'views_block:single_calendar_list_view-single_cal_test2'
+              label: ''
+              provider: views
+              label_display: '0'
+              views_label: ''
+              items_per_page: none
+              context_mapping: {  }
+            additional: {  }
+            weight: 1
         third_party_settings: {  }
 id: node.calendar.default
 targetEntityType: node
@@ -136,6 +152,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: serial_default_formatter
+    region: content
+  field_colour:
+    weight: 104
+    label: above
+    settings:
+      format: hex
+      opacity: '1'
+    third_party_settings: {  }
+    type: color_field_formatter_text
     region: content
   field_moderator:
     weight: 102

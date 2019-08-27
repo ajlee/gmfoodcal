@@ -73,15 +73,6 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
-  field_about_me: true
-  field_contact_email: true
-  field_first_name: true
-  field_hidden_account: true
-  field_link_to_organisation: true
-  field_organisation_name: true
-  field_phone: true
-  field_public_name: true
-  field_surname: true
   langcode: true
   member_for: true
   simplenews: true

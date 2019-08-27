@@ -28,11 +28,6 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
-  read_more:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
   langcode: true
   links: true

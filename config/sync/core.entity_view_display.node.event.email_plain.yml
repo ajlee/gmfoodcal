@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.email_plain
     - field.field.node.event.field_address
     - field.field.node.event.field_calendar
+    - field.field.node.event.field_category
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
     - field.field.node.event.field_date
@@ -13,6 +14,7 @@ dependencies:
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_start_date
     - node.type.event
   module:
     - field_layout
@@ -40,6 +42,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
+  field_category:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_contact_email:
     weight: 2
     label: hidden
@@ -86,13 +96,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  read_more:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
   field_calendar: true
   field_date: true
   field_event_dates: true
+  field_start_date: true
   langcode: true

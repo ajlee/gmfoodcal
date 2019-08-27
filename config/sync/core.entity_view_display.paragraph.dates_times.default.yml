@@ -1,0 +1,24 @@
+uuid: 1dd385d6-b5ff-4d18-bc32-9aff435d779d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.dates_times.field_date
+    - paragraphs.paragraphs_type.dates_times
+  module:
+    - datetime
+id: paragraph.dates_times.default
+targetEntityType: paragraph
+bundle: dates_times
+mode: default
+content:
+  field_date:
+    weight: 0
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+hidden: {  }

@@ -18,14 +18,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  read_more:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
-  field_calendar_description: true
-  field_calendar_serial: true
-  field_colour: true
   field_moderator: true
   langcode: true
