@@ -9,6 +9,7 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access event_browser entity browser pages'
+  - 'access toolbar'
   - 'administer simplenews subscriptions'
   - 'create simplenews_issue content'
   - 'delete own simplenews_issue content'
