@@ -51,9 +51,8 @@ third_party_settings:
         - field_public_name
         - user_picture
         - field_organisation_name
-        - field_hidden_account
       parent_name: ''
-      weight: 7
+      weight: 5
       format_type: fieldset
       format_settings:
         id: moderator
@@ -75,7 +74,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -102,13 +101,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_hidden_account:
-    weight: 7
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
   field_link_to_organisation:
     type: link_default
@@ -169,6 +161,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
 hidden:
+  field_hidden_account: true
   google_analytics: true
   langcode: true
   language: true
