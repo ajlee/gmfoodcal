@@ -8,7 +8,7 @@ namespace Drupal\gmfood_discourse\Form;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\NodeInterface;
-require_once "/var/www/drupal8/web/modules/custom/gmfood_discourse/vendor/discourse_api/src/DiscourseAPI.php";
+require_once DRUPAL_ROOT . "/modules/custom/gmfood_discourse/vendor/discourse_api/src/DiscourseAPI.php";
 
 
 class DiscourseForm extends FormBase {
@@ -17,15 +17,18 @@ class DiscourseForm extends FormBase {
    */
 
   private $discourseApiKey = null;
+  private $discourseUrl = null;
+  private $discourseUser = null;
   private $discourseApi = null;
 
   public function __construct()
   {
     // initialise the API
-    $this->discourseApiKey = getenv('DISCOURSE_KEY');
-    // $this->discourseApiKey = 'sdgfdsgfdfhgfhgfhgfhjj';
-
-    $this->discourseApi = new \richp10\discourseAPI\DiscourseAPI("forum.gmfoodforum.org", $this->discourseApiKey, 'https');
+    $config = \Drupal::config('gmfood_discourse.settings');
+    $this->discourseUser = $config->get('post_as_user');
+    $this->discourseApiKey = '174c4521e6bd349e4fca03f1bf127a1ea81787c4418cd13dcf7e26e64fbd8c5b';
+    $this->discourseUrl = $config->get('discourse_url');
+    $this->discourseApi = new \richp10\discourseAPI\DiscourseAPI($this->discourseUrl, $this->discourseApiKey, 'https');
   }
 
   public function getFormId() {
@@ -45,6 +48,7 @@ class DiscourseForm extends FormBase {
      */
     public function buildForm(array $form, FormStateInterface $form_state, NodeInterface $node = NULL) {
 
+      // Get the module configuration object
       $nodehtml = null;
       $titlehtml = null;
       $type = $node->getType();
@@ -143,6 +147,20 @@ class DiscourseForm extends FormBase {
           // https://stackoverflow.com/questions/709669/how-do-i-remove-blank-lines-from-text-in-php
           $nodehtml = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $nodehtml);
         }
+        // Preprocessing newsletters
+        else if ($type == "event") {
+          $view_mode = 'email_plain';
+          $view_builder = \Drupal::entityTypeManager()->getViewBuilder('node');
+          $build = $view_builder->view($node, $view_mode);
+          $nodehtml = \Drupal::service('renderer')->renderPlain($build);
+
+          // removes HTML comments
+          $nodehtml = preg_replace('/<!--(.|\s)*?-->/', '', $nodehtml);
+
+          // Remove blank lines - New line is required to split non-blank lines
+          // https://stackoverflow.com/questions/709669/how-do-i-remove-blank-lines-from-text-in-php
+          $nodehtml = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $nodehtml);
+        }
 
 
       /*
@@ -173,7 +191,7 @@ class DiscourseForm extends FormBase {
       $form['intro'] = [
         '#type' => 'textarea',
         '#title' => $this->t('Additional text to insert at the top of the post'),
-        '#default_value' => 'Please find the latest newsletter below',
+        '#default_value' => 'Please find details of the ' . $type . ' below',
       ];
 
       $form['nodehtml'] = [
@@ -222,15 +240,6 @@ class DiscourseForm extends FormBase {
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
 
-      // Get the module configuration object
-      $config = $this->configFactory->get('gmfood_discourse.settings');
-
-      // Get the value of the user to post as
-      $user = $config->get('post_as_user');
-      if (empty($user)) {
-        $user = 'alex';
-      }
-
       // get the values
       $values = $form_state->getValues();
 
@@ -244,7 +253,7 @@ class DiscourseForm extends FormBase {
 
       // submit to discourse and get the result
       if(is_object($this->discourseApi)) {
-        $result = $this->discourseApi->createTopic($title, $body, $category, $user);
+        $result = $this->discourseApi->createTopic($title, $body, $category, $this->discourseUser);
         $form_state->setValue('api_result',$result);
       }
 
@@ -260,7 +269,7 @@ class DiscourseForm extends FormBase {
       *
       */
      public function validateForm(array &$form, FormStateInterface $form_state) {
-      // TODO: validate that category, title, body exist
+      // TODO: validate that category, titlle, body exist
      }
 
     function remove_html_comments($content = '') {
@@ -274,13 +283,11 @@ class DiscourseForm extends FormBase {
     // Returns an array in form [ 0...n ][ id, name ] on success
     //
     public function getDiscourseCategories () {
+
       $categories_result = array();
-      // kint ('categories');
       if (is_object($this->discourseApi)) {
       $result = $this->discourseApi->getCategories();
       $apiresult = $result->apiresult;
-      // kint ($result->apiresult);
-      // kint ($result->apiresult->errors);
 
       if (is_object($apiresult)) {
         // kint('is object');

@@ -5,3 +5,11 @@ gmfood_forms.moderator_access:
    _title: 'Request Moderator Access'
  requirements:
    _user_is_logged_in: 'TRUE'
+
+gmfood_forms.newsletter_manager_access:
+  path: '/form/request-newsletter-manager'
+  defaults:
+    _form: 'Drupal\gmfood_forms\Form\NewsletterManagerAccessForm'
+    _title: 'Request Newsletter Manager Access'
+  requirements:
+    _user_is_logged_in: 'TRUE'

@@ -216,7 +216,6 @@ function gmfoodtheme_theme_suggestions_page_alter(&$suggestions, array $variable
   $current_path = \Drupal::service('path.current')->getPath();
   $result = \Drupal::service('path.alias_manager')->getAliasByPath($current_path);
 
-  kint($result);
   $iframe_page = '/page/iframe';
   if($result == $iframe_page) {
     $suggestions[] = array('iframe');

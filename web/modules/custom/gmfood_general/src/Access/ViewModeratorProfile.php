@@ -22,6 +22,18 @@ class ViewModeratorProfile implements AccessInterface{
    */
   public function access(AccountInterface $account, $user) {
 
+    // anonymous psuedo account not accessible by anyone
+    if($user == 0){
+      return AccessResult::forbidden();
+    }
+
+    // user can access own profile
+    $current_user = \Drupal::currentUser();
+    if ($current_user->id() == $user) {
+      return AccessResult::allowed();
+    }
+
+
     // block public access to view the root admin account
     // this account should never be a moderator
     if($user == 1){
