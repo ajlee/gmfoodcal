@@ -1,0 +1,98 @@
+{#
+/**
+ * @file
+ * Template for a user view.
+ */
+#}
+{% set classes = [
+  'user',
+  'user--' ~ view_mode|clean_class,
+] %}
+<article{{ attributes.addClass(classes) }}>
+  {% block content %}
+    <div class='user--profile'>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+
+
+          {% if is_users_own_profile %}
+
+            {#### let moderators know their profile is public ####}
+            {% if publicly_visible %}
+              <div class="message">
+                <label class="field__label font-weight-bold">Moderator notice</label>
+                <div class="field__content">{{ 'As you are a moderator on this site, be aware that your profile is publicly visible.' |t }} </div>
+              </div>
+            {% endif %}
+
+            <div class="field member-for">
+              <div class="field__content">{{ content.member_for['#markup'] |striptags }}</div>
+            </div>
+
+            <div class="field email">
+              <label class="field__label font-weight-bold">Personal Email (not publicly visible)</label>
+              <div class="field__content">{{ user.email }}</div>
+            </div>
+
+          {% endif %}
+
+
+          <div class="field field--first-name">
+            <label class="field__label font-weight-bold">First Name</label>
+            <div class="field__content">{{ content.field_first_name.0 }}</div>
+          </div>
+
+          <div class="field field--surname">
+            <label class="field__label font-weight-bold">Surname</label>
+            <div class="field__content">{{ content.field_surname.0 }}</div>
+          </div>
+          <div class="field field--public-name">
+            <label class="field__label font-weight-bold">Display Name</label>
+            <div class="field__content">{{ content.field_public_name.0 }}</div>
+          </div>
+
+          <div class="field field--about-me">
+            <label class="field__label font-weight-bold">About Me</label>
+            <div class="field__content">{{ content.field_about_me.0 }}</div>
+          </div>
+
+
+
+
+          <div class="field field--organisation-name">
+            <label class="field__label font-weight-bold">Organisation Name</label>
+            <div class="field__content">{{ content.field_organisation_name.0 }}</div>
+          </div>
+
+          <div class="field field--organisation-link">
+            <label class="field__label font-weight-bold">Link to Organisation </label>
+            <div class="field__content">{{ content.field_link_to_oragnisation.0 }}</div>
+          </div>
+
+        </div>
+        <div class="col-md-4">
+          <div class="field user__picture">
+            <label class="field__label font-weight-bold">Profile Picture</label>
+            <div class="field__content">{{ content.user_picture }}</div>
+          </div>
+          <div class="field field--contact-phone">
+            <label class="field__label font-weight-bold">Public Phone</label>
+            <div class="field__content">{{ content.field_phone.0 }}</div>
+          </div>
+
+          <div class="field field--contact-email">
+            <label class="field__label font-weight-bold">Public Email</label>
+            <div class="field__content">{{ content.field_contact_emai.0 }}</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% endblock %}
+</article>
+

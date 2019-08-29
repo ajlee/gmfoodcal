@@ -8,7 +8,7 @@ use \Drupal\Core\Session\AccountInterface;
 use \Drupal\Core\Access\AccessResult;
 use \Drupal\user\Entity\User;
 
-class ModeratorAccessForm extends FormBase {
+class NewsletterManagerAccessForm extends FormBase {
 
   /**
    * Returns a unique string identifying the form.
@@ -21,7 +21,7 @@ class ModeratorAccessForm extends FormBase {
    *   The unique string identifying the form.
    */
   public function getFormId() {
-    return 'request_moderator_access_form';
+    return 'request_newsletter_manager_access_form';
   }
 
   /**
@@ -75,32 +75,15 @@ class ModeratorAccessForm extends FormBase {
             $form['details'] = [
               '#type' => 'textarea',
               '#title' => $this->t('Details'),
-              '#description' => $this->t('Please provide the reason you want access to moderate a calendar and your connection to sustainability organisations in Manchester.'),
+              '#description' => $this->t('Please provide the reason you want access to send newsletters and your connection to sustainability organisations in Manchester.'),
               '#required' => TRUE,
             ];
-
-            // create options to select the calendars
-            $calendar_nodes = \Drupal::entityTypeManager()->getStorage('node')->loadByProperties([
-              'type' => 'calendar',
-            ]);
-            $checkbox_options = array();
-            foreach ($calendar_nodes as $calendar_node) {
-              $checkbox_options[$calendar_node->id()] = $calendar_node->label();
-            }
-            $form['calendars'] = [
-                  '#type' => 'checkboxes',
-                  '#title' => $this->t('Calendars'),
-                  '#description' => $this->t('Please select which calendar you want to moderate.'),
-                  '#required' => TRUE,
-                  '#options' => $checkbox_options,
-                  '#multiple' => TRUE,
-                ];
 
             // TODO: finish terms and conditions
             $form['accept'] = array(
               '#type' => 'checkbox',
               '#title' => $this
-                ->t('I accept the terms of moderating this site'),
+                ->t('I accept the terms of this site'),
               '#description' => $this->t('Please read and accept the terms of use'),
             );
 
@@ -121,10 +104,10 @@ class ModeratorAccessForm extends FormBase {
         // display if the user has not completed their profile
         $form['description'] = [
           '#type' => 'item',
-          '#markup' => $this->t('<h4>Please complete your account</h4>In order to be a moderator, you need to complete your profile. Please add a photo, description, and contact information, then you can request moderator access using this form. <ul><li><a href="' . $url . '">Edit your profile</a>'),
+          '#markup' => $this->t('<h4>Please complete your account</h4>In order to send newsletters, you need to complete your profile. Please add a photo, description, and contact information, then you can request access using this form. <ul><li><a href="' . $url . '">Edit your profile</a>'),
         ];
         \Drupal::messenger()->addError('You cannot request moderator access until you complete your profile.');
-        \Drupal::logger('gmfood_forms')->warning('access denied to moderator form.');
+        \Drupal::logger('gmfood_forms')->warning('access denied to newsletter manager form.');
       }
 
 
@@ -167,45 +150,29 @@ class ModeratorAccessForm extends FormBase {
         */
        public function submitForm(array &$form, FormStateInterface $form_state) {
 
-
          $messenger = \Drupal::messenger();
          $messenger->addMessage('Title: '.$form_state->getValue('title'));
          $messenger->addMessage('Accept: '.$form_state->getValue('accept'));
-
-         // parse the calendars info
-         $calendars = $form_state->getValue('calendars');
-         $calendar_string = '';
-         kint($form_state);
-         foreach ($calendars as $key => $calendar_id) {
-           if (!empty($calendar_id)) {
-            $node = \Drupal\node\Entity\Node::load($calendar_id);
-            // TODO: check this for validity
-            if (is_object($node)) {
-              $options = ['absolute' => TRUE];
-              $url = \Drupal\Core\Url::fromRoute('entity.node.edit_form', ['node' => $calendar_id], $options);
-              $url = $url->toString();
-              $calendar_string .= $node->getTitle() . ' - ' . $url . '<br/>';
-            }
-           }
-         }
 
 
          //
          // send email to admin: provides a link for the admin to authorise the request for calendar moderator access
          //
+         kint($form);
+         $email_type = 'newsletter_manager';
          $mailManager = \Drupal::service('plugin.manager.mail');
          $module = 'gmfood_forms';
          $key = 'moderator_access_request';
          $to = '';
          $emails = array();
          $langcode = 'en';
-         $email_type = 'moderator_access';
 
          // get a link to edit the user profile
          $options = ['absolute' => TRUE];
          $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
          $url = \Drupal\Core\Url::fromRoute('entity.user.edit_form', ['user' => \Drupal::currentUser()->id()], $options);
          $url = $url->toString();
+         $params['form'] = $this->getFormId();
          $params['url'] = $url;
          $params['email'] = $user->getEmail();
          $params['user'] = $user->getUsername();
@@ -221,9 +188,7 @@ class ModeratorAccessForm extends FormBase {
          if(!$user->field_contact_email->isEmpty()) {
            $params['public_email'] = $user->get('field_contact_email')[0]->getValue()['value'];
          }
-         $params['calendars'] = $calendar_string;
          $params['details'] = $form_state->getValue('details');
-         $params['form'] = $this->getFormId();
 
          // get users with manager role and email them a notification
          $ids = \Drupal::entityQuery('user')
@@ -231,7 +196,7 @@ class ModeratorAccessForm extends FormBase {
          ->condition('roles', 'manager')
          ->execute();
          $users = User::loadMultiple($ids);
-
+         kint($users);
          foreach($users as $user) {
            $emails[] = $user->getEmail();
          }
@@ -264,6 +229,7 @@ class ModeratorAccessForm extends FormBase {
        }
 
        public function access(AccountInterface $account) {
+        kint($account);
         return AccessResult::allowedIf(TRUE);
        }
 }

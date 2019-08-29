@@ -9763,7 +9763,7 @@ div[data-drupal-selector=edit-field-layout] {
 }
 @media only screen and (min-width: 0) and (max-width: 576px) {
   .ui-dialog[role=dialog] {
-    width: 300px !important;
+    width: 153px !important;
     max-width: 80% !important;
   }
 }
@@ -9940,4 +9940,12 @@ div[data-drupal-selector=edit-field-layout] {
   border-top: 1px solid #e9ecef;
   border-bottom: 1px solid #e9ecef;
   font-weight: 700;
+}
+
+.user--full .field {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.user--full .field__label {
+  margin-bottom: 0;
 }

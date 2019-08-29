@@ -21,6 +21,38 @@ function gmfood_forms_form_user_register_form_alter(&$form, \Drupal\Core\Form\Fo
    */
   function gmfood_forms_mail($key, &$message, $params) {
 
+  $form = $params['form'];
+
+  // alter email text for newsletter manager / moderator access form
+  if ($form == 'request_newsletter_manager_access_form') {
+    $message['subject'] = "GM Calendar Newsletter Manager Request from " . $params['user'];
+    $body =
+    "Someone has requested to be a newsletter manager. The details of this request are below:
+
+    Username:  " . $params['user'] . "
+    Email: " . $params['email'] . "
+    Public Name: " . $params['public_name'] . "
+    Public Email: " . $params['public_email'] . "
+    Phone: " . $params['phone'] . "
+    About Me: " . $params['about_me'] . "
+
+
+    Details of the Request: " . $params['details'] . "
+
+
+    You can approve this request by going to " . $params['url'] . " and selecting the role - newsletter manager option.
+
+    ---
+
+
+    Sent by
+    The Drupal Fairy,
+    The GM Food Forum Calendar";
+
+  }
+  // default is to send the newsletter moderator form
+  else {
+  $message['subject'] = "GM Calendar Moderator Request From " . $params['user'];
   // E-mail formatting will be exactly as below, so do not use indenting!
   $body =
 "Someone has requested to be a moderator. The details of this request are below:
@@ -52,9 +84,11 @@ Sent by
 The Drupal Fairy,
 The GM Food Forum Calendar";
 
+}
+
   $unsubscribe_text = '';
   $footer = $unsubscribe_text;
-  $message['subject'] = "Moderator request from " . $params['id'];
+
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($footer);
 }

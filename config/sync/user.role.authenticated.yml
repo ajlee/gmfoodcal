@@ -14,6 +14,7 @@ permissions:
   - 'access kint'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'access toolbar'
   - 'access user profiles'
   - 'create calendar content'
   - 'create event content'

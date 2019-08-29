@@ -29,14 +29,47 @@ Remove modules:
 Enable modules
 - bigpipe
 
-- Create GMaps webform location select OR just a simple address field that simple_gmaps uses to lookup
-- Create newsletter process
+UI
+- /node/add - remove calendar and event date
 - Leaflet to replace GMAPs?
-- URL alias on events
-- delete gmfood_general_node_access?
+- Double pop up for date select
+- WYSWYG for anonymous visitors? Filters (i.e. auto-creating links from http:// text)
+- Remove "HIdden Account" text from /user/account view
+- 'Newsletter' tab weighting needs changing
+- 'Debbie' role - admin menu has Structure > block / comments / view modes / taxonomy in menu
+- 'Debbie' role - admin menu has Config - Authoring Entity Browsers, Geolocation
+- Debbie role should have access to more reports?
+- End date 
 
-Remove fields:
-- event/start_date
+Scripts
+- backup drush alias
+- cron uri
+
+Forms
+- Contact form DONE
+- Post registration email is wrong - doesn't need approval DONE
+- Capthca settings on all forms?
+- New form - request newsletter sending role?
+
+Email
+- Set up cron for processing simplemail emails??
+- view newsletter online link
+
+Discourse
+- Use settings page to define key, user, etc.
+- gitignore file
+- Discourse HTML Box not working
+- Post as user 'alex' config not working  on events & newsletter
+- Remember if a node has been posted to discourse - set a field boole
+
+Other
+- Standard users cannot edit or view own profile
+- link to user from calendar page should be by public name or just first name / last name?
+- rename public name to display name? or make it required on registration form?
+ - delete gmfood_general_node_access?
+
+Fields:
+- add "featured events" to page content type
 
 Update Dev modules
 - entity_reference_revisions
@@ -47,6 +80,7 @@ Newsletter
 - use HTML mail for Discourse
 - send grid setup
 - include link to discourse post in email
+
 
 Other
 - disable anon kint view

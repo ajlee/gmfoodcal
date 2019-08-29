@@ -1,6 +1,6 @@
 uuid: b6f67e2b-c29f-44eb-a585-e54a486e6de0
 langcode: en
-status: false
+status: true
 dependencies: {  }
 formId: node_event_form
 captchaType: default

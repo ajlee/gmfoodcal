@@ -7,7 +7,15 @@ label: 'Newsletter Manager'
 weight: 7
 is_admin: null
 permissions:
+  - 'access administration pages'
+  - 'access event_browser entity browser pages'
+  - 'access toolbar'
+  - 'administer simplenews subscriptions'
+  - 'create simplenews_issue content'
+  - 'delete own simplenews_issue content'
+  - 'edit own simplenews_issue content'
   - 'profile is publicly visible'
   - 'send newsletter'
   - 'subscribe to newsletters'
   - 'view simplenews subscriptions'
+  - 'view the administration theme'

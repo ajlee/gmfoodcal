@@ -369,3 +369,36 @@ function gmfood_general_preprocess_page(&$variables) {
 
 }
 */
+function gmfood_general_preprocess_user(&$variables) {
+
+  // set up variables
+  $logged_in_user = \Drupal::currentUser();
+  $user_page = $variables['user'];
+  $variables['is_users_own_profile'] = FALSE;
+
+  // is the user's profile publicly visible?
+  // this is a psuedo-permission set on the /admin/people/permissions page
+  $variables['publicly_visible'] = $user_page->hasPermission('Profile is publicly visible');
+
+  // if the logged in user IS the user whose profile is being displayed
+  if (!empty($logged_in_user)) {
+    if ($logged_in_user->id() == $user_page->id()) {
+      $variables['is_users_own_profile'] = TRUE;
+    }
+  }
+}
+
+
+function gmfood_general_user_view_alter(array &$build, Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+
+  // current user
+  $logged_in_user = \Drupal::currentUser();
+
+  // if the logged in user is NOT the user whose profile is being displayed
+  if (!empty($logged_in_user)) {
+    if ($logged_in_user->id() != $entity->id()) {
+      // hide fields from public view
+      // TODO: add some fields here!
+    }
+  }
+}

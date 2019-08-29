@@ -10,9 +10,9 @@ id: user.user.field_public_name
 field_name: field_public_name
 entity_type: user
 bundle: user
-label: 'Public Display Name'
+label: 'Display Name'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

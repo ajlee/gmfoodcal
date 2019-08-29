@@ -18,161 +18,15 @@ dependencies:
     - field_layout
     - image
     - layout_builder
-    - layout_discovery
     - link
-    - radix_layouts
+    - telephone
     - user
 third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
   layout_builder:
-    enabled: true
-    sections:
-      -
-        layout_id: radix_brown
-        layout_settings: {  }
-        components:
-          37322245-3d63-45c0-9202-68e63b64fdea:
-            uuid: 37322245-3d63-45c0-9202-68e63b64fdea
-            region: slidergutter
-            configuration:
-              id: 'field_block:user:user:user_picture'
-              label: Picture
-              provider: layout_builder
-              label_display: '0'
-              formatter:
-                label: hidden
-                type: image
-                settings:
-                  image_style: medium
-                  image_link: content
-                third_party_settings: {  }
-              context_mapping:
-                entity: layout_builder.entity
-            additional: {  }
-            weight: 0
-          8431961d-695f-450e-bf52-92f905deab27:
-            uuid: 8431961d-695f-450e-bf52-92f905deab27
-            region: slider
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:user:user:field_public_name'
-              formatter:
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-                type: string
-            additional: {  }
-            weight: 0
-          eee4cf42-97c8-4aff-a5b7-044be7c02ddc:
-            uuid: eee4cf42-97c8-4aff-a5b7-044be7c02ddc
-            region: slider
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:user:user:field_about_me'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: basic_string
-            additional: {  }
-            weight: 2
-          cd3cee00-e2b1-443a-81e5-7a80c0718c95:
-            uuid: cd3cee00-e2b1-443a-81e5-7a80c0718c95
-            region: slidergutter
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:user:user:field_phone'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: basic_string
-            additional: {  }
-            weight: 4
-          44c7c685-9b08-492b-83b2-f4b81b418190:
-            uuid: 44c7c685-9b08-492b-83b2-f4b81b418190
-            region: slidergutter
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:user:user:field_contact_email'
-              formatter:
-                label: above
-                settings: {  }
-                third_party_settings: {  }
-                type: basic_string
-            additional: {  }
-            weight: 3
-          a00f8079-c3cd-465c-9387-daa01d90e2cc:
-            uuid: a00f8079-c3cd-465c-9387-daa01d90e2cc
-            region: slidergutter
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:user:user:field_organisation_name'
-              formatter:
-                label: above
-                settings:
-                  link_to_entity: false
-                third_party_settings: {  }
-                type: string
-            additional: {  }
-            weight: 1
-          90543c71-527c-4c31-871a-c9eb77eec406:
-            uuid: 90543c71-527c-4c31-871a-c9eb77eec406
-            region: slidergutter
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:user:user:field_link_to_organisation'
-              formatter:
-                label: above
-                settings:
-                  trim_length: 80
-                  url_only: false
-                  url_plain: false
-                  rel: ''
-                  target: ''
-                third_party_settings: {  }
-                type: link
-            additional: {  }
-            weight: 2
-          f02c8b02-a484-4f81-97f3-ac73b31d7c39:
-            uuid: f02c8b02-a484-4f81-97f3-ac73b31d7c39
-            region: slider
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'field_block:user:user:field_hidden_account'
-              formatter:
-                label: above
-                settings:
-                  format: default
-                  format_custom_false: ''
-                  format_custom_true: ''
-                third_party_settings: {  }
-                type: boolean
-            additional: {  }
-            weight: 3
-        third_party_settings: {  }
-      -
-        layout_id: layout_onecol
-        layout_settings: {  }
-        components: {  }
-        third_party_settings: {  }
+    enabled: false
     allow_custom: false
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
@@ -182,39 +36,29 @@ bundle: user
 mode: default
 content:
   field_about_me:
-    weight: 58
+    weight: 11
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_contact_email:
-    weight: 54
+    weight: 7
     label: above
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     region: content
   field_first_name:
-    weight: 56
+    weight: 12
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  field_hidden_account:
-    weight: 59
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: slider
   field_link_to_organisation:
-    weight: 51
+    weight: 4
     label: above
     settings:
       trim_length: 80
@@ -226,7 +70,7 @@ content:
     type: link
     region: content
   field_organisation_name:
-    weight: 52
+    weight: 5
     label: above
     settings:
       link_to_entity: false
@@ -234,14 +78,15 @@ content:
     type: string
     region: content
   field_phone:
-    weight: 55
+    weight: 8
     label: above
-    settings: {  }
+    settings:
+      title: ''
     third_party_settings: {  }
-    type: basic_string
+    type: telephone_link
     region: content
   field_public_name:
-    weight: 53
+    weight: 6
     label: above
     settings:
       link_to_entity: false
@@ -249,7 +94,7 @@ content:
     type: string
     region: content
   field_surname:
-    weight: 57
+    weight: 10
     label: above
     settings:
       link_to_entity: false
@@ -257,18 +102,18 @@ content:
     type: string
     region: content
   masquerade:
-    weight: 50
+    weight: 3
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   member_for:
-    weight: 5
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   user_picture:
     type: image
-    weight: 0
+    weight: 1
     region: content
     settings:
       image_style: thumbnail
@@ -276,5 +121,6 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_hidden_account: true
   langcode: true
   simplenews: true
