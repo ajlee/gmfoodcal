@@ -1,0 +1,12 @@
+uuid: 0be1ebaa-6469-4aac-a1eb-b168744f4c07
+langcode: en
+status: true
+dependencies: {  }
+id: contact
+label: Contact
+recipients:
+  - alex@amanita.pw
+reply: ''
+weight: 0
+message: 'Thanks for getting in touch - your message has been sent.'
+redirect: ''

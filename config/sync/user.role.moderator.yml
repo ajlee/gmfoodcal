@@ -7,6 +7,8 @@ label: Moderator
 weight: 4
 is_admin: null
 permissions:
+  - 'access administration pages'
+  - 'access event_browser entity browser pages'
   - 'access files overview'
   - 'access in-place editing'
   - 'access taxonomy overview'
@@ -42,3 +44,4 @@ permissions:
   - 'view own unpublished media'
   - 'view terms in calendars'
   - 'view terms in tags'
+  - 'view the administration theme'
