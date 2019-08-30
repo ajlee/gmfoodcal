@@ -46,7 +46,7 @@ Scripts
 - cron uri
 
 Forms
-- Contact form DONE
+- Post registration email is wrong - doesn't need approval
 - Post registration email is wrong - doesn't need approval DONE
 - Capthca settings on all forms?
 - New form - request newsletter sending role?
@@ -60,13 +60,15 @@ Discourse
 - gitignore file
 - Discourse HTML Box not working
 - Post as user 'alex' config not working  on events & newsletter
-- Remember if a node has been posted to discourse - set a field boole
-
+- Discourse bug when posting 
+ 
 Other
+- Remember if a node has been posted to discourse - set a field boole
 - Standard users cannot edit or view own profile
 - link to user from calendar page should be by public name or just first name / last name?
 - rename public name to display name? or make it required on registration form?
  - delete gmfood_general_node_access?
+ -
 
 Fields:
 - add "featured events" to page content type

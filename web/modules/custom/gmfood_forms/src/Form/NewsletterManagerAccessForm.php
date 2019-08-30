@@ -39,6 +39,15 @@ class NewsletterManagerAccessForm extends FormBase {
 
       $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
 
+      // if the user already has permission, just return a message
+      if ($user->hasPermission('administer newsletters') || $user->hasPermission('send newsletter')) {
+        $form['message'] = [
+          '#type' => 'item',
+          '#markup' => $this->t('You already have permissions to send newsletters! If you have problems please read the help pages for support or use the contact form.')
+        ];
+        return $form;
+      }
+
       // find out if the user profile fields are complete
       $user_picture = !$user->user_picture->isEmpty();
       $field_about_me = !$user->field_about_me->isEmpty();

@@ -1,0 +1,79 @@
+.navbar {
+  // all  devices
+
+  ul.sf-menu.sf-style-white {
+    border:1px solid white;
+    li  {
+      background-color: $primary;
+      border-right:1px solid white;
+      a, span {
+        color:white;
+      }
+      a:hover {
+        background-color: $gray-800;
+      }
+      span.nolink:hover {
+        color:$primary;
+        background-color: $gray-200;
+      }
+    }
+    li.active-trail {
+      opacity: 0.8;
+    }
+  }
+
+  // bug fix for strange layout on mobile with flex
+  @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: map-get($grid-breakpoints, 'md')-1) {
+
+    .block--gmfoodtheme-branding {
+      position: absolute;
+      right:$spacer;
+      top:3px;
+      width: 50%;
+
+      img {
+        width: 100%;
+        margin-left: $spacer;
+      }
+    }
+
+    // colour for mobile menus
+    div.sf-accordion-toggle.sf-style-white a {
+      background-color: $gray-200;
+      color:$primary;
+      border:1px solid $gray-500;
+    }
+  }
+
+
+  // on ipad, always show the menu
+  @media only screen and (min-width: map-get($grid-breakpoints, 'md')) and (max-width: map-get($grid-breakpoints, 'lg')) {
+    .sf-menu {
+      display:flex !important;
+    }
+  }
+
+
+  // max image logo size
+  img {
+    max-width:300px;
+    border:3px solid $gray-200;
+  }
+}
+
+// user menu
+
+.block--secondarynavigation {
+  ul.sf-menu {
+    float:none;
+
+    li {
+      float:none;
+      display:inline-block;
+    }
+  }
+
+  a {
+    padding:$spacer/4 $spacer/2;
+  }
+}
