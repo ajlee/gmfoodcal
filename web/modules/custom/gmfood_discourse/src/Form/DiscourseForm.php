@@ -62,7 +62,6 @@ class DiscourseForm extends FormBase {
       // Has the form been submitted or is this the initial loading of the form?
       //
       $values = $form_state->getValues();
-kint($values);
 
       // form submitted - so show the result page
       if (!empty($values)) {
@@ -248,6 +247,15 @@ kint($values);
      */
     public function submitForm(array &$form, FormStateInterface $form_state) {
 
+      // Get the module configuration object
+      $config = \Drupal::config('gmfood_discourse_settings');
+
+      // Get the value of the user to post as
+      $user = $config->get('post_as_user');
+      if (empty($user)) {
+        $user = 'alex';
+      }
+
       // get the values
       $values = $form_state->getValues();
 
@@ -256,7 +264,6 @@ kint($values);
         $title = $values['title'];
         $body = $values['intro'] . '<hr/><br/>' . $values['nodehtml'];
         $category = $values['category'];
-        $user = 'alex';
       }
 
 

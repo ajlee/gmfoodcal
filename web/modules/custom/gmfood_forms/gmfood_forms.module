@@ -16,6 +16,26 @@ function gmfood_forms_form_user_register_form_alter(&$form, \Drupal\Core\Form\Fo
   $form['user_picture']['#access'] = FALSE;
 }
 
+function gmfood_forms_form_node_event_date_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+
+  // block access to /node/add/event_date
+  $current_path = \Drupal::service('path.current')->getPath();
+  $disable_url = '/node/add/event_date';
+  if ($current_path == $disable_url){
+    $form['description'] = [
+                '#type' => 'item',
+                '#markup' => t('<strong>This form is disabled. Please use the Add Event form instead.</strong>'),
+                '#weight' => -20,
+              ];
+    $form['#attributes']['disabled'] = 'disabled';
+    $form['title']['#attributes']['disabled'] = 'disabled';
+    $form['title']['#access'] = FALSE;
+    $form['field_inline_event_date']['#access'] = FALSE;
+    $form['field_inline_event_date']['#attributes']['disabled'] = 'disabled';
+    $form['actions']['submit']['#attributes']['disabled']  = 'disabled';
+    $form['actions']['preview']['#attributes']['disabled']  = 'disabled';
+  }
+}
   /**
    * Implementing hook_mail()
    */
@@ -91,4 +111,5 @@ The GM Food Forum Calendar";
 
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($footer);
+  kint($message);
 }

@@ -65,6 +65,16 @@ class ModeratorAccessForm extends FormBase {
       // these must be filled in before requesting moderator access
       if ($field_about_me && $user_picture && $field_about_me) {
 
+            kint  ($user->hasPermission('moderate authorised events'));
+
+            // if the user already has permission, just return a message
+            if ($user->hasPermission('moderate authorised events') || $user->hasPermission('Administer Content')) {
+              $form['moderator_message'] = [
+                '#type' => 'item',
+                '#markup' => $this->t('<strong>You already have permissions to moderate events! However, you may use this form if you want to be added as a moderator onto another calendar.</strong>')
+              ];
+            }
+
             // intro text
             $form['description'] = [
               '#type' => 'item',
@@ -114,6 +124,7 @@ class ModeratorAccessForm extends FormBase {
               '#type' => 'submit',
               '#value' => $this->t('Submit'),
             ];
+
       }
       //
       else {
@@ -126,7 +137,6 @@ class ModeratorAccessForm extends FormBase {
         \Drupal::messenger()->addError('You cannot request moderator access until you complete your profile.');
         \Drupal::logger('gmfood_forms')->warning('access denied to moderator form.');
       }
-
 
       return $form;
 

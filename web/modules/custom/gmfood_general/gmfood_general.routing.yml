@@ -6,13 +6,6 @@ gmfood_general.teaser:
  requirements:
    _permission: 'view content'
 
-gmfood_general.calendars_page:
- url: 'internal:#nolink'
- defaults:
-   _title: 'Calendars'
- requirements:
-   _access: 'TRUE'
-
 gmfood_general.rest_single_calendar:
   path: '/calendar/{node}/xml'
   defaults:
@@ -22,7 +15,7 @@ gmfood_general.rest_single_calendar:
    _custom_access: 'Drupal\gmfood_general\Controller\RestFeedsController::checkAccess'
   options:
     parameters:
-      node1:
+      node:
         type: entity:node
 
 

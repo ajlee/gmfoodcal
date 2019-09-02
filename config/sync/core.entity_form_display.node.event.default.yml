@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.event.field_calendar
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
-    - field.field.node.event.field_date
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
@@ -154,7 +153,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_date: true
   langcode: true
   promote: true
   status: true

@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.event.field_calendar
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
-    - field.field.node.event.field_date
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
@@ -67,7 +66,6 @@ hidden:
   field_calendar: true
   field_contact_email: true
   field_contact_phone: true
-  field_date: true
   field_duration: true
   field_geolocation: true
   field_more_information_link: true

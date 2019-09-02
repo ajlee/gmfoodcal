@@ -9,7 +9,7 @@ _core:
 id: gmfoodtheme_page_title
 theme: gmfoodtheme
 region: header
-weight: -4
+weight: -3
 provider: null
 plugin: page_title_block
 settings:

@@ -99,9 +99,11 @@
 
 .fc-calendar-legend {
   display:inline-block;
-  padding:$spacer/4;
+  padding:$spacer/2 $spacer;
+  margin:$spacer/2;
 
   a {
+    @extend .h4;
     color:#fff;
   }
 }

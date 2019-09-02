@@ -9,7 +9,7 @@ _core:
 id: gmfoodtheme_local_actions
 theme: gmfoodtheme
 region: header
-weight: -2
+weight: -1
 provider: null
 plugin: local_actions_block
 settings:

@@ -417,7 +417,7 @@ template {
 }
 
 h1, h2, h3, .view-page .views-row--unformatted .views-field-title, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .fc-calendar-legend a, .h5, .h6 {
   margin-bottom: 0.5rem;
   font-weight: 500;
   line-height: 1.2;
@@ -435,7 +435,7 @@ h3, .view-page .views-row--unformatted .views-field-title, .h3 {
   font-size: 1.75rem;
 }
 
-h4, .h4 {
+h4, .h4, .fc-calendar-legend a {
   font-size: 1.5rem;
 }
 
@@ -9635,6 +9635,26 @@ a:hover {
   color: #aaff33;
 }
 
+.navbar ul.sf-menu.sf-style-white {
+  border: 1px solid white;
+}
+.navbar ul.sf-menu.sf-style-white li {
+  background-color: #164d22;
+  border-right: 1px solid white;
+}
+.navbar ul.sf-menu.sf-style-white li a, .navbar ul.sf-menu.sf-style-white li span {
+  color: white;
+}
+.navbar ul.sf-menu.sf-style-white li a:hover {
+  background-color: #343a40;
+}
+.navbar ul.sf-menu.sf-style-white li span.nolink:hover {
+  color: white;
+  background-color: #343a40;
+}
+.navbar ul.sf-menu.sf-style-white li.active-trail {
+  background-color: #343a40;
+}
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .navbar .block--gmfoodtheme-branding {
     position: absolute;
@@ -9651,10 +9671,6 @@ a:hover {
     color: #164d22;
     border: 1px solid #adb5bd;
   }
-  .navbar ul.sf-menu.sf-style-white li {
-    background-color: #e9ecef;
-    color: #164d22;
-  }
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .navbar .sf-menu {
@@ -9665,8 +9681,16 @@ a:hover {
   max-width: 300px;
   border: 3px solid #e9ecef;
 }
-.navbar ul.sf-menu.sf-style-white a, .navbar ul.sf-menu.sf-style-white span.nolink {
-  color: #164d22;
+
+.block--secondarynavigation ul.sf-menu {
+  float: none;
+}
+.block--secondarynavigation ul.sf-menu li {
+  float: none;
+  display: inline-block;
+}
+.block--secondarynavigation a {
+  padding: 0.25rem 0.5rem;
 }
 
 /*
@@ -9878,7 +9902,8 @@ div[data-drupal-selector=edit-field-layout] {
 
 .fc-calendar-legend {
   display: inline-block;
-  padding: 0.25rem;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
 }
 .fc-calendar-legend a {
   color: #fff;

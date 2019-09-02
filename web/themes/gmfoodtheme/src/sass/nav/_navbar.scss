@@ -1,4 +1,27 @@
 .navbar {
+  // all  devices
+
+  ul.sf-menu.sf-style-white {
+    border:1px solid white;
+    li  {
+      background-color: $primary;
+      border-right:1px solid white;
+      a, span {
+        color:white;
+      }
+      a:hover {
+        background-color: $gray-800;
+      }
+      span.nolink:hover {
+        color:white;
+        background-color: $gray-800;
+      }
+    }
+    li.active-trail {
+      background-color: $gray-800;
+    }
+  }
+
   // bug fix for strange layout on mobile with flex
   @media only screen and (min-width: map-get($grid-breakpoints, 'xs')) and (max-width: map-get($grid-breakpoints, 'md')-1) {
 
@@ -20,11 +43,8 @@
       color:$primary;
       border:1px solid $gray-500;
     }
-    ul.sf-menu.sf-style-white li {
-      background-color: $gray-200;
-      color:$primary;
-    }
   }
+
 
   // on ipad, always show the menu
   @media only screen and (min-width: map-get($grid-breakpoints, 'md')) and (max-width: map-get($grid-breakpoints, 'lg')) {
@@ -39,11 +59,21 @@
     max-width:300px;
     border:3px solid $gray-200;
   }
-  // override superfish menu colour
-  ul.sf-menu.sf-style-white {
-    a, span.nolink {
-      color: $primary;
-    }
-  }
 }
 
+// user menu
+
+.block--secondarynavigation {
+  ul.sf-menu {
+    float:none;
+
+    li {
+      float:none;
+      display:inline-block;
+    }
+  }
+
+  a {
+    padding:$spacer/4 $spacer/2;
+  }
+}
