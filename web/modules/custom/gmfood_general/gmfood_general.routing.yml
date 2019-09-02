@@ -15,7 +15,7 @@ gmfood_general.rest_single_calendar:
    _custom_access: 'Drupal\gmfood_general\Controller\RestFeedsController::checkAccess'
   options:
     parameters:
-      node1:
+      node:
         type: entity:node
 
 

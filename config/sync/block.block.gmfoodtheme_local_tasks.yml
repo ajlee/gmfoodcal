@@ -9,7 +9,7 @@ _core:
 id: gmfoodtheme_local_tasks
 theme: gmfoodtheme
 region: header
-weight: -3
+weight: -2
 provider: null
 plugin: local_tasks_block
 settings:

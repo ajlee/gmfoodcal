@@ -11,5 +11,17 @@ definitions:
     parent: ''
     expanded: false
     enabled: true
+  masquerade__unmasquerade:
+    enabled: false
+    menu_name: account
+    parent: ''
+    expanded: false
+    weight: -50
+  gmfood_general__settings:
+    enabled: false
+    menu_name: main
+    parent: ''
+    expanded: false
+    weight: 0
 _core:
   default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ

@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.event.field_calendar
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
-    - field.field.node.event.field_date
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_geolocation
@@ -84,7 +83,6 @@ content:
     region: content
 hidden:
   field_calendar: true
-  field_date: true
   field_duration: true
   field_event_dates: true
   langcode: true

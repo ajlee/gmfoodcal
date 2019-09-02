@@ -23,7 +23,22 @@
     <div{{ content_attributes }}>
       {{ content.read_more_1 }}
 
-      {{ content|without('read_more_1')|without('read_more_2') }}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            {{ content.field_event_description }}
+            {{ content.field_more_information_link }}
+            {{ content.field_geolocation }}
+          </div>
+          <div class="col-md-4">
+            {{ content.field_event_dates }}
+            {{ content.field_address }}
+            {{ content.field_contact_email }}
+            {{ content.field_contact_phone }}
+            {{ content.field_calendar }}
+          </div>
+        </div>
+      </div>
 
       {{ content.read_more_2 }}
     </div>

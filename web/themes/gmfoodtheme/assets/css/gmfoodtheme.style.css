@@ -9649,11 +9649,11 @@ a:hover {
   background-color: #343a40;
 }
 .navbar ul.sf-menu.sf-style-white li span.nolink:hover {
-  color: #164d22;
-  background-color: #e9ecef;
+  color: white;
+  background-color: #343a40;
 }
 .navbar ul.sf-menu.sf-style-white li.active-trail {
-  opacity: 0.8;
+  background-color: #343a40;
 }
 @media only screen and (min-width: 0) and (max-width: 767px) {
   .navbar .block--gmfoodtheme-branding {

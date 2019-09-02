@@ -9,7 +9,7 @@ third_party_settings:
   menu_ui:
     available_menus:
       - main
-    parent: 'main:gmfood_general.settings'
+    parent: 'main:menu_link_content:1600add7-9a6c-427f-9d18-3ba46e884ea7'
   menu_force:
     menu_force: 1
     menu_force_parent: 1

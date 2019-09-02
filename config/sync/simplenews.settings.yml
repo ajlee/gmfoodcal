@@ -3,8 +3,8 @@ newsletter:
   format: plain
   priority: 0
   receipt: true
-  from_address: alex+webwork.turnkey@amanita.pw
-  from_name: 'TurnKey Drupal8'
+  from_address: gmfoodforum@webarch6.co.uk
+  from_name: 'GM Green Calendar'
 subscriber:
   sync_fields: true
 subscription:

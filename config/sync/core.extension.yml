@@ -74,11 +74,13 @@ module:
   menus_attribute: 0
   metatag: 0
   metatag_dc: 0
+  mimemail: 0
   module_filter: 0
   multiple_fields_remove_button: 0
   node: 0
   options: 0
   path: 0
+  phpmailer: 0
   quickedit: 0
   radix_layouts: 0
   rdf: 0
@@ -95,7 +97,6 @@ module:
   simple_user_management: 0
   simplenews: 0
   simplify: 0
-  smtp: 0
   statistics: 0
   superfish: 0
   syslog: 0
