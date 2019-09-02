@@ -23,5 +23,11 @@ definitions:
     parent: ''
     expanded: false
     weight: 0
+  node__add__event_date:
+    enabled: false
+    menu_name: admin
+    parent: admin_toolbar_tools.add_content
+    expanded: false
+    weight: 0
 _core:
   default_config_hash: o4bYR9ZupWb3AsOIizTUG4g-nu1mdJqA59UB7QT-ifQ

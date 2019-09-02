@@ -69,6 +69,7 @@ module:
   login_emailusername: 0
   mailsystem: 0
   masquerade: 0
+  matomo: 0
   media: 0
   menu_ui: 0
   menus_attribute: 0

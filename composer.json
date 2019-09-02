@@ -80,6 +80,7 @@
         "drupal/mailsystem": "^4.1",
         "drupal/markdown": "^1.2",
         "drupal/masquerade": "^2.0@beta",
+        "drupal/matomo": "^1.9",
         "drupal/menu_admin_per_menu": "^1.0",
         "drupal/menu_force": "^1.0",
         "drupal/menu_link_attributes": "^1.0",
