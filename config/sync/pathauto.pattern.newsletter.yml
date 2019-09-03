@@ -1,0 +1,22 @@
+uuid: de16efeb-b26f-49e4-aaf8-af21a335edbd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: newsletter
+label: Newsletter
+type: 'canonical_entities:node'
+pattern: 'newsletter/[node:title]'
+selection_criteria:
+  02e91cf9-b519-4f9b-bffe-ab5caa91e107:
+    id: node_type
+    bundles:
+      simplenews_issue: simplenews_issue
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 02e91cf9-b519-4f9b-bffe-ab5caa91e107
+selection_logic: and
+weight: -10
+relationships: {  }

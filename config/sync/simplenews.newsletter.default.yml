@@ -11,7 +11,7 @@ format: plain
 priority: 0
 receipt: false
 from_name: 'GM Sustainable Food Bulletin'
-subject: 'TEST [[simplenews-newsletter:name]] [node:title] [random:number]'
+subject: '[node:title]'
 from_address: alex+foodbulletin@amanita.pw
 hyperlinks: true
 new_account: 'off'

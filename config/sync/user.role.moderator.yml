@@ -9,7 +9,6 @@ is_admin: null
 permissions:
   - 'access administration pages'
   - 'access event_browser entity browser pages'
-  - 'access files overview'
   - 'access in-place editing'
   - 'access toolbar'
   - 'bypass honeypot protection'

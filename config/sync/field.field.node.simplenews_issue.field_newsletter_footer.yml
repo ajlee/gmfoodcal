@@ -10,8 +10,8 @@ dependencies:
     - text
 third_party_settings:
   allowed_formats:
-    basic_html: basic_html
     plain_text: plain_text
+    basic_html: '0'
     restricted_html: '0'
     full_html: '0'
 id: node.simplenews_issue.field_newsletter_footer

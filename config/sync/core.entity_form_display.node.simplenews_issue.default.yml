@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.simplenews_issue.field_events
     - field.field.node.simplenews_issue.field_newsletter_footer
     - field.field.node.simplenews_issue.field_newsletter_intro
-    - field.field.node.simplenews_issue.field_test
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
@@ -125,5 +124,4 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_test: true
+hidden: {  }

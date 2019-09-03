@@ -9,9 +9,9 @@ format: plain
 priority: 0
 receipt: false
 from_name: 'TurnKey Drupal8'
-subject: 'TEST2 [[simplenews-newsletter:name]] [node:title] [random:number]'
+subject: 'TEST [[simplenews-newsletter:name]] [node:title] [random:number]'
 from_address: alex+webwork.turnkey@amanita.pw
 hyperlinks: true
-new_account: 'on'
+new_account: none
 opt_inout: double
 weight: 0

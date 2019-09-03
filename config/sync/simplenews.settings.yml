@@ -2,7 +2,7 @@ hash_expiration: 86400
 newsletter:
   format: plain
   priority: 0
-  receipt: true
+  receipt: false
   from_address: gmfoodforum@webarch6.co.uk
   from_name: 'GM Green Calendar'
 subscriber:
@@ -25,9 +25,10 @@ subscription:
   confirm_unsubscribe_page: ''
 mail:
   use_cron: true
-  throttle: 20
+  throttle: 50
   spool_progress_expiration: 3600
   spool_expire: 0
   debug: false
+  source_cache: null
 _core:
   default_config_hash: cy-hJPYCnfCsuUZA7VDoAwssKhRJCa8N88iJTaWiims

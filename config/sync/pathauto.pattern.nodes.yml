@@ -5,10 +5,18 @@ dependencies:
   module:
     - node
 id: nodes
-label: Nodes
+label: Pages
 type: 'canonical_entities:node'
 pattern: '/[node:title]'
-selection_criteria: {  }
+selection_criteria:
+  aeabcc14-57ca-429d-a036-8a19d88d6034:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: aeabcc14-57ca-429d-a036-8a19d88d6034
 selection_logic: and
-weight: -6
+weight: -5
 relationships: {  }
