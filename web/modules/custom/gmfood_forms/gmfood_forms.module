@@ -12,7 +12,6 @@ function gmfood_forms_form_user_register_form_alter(&$form, \Drupal\Core\Form\Fo
   $form['field_hidden_account']['#access'] = FALSE;
   $form['field_link_to_organisation']['#access'] = FALSE;
   $form['field_organisation_name']['#access'] = FALSE;
-  $form['field_public_name']['#access'] = FALSE;
   $form['user_picture']['#access'] = FALSE;
 }
 

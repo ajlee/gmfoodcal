@@ -54,6 +54,7 @@ Forms
 Email
 - Set up cron for processing simplemail emails??
 - view newsletter online link
+- check newsletter email / reply to (forward to webarch to check?)
 
 Discourse
 - Use settings page to define key, user, etc.
@@ -61,6 +62,7 @@ Discourse
 - Discourse HTML Box not working
 - Post as user 'alex' config not working  on events & newsletter
 - Discourse bug when posting 
+- set correct discourse user
  
 Other
 - Remember if a node has been posted to discourse - set a field boole
@@ -68,16 +70,21 @@ Other
 - link to user from calendar page should be by public name or just first name / last name?
 - rename public name to display name? or make it required on registration form?
  - delete gmfood_general_node_access?
- -
+ - composer remove unused modules
+ - remove unused views
+ - fix composer installing libraries
+ - block public viewing of event dates
 
 Fields:
 - add "featured events" to page content type
+- thumbnail image for fb/twitter links
 
 Update Dev modules
 - entity_reference_revisions
 - fullcalendar
 
 Newsletter
+- newsletter headlines
 - unsubscribe link
 - use HTML mail for Discourse
 - send grid setup
