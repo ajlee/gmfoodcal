@@ -274,10 +274,10 @@ class DiscourseForm extends FormBase {
       if(is_object($this->discourseApi)) {
         $result = $this->discourseApi->createTopic($title, $body, $category, $this->discourseUser);
         $form_state->setValue('api_result',$result);
-        kint('post');
-        kint($result);
+        // kint('post');
+        //kint($result);
 
-        kint($result->apiresult->errors);
+        //kint($result->apiresult->errors);
       }
 
       // reload the page
@@ -317,11 +317,11 @@ class DiscourseForm extends FormBase {
       if (is_object($this->discourseApi)) {
       $result = $this->discourseApi->getCategories();
       $apiresult = $result->apiresult;
-      kint($result);
+      // kint($result);
       if (is_object($apiresult)) {
-         kint('is object');
+         // kint('is object');
          //kint($values['api_result']->http_code);
-        kint($apiresult);
+        // kint($apiresult);
         //kint($apiresult->actions_summary);
         //kint($apiresult->actions_summary[0]);
         //kint($values['api_result']->apiresult->errors);
