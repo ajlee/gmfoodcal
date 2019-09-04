@@ -29,6 +29,7 @@ permissions:
   - 'cancel account'
   - 'create article content'
   - 'create audio media'
+  - 'create calendar content'
   - 'create entity_browser_test content'
   - 'create file media'
   - 'create image media'

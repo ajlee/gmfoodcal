@@ -18,7 +18,6 @@ permissions:
   - 'access user contact forms'
   - 'access user profiles'
   - 'cancel account'
-  - 'create calendar content'
   - 'create event content'
   - 'create event_date content'
   - 'create news_link content'

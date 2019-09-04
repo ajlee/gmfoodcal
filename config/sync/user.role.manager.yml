@@ -74,6 +74,7 @@ permissions:
   - 'create and edit custom blocks'
   - 'create article content'
   - 'create audio media'
+  - 'create calendar content'
   - 'create entity_browser_test content'
   - 'create file media'
   - 'create image media'

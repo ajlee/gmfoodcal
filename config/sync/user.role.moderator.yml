@@ -13,6 +13,7 @@ permissions:
   - 'access toolbar'
   - 'bypass honeypot protection'
   - 'cancel account'
+  - 'create calendar content'
   - 'create media'
   - 'delete media'
   - 'delete own article content'

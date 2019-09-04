@@ -1,0 +1,29 @@
+uuid: 7733e7c1-fa16-49ef-98ab-b3c8671e02dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_calendar_colour
+    - node.type.calendar
+    - node.type.event
+id: node.event.field_calendar_colour
+field_name: field_calendar_colour
+entity_type: node
+bundle: event
+label: 'Calendar Colour'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      calendar: calendar
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
