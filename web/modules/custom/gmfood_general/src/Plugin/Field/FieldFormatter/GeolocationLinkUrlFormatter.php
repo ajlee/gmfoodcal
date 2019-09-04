@@ -35,7 +35,9 @@ class GeolocationLinkUrlFormatter extends FormatterBase {
 
     foreach ($items as $delta => $item) {
       // Render each element as markup.
-      $element[$delta] = ['#markup' => "View in Google Maps at https://www.google.com/maps/@53.4795513,-2.2523635,17z"];
+      $lat = $item->get('lat')->getValue();
+      $long = $item->get('lng')->getValue();
+      $element[$delta] = ['#markup' => "View in Google Maps at https://www.google.com/maps/@" . $lat . "," . $long . ",19z"];
     }
 
     return $element;

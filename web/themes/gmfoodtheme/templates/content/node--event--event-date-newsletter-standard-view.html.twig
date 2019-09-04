@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Template for a Node.
+ */
+#}
+{%
+  set classes = [
+  'node',
+  node.isPromoted() ? 'node--promoted',
+  node.isSticky() ? 'node--sticky',
+  not node.isPublished() ? 'node--unpublished',
+  node.bundle|clean_class,
+  node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
+]
+%}
+<article{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title_suffix }}
+  {% block content %}
+    {% block title %}{% endblock %}
+
+    <div{{ content_attributes }}>
+
+      {{ content.field_event_description }}
+      {{ content.field_more_information_link }}
+      {{ content.field_geolocation }}
+      {{ content.field_address }}
+      {{ content.field_contact_email }}
+      {{ content.field_contact_phone }}
+
+    </div>
+  {% endblock %}
+</article>
