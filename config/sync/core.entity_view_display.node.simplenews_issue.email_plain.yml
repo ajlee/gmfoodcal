@@ -5,14 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.email_plain
     - field.field.node.simplenews_issue.field_events
-    - field.field.node.simplenews_issue.field_newsletter_footer
-    - field.field.node.simplenews_issue.field_newsletter_intro
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
     - field_layout
     - layout_builder
-    - text
     - user
 third_party_settings:
   field_layout:
@@ -36,20 +33,6 @@ content:
     settings:
       view_mode: email_plain
       link: false
-    third_party_settings: {  }
-  field_newsletter_footer:
-    type: text_default
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_newsletter_intro:
-    type: text_default
-    weight: 0
-    region: content
-    label: hidden
-    settings: {  }
     third_party_settings: {  }
   read_more:
     weight: 100

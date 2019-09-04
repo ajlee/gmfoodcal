@@ -6,7 +6,7 @@ _core:
   default_config_hash: hj6zGNwndnW_J6lKfFcg-tY5e5YqWfgXyt0qioGtXL8
 name: 'GM Sustainable Food Bulletin'
 id: default
-description: 'This is an example newsletter. Change it.'
+description: 'This newsletter is a weekly bulletin of the sustainable food events in and around Greater Manchester.'
 format: plain
 priority: 0
 receipt: false

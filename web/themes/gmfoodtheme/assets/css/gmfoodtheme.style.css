@@ -9796,6 +9796,14 @@ div[data-drupal-selector=edit-field-layout] {
   display: none !important;
 }
 
+.node.event .field__label {
+  margin-top: 1rem;
+}
+
+.node .event__dates .field__item {
+  margin-top: 1rem;
+}
+
 .node .event__read-more-link {
   display: none;
 }

@@ -1,16 +1,17 @@
-uuid: 24c8a51b-c004-409d-a36c-c14936efa61a
+uuid: 7726d54d-d970-4fe0-b768-68a171ff5c31
 langcode: en
 status: true
 dependencies:
   module:
+    - datetime
     - node
-id: node.field_newsletter_footer
-field_name: field_newsletter_footer
+id: node.field_event_end_date_time
+field_name: field_event_end_date_time
 entity_type: node
-type: string_long
+type: datetime
 settings:
-  case_sensitive: false
-module: core
+  datetime_type: datetime
+module: datetime
 locked: false
 cardinality: 1
 translatable: true

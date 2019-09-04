@@ -11,7 +11,6 @@ dependencies:
   module:
     - field_layout
     - layout_builder
-    - text
     - user
 third_party_settings:
   field_layout:
@@ -37,18 +36,18 @@ content:
     type: entity_reference_entity_view
     region: content
   field_newsletter_footer:
-    weight: 3
-    label: hidden
+    weight: 102
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   field_newsletter_intro:
-    weight: 1
-    label: hidden
+    weight: 101
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   links:
     weight: 0

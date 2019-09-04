@@ -10,7 +10,7 @@ subscriber:
 subscription:
   use_combined: multiple
   confirm_subscribe_subject: 'Confirmation for [simplenews-newsletter:name] from [site:name]'
-  confirm_subscribe_unsubscribed: "We have received a request to subscribe [simplenews-subscriber:mail] to the [simplenews-newsletter:name] newsletter on [site:name] website at [site:url]. To confirm please use the link below. \n\n [simplenews-subscriber:subscribe-url]"
+  confirm_subscribe_unsubscribed: "We have received a request to subscribe [simplenews-subscriber:mail] to the [simplenews-newsletter:name] newsletter on [site:name] website at [site:url]. To confirm please use the link below. \r\n\r\n [simplenews-subscriber:subscribe-url]"
   confirm_subscribe_subscribed: 'We have received a request to subscribe [simplenews-subscriber:mail] to the [simplenews-newsletter:name]  newsletter on [site:name] website at [site:url]. However, this email is already subscribed to this newsletter. If you intended to unsubscribe please visit our site: [site:url]'
   confirm_unsubscribe_subscribed: "We have received a request to remove the [simplenews-subscriber:mail] from the [simplenews-newsletter:name] mailing list on [site:name] website at [site:url]. To confirm please use the link below.\r\n\r\n[simplenews-subscriber:unsubscribe-url]"
   confirm_unsubscribe_unsubscribed: 'We have received a request to remove the [simplenews-subscriber:mail] from the [simplenews-newsletter:name] mailing list on [site:name] website at [site:url]. However, this email is not subscribed to this mailing list. If you intended to subscribe please visit our site at [site:url]'
@@ -19,7 +19,7 @@ subscription:
   confirm_combined_body_unchanged: "We have received a request for the following subscription changes for [simplenews-subscriber:mail] at [site:url]:\r\n\r\n[changes-list]\r\n\r\nNo confirmation necessary because all requested changes equal the current state."
   confirm_combined_line_subscribe_unsubscribed: 'Subscribe to [simplenews-newsletter:name]'
   confirm_combined_line_subscribe_subscribed: 'Already subscribed to [simplenews-newsletter:name]'
-  confirm_combined_line_unsubscribe_subscribed: 'Unsubscribe from [simplenews-newsletter:name]'
+  confirm_combined_line_unsubscribe_subscribed: 'You signed up to [simplenews-newsletter:name] on the [site:name] website. Follow this link to unsubscribe from email newsletters'
   confirm_combined_line_unsubscribe_unsubscribed: 'Already unsubscribed from [simplenews-newsletter:name]'
   confirm_subscribe_page: ''
   confirm_unsubscribe_page: ''

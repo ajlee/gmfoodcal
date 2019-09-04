@@ -2,10 +2,10 @@ uuid: 147201a6-b059-422f-90ed-d16e40846f3e
 langcode: en
 status: true
 dependencies: {  }
-name: 'TEST Newsletter'
+name: 'HTML TEST Newsletter '
 id: test_newsletter
 description: sdfdsds
-format: plain
+format: html
 priority: 0
 receipt: false
 from_name: 'TurnKey Drupal8'

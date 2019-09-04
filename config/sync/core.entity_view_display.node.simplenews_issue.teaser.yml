@@ -5,8 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.simplenews_issue.field_events
-    - field.field.node.simplenews_issue.field_newsletter_footer
-    - field.field.node.simplenews_issue.field_newsletter_intro
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
@@ -50,8 +48,6 @@ content:
     region: content
 hidden:
   field_events: true
-  field_newsletter_footer: true
-  field_newsletter_intro: true
   langcode: true
   links: true
   simplenews_issue: true

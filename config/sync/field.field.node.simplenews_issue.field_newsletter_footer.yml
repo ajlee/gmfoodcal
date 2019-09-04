@@ -1,28 +1,21 @@
-uuid: 9717e89f-ce98-4bfc-93b7-0dbf23e10a03
+uuid: 8404dcbf-9cd3-439e-b530-0a2168a3fa8b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_newsletter_footer
     - node.type.simplenews_issue
-  module:
-    - allowed_formats
-    - text
-third_party_settings:
-  allowed_formats:
-    plain_text: plain_text
-    basic_html: '0'
-    restricted_html: '0'
-    full_html: '0'
 id: node.simplenews_issue.field_newsletter_footer
 field_name: field_newsletter_footer
 entity_type: node
 bundle: simplenews_issue
 label: 'Newsletter Footer'
-description: 'Text that will be added at the bottom of the newsletter.'
+description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 'If you would like your events added to the newsletter, please visit [site:url] to find out more.'
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string_long

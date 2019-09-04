@@ -22,11 +22,11 @@
     {% block title %}{% endblock %}
 
     <div{{ content_attributes }}>
-      {{ content.field_newsletter_intro }}
+      {{ content.field_newsletter_intro.0|token_replace }}
       <hr/>
       {{ content.field_events }}
       <hr/>
-      {{ content.field_newsletter_footer }}
+      {{ content.field_newsletter_footer.0|token_replace }}
       <hr/>
     </div>
   {% endblock %}

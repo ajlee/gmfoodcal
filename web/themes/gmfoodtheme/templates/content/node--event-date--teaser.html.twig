@@ -4,10 +4,10 @@
  * Template for a Node.
  */
 #}
-<h3{{ title_attributes }}>
-  <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-</h3>
-
-
-
+<div{{ title_attributes }}>
+  <span class="event-date-start">From {{ content.field_inline_event_date }}</span>
+  {% if content.field_event_end_date_time %}
+     <span class="event-date-end"> to {{ content.field_event_end_date_time }}</span>
+  {% endif %}
+</div>
 

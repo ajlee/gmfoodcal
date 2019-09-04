@@ -1,0 +1,21 @@
+
+.node.event-date > .contextual {
+  display:none !important;
+}
+
+.node.event {
+  .field__label {
+    margin-top:$spacer;
+  }
+}
+
+.node .event__dates {
+  .field__item {
+    margin-top:$spacer;
+  }
+}
+
+// hide this on main articles (it is displayed modals - see calendar.scss)
+.node .event__read-more-link {
+  display: none;
+}

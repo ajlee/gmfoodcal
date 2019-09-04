@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.event_date.field_event_end_date_time
     - field.field.node.event_date.field_inline_event_date
     - node.type.event_date
   module:
@@ -19,6 +20,12 @@ targetEntityType: node
 bundle: event_date
 mode: default
 content:
+  field_event_end_date_time:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_inline_event_date:
     weight: 26
     settings: {  }

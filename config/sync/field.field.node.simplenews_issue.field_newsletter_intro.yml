@@ -1,19 +1,10 @@
-uuid: 998c06bf-d8b2-4c64-98fc-fcb48b20ed89
+uuid: 27254cd4-f02a-4224-9a2c-f04226694905
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_newsletter_intro
     - node.type.simplenews_issue
-  module:
-    - allowed_formats
-    - text
-third_party_settings:
-  allowed_formats:
-    plain_text: plain_text
-    basic_html: '0'
-    restricted_html: '0'
-    full_html: '0'
 id: node.simplenews_issue.field_newsletter_intro
 field_name: field_newsletter_intro
 entity_type: node
@@ -22,7 +13,9 @@ label: 'Newsletter Intro'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: "Welcome to this edition of the **NAME OF NEWSLETTER** newsletter. Please find this edition's events listed below.\r\n"
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string_long

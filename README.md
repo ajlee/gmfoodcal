@@ -78,6 +78,7 @@ Other
 Fields:
 - add "featured events" to page content type
 - thumbnail image for fb/twitter links
+- event end date - add to newsletters
 
 Update Dev modules
 - entity_reference_revisions
@@ -85,8 +86,11 @@ Update Dev modules
 
 Newsletter
 - newsletter headlines
-- unsubscribe link
+- unsubscribe links
 - use HTML mail for Discourse
+- test HTML email?
+- formatting of plain email
+- link to events on website on email
 - send grid setup
 - include link to discourse post in email
 

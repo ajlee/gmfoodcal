@@ -1,16 +1,16 @@
-uuid: a3f05d2c-c29a-4513-b3b4-486b497735e3
+uuid: 998f03f0-ff97-4d74-8e27-bfec60e7bc65
 langcode: en
 status: true
 dependencies:
   module:
     - node
-    - text
 id: node.field_newsletter_intro
 field_name: field_newsletter_intro
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true
