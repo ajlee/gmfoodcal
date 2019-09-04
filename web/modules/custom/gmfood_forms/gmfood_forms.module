@@ -12,12 +12,15 @@ function gmfood_forms_form_user_register_form_alter(&$form, \Drupal\Core\Form\Fo
   $form['field_hidden_account']['#access'] = FALSE;
   $form['field_link_to_organisation']['#access'] = FALSE;
   $form['field_organisation_name']['#access'] = FALSE;
-  $form['field_public_name']['#access'] = FALSE;
   $form['user_picture']['#access'] = FALSE;
 }
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
 function gmfood_forms_form_node_event_date_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
 
+  // TODO: Block access to edit form too?
   // block access to /node/add/event_date
   $current_path = \Drupal::service('path.current')->getPath();
   $disable_url = '/node/add/event_date';
@@ -36,6 +39,28 @@ function gmfood_forms_form_node_event_date_form_alter(&$form, \Drupal\Core\Form\
     $form['actions']['preview']['#attributes']['disabled']  = 'disabled';
   }
 }
+
+/*
+ * uses HOOK_page_attachments()
+ * adds the css to the pages to fix the layout of newsletter edit form > add events
+ */
+function gmfood_forms_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] = 'gmfood_forms/gmfood-forms';
+}
+
+/*
+ * uses HOOK_form_alter()
+ */
+function gmfood_forms_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+
+  // remove useless "remove" entity button on newsletter forms
+  if(in_array($form_id,array('node_simplenews_issue_edit_form','node_simplenews_issue_form'))) {
+
+    $form['field_events']['widget']['remove_button']['#access'] = FALSE;
+  }
+}
+
+
   /**
    * Implementing hook_mail()
    */

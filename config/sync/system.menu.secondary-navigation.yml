@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: secondary-navigation
 label: 'Secondary Navigation'
-description: ''
+description: 'Appears underneath the main navigation for logged-in users'
 locked: false

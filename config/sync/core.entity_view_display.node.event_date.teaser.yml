@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.event_date.field_event_end_date_time
     - field.field.node.event_date.field_inline_event_date
     - node.type.event_date
   module:
@@ -18,16 +19,17 @@ content:
     type: datetime_default
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
   read_more:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
+  field_event_end_date_time: true
   langcode: true
   links: true

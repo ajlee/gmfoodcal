@@ -3,23 +3,23 @@
 <br/>
 
 {% if content.field_address.0 %}
-<strong>Address:</strong> {{ content.field_address.0 }}<br/>
+Address: {{ content.field_address.0 }}<br/>
 {% endif %}
 
 {% if content.field_geolocation.0 %}
-<strong>Location</strong> {{ content.field_geolocation.0 }}<br/>
+Location {{ content.field_geolocation.0 }}<br/>
 {% endif %}
 
 {% if content.field_contact_phone.0 %}
-<strong>Contact Phone:</strong> {{ content.field_contact_phone.0 }}<br/>
+Contact Phone: {{ content.field_contact_phone.0 }}<br/>
 {% endif %}
 
 {% if content.field_contact_email.0 %}
-<strong>Contact Email:</strong> {{ content.field_contact_email.0 }}<br/>
+Contact Email: {{ content.field_contact_email.0 }}<br/>
 {% endif %}
 
 {% if content.field_more_information_link.0 %}
-<strong>More info link:</strong> {{ content.field_more_information_link.0['#url'] }}<br/>
+More info link: {{ content.field_more_information_link.0['#url'] }}<br/>
 {% endif %}
 
 &nbsp;

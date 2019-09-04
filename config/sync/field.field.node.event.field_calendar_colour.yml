@@ -1,16 +1,16 @@
-uuid: f3cea773-a0cb-4a70-8ec5-18fc5f9de5ee
+uuid: 7733e7c1-fa16-49ef-98ab-b3c8671e02dc
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_test
-    - node.type.event_date
-    - node.type.simplenews_issue
-id: node.simplenews_issue.field_test
-field_name: field_test
+    - field.storage.node.field_calendar_colour
+    - node.type.calendar
+    - node.type.event
+id: node.event.field_calendar_colour
+field_name: field_calendar_colour
 entity_type: node
-bundle: simplenews_issue
-label: Test
+bundle: event
+label: 'Calendar Colour'
 description: ''
 required: false
 translatable: false
@@ -20,9 +20,10 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      event_date: event_date
+      calendar: calendar
     sort:
-      field: _none
+      field: title
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

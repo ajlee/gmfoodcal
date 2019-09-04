@@ -6,13 +6,11 @@ dependencies:
     - field.field.node.simplenews_issue.field_events
     - field.field.node.simplenews_issue.field_newsletter_footer
     - field.field.node.simplenews_issue.field_newsletter_intro
-    - field.field.node.simplenews_issue.field_test
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
     - field_layout
     - layout_builder
-    - text
     - user
 third_party_settings:
   field_layout:
@@ -38,18 +36,18 @@ content:
     type: entity_reference_entity_view
     region: content
   field_newsletter_footer:
-    weight: 3
-    label: hidden
+    weight: 102
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   field_newsletter_intro:
-    weight: 1
-    label: hidden
+    weight: 101
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    type: basic_string
     region: content
   links:
     weight: 0
@@ -62,6 +60,5 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_test: true
   langcode: true
   simplenews_issue: true

@@ -1,0 +1,5 @@
+gmfood-forms:
+  version: 1.x
+  css:
+    theme:
+      css/gmfood-forms.css: {}

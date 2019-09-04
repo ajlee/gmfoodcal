@@ -1,6 +1,0 @@
-gmfood_general.settings:
-  title: 'Calendars'
-  description: 'Shows all calendars on the site'
-  parent: main
-  menu_name: main
-  route_name: gmfood_general.calendars_page

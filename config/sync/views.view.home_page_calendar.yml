@@ -332,7 +332,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<a href="/calendars">View Larger Calendar</a>'
+          content: '<a href="/upcoming-events">View all events in list format</a>'
           plugin_id: text_custom
       empty: {  }
       relationships:

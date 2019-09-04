@@ -3,3 +3,5 @@ type: module
 description: 'Forms including request moderator access'
 core: 8.x
 package: 'gmfood'
+libraries:
+  - gmfood_forms/gmfood-forms

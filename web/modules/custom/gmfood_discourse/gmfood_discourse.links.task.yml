@@ -3,9 +3,3 @@ gmfood_discourse.post_to_discourse_task:
   title: Post to Discourse
   base_route: entity.node.canonical
   weight: 7
-
-gmfood_discourse.email_plain_view:
-  route_name : gmfood_discourse.email_plain_view
-  title: Preview Discourse Post
-  base_route: entity.node.canonical
-  weight: 6
