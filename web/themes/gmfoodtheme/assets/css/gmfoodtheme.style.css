@@ -9941,7 +9941,7 @@ div[data-drupal-selector=edit-field-layout] {
   max-width: 100%;
   flex: none;
 }
-#drupal-modal .event__field-more-information-link, #drupal-modal .event__field-contact-phone, #drupal-modal .event__field-contact-email, #drupal-modal .event__field-calendar, #drupal-modal .event__field-geolocation, #drupal-modal .event__dates {
+#drupal-modal .event__thumbnail, #drupal-modal .event__field-more-information-link, #drupal-modal .event__field-contact-phone, #drupal-modal .event__field-contact-email, #drupal-modal .event__field-calendar, #drupal-modal .event__field-geolocation, #drupal-modal .event__dates {
   display: none;
 }
 #drupal-modal .event__read-more-link {

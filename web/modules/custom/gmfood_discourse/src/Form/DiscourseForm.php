@@ -170,7 +170,7 @@ class DiscourseForm extends FormBase {
 
       $form['title'] = [
         '#type' => 'textfield',
-        '#title' => $this->t('New Post Title (at least 10 characters)'),
+        '#title' => $this->t('Post Title (at least 10 characters)'),
         '#description' => $this->t('Enter the title of the post. Note that the title should form a sentence.'),
         '#required' => TRUE,
         '#default_value' => $node->getTitle(),
@@ -179,7 +179,8 @@ class DiscourseForm extends FormBase {
 
       $form['category'] = [
         '#type' => 'select',
-        '#title' => $this->t('Select category to post to'),
+        '#title' => $this->t('Category'),
+        '#description' => $this->t('The Discourse category where this post will appear'),
         '#options' => array('' => 'Please select a category'),
         '#default_value' => '',
         '#required' => TRUE,
@@ -197,13 +198,15 @@ class DiscourseForm extends FormBase {
 
       $form['intro'] = [
         '#type' => 'textarea',
-        '#title' => $this->t('Additional text to insert at the top of the post'),
+        '#title' => $this->t('Intro'),
+        '#description' => $this->t('Additional text to insert at the top of the post'),
         '#default_value' => 'Please find details of the ' . $type . ' below',
       ];
 
       $form['nodehtml'] = [
         '#type' => 'textarea',
-        '#title' => $this->t('HTML of the ' . $type . ' node (you can edit this if you want, or even copy and paste it into an email to send manually)'),
+        '#title' => $this->t('Content'),
+        '#description' => $this->t('HTML of the ' . $type . ' node (you can edit this if you want, or even copy and paste it into an email to send manually)'),
         '#default_value' => $nodehtml,
         '#required' => TRUE,
       ];
