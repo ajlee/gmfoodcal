@@ -9808,6 +9808,10 @@ div[data-drupal-selector=edit-field-layout] {
   display: none;
 }
 
+.event-date__field-inline-event-date, .event-date__field-event-end-date-time {
+  display: inline;
+}
+
 .fc-calendar-1 {
   background-color: #0099FF;
   border-color: #0066CC;

@@ -27,16 +27,16 @@ function gmfood_general_fullcalendar_classes($entity) {
   //kint(is_object($entity->field_calendar));
 
   // check the calendar field is valid
-  if(isset($entity->field_calendar) && is_object($entity->field_calendar)) {
+  if(isset($entity->field_calendar_colour) && is_object($entity->field_calendar_colour) && !$entity->field_calendar_colour->isEmpty()) {
     // get transliteration service
     $tr = \Drupal::service('transliteration');
     //kint($entity->field_calendar[0]->entity->getTitle());
 
     // get the related calendar
     // NOTE: in the case of multiple calendars being referenced, it will pick the first one
-    $calendar_title = t($entity->field_calendar[0]->entity->getTitle());
+    $calendar_title = t($entity->field_calendar_colour[0]->entity->getTitle());
 
-    $calendar_field = $entity->field_calendar[0]->entity->get('field_calendar_serial');
+    $calendar_field = $entity->field_calendar_colour[0]->entity->get('field_calendar_serial');
     if (!empty($calendar_field)) {
       $calendar_id = $calendar_field[0]->value;
       $calendar_class_id = 'fc-calendar-' . $calendar_id;
