@@ -81,10 +81,10 @@ display:
           columnformatWeek: 'ddd M/D'
           columnformatDay: dddd
           theme: true
-          sameWindow: false
-          modalWindow: true
+          sameWindow: true
+          modalWindow: false
           contentHeight: 0
-          editable: false
+          editable: true
           fields:
             title: false
             title_field: title

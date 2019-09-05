@@ -80,7 +80,7 @@ display:
           columnformatWeek: 'ddd M/D'
           columnformatDay: dddd
           theme: true
-          sameWindow: false
+          sameWindow: true
           modalWindow: false
           contentHeight: 0
           editable: false
@@ -377,6 +377,15 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_event_dates: Content'
+          required: false
+          plugin_id: standard
+        field_secondary_calendars:
+          id: field_secondary_calendars
+          table: node__field_secondary_calendars
+          field: field_secondary_calendars
+          relationship: none
+          group_type: group
+          admin_label: 'field_secondary_calendars: Content'
           required: false
           plugin_id: standard
       arguments:
@@ -721,8 +730,8 @@ display:
           columnformatWeek: 'ddd M/D'
           columnformatDay: dddd
           theme: true
-          sameWindow: false
-          modalWindow: true
+          sameWindow: true
+          modalWindow: false
           contentHeight: 0
           editable: false
           fields:

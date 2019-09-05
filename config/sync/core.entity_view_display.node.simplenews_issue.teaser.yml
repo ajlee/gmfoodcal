@@ -48,8 +48,6 @@ content:
     region: content
 hidden:
   field_events: true
-  field_newsletter_footer: true
-  field_newsletter_intro: true
   langcode: true
   links: true
   simplenews_issue: true
