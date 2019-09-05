@@ -269,14 +269,17 @@ function gmfoodtheme_preprocess_views_view_fields (&$variables) {
     // display dates differently on the block and on the page
     // block view
     if (strstr($display, 'block') !== FALSE) {
-      // get the date field
-      $event_date_detail = $event_dates[0]->entity->get('field_inline_event_date');
-      // get a string
-      $event_date_value = $event_date_detail[0]->date->format('d/m/Y H:i');
-      // count the dates and use this info on twig template
-      $no_of_dates = count($event_dates);
-      $variables['no_of_dates'] = $no_of_dates;
-      $variables['first_date_formatted'] = $event_date_value;
+
+      if(!empty($event_dates) && !empty($event_dates[0]) && is_object($event_dates[0]->entity)) {
+	      // get the date field
+	      $event_date_detail = $event_dates[0]->entity->get('field_inline_event_date');
+	      // get a string
+	      $event_date_value = $event_date_detail[0]->date->format('d/m/Y H:i');
+	      // count the dates and use this info on twig template
+	      $no_of_dates = count($event_dates);
+	      $variables['no_of_dates'] = $no_of_dates;
+	      $variables['first_date_formatted'] = $event_date_value;
+      }
     }
     // page view
     else {
