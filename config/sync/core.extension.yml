@@ -3,11 +3,13 @@ module:
   admin_toolbar_links_access_filter: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
+  advagg: 0
   allow_iframed_site: 0
   allowed_formats: 0
   antibot: 0
   automated_cron: 0
   ban: 0
+  big_pipe: 0
   block: 0
   block_class: 0
   block_content: 0
@@ -28,7 +30,6 @@ module:
   datetime_extras: 0
   datetime_range: 0
   dblog: 0
-  devel: 0
   duration_field: 0
   dynamic_entity_reference: 0
   dynamic_page_cache: 0
@@ -58,7 +59,6 @@ module:
   inline_entity_form: 0
   inline_form_errors: 0
   jsonapi: 0
-  kint: 0
   language: 0
   layout_builder: 0
   layout_discovery: 0
@@ -80,6 +80,7 @@ module:
   multiple_fields_remove_button: 0
   node: 0
   options: 0
+  page_cache: 0
   path: 0
   phpmailer: 0
   quickedit: 0
