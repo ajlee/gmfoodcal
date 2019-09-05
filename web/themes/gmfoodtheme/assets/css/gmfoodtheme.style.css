@@ -9933,6 +9933,17 @@ div[data-drupal-selector=edit-field-layout] {
   margin: 0.125rem 0;
 }
 
+.fc-day-grid-event .fc-content, .fc-content {
+  white-space: normal;
+}
+
+.fc-title {
+  max-width: 100%;
+  display: block;
+  word-wrap: normal;
+  word-wrap: break-word;
+}
+
 #drupal-modal {
   padding-bottom: 4rem;
 }

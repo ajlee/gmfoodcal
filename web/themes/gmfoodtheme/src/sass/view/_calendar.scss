@@ -120,7 +120,15 @@
     margin:$spacer/8 0;
   }
 }
-
+.fc-day-grid-event .fc-content, .fc-content {
+  white-space: normal;
+}
+.fc-title {
+  max-width: 100%;
+  display: block;
+  word-wrap: normal;
+  word-wrap: break-word;
+}
 // display the node differently in the pop-up modal
 #drupal-modal {
   padding-bottom:$spacer*4;
