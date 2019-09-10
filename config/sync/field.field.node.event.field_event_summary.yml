@@ -9,9 +9,9 @@ id: node.event.field_event_summary
 field_name: field_event_summary
 entity_type: node
 bundle: event
-label: 'Event Summary (for newsletters)'
+label: 'Short Description'
 description: 'Used as an event description for newsletters'
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

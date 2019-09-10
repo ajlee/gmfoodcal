@@ -45,6 +45,20 @@ third_party_settings:
         required_fields: false
       label: 'Add a Google Map link (optional)'
       region: content
+    group_short_description_optional:
+      children:
+        - field_event_summary
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+        open: false
+      label: 'Short Description (optional)'
+      region: content
 id: node.event.default
 targetEntityType: node
 bundle: event

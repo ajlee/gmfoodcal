@@ -11,8 +11,8 @@ id: node.event.field_more_information_link
 field_name: field_more_information_link
 entity_type: node
 bundle: event
-label: 'More Information'
-description: ''
+label: 'Event URL'
+description: "If the event can be found on another website, such as eventbrite, Facebook, Meetup, etc. you can enter the URL here.\r\nYour URL needs to start with http:// or https://"
 required: false
 translatable: false
 default_value: {  }

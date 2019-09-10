@@ -10,9 +10,9 @@ id: node.event.field_calendar_colour
 field_name: field_calendar_colour
 entity_type: node
 bundle: event
-label: 'Calendar Colour'
-description: ''
-required: false
+label: 'Event Theme'
+description: 'This defines the colour and style of the event - each theme has a different colour. For example, food events are blue, while biodiversity events are green.'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
