@@ -28,6 +28,7 @@ Remove modules:
 
 Enable modules
 - bigpipe
+- cloudflare CDN free
 
 UI
 - /node/add - remove calendar and event date
@@ -50,6 +51,7 @@ Forms
 - Post registration email is wrong - doesn't need approval DONE
 - Capthca settings on all forms?
 - New form - request newsletter sending role?
+- Terms and conditions should be on all public forms
 
 Email
 - Set up cron for processing simplemail emails??
@@ -74,6 +76,7 @@ Other
  - remove unused views
  - fix composer installing libraries
  - block public viewing of event dates
+ - 
 
 Fields:
 - add "featured events" to page content type

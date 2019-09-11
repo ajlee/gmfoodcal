@@ -1,4 +1,13 @@
-{{ content.field_event_description.0 }}
+{% if content.field_event_summary.0 %}
+  {{ content.field_event_summary.0 }}
+{% else %}
+  {# display the first 300 characters if its longer than 300 #}
+  {% if content.field_event_description|render|striptags|length > 500 %}
+    {{ content.field_event_description|render|striptags|slice(0, 500) }}... (click Read More for more information)
+  {% else %}
+    {{ content.field_event_description|render|striptags }}
+  {% endif %}
+{% endif %}
 &nbsp;
 <br/>
 
@@ -19,7 +28,9 @@ Contact Email: {{ content.field_contact_email.0 }}<br/>
 {% endif %}
 
 {% if content.field_more_information_link.0 %}
-More info link: {{ content.field_more_information_link.0['#url'] }}<br/>
+Event URL: {{ content.field_more_information_link.0['#url'] }}<br/>
 {% endif %}
+
+Read more: {{ url('entity.node.canonical', {'node': node.id}) }}
 
 &nbsp;

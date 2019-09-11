@@ -35,7 +35,7 @@ third_party_settings:
       children:
         - field_geolocation
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: details
       format_settings:
         description: ''
@@ -78,12 +78,6 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
-  field_calendar_colour:
-    weight: 9
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_contact_email:
     weight: 5
     settings:
@@ -100,7 +94,7 @@ content:
     type: telephone_default
     region: content
   field_event_dates:
-    weight: 11
+    weight: 10
     settings:
       form_mode: default
       override_labels: true
@@ -180,13 +174,13 @@ content:
     region: content
   path:
     type: path
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 12
+    weight: 11
     region: content
     settings:
       display_label: true
@@ -201,6 +195,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_calendar_colour: true
   langcode: true
   promote: true
   sticky: true

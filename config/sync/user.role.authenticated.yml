@@ -18,6 +18,7 @@ permissions:
   - 'access user contact forms'
   - 'access user profiles'
   - 'cancel account'
+  - 'clone node entity'
   - 'create event content'
   - 'create event_date content'
   - 'create news_link content'

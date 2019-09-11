@@ -22,7 +22,8 @@
   {%
     set row_classes = [
       default_row_class ? 'views-row',
-      'views-row--unformatted'
+      'views-row--unformatted',
+      'views-row-count-' ~ rows|length,
     ]
   %}
   <div{{ row.attributes.addClass(row_classes) }}>

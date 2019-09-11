@@ -9812,6 +9812,15 @@ div[data-drupal-selector=edit-field-layout] {
   display: inline;
 }
 
+.simplenews-issue--full h3, .simplenews-issue--full .view-page .views-row--unformatted .views-field-title, .view-page .views-row--unformatted .simplenews-issue--full .views-field-title {
+  margin-top: 2rem;
+}
+.simplenews-issue--full .read-more {
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 700;
+}
+
 .fc-calendar-1 {
   background-color: #0099FF;
   border-color: #0066CC;

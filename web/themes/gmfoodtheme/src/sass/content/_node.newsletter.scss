@@ -1,0 +1,13 @@
+// simplenews issue
+// -----------------------------------------------------------------------------
+.simplenews-issue--full {
+  h3 {
+    margin-top: $spacer*2;
+  }
+  .read-more {
+    margin-top: $spacer;
+    display:inline-block;
+    font-weight: $font-weight-bold;
+  }
+}
+

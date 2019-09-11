@@ -10,7 +10,7 @@ field_name: field_event_description
 entity_type: node
 bundle: event
 label: 'Event Description'
-description: ''
+description: 'Add all the details of your event here. For example - who is speaking, whether food is provided, whether you need to book in advance, whether specific skills or knowledge is required, and so on.'
 required: true
 translatable: false
 default_value: {  }

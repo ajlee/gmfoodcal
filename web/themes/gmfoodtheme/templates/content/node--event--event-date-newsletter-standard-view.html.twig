@@ -28,6 +28,7 @@
       {{ content.field_address }}
       {{ content.field_contact_email }}
       {{ content.field_contact_phone }}
+      <a class="read-more" href="{{ url('entity.node.canonical', {'node': node.id}) }}">Read more</a>
 
     </div>
   {% endblock %}

@@ -65,7 +65,6 @@ class ModeratorAccessForm extends FormBase {
       // these must be filled in before requesting moderator access
       if ($field_about_me && $user_picture && $field_about_me) {
 
-            kint  ($user->hasPermission('moderate authorised events'));
 
             // if the user already has permission, just return a message
             if ($user->hasPermission('moderate authorised events') || $user->hasPermission('Administer Content')) {
