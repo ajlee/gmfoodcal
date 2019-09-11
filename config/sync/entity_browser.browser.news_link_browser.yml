@@ -1,0 +1,31 @@
+uuid: 2d09f028-4863-4809-bae0-8503778809a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.entity_browser_news_links
+  module:
+    - views
+name: news_link_browser
+label: news_link_browser
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select entities'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  cc1c49e2-3a99-42a5-b74a-618e2bd43885:
+    settings:
+      view: entity_browser_news_links
+      view_display: entity_browser_event_dates
+      submit_text: 'Select entities'
+      auto_select: false
+    uuid: cc1c49e2-3a99-42a5-b74a-618e2bd43885
+    weight: 1
+    label: 'Select News Links'
+    id: view

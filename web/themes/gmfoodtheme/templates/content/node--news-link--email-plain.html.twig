@@ -1,0 +1,14 @@
+<h4>{{ label }}</h4>
+
+{% if content.field_news_summary.0 %}
+  {{ content.field_news_summary.0 }}
+{% endif %}
+&nbsp;
+<br/>
+
+{% if content.field_link_to_article.0 %}
+Read more: {{ content.field_link_to_article.0['#url'] }}<br/>
+{% endif %}
+
+&nbsp;
+<hr/>

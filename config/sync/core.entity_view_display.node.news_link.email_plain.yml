@@ -1,19 +1,25 @@
-uuid: 91355376-2bc3-442e-b00b-3292f3fa9aa6
+uuid: 20bbd41e-82f1-486e-a658-f60aaab4b8b8
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.email_plain
     - field.field.node.news_link.field_link_to_article
     - field.field.node.news_link.field_news_summary
     - field.field.node.news_link.field_topic
     - node.type.news_link
   module:
+    - layout_builder
     - link
     - user
-id: node.news_link.default
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.news_link.email_plain
 targetEntityType: node
 bundle: news_link
-mode: default
+mode: email_plain
 content:
   field_link_to_article:
     weight: 3

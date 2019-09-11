@@ -4,11 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.news_link.field_calendar_reference
     - field.field.node.news_link.field_link_to_article
-    - field.field.node.news_link.field_news_category
     - field.field.node.news_link.field_news_summary
-    - field.field.node.news_link.field_related_news
+    - field.field.node.news_link.field_topic
     - node.type.news_link
   module:
     - link
@@ -43,8 +41,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_calendar_reference: true
-  field_news_category: true
-  field_related_news: true
+  field_topic: true
   langcode: true
   links: true

@@ -9,9 +9,9 @@ id: node.news_link.field_news_summary
 field_name: field_news_summary
 entity_type: node
 bundle: news_link
-label: 'Article Summary'
-description: ''
-required: true
+label: 'Article Summary (optional)'
+description: 'Enter a short summary of the article (less than 300 characters). If you leave it blank, only the link and title will be shown. '
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

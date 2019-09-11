@@ -1,29 +1,29 @@
-uuid: 04a5022a-7367-4182-a14a-f91948c63517
+uuid: e7d57125-18ff-420f-8e1f-8da21fc9d9c1
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_news_category
+    - field.storage.node.field_topic
+    - node.type.calendar
     - node.type.news_link
-    - taxonomy.vocabulary.tags
-id: node.news_link.field_news_category
-field_name: field_news_category
+id: node.news_link.field_topic
+field_name: field_topic
 entity_type: node
 bundle: news_link
-label: 'News Category'
+label: Topic
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: 'default:node'
   handler_settings:
     target_bundles:
-      tags: tags
+      calendar: calendar
     sort:
-      field: name
-      direction: asc
+      field: title
+      direction: ASC
     auto_create: false
     auto_create_bundle: ''
 field_type: entity_reference

@@ -1,0 +1,31 @@
+uuid: d523964d-421b-432a-8a08-2be53be62504
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news
+    - node.type.article
+    - node.type.news_link
+    - node.type.simplenews_issue
+id: node.simplenews_issue.field_news
+field_name: field_news
+entity_type: node
+bundle: simplenews_issue
+label: News
+description: 'Select news links and articles that you want to include in the newsletter.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      article: article
+      news_link: news_link
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: article
+field_type: entity_reference
