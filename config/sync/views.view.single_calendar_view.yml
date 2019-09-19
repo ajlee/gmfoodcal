@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_inline_event_date
+    - field.storage.node.field_start_date
     - node.type.event
   module:
     - datetime
@@ -171,11 +171,64 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_inline_event_date:
-          id: field_inline_event_date
-          table: node__field_inline_event_date
-          field: field_inline_event_date
-          relationship: field_event_dates
+        view_node:
+          id: view_node
+          table: node_field_revision
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<a href="{{ view_node }}/teaser">View</a>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: view
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link
+        field_start_date:
+          id: field_start_date
+          table: node__field_start_date
+          field: field_start_date
+          relationship: none
           group_type: group
           admin_label: ''
           label: ''
@@ -235,59 +288,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        view_node:
-          id: view_node
-          table: node_field_revision
-          field: view_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a href="{{ view_node }}/teaser">View</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: view
-          output_url_as_text: false
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link
       filters:
         status:
           value: '1'
@@ -370,24 +370,6 @@ display:
           admin_label: 'field_calendar: Content'
           required: false
           plugin_id: standard
-        field_event_dates:
-          id: field_event_dates
-          table: node__field_event_dates
-          field: field_event_dates
-          relationship: none
-          group_type: group
-          admin_label: 'field_event_dates: Content'
-          required: false
-          plugin_id: standard
-        field_secondary_calendars:
-          id: field_secondary_calendars
-          table: node__field_secondary_calendars
-          field: field_secondary_calendars
-          relationship: none
-          group_type: group
-          admin_label: 'field_secondary_calendars: Content'
-          required: false
-          plugin_id: standard
       arguments:
         nid:
           id: nid
@@ -437,7 +419,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'
   block_1:
     display_plugin: block
     id: block_1
@@ -550,7 +532,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'
   block_list:
     display_plugin: block
     id: block_list
@@ -618,7 +600,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'
   page_1:
     display_plugin: page
     id: page_1
@@ -636,7 +618,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'
   single_calendar:
     display_plugin: block
     id: single_calendar
@@ -654,7 +636,7 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'
   single_calendar_view_block:
     display_plugin: block
     id: single_calendar_view_block
@@ -676,7 +658,7 @@ display:
             title_enable: false
             title: All
           title_enable: true
-          title: '{{ raw_arguments.nid }} | {{ arguments.nid }}'
+          title: '{{ arguments.nid }} Calendar'
           default_argument_type: node
           default_argument_options: {  }
           default_argument_skip_url: false
@@ -767,4 +749,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'

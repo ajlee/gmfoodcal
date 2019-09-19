@@ -1,36 +1,47 @@
-{% if content.field_event_summary.0 %}
-  {{ content.field_event_summary.0 }}
+{{ node.title.value }}
+{# --- do not indent as this changes formatting --- #}
+{% if valid_end_date %}
+{% if multi_day_event %}
+
+<div>Date and time: From {{ node.field_start_date.date | date("l, F j Y, H:i")|render|trim }} - to {{ node.field_end_date.date | date("l, F j Y, H:i")|render|trim }}</div>
 {% else %}
-  {# display the first 300 characters if its longer than 300 #}
-  {% if content.field_event_description|render|striptags|length > 500 %}
-    {{ content.field_event_description|render|striptags|slice(0, 500) }}... (click Read More for more information)
-  {% else %}
-    {{ content.field_event_description|render|striptags }}
-  {% endif %}
-{% endif %}
-&nbsp;
-<br/>
 
+<div>Date and time: From {{ node.field_start_date.date | date("l, F j Y, H:i") }} to {{ node.field_end_date.date | date("H:i")|render|trim }}</div>
+{% endif %}
+{% else %}
+
+<div>Date and time: From {{ node.field_start_date.date | date("l, F j Y, H:i")|render|trim }}</div>
+{% endif %}
+
+{% if content.field_event_summary.0 %}
+Description: {{ content.field_event_summary.0|raw|trim }}
+{% else %}
+{# display the first 300 characters if its longer than 300 #}
+{% if node.field_event_description.0.value|striptags|length > 500|trim %}
+Description: {{ node.field_event_description.0.value|raw|striptags|slice(0, 500)|trim }}... (click Read More for more information)
+{% else %}
+Description: {{ node.field_event_description.0.value|raw|striptags|trim }}
+{% endif %}
+{% endif %}
 {% if content.field_address.0 %}
-Address: {{ content.field_address.0 }}<br/>
-{% endif %}
 
+Address: {{ content.field_address.0|render|trim }}
+{% endif %}
 {% if content.field_geolocation.0 %}
-Location {{ content.field_geolocation.0 }}<br/>
-{% endif %}
 
+Location: {{ content.field_geolocation.0|render|trim }}<br/>
+{% endif %}
 {% if content.field_contact_phone.0 %}
-Contact Phone: {{ content.field_contact_phone.0 }}<br/>
-{% endif %}
 
+Contact Phone: {{ content.field_contact_phone.0|render|trim }}<br/>
+{% endif %}
 {% if content.field_contact_email.0 %}
-Contact Email: {{ content.field_contact_email.0 }}<br/>
-{% endif %}
 
+Contact Email: {{ content.field_contact_email.0|render|trim }}<br/>
+{% endif %}
 {% if content.field_more_information_link.0 %}
-Event URL: {{ content.field_more_information_link.0['#url'] }}<br/>
+
+Event URL: {{ content.field_more_information_link.0['#url']|render|trim }}<br/>
 {% endif %}
 
-Read more: {{ url('entity.node.canonical', {'node': node.id}) }}
-
-&nbsp;
+Read more: {{ url('entity.node.canonical', {'node': node.id})|render|trim }}

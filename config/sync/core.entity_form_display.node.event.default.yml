@@ -8,15 +8,18 @@ dependencies:
     - field.field.node.event.field_calendar_colour
     - field.field.node.event.field_contact_email
     - field.field.node.event.field_contact_phone
+    - field.field.node.event.field_end_date
     - field.field.node.event.field_event_dates
     - field.field.node.event.field_event_description
     - field.field.node.event.field_event_summary
     - field.field.node.event.field_event_thumbnail
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_start_date
     - image.style.thumbnail
     - node.type.event
   module:
+    - datetime
     - field_group
     - field_layout
     - geolocation
@@ -78,6 +81,15 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_calendar_colour:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_contact_email:
     weight: 5
     settings:
@@ -92,6 +104,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
+    region: content
+  field_end_date:
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
     region: content
   field_event_dates:
     weight: 10
@@ -172,6 +190,12 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_start_date:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   path:
     type: path
     weight: 12
@@ -195,7 +219,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_calendar_colour: true
   langcode: true
   promote: true
   sticky: true

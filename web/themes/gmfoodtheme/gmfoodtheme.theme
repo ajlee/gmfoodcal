@@ -55,8 +55,38 @@ function gmfoodtheme_preprocess_node(&$variables) {
   $variables['view_mode'] = $view_mode;
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
 
+  //
+  // Preprocess events
+  //
   if ($type == 'event') {
     $variables['edit_link'] = get_node_edit_link($nid);
+    $start_date = $node->get('field_start_date');
+
+    // IF START DATE AFTER END
+    if ($start_date && $start_date->date) {
+      //kint($start_date->date->format('Y/m/d'));
+      $end_date = $node->get('field_end_date');
+      if ($end_date && $end_date->date) {
+        if ($start_date->date < $end_date->date) {
+          $variables['valid_end_date'] = TRUE;
+
+          $start_date_day = $start_date->date->format('Y/m/d');
+          $end_date_day = $end_date->date->format('Y/m/d');
+          if ($start_date_day == $end_date_day) {
+            //kint('same date');
+            $variables['multi_day_event'] = FALSE;
+          }
+          else {
+            //kint('different date');
+            $variables['multi_day_event'] = TRUE;
+          }
+        }
+        else {
+          $variables['valid_end_date'] = FALSE;
+          //kint('start date after end date');
+        }
+      }
+    }
   }
 
 
@@ -222,6 +252,13 @@ function gmfoodtheme_theme_suggestions_page_alter(&$suggestions, array $variable
     $suggestions[] = array('iframe');
   }
 }
+
+function gmfoodtheme_theme_suggestions_field_alter(&$suggestions, $variables) {
+  $suggestions[] = 'field__' .
+    $variables['element']['#field_name'] . '__' .
+    $variables['element']['#view_mode'];
+}
+
 
 /*
  * add more template suggestions for input fields

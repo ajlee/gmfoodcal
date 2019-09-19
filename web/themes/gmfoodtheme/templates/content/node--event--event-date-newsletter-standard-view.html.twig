@@ -14,13 +14,47 @@
   node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
 ]
 %}
+
+{# --- helper variables for event output --- #}
+
+{# --- figure out if event start and end dates are the same - #}
+{% set start_date_day = node.field_start_date.date | date("Y/m/d") %}
+{% set end_date_day = node.field_end_date.date | date("Y/m/d") %}
+{% set same_day_event = null %}
+{% if start_date_day == end_date_day %}
+  {% set same_day_event = true %}
+{% else %}
+  {% set same_day_event = false %}
+{% endif %}
+
+{# --- figure out if event start and end dates **and time** are the same --- #}
+{% set start_date_day_time = node.field_start_date.date | date("Y/m/d - H:i") %}
+{% set end_date_day_time = node.field_end_date.date | date("Y/m/d - H:i") %}
+{% set same_day_time_event = null %}
+{% if start_date_day_time == end_date_day_time %}
+  {% set same_day_time_event = true %}
+{% else %}
+  {% set same_day_time_event = false %}
+{% endif %}
+
 <article{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {{ title_suffix }}
   {% block content %}
-    {% block title %}{% endblock %}
+    {% block title %}<h4>{{ label }}</h4>{% endblock %}
 
     <div{{ content_attributes }}>
+
+      {# --- format the event start and end date --- #}
+      From {{ node.field_start_date.date | date("l, F j, Y - H:i") }}
+      {# is a value set for end date? is it valid? #}
+      {% if valid_end_date %}
+        {% if multi_day_event %}
+          to {{ node.field_end_date.date | date("l, F j, Y - H:i") }}
+        {% else %}
+          to {{ node.field_end_date.date | date("H:i") }}
+        {% endif %}
+      {% endif %}
 
       {{ content.field_event_description }}
       {{ content.field_more_information_link }}

@@ -69,8 +69,11 @@ content:
 hidden:
   field_address: true
   field_calendar: true
+  field_calendar_colour: true
   field_duration: true
   field_event_dates: true
   field_event_description: true
+  field_event_summary: true
+  field_event_thumbnail: true
   field_geolocation: true
   langcode: true

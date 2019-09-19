@@ -37,6 +37,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_events: true
+  field_news: true
   field_newsletter_footer: true
   field_newsletter_intro: true
   langcode: true
