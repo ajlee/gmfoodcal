@@ -27,7 +27,7 @@ function gmfood_general_fullcalendar_classes($entity) {
   //kint(is_object($entity->field_calendar));
 
   // check the calendar field is valid
-  if(isset($entity->field_calendar_colour) && is_object($entity->field_calendar_colour) && !$entity->field_calendar_colour->isEmpty()) {
+  if(isset($entity->field_calendar_colour) && is_object($entity->field_calendar_colour) && !$entity->field_calendar_colour->isEmpty() && is_object(($entity->field_calendar_colour[0]->entity))) {
     // get transliteration service
     $tr = \Drupal::service('transliteration');
     //kint($entity->field_calendar[0]->entity->getTitle());
