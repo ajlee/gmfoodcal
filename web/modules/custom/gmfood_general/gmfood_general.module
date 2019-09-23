@@ -130,6 +130,7 @@ function gmfood_general_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
       $form['field_event_dates']['widget']['add_more']['#value'] = t('Add another date');
       // change the label for the save field
       $form['actions']['submit']['#value'] = t('Publish this Event');
+      $form["#attached"]["library"][] = 'gmfood_general/auto_event_end_date';
     }
   }
 }
@@ -401,4 +402,15 @@ function gmfood_general_user_view_alter(array &$build, Drupal\Core\Entity\Entity
       // TODO: add some fields here!
     }
   }
+}
+//
+// uses function hook_menu_local_tasks_alter
+// https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Menu%21menu.api.php/function/hook_menu_local_tasks_alter/
+//
+function gmfood_general_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
+  kint($data['tabs']);
+  // change the title of the "Newsletter", view, and edit tabs on user profile
+  $data['tabs'][0]['entity.user.canonical']['#link']['title'] = "View My Profile";
+  $data['tabs'][0]['entity.user.edit_form']['#link']['title'] = "Edit My Profile";
+  $data['tabs'][0]['simplenews.newsletter_subscriptions_user']['#link']['title'] = "My Newsletter Subscriptions";
 }
