@@ -101,6 +101,7 @@
         "drupal/radix": "^4.3",
         "drupal/radix_layouts": "^4.1",
         "drupal/redirect": "^1.4",
+        "drupal/replicate": "^1.0@alpha",
         "drupal/reverse_entity_reference": "^2.7@RC",
         "drupal/serial": "^1.0@alpha",
         "drupal/simple_gmap": "^1.4",

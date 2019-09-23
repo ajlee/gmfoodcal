@@ -58,7 +58,9 @@ function gmfood_forms_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $f
 
     $form['field_events']['widget']['remove_button']['#access'] = FALSE;
   }
+  $form['field_more_information_link']['#element_validate'][] = 'gmfoodforum_forms_validate_link';
 }
+
 
 
   /**
@@ -136,5 +138,13 @@ The GM Food Forum Calendar";
 
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($body);
   $message['body'][] = Drupal\Core\Mail\MailFormatHelper::htmlToText($footer);
-  kint($message);
+}
+
+
+/**
+ * Validate the node title to prevent ALL CAPS.
+ */
+function gmfoodforum_forms_validate_link($element, &$form_state, $form) {
+
+  $form_state->setErrorByName('field_more_information_link', t('Enter a URL beginning with http:// or https://'));
 }
