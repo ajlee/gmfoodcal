@@ -8,7 +8,8 @@ import 'bootstrap';
   // enable a datepicker
   Drupal.behaviors.enableDatePicker = {
     attach: function (context) {
-      jQuery('[type="date"]').datepicker({ 'dateFormat':'yy-mm-dd'});
+      jQuery('[type="date"]').datepicker('disable');
+      //jQuery('[type="date"]').datepicker({ 'dateFormat':'yy-mm-dd'});
     }
   };
 

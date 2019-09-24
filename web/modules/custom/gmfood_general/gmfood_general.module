@@ -414,3 +414,11 @@ function gmfood_general_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core
   $data['tabs'][0]['entity.user.edit_form']['#link']['title'] = "Edit My Profile";
   $data['tabs'][0]['simplenews.newsletter_subscriptions_user']['#link']['title'] = "My Newsletter Subscriptions";
 }
+
+//
+// remove jquery datepicker - use browser native versions
+//
+function gmfood_general_js_alter(&$javascript) {
+  unset($javascript['core/assets/vendor/jquery.ui/ui/widgets/datepicker-min.js']);
+  unset($javascript['core/modules/locale/locale.datepicker.js']);
+}

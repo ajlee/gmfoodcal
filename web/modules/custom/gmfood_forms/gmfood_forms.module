@@ -142,9 +142,9 @@ The GM Food Forum Calendar";
 
 
 /**
- * Validate the node title to prevent ALL CAPS.
+ * Change error message for link url
+ * may not be needed if clientside_validation module works
  */
 function gmfoodforum_forms_validate_link($element, &$form_state, $form) {
-
-  $form_state->setErrorByName('field_more_information_link', t('Enter a URL beginning with http:// or https://'));
+  //$form_state->setErrorByName('field_more_information_link', t('Enter a URL beginning with http:// or https://'));
 }

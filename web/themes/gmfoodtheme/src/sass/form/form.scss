@@ -103,3 +103,13 @@ div[data-drupal-selector="edit-field-layout"] {
 }
 
 
+/*
+ * Validation
+ */
+
+.form-control.error {
+  border: 1px solid $red;
+}
+.form-item--error-message {
+  color:$red;
+}

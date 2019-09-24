@@ -9772,6 +9772,17 @@ div[data-drupal-selector=edit-field-layout] {
   margin-right: 1rem;
 }
 
+/*
+ * Validation
+ */
+.form-control.error {
+  border: 1px solid #FF0000;
+}
+
+.form-item--error-message {
+  color: #FF0000;
+}
+
 .block {
   margin: 1rem 0;
 }
