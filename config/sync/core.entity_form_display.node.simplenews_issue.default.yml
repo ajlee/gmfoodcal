@@ -47,7 +47,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_news:
-    weight: 26
+    weight: 12
     settings:
       entity_browser: news_link_browser
       field_widget_display: label
@@ -61,7 +61,7 @@ content:
     type: entity_browser_entity_reference
     region: content
   field_newsletter_footer:
-    weight: 12
+    weight: 13
     settings:
       rows: 5
       placeholder: ''

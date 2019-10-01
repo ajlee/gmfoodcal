@@ -24,7 +24,6 @@ dependencies:
     - field_layout
     - geolocation
     - image
-    - inline_entity_form
     - layout_discovery
     - link
     - path
@@ -83,7 +82,7 @@ content:
     region: content
   field_calendar_colour:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -106,22 +105,10 @@ content:
     type: telephone_default
     region: content
   field_end_date:
-    weight: 14
+    weight: 13
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_event_dates:
-    weight: 10
-    settings:
-      form_mode: default
-      override_labels: true
-      label_singular: 'Event Date'
-      label_plural: 'Event Dates'
-      collapsible: false
-      collapsed: false
-    third_party_settings: {  }
-    type: inline_entity_form_simple
     region: content
   field_event_description:
     weight: 2
@@ -191,20 +178,20 @@ content:
     type: link_default
     region: content
   field_start_date:
-    weight: 13
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
   path:
     type: path
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -219,6 +206,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_event_dates: true
   langcode: true
   promote: true
   sticky: true
