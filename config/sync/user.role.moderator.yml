@@ -34,4 +34,3 @@ permissions:
   - 'use text format restricted_html'
   - 'view own unpublished content'
   - 'view own unpublished media'
-  - 'view the administration theme'

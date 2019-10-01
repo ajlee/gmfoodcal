@@ -15,7 +15,6 @@ module:
   calendar_datetime: 0
   captcha: 0
   ckeditor: 0
-  clientside_validation: 0
   coffee: 0
   colorbox: 0
   comment: 0
@@ -35,7 +34,6 @@ module:
   dynamic_page_cache: 0
   editor: 0
   entity_browser: 0
-  entity_clone: 0
   entity_reference: 0
   entity_reference_revisions: 0
   entity_reference_views_select: 0
@@ -90,6 +88,8 @@ module:
   radix_layouts: 0
   rdf: 0
   redirect: 0
+  replicate: 0
+  replicate_ui: 0
   responsive_image: 0
   rest: 0
   reverse_entity_reference: 0
