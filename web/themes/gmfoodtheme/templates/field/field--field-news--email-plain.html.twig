@@ -1,7 +1,7 @@
 <br/>
 {% for key, item in items %}
-------------------------------------------------------------------------------
-.... NEWS {{ key + 1 }}: {{ item.content|render|striptags|trim }}
+<hr/>
+<div>.... NEWS {{ key + 1 }}: {{ item.content|render|striptags|trim }}</div>
 <div>&nbsp;</div><br/>
 {% endfor %}
 

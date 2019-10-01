@@ -9693,6 +9693,23 @@ a:hover {
   padding: 0.25rem 0.5rem;
 }
 
+footer .block--gmfoodtheme-footer {
+  display: inline-block;
+}
+footer .block--gmfoodtheme-footer .menu {
+  display: inline;
+  padding: 0;
+}
+footer .block--gmfoodtheme-footer .menu li {
+  display: inline-block;
+}
+footer .block--gmfoodtheme-account-menu {
+  display: inline-block;
+}
+footer .nav.navbar-nav {
+  flex-direction: row;
+}
+
 /*
  * General forms
  */
