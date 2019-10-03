@@ -28,6 +28,7 @@ dependencies:
     - link
     - path
     - telephone
+    - timepicker
 third_party_settings:
   field_layout:
     id: layout_onecol
@@ -80,15 +81,6 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
-  field_calendar_colour:
-    type: entity_reference_autocomplete
-    weight: 14
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_contact_email:
     weight: 5
     settings:
@@ -180,7 +172,12 @@ content:
   field_start_date:
     weight: 12
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      timepicker:
+        enabled: '1'
+        type: timepicker_jonthornton
+        js_options:
+          value: ''
     type: datetime_default
     region: content
   path:
@@ -206,6 +203,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_calendar_colour: true
   field_event_dates: true
   langcode: true
   promote: true

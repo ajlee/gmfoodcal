@@ -64,9 +64,11 @@ hidden:
   field_contact_email: true
   field_contact_phone: true
   field_duration: true
+  field_end_date: true
   field_event_summary: true
   field_event_thumbnail: true
   field_geolocation: true
   field_more_information_link: true
+  field_start_date: true
   langcode: true
   read_more: true

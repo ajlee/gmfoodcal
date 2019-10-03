@@ -6,3 +6,11 @@ auto_event_end_date:
     - core/drupal
     - core/drupal.dialog.ajax
     - fullcalendar/fullcalendar
+    - core/jquery.ui.datepicker
+    - timepicker/jonthornton-timepicker
+    - timepicker/jonthornton-jquery-timepicker
+    - timepicker/jquery-ui-timepicker
+    - timepicker/jquery-addon-timepicker
+    - timepicker/jquery.ui.timepicker
+    - timepicker/jquery.ui.timepicker.addon
+

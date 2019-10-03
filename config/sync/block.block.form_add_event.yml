@@ -1,0 +1,28 @@
+uuid: e1066440-3381-4042-b41f-20440d72dcb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - gmfoodtheme
+id: form_add_event
+theme: gmfoodtheme
+region: content
+weight: 0
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Content form'
+  provider: node
+  label_display: visible
+  type: event
+  show_help: 0
+visibility:
+  request_path:
+    id: request_path
+    pages: /add-event
+    negate: false
+    context_mapping: {  }

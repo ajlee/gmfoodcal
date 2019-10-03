@@ -1,0 +1,28 @@
+uuid: d0392b36-27a9-49da-9e73-758bedc3cd8a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - gmfoodtheme
+id: form_add_news_link
+theme: gmfoodtheme
+region: content
+weight: 0
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Content form'
+  provider: node
+  label_display: visible
+  type: news_link
+  show_help: 0
+visibility:
+  request_path:
+    id: request_path
+    pages: /add-news-link
+    negate: false
+    context_mapping: {  }
