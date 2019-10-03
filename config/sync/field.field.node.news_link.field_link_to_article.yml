@@ -12,8 +12,8 @@ field_name: field_link_to_article
 entity_type: node
 bundle: news_link
 label: 'Link to Article'
-description: ''
-required: false
+description: 'The link to the article that you are posting. Should start with http:// or https://'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

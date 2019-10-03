@@ -1,0 +1,12 @@
+<hr/>
+{{ node.title.value }}
+{% if content.field_news_summary.0 %}
+
+Summary: {{ node.field_news_summary.0.value|trim }}
+{% endif %}
+{% if content.field_link_to_article.0 %}
+
+Read more: {{ content.field_link_to_article.0['#url'] }}<br/>
+{% endif %}
+<div>&nbsp;</div>
+

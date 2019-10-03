@@ -1,0 +1,20 @@
+footer {
+  .block--gmfoodtheme-footer {
+    display: inline-block;
+
+    .menu {
+      display: inline;
+      padding: 0;
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+  .block--gmfoodtheme-account-menu {
+    display: inline-block;
+  }
+  .nav.navbar-nav {
+    flex-direction: row;
+  }
+}

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.simplenews_issue.field_events
+    - field.field.node.simplenews_issue.field_news
     - field.field.node.simplenews_issue.field_newsletter_footer
     - field.field.node.simplenews_issue.field_newsletter_intro
     - field.field.node.simplenews_issue.simplenews_issue
@@ -28,9 +29,18 @@ mode: default
 content:
   field_events:
     weight: 2
-    label: above
+    label: hidden
     settings:
       view_mode: event_date_newsletter_standard_view
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_news:
+    weight: 103
+    label: hidden
+    settings:
+      view_mode: teaser
       link: false
     third_party_settings: {  }
     type: entity_reference_entity_view
@@ -56,9 +66,9 @@ content:
     third_party_settings: {  }
   read_more:
     weight: 100
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   langcode: true
   simplenews_issue: true

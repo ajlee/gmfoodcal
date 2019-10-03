@@ -1,0 +1,5 @@
+{% for key, item in items %}
+
+.... NEWS {{ key + 1 }}
+<div>{{ item.content|render|striptags|trim }}</div>
+{% endfor %}

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_events
-    - node.type.event_date
+    - node.type.event
     - node.type.simplenews_issue
 id: node.simplenews_issue.field_events
 field_name: field_events
@@ -20,7 +20,7 @@ settings:
   handler: 'default:node'
   handler_settings:
     target_bundles:
-      event_date: event_date
+      event: event
     sort:
       field: field_inline_event_date
       direction: ASC

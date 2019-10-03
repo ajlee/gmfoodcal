@@ -5,35 +5,21 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.simplenews_issue.field_events
+    - field.field.node.simplenews_issue.field_newsletter_footer
+    - field.field.node.simplenews_issue.field_newsletter_intro
     - field.field.node.simplenews_issue.simplenews_issue
     - node.type.simplenews_issue
   module:
     - field_layout
     - layout_builder
-    - layout_discovery
     - user
 third_party_settings:
   field_layout:
     id: layout_onecol
     settings: {  }
   layout_builder:
-    enabled: true
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings: {  }
-        components:
-          1b7bf2e5-9fc5-4bfa-9bbc-c049e93bb042:
-            uuid: 1b7bf2e5-9fc5-4bfa-9bbc-c049e93bb042
-            region: content
-            configuration:
-              label_display: '0'
-              context_mapping:
-                entity: layout_builder.entity
-              id: 'extra_field_block:node:simplenews_issue:read_more'
-            additional: {  }
-            weight: 0
-        third_party_settings: {  }
+    enabled: false
+    allow_custom: false
 _core:
   default_config_hash: n2xAKuCwCLXGUcR4BjVa08OIbG6UDdyIQFjq_S91h50
 id: node.simplenews_issue.teaser
@@ -41,15 +27,19 @@ targetEntityType: node
 bundle: simplenews_issue
 mode: teaser
 content:
-  read_more:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
+  simplenews_issue:
+    type: entity_reference_label
+    weight: 0
     region: content
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
 hidden:
   field_events: true
+  field_news: true
   field_newsletter_footer: true
   field_newsletter_intro: true
   langcode: true
   links: true
-  simplenews_issue: true
+  read_more: true

@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_calendar
-    - field.storage.node.field_inline_event_date
+    - field.storage.node.field_start_date
     - node.type.event
   module:
     - datetime
@@ -81,10 +81,10 @@ display:
           columnformatWeek: 'ddd M/D'
           columnformatDay: dddd
           theme: true
-          sameWindow: false
-          modalWindow: true
+          sameWindow: true
+          modalWindow: false
           contentHeight: 0
-          editable: false
+          editable: true
           fields:
             title: false
             title_field: title
@@ -219,11 +219,11 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_inline_event_date:
-          id: field_inline_event_date
-          table: node__field_inline_event_date
-          field: field_inline_event_date
-          relationship: field_event_dates
+        field_start_date:
+          id: field_start_date
+          table: node__field_start_date
+          field: field_start_date
+          relationship: none
           group_type: group
           admin_label: ''
           label: ''
@@ -271,7 +271,7 @@ display:
           type: datetime_default
           settings:
             timezone_override: ''
-            format_type: medium
+            format_type: short
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -335,16 +335,7 @@ display:
           content: '<a href="/upcoming-events">View all events in list format</a>'
           plugin_id: text_custom
       empty: {  }
-      relationships:
-        field_event_dates:
-          id: field_event_dates
-          table: node__field_event_dates
-          field: field_event_dates
-          relationship: none
-          group_type: group
-          admin_label: 'field_event_dates: Content'
-          required: true
-          plugin_id: standard
+      relationships: {  }
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
@@ -356,7 +347,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_calendar'
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'
   block_homepage:
     display_plugin: block
     id: block_homepage
@@ -373,7 +364,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_calendar'
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'
   page_1:
     display_plugin: page
     id: page_1
@@ -392,4 +383,4 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_calendar'
-        - 'config:field.storage.node.field_inline_event_date'
+        - 'config:field.storage.node.field_start_date'

@@ -27,7 +27,7 @@ function gmfood_general_fullcalendar_classes($entity) {
   //kint(is_object($entity->field_calendar));
 
   // check the calendar field is valid
-  if(isset($entity->field_calendar_colour) && is_object($entity->field_calendar_colour) && !$entity->field_calendar_colour->isEmpty() && is_object(($entity->field_calendar_colour[0]->entity))) {
+  if(isset($entity->field_calendar_colour) && is_object($entity->field_calendar_colour) && !$entity->field_calendar_colour->isEmpty() && is_object($entity->field_calendar_colour[0]->entity)) {
     // get transliteration service
     $tr = \Drupal::service('transliteration');
     //kint($entity->field_calendar[0]->entity->getTitle());
@@ -130,6 +130,7 @@ function gmfood_general_form_alter(&$form, \Drupal\Core\Form\FormStateInterface 
       $form['field_event_dates']['widget']['add_more']['#value'] = t('Add another date');
       // change the label for the save field
       $form['actions']['submit']['#value'] = t('Publish this Event');
+      $form["#attached"]["library"][] = 'gmfood_general/auto_event_end_date';
     }
   }
 }
@@ -401,4 +402,23 @@ function gmfood_general_user_view_alter(array &$build, Drupal\Core\Entity\Entity
       // TODO: add some fields here!
     }
   }
+}
+//
+// uses function hook_menu_local_tasks_alter
+// https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Menu%21menu.api.php/function/hook_menu_local_tasks_alter/
+//
+function gmfood_general_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
+  kint($data['tabs']);
+  // change the title of the "Newsletter", view, and edit tabs on user profile
+  $data['tabs'][0]['entity.user.canonical']['#link']['title'] = "View My Profile";
+  $data['tabs'][0]['entity.user.edit_form']['#link']['title'] = "Edit My Profile";
+  $data['tabs'][0]['simplenews.newsletter_subscriptions_user']['#link']['title'] = "My Newsletter Subscriptions";
+}
+
+//
+// remove jquery datepicker - use browser native versions
+//
+function gmfood_general_js_alter(&$javascript) {
+  unset($javascript['core/assets/vendor/jquery.ui/ui/widgets/datepicker-min.js']);
+  unset($javascript['core/modules/locale/locale.datepicker.js']);
 }

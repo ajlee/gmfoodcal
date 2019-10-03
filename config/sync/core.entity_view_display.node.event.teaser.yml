@@ -64,9 +64,12 @@ content:
     region: content
 hidden:
   field_calendar: true
+  field_calendar_colour: true
   field_contact_email: true
   field_contact_phone: true
   field_duration: true
+  field_event_summary: true
+  field_event_thumbnail: true
   field_geolocation: true
   field_more_information_link: true
   langcode: true

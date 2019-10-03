@@ -1,0 +1,57 @@
+uuid: 350f89dc-64bd-414d-aad0-c18f6227f8df
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+    - system
+    - user
+  theme:
+    - gmfoodtheme
+id: contentform
+theme: gmfoodtheme
+region: content
+weight: -7
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Content form'
+  provider: node
+  label_display: visible
+  type: event
+  show_help: 1
+visibility:
+  request_path:
+    id: request_path
+    pages: add/event
+    negate: false
+    context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+      authenticated: authenticated
+      administrator: administrator
+      editor: editor
+      moderator: moderator
+      manager: manager
+      newsletter_manager: newsletter_manager
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

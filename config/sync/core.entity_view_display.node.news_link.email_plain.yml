@@ -1,0 +1,55 @@
+uuid: 20bbd41e-82f1-486e-a658-f60aaab4b8b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.email_plain
+    - field.field.node.news_link.field_link_to_article
+    - field.field.node.news_link.field_news_summary
+    - field.field.node.news_link.field_topic
+    - node.type.news_link
+  module:
+    - layout_builder
+    - link
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: false
+id: node.news_link.email_plain
+targetEntityType: node
+bundle: news_link
+mode: email_plain
+content:
+  field_link_to_article:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link_separate
+    region: content
+  field_news_summary:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  read_more:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_topic: true
+  langcode: true

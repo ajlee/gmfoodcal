@@ -1,0 +1,8 @@
+auto_event_end_date:
+  js:
+    js/auto-end-event-date.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.dialog.ajax
+    - fullcalendar/fullcalendar

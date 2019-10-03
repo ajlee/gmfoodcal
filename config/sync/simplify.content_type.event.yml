@@ -1,9 +1,5 @@
 simplify_nodes:
-  - author
-  - format
-  - options
   - revision_information
-  - comment
   - menu
   - path_settings
   - metatags

@@ -9,9 +9,9 @@ id: node.event.field_event_summary
 field_name: field_event_summary
 entity_type: node
 bundle: event
-label: 'Event Summary (for newsletters)'
-description: 'Used as an event description for newsletters'
-required: true
+label: 'Short Description'
+description: "If your description is over 300 characters, the remaining description will be cut off in newsletters. If you prefer to enter your own summary here, this will be used as the event description for newsletters instead. \r\nA link will always be included to the full description on the website."
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''

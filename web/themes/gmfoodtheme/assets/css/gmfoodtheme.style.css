@@ -9693,6 +9693,23 @@ a:hover {
   padding: 0.25rem 0.5rem;
 }
 
+footer .block--gmfoodtheme-footer {
+  display: inline-block;
+}
+footer .block--gmfoodtheme-footer .menu {
+  display: inline;
+  padding: 0;
+}
+footer .block--gmfoodtheme-footer .menu li {
+  display: inline-block;
+}
+footer .block--gmfoodtheme-account-menu {
+  display: inline-block;
+}
+footer .nav.navbar-nav {
+  flex-direction: row;
+}
+
 /*
  * General forms
  */
@@ -9772,6 +9789,17 @@ div[data-drupal-selector=edit-field-layout] {
   margin-right: 1rem;
 }
 
+/*
+ * Validation
+ */
+.form-control.error {
+  border: 1px solid #FF0000;
+}
+
+.form-item--error-message {
+  color: #FF0000;
+}
+
 .block {
   margin: 1rem 0;
 }
@@ -9810,6 +9838,15 @@ div[data-drupal-selector=edit-field-layout] {
 
 .event-date__field-inline-event-date, .event-date__field-event-end-date-time {
   display: inline;
+}
+
+.simplenews-issue--full h3, .simplenews-issue--full .view-page .views-row--unformatted .views-field-title, .view-page .views-row--unformatted .simplenews-issue--full .views-field-title {
+  margin-top: 2rem;
+}
+.simplenews-issue--full .read-more {
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 700;
 }
 
 .fc-calendar-1 {
@@ -9933,6 +9970,17 @@ div[data-drupal-selector=edit-field-layout] {
   margin: 0.125rem 0;
 }
 
+.fc-day-grid-event .fc-content, .fc-content {
+  white-space: normal;
+}
+
+.fc-title {
+  max-width: 100%;
+  display: block;
+  word-wrap: normal;
+  word-wrap: break-word;
+}
+
 #drupal-modal {
   padding-bottom: 4rem;
 }
@@ -9941,7 +9989,7 @@ div[data-drupal-selector=edit-field-layout] {
   max-width: 100%;
   flex: none;
 }
-#drupal-modal .event__field-more-information-link, #drupal-modal .event__field-contact-phone, #drupal-modal .event__field-contact-email, #drupal-modal .event__field-calendar, #drupal-modal .event__field-geolocation, #drupal-modal .event__dates {
+#drupal-modal .event__thumbnail, #drupal-modal .event__field-more-information-link, #drupal-modal .event__field-contact-phone, #drupal-modal .event__field-contact-email, #drupal-modal .event__field-calendar, #drupal-modal .event__field-geolocation, #drupal-modal .event__dates {
   display: none;
 }
 #drupal-modal .event__read-more-link {

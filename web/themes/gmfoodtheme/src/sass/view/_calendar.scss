@@ -120,7 +120,15 @@
     margin:$spacer/8 0;
   }
 }
-
+.fc-day-grid-event .fc-content, .fc-content {
+  white-space: normal;
+}
+.fc-title {
+  max-width: 100%;
+  display: block;
+  word-wrap: normal;
+  word-wrap: break-word;
+}
 // display the node differently in the pop-up modal
 #drupal-modal {
   padding-bottom:$spacer*4;
@@ -130,7 +138,7 @@
     max-width: 100%;
     flex:none;
   }
-  .event__field-more-information-link, .event__field-contact-phone, .event__field-contact-email, .event__field-calendar, .event__field-geolocation, .event__dates {
+  .event__thumbnail, .event__field-more-information-link, .event__field-contact-phone, .event__field-contact-email, .event__field-calendar, .event__field-geolocation, .event__dates {
     display:none;
   }
   .event__read-more-link {

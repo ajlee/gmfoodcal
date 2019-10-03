@@ -13,7 +13,9 @@
   node.bundle|clean_class,
   node.bundle|clean_class ~ '--' ~ view_mode|clean_class,
 ]
+
 %}
+
 <article{{ attributes.addClass(classes) }}>
   {{ title_prefix }}
   {{ title_suffix }}
@@ -26,7 +28,27 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            {{ content.field_event_dates }}
+            <span class="event-date-start"><span class="from">From </span>{{ node.field_start_date.date | date("l, F j, Y - H:i") }}</span>
+
+            {# is a value set for end date? #}
+            {% if content.field_end_date|render %}
+
+              {# is the end date valid and is it after the start date? #}
+              {% if valid_end_date %}
+
+                {# is the end on a different day? #}
+                {% if multi_day_event %}
+                  <span class="event-date-end"><span class="to">to </span>{{
+                  node.field_end_date.date | date("l, F j, Y - H:i") }}</span>
+                {% else %}
+                  <span class="event-date-end"><span class="to">to </span>{{
+                  node.field_end_date.date | date("H:i") }}</span>
+                {% endif %}
+
+              {% endif %}
+
+            {% endif %}
+
             {{ content.field_event_description }}
             {{ content.field_more_information_link }}
             {{ content.field_geolocation }}

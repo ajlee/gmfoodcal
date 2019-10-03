@@ -16,7 +16,7 @@ gmfood_discourse.email_plain_view:
    _title: 'Preview Discourse Post'
    _entity_view:  node.email_plain
  requirements:
-   _custom_access: 'Drupal\gmfood_discourse\Controller\DiscourseController::checkAccess'
+   _permission: 'administer site configuration'
 
 gmfood_discourse.settings:
  path: '/admin/config/services/gmfood_discourse/settings'

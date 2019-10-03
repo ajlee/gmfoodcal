@@ -1,11 +1,11 @@
-uuid: 8f483768-158e-41f2-a60b-5e31078471d0
+uuid: f82865db-80cd-4ad6-8651-1e1ab6983fba
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.field_related_news
-field_name: field_related_news
+id: node.field_topic
+field_name: field_topic
 entity_type: node
 type: entity_reference
 settings:

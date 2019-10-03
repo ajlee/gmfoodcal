@@ -12,7 +12,7 @@ field_name: field_link_to_organisation
 entity_type: user
 bundle: user
 label: 'Link to Organisation'
-description: 'If you are supporting as part of another organisation, please put the link to their website here'
+description: 'If you are publishing events on behalf of an organisation, please enter your organisations website URL here. Note that this needs to include http:// or https:// at the beginning.'
 required: false
 translatable: false
 default_value: {  }

@@ -20,4 +20,3 @@ permissions:
   - 'send newsletter'
   - 'subscribe to newsletters'
   - 'view simplenews subscriptions'
-  - 'view the administration theme'

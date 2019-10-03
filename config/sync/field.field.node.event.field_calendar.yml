@@ -7,18 +7,18 @@ dependencies:
     - node.type.calendar
     - node.type.event
   content:
-    - 'node:calendar:d027f02e-9ebc-4259-a557-8310903e0df4'
+    - 'node:calendar:0cae2e8d-c06b-4eac-aaff-6e312338348b'
 id: node.event.field_calendar
 field_name: field_calendar
 entity_type: node
 bundle: event
 label: Calendar
-description: ''
+description: 'When there are multiple calendars on this site, you can choose to have this event appear on one or more calendars by ticking one or more boxes.'
 required: true
 translatable: false
 default_value:
   -
-    target_uuid: d027f02e-9ebc-4259-a557-8310903e0df4
+    target_uuid: 0cae2e8d-c06b-4eac-aaff-6e312338348b
 default_value_callback: ''
 settings:
   handler: 'default:node'

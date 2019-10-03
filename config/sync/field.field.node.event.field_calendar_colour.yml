@@ -6,15 +6,19 @@ dependencies:
     - field.storage.node.field_calendar_colour
     - node.type.calendar
     - node.type.event
+  content:
+    - 'node:calendar:0cae2e8d-c06b-4eac-aaff-6e312338348b'
 id: node.event.field_calendar_colour
 field_name: field_calendar_colour
 entity_type: node
 bundle: event
-label: 'Calendar Colour'
-description: ''
-required: false
+label: 'Event Theme'
+description: 'This defines the colour and style of the event - each theme has a different colour. For example, food events are blue, while biodiversity events are green.'
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 0cae2e8d-c06b-4eac-aaff-6e312338348b
 default_value_callback: ''
 settings:
   handler: 'default:node'

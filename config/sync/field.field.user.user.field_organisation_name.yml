@@ -11,7 +11,7 @@ field_name: field_organisation_name
 entity_type: user
 bundle: user
 label: 'Organisation Name'
-description: 'If are supporting as part of an organisation, please put the organisation''s name here'
+description: 'If you are publishing events on behalf of an organisation, please put your organisation name here'
 required: false
 translatable: false
 default_value: {  }
