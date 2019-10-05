@@ -15,6 +15,8 @@
       return (input.value !== value);
     };
 
+
+
     // set up variables.
     var end_date_clicked = false;
     var end_time_clicked = false;
@@ -53,10 +55,9 @@
     // unless end date time has been edited - then do nothing
     $(start_container_selector).on('change',function() {
         // if end date hasn't been filled yet
-        if(!end_date_clicked) {
-          $(end_date_selector).val($(start_date_selector).val());
-          end_date_clicked = true;
-        }
+      if(!end_date_clicked) {
+        $(end_date_selector).val($(start_date_selector).val());
+        end_date_clicked = true;
       }
 
       // when the end time hasn't been filled yet
