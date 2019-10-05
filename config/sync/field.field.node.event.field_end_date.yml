@@ -12,7 +12,7 @@ field_name: field_end_date
 entity_type: node
 bundle: event
 label: 'End Date (optional)'
-description: ''
+description: "If you enter an end date, the end date and time must be after the start date and time.\r\nUse the X on the right hand side of the box to remove the end date."
 required: false
 translatable: false
 default_value: {  }

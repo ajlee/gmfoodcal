@@ -9797,7 +9797,7 @@ div[data-drupal-selector=edit-field-layout] {
 }
 
 .form-item--error-message {
-  color: #FF0000;
+  color: #FF0000 !important;
 }
 
 .block {

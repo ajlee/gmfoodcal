@@ -17552,8 +17552,8 @@ __webpack_require__.r(__webpack_exports__);
   'use strict'; // enable a datepicker
 
   Drupal.behaviors.enableDatePicker = {
-    attach: function attach(context) {
-      jQuery('[type="date"]').datepicker('disable'); //jQuery('[type="date"]').datepicker({ 'dateFormat':'yy-mm-dd'});
+    attach: function attach(context) {//jQuery('[type="date"]').datepicker('disable');
+      //jQuery('[type="date"]').datepicker({ 'dateFormat':'yy-mm-dd'});
     }
   }; // enable a timepicker
 
