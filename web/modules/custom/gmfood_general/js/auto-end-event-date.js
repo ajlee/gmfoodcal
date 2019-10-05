@@ -15,8 +15,6 @@
       return (input.value !== value);
     };
 
-
-
     // set up variables.
     var end_date_clicked = false;
     var end_time_clicked = false;
