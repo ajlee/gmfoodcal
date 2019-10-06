@@ -39,6 +39,8 @@
       $(end_container_selector).find('label').first().html('Date (in yyyy-mm-dd format)');
     }
 
+    $(end_container_selector).append('<div class="card-footer"><span class="btn btn-secondary clear-end-date-time">Clear End Date/Time</span></div>');
+
     // get value of start time field
     var start_time = $(start_time_selector).val();
     var start = moment();
@@ -67,7 +69,10 @@
         // unless end time has been edited then do nothing
         var valuestart = $(start_time_selector).val();
         var valueend = moment(valuestart,'HH:mm:ss').add('2','hours').format('HH:mm');
-        $(end_time_selector).val(valueend);
+
+        // ** cannot automatically add the end time due to a bug **
+        // ** user cannot delete a time once a time has been selected **
+        // $(end_time_selector).val(valueend);
         end_time_clicked = true;
       }
 
@@ -80,10 +85,20 @@
     });
     $(end_time_selector).on('focus', function() {
       end_time_clicked = true;
+
+      // set the default scroll location (about 12pm)
+      $('input.ui-timepicker-input').click(function(){
+          $('.ui-timepicker-wrapper').scrollTop(700);
+      })
     });
     $(end_container_selector).on('change',function() {
       compare_date_times();
     });
+    $('.clear-end-date-time').on('click',function() {
+      $(end_date_selector).val('');
+      $(end_time_selector).val('');
+    });
+
 
     // function to compare the time and date fields
     // add error helper classes when the date times are invalid
@@ -115,9 +130,7 @@
 
         // is the start date/time AFTER the end date/time?
         if (start_date_time >= end_date_time) {
-          $(start_time_selector).addClass('form-control error');
           $(end_time_selector).addClass('form-control error');
-          $(start_desc_selector).addClass('form-item--error-message');
           $(end_desc_selector).addClass('form-item--error-message');
         }
       }

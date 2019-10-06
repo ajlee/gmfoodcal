@@ -9789,6 +9789,11 @@ div[data-drupal-selector=edit-field-layout] {
   margin-right: 1rem;
 }
 
+#edit-field-start-date-0-value, #edit-field-end-date-0-value {
+  min-width: 200px;
+  width: 50%;
+}
+
 /**
  * Validation
  */
@@ -9798,6 +9803,25 @@ div[data-drupal-selector=edit-field-layout] {
 
 .form-item--error-message {
   color: #FF0000 !important;
+}
+
+/*
+ * Datepicker native popup in chrome
+ */
+input[type=date]:hover::-webkit-calendar-picker-indicator {
+  color: red;
+}
+
+input[type=date]:hover:after {
+  content: " Date Picker ";
+  color: #555;
+  padding-right: 5px;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .block {

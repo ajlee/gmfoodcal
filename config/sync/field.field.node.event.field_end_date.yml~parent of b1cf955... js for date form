@@ -12,7 +12,7 @@ field_name: field_end_date
 entity_type: node
 bundle: event
 label: 'End Date (optional)'
-description: "If you enter an end date, the end date and time must be after the start date and time.\r\nPress the Clear End Date/Time button to reset the end date and time."
+description: ''
 required: false
 translatable: false
 default_value: {  }
