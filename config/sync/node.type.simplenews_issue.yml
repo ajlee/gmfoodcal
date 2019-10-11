@@ -1,13 +1,24 @@
 uuid: 3c7d6083-2ca0-4f0f-b1d4-eb3c0cd515fd
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - menu_force
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  menu_force:
+    menu_force: 0
+    menu_force_parent: 0
 _core:
   default_config_hash: T0xVUPLXklJ1liu4ukvaguMb-aMY1oMxO2PsCRB8-qg
-name: 'Newsletter Issue'
+name: Newsletter
 type: simplenews_issue
-description: 'Use <em>Newsletter Issue</em> for newsletters.'
+description: 'A <em>issue</em> of a particular newsletter series e.g. Sustainable Food Newsletter July 1st.'
 help: ''
-new_revision: false
-preview_mode: 1
+new_revision: true
+preview_mode: 0
 display_submitted: false

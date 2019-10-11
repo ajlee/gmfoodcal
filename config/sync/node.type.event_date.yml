@@ -3,16 +3,20 @@ langcode: en
 status: true
 dependencies:
   module:
+    - menu_force
     - menu_ui
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
+  menu_force:
+    menu_force: 0
+    menu_force_parent: 0
 name: 'Event Date'
 type: event_date
 description: 'This is an instance of a particular event on a particular date. In contrast, the Event content type is an item containing info about several Event Date items, and the two are connected via references.'
 help: ''
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: true

@@ -15,7 +15,7 @@ permissions:
   - 'access user contact forms'
   - 'access user profiles'
   - 'create event content'
-  - 'create event_date content'
+  - 'create news_link content'
   - 'search content'
   - 'subscribe to newsletters'
   - 'use text format restricted_html'

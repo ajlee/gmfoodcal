@@ -17,7 +17,7 @@ settings:
   id: formblock_node
   label: 'Content form'
   provider: node
-  label_display: visible
+  label_display: '0'
   type: news_link
   show_help: 0
 visibility:

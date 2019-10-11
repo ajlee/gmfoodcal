@@ -1,6 +1,5 @@
 simplify_nodes:
   - revision_information
   - menu
-  - path_settings
   - metatags
   - redirect

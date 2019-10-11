@@ -43,12 +43,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_topic:
-    weight: 12
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
   langcode:
     type: language_select
     weight: 3
@@ -105,4 +99,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_topic: true

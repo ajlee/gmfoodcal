@@ -15,8 +15,8 @@ third_party_settings:
     menu_force_parent: 1
 name: Calendar
 type: calendar
-description: ''
+description: 'A calendar for a specific topic e.g. "sustainable food calendar" or "transport calendar"'
 help: ''
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: true

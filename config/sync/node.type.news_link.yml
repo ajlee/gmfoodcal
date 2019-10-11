@@ -3,16 +3,20 @@ langcode: en
 status: true
 dependencies:
   module:
+    - menu_force
     - menu_ui
 third_party_settings:
   menu_ui:
     available_menus:
       - main
     parent: 'main:'
+  menu_force:
+    menu_force: 0
+    menu_force_parent: 0
 name: 'News Link'
 type: news_link
-description: ''
+description: 'A link to an article - these can be included in newsletters.'
 help: ''
 new_revision: true
-preview_mode: 1
+preview_mode: 0
 display_submitted: true

@@ -1,0 +1,11 @@
+uuid: d1399338-4fa8-41f7-8cc6-f83e112c5b9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.simplenews_issue
+id: node.simplenews_issue
+target_entity_type_id: node
+target_bundle: simplenews_issue
+default_langcode: site_default
+language_alterable: false

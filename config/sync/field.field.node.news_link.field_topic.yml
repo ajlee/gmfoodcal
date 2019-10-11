@@ -6,6 +6,8 @@ dependencies:
     - field.storage.node.field_topic
     - node.type.calendar
     - node.type.news_link
+  content:
+    - 'node:calendar:0cae2e8d-c06b-4eac-aaff-6e312338348b'
 id: node.news_link.field_topic
 field_name: field_topic
 entity_type: node
@@ -14,7 +16,9 @@ label: Topic
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 0cae2e8d-c06b-4eac-aaff-6e312338348b
 default_value_callback: ''
 settings:
   handler: 'default:node'
