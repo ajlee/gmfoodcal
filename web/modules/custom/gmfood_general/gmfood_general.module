@@ -121,6 +121,9 @@ function gmfood_general_node_view(array &$build, EntityInterface $entity, Entity
  * form.
  */
 function gmfood_general_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  //
+  // NOTE: ADDING DEBUG TO ALL FORMS BREAKS SELECT ENTITY FUNCTIONS
+  //
 
   // check its the node_event_form
   if (in_array($form_id,['node_event_form'])){
