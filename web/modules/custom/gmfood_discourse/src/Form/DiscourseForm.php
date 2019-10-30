@@ -256,7 +256,7 @@ class DiscourseForm extends FormBase {
       // Get the value of the user to post as
       $user = $config->get('post_as_user');
       if (empty($user)) {
-        $user = 'alex';
+        $user = 'drupal_admin';
       }
 
       // get the values
