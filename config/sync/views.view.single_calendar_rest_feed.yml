@@ -1173,7 +1173,7 @@ display:
           link_field: view_node
           description_field: field_event_description
           creator_field: field_address
-          date_field: field_inline_event_date
+          date_field: field_start_date
           guid_field_options:
             guid_field: nid
             guid_field_is_permalink: true

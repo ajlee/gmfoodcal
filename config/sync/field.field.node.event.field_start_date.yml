@@ -11,7 +11,7 @@ id: node.event.field_start_date
 field_name: field_start_date
 entity_type: node
 bundle: event
-label: 'Start Date'
+label: 'Start Date (dd/mm/yyyy) and Time (hh:mm:ss)'
 description: 'If you enter an end date, the end date and time must be after the start date and time.'
 required: true
 translatable: false
