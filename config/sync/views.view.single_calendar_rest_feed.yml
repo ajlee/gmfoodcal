@@ -23,6 +23,7 @@ dependencies:
     - serialization
     - telephone
     - user
+    - views_data_export
 id: single_calendar_rest_feed
 label: 'Single Calendar REST Feed'
 module: views
@@ -1146,6 +1147,47 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_address'
+        - 'config:field.storage.node.field_calendar'
+        - 'config:field.storage.node.field_contact_email'
+        - 'config:field.storage.node.field_contact_phone'
+        - 'config:field.storage.node.field_end_date'
+        - 'config:field.storage.node.field_event_description'
+        - 'config:field.storage.node.field_event_thumbnail'
+        - 'config:field.storage.node.field_more_information_link'
+        - 'config:field.storage.node.field_start_date'
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Data export'
+    position: 5
+    display_options:
+      display_extenders: {  }
+      style:
+        type: data_export
+        options:
+          formats:
+            xml: xml
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+      path: calendar/%/xml
+      filename: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
         - url
         - 'user.node_grants:view'
         - user.permissions
