@@ -87,6 +87,7 @@ module:
   page_cache: 0
   path: 0
   phpmailer: 0
+  price: 0
   quickedit: 0
   radix_layouts: 0
   rdf: 0

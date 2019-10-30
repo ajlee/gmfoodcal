@@ -1,0 +1,26 @@
+uuid: c7db7ac1-91e5-4ca8-9ae5-951cfaee3627
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.event
+  module:
+    - price
+id: node.event.field_price
+field_name: field_price
+entity_type: node
+bundle: event
+label: Price
+description: 'If this is a paid event then please enter the price here. If it is a free event, leave it as 0.'
+required: false
+translatable: false
+default_value:
+  -
+    number: '0'
+    currency_code: GBP
+default_value_callback: ''
+settings:
+  available_currencies:
+    GBP: GBP
+field_type: price_price

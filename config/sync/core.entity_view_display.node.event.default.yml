@@ -15,6 +15,7 @@ dependencies:
     - field.field.node.event.field_event_thumbnail
     - field.field.node.event.field_geolocation
     - field.field.node.event.field_more_information_link
+    - field.field.node.event.field_price
     - field.field.node.event.field_start_date
     - image.style.medium
     - node.type.event
@@ -24,6 +25,7 @@ dependencies:
     - image
     - layout_builder
     - link
+    - price
     - telephone
     - user
 third_party_settings:
@@ -119,6 +121,15 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+  field_price:
+    weight: 103
+    label: above
+    settings:
+      strip_trailing_zeroes: false
+      currency_display: symbol
+    third_party_settings: {  }
+    type: price_price_default
+    region: content
   field_start_date:
     weight: 101
     label: hidden
