@@ -24,10 +24,10 @@ print_r($category);
 // create a topic
 echo "create topic";
 $r = $api->createTopic(
-    'This is the title of a brand new topic',
+    'This is the title of a brand another time topic',
     "This is the body text of a brand new topic. I really don't know what to say",
     26,
-    "alex"
+    "drupal_admin"
 );
 print_r($r);
 

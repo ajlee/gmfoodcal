@@ -10,6 +10,7 @@
 /web/sites/*/settings.php
 /web/sites/*/settings.local.php
 /config/sync/gmfood_discourse.settings.yml
+/sites/default/services.yml
 
 # Ignore Drupal's file directory
 /web/sites/*/files/
