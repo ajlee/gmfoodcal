@@ -99,7 +99,12 @@ content:
   field_end_date:
     weight: 13
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      timepicker:
+        enabled: '1'
+        type: timepicker_jonthornton
+        js_options:
+          value: ''
     type: datetime_default
     region: content
   field_event_description:
