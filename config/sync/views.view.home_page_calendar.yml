@@ -384,3 +384,36 @@ display:
       tags:
         - 'config:field.storage.node.field_calendar'
         - 'config:field.storage.node.field_start_date'
+  page_2:
+    display_plugin: page
+    id: page_2
+    display_title: 'iframe (calendar)'
+    position: 3
+    display_options:
+      display_extenders: {  }
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: '<a href="https://calendar.goodfoodgreatermanchester.org">Good Food Greater Manchester Calendar</a>'
+          plugin_id: text_custom
+      defaults:
+        footer: false
+      display_description: ''
+      path: iframe/calendar/all
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_calendar'
+        - 'config:field.storage.node.field_start_date'
