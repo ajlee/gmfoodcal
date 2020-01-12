@@ -9596,10 +9596,6 @@ h1, h2, h3, .view-page .views-row--unformatted .views-field-title, h4, h5, h6 {
   font-weight: strong;
 }
 
-h1 {
-  text-transform: uppercase;
-}
-
 h2, h3, .view-page .views-row--unformatted .views-field-title, h4, h5, h6 {
   font-variant: small-caps;
 }
@@ -9635,6 +9631,11 @@ a:hover {
   color: #aaff33;
 }
 
+.navbar {
+  padding: 0;
+  background-color: #fff !important;
+  border-bottom: 2px solid #164d22;
+}
 .navbar ul.sf-menu.sf-style-white {
   border: 1px solid white;
 }
@@ -9679,7 +9680,6 @@ a:hover {
 }
 .navbar img {
   max-width: 300px;
-  border: 3px solid #e9ecef;
 }
 
 .block--secondarynavigation ul.sf-menu {

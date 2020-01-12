@@ -37,6 +37,9 @@ function gmfoodtheme_preprocess_html(&$variables) {
      $variables['attributes']['class'][] = 'views-' . $view_id;
      $variables['attributes']['class'][] = 'view-page';
     }
+    $params = \Drupal::request()->get('keys');
+    $variables['iframe_height'] = $_GET['height'];
+    $variables['iframe_width'] = $_GET['width'];
   }
 }
 

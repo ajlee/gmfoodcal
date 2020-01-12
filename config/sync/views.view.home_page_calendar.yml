@@ -323,17 +323,19 @@ display:
       title: 'Home Page Calendar 2'
       header: {  }
       footer:
-        area_text_custom:
-          id: area_text_custom
+        area:
+          id: area
           table: views
-          field: area_text_custom
+          field: area
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           tokenize: false
-          content: '<a href="/upcoming-events">View all events in list format</a>'
-          plugin_id: text_custom
+          content:
+            value: "<p><a href=\"/upcoming-events\">View all events in list format</a></p>\r\n\r\n<p><label>Copy the following code to embed the calendar in your website</label><input type=\"text\" value=\"<iframe src='https://calendar.goodfoodgreatermanchester.org/iframe/list/all?width=300&height=400'  height='400' width='300'></iframe>\"></p>"
+            format: full_html
+          plugin_id: text
       empty: {  }
       relationships: {  }
       arguments: {  }

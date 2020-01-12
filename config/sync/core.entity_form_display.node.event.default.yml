@@ -103,10 +103,10 @@ content:
     settings: {  }
     third_party_settings:
       timepicker:
-        enabled: '1'
         type: timepicker_jonthornton
         js_options:
           value: ''
+        enabled: 0
     type: datetime_default
     region: content
   field_event_description:
@@ -187,10 +187,10 @@ content:
     settings: {  }
     third_party_settings:
       timepicker:
-        enabled: '1'
         type: timepicker_jonthornton
         js_options:
           value: ''
+        enabled: 0
     type: datetime_default
     region: content
   path:

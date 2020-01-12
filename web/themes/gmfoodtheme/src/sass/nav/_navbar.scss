@@ -1,5 +1,8 @@
 .navbar {
   // all  devices
+  padding:0;
+  background-color: #fff !important;
+  border-bottom: 2px solid $primary;
 
   ul.sf-menu.sf-style-white {
     border:1px solid white;
@@ -57,7 +60,6 @@
   // max image logo size
   img {
     max-width:300px;
-    border:3px solid $gray-200;
   }
 }
 
