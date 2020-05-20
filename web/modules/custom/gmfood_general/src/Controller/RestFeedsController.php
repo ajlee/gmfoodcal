@@ -71,7 +71,7 @@ class RestFeedsController extends ControllerBase {
     //$params = Url::fromUri("internal:" . $system_path)->getRouteParameters();
     /*$entity_type = key($params);
     $node = \Drupal::entityTypeManager()->getStorage($entity_type)->load($params[$entity_type]);
-    kint($node);
+    //kint($node);
 
     $path_matches = \Drupal::service('path.matcher')->matchPath($path, $patterns);
     // Check URL to match a certain pattern, and switch the view mode.
@@ -88,7 +88,7 @@ class RestFeedsController extends ControllerBase {
     // RIGHT TRIM
     $url_array = explode('/', $current_uri); // array [ url, node1, rss ]
     $last_part = array_pop($url_array); // rss
-    kint($last_part);
+    //kint($last_part);
 
     // is the last part of the URL rss, ical or json
     if (in_array($last_part, array('rss', 'ical', 'json'))){
@@ -101,10 +101,10 @@ class RestFeedsController extends ControllerBase {
       //kint($url_alias);
       $system_path = \Drupal::service('path.alias_manager')->getPathByAlias($url_alias, $langcode);
 
-      kint($system_path);
+      //kint($system_path);
       // change to node?
       $new_url = Url::fromUri("internal:" . $system_path);
-      kint($new_url);
+      //kint($new_url);
 
       // is it a node url?
       // if not it will trigger an exception and will run the catch () section
@@ -112,12 +112,12 @@ class RestFeedsController extends ControllerBase {
         // is it a node url
         if($new_url->getRouteName() == 'entity.node.canonical') {
           $params = $new_url->getRouteParameters('node');
-          kint($node_id);
+          //kint($node_id);
           $parent_node = \Drupal\node\Entity\Node::load($params['node']);
           //print_r($parent_node);
           $parent_type = $parent_node->getType();
           if($parent_type == 'event') {
-            kint('event');
+            //kint('event');
             $build['ical']['view'] = [
               '#type' => 'view',
               '#name' => 'event_ical',
@@ -130,7 +130,7 @@ class RestFeedsController extends ControllerBase {
         }
       }
       catch(Exception $e) {
-        kint('catch');
+        //kint('catch');
       }
       //$params = $new_url->getRouteParameters();
 

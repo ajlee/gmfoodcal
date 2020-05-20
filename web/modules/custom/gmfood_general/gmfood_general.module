@@ -152,7 +152,7 @@ function gmfood_general_query_search_node_search_alter(AlterableInterface $query
   if($current_alias == '/search/events') {
     // Only show article and blogpost content in the search results.
     $query->condition('n.type', ['event'], 'IN');
-    kint($query);
+    // kint($query);
     //kint($query->having);
     //kint($query->fields);
     //kint($query->condition);
@@ -339,10 +339,10 @@ function gmfood_general_preprocess_page(&$variables) {
       //kint($url_alias);
       $system_path = \Drupal::service('path.alias_manager')->getPathByAlias($url_alias, $langcode);
 
-      kint($system_path);
+      //kint($system_path);
       // change to node?
       $new_url = Url::fromUri("internal:" . $system_path);
-      kint($new_url);
+      //kint($new_url);
 
       // is it a node url?
       // if not it will trigger an exception and will run the catch () section
@@ -358,7 +358,7 @@ function gmfood_general_preprocess_page(&$variables) {
         }
       }
       catch(Exception $e) {
-        kint('catch');
+        //kint('catch');
       }
       //$params = $new_url->getRouteParameters();
 
@@ -413,7 +413,7 @@ function gmfood_general_user_view_alter(array &$build, Drupal\Core\Entity\Entity
 // https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Menu%21menu.api.php/function/hook_menu_local_tasks_alter/
 //
 function gmfood_general_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
-  kint($data['tabs']);
+  //kint($data['tabs']);
   // change the title of the "Newsletter", view, and edit tabs on user profile
   $data['tabs'][0]['entity.user.canonical']['#link']['title'] = "View My Profile";
   $data['tabs'][0]['entity.user.edit_form']['#link']['title'] = "Edit My Profile";

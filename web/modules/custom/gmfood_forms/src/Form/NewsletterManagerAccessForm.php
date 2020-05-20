@@ -167,7 +167,7 @@ class NewsletterManagerAccessForm extends FormBase {
          //
          // send email to admin: provides a link for the admin to authorise the request for calendar moderator access
          //
-         kint($form);
+         //kint($form);
          $email_type = 'newsletter_manager';
          $mailManager = \Drupal::service('plugin.manager.mail');
          $module = 'gmfood_forms';
@@ -205,14 +205,14 @@ class NewsletterManagerAccessForm extends FormBase {
          ->condition('roles', 'manager')
          ->execute();
          $users = User::loadMultiple($ids);
-         kint($users);
+         //kint($users);
          foreach($users as $user) {
            $emails[] = $user->getEmail();
          }
 
          // convert array to a string separated by commas
          $to = implode(",", $emails);;
-         kint($emails);
+         //kint($emails);
 
          // send it!
          $send = TRUE;
@@ -238,7 +238,7 @@ class NewsletterManagerAccessForm extends FormBase {
        }
 
        public function access(AccountInterface $account) {
-        kint($account);
+        //kint($account);
         return AccessResult::allowedIf(TRUE);
        }
 }

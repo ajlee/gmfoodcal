@@ -219,9 +219,10 @@ function gmfood_theme_fullcalendar_classes($entity) {
 
 function gmfoodtheme_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
 
-  /*kint ($form_id);
-  kint ($form);
-  kint ($form['#attributes']);
+  /*
+  // kint ($form_id);
+  // kint ($form);
+  //kint ($form['#attributes']);
 */
 
   // add more templating suggestions

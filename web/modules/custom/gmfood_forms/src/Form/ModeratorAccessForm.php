@@ -184,7 +184,7 @@ class ModeratorAccessForm extends FormBase {
          // parse the calendars info
          $calendars = $form_state->getValue('calendars');
          $calendar_string = '';
-         kint($form_state);
+         //kint($form_state);
          foreach ($calendars as $key => $calendar_id) {
            if (!empty($calendar_id)) {
             $node = \Drupal\node\Entity\Node::load($calendar_id);
@@ -247,7 +247,7 @@ class ModeratorAccessForm extends FormBase {
 
          // convert array to a string separated by commas
          $to = implode(",", $emails);;
-         kint($emails);
+         //kint($emails);
 
          // send it!
          $send = TRUE;
