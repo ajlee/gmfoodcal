@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2c5e499448054737a3378ec263c5e14d",
+    "content-hash": "e75f2517b39ccbceedbb620c06489305",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3326,16 +3326,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.7.12",
+            "version": "8.7.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "412ac47f5a17a718617a844504db15208ff61245"
+                "reference": "3ff1fbdd6e9ba8c778d8111e1f06c8a71113b326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/412ac47f5a17a718617a844504db15208ff61245",
-                "reference": "412ac47f5a17a718617a844504db15208ff61245",
+                "url": "https://api.github.com/repos/drupal/core/zipball/3ff1fbdd6e9ba8c778d8111e1f06c8a71113b326",
+                "reference": "3ff1fbdd6e9ba8c778d8111e1f06c8a71113b326",
                 "shasum": ""
             },
             "require": {
@@ -3571,7 +3571,7 @@
                 "GPL-2.0-or-later"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2020-03-18T16:27:19+00:00"
+            "time": "2020-05-20T08:22:34+00:00"
         },
         {
             "name": "drupal/csv_serialization",
@@ -5826,40 +5826,33 @@
         },
         {
             "name": "drupal/metatag",
-            "version": "1.8.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/metatag.git",
-                "reference": "8.x-1.8"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.8.zip",
-                "reference": "8.x-1.8",
-                "shasum": "fb5d31aa08c8c2e175f096f9917e9741db152ea8"
+                "url": "https://ftp.drupal.org/files/projects/metatag-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "c471d9982a6540fd7baccc94572947923634fb6b"
             },
             "require": {
-                "drupal/core": "*",
+                "drupal/core": "^8 || ^9",
                 "drupal/token": "^1.0"
             },
             "require-dev": {
-                "drupal/devel": "^1.0",
                 "drupal/metatag_dc": "*",
                 "drupal/metatag_open_graph": "*",
-                "drupal/page_manager": "^4.0",
-                "drupal/redirect": "^1.0",
-                "drupal/restui": "^1.0",
-                "drupal/schema_metatag": "^1.0",
-                "drupal/schema_web_page": "*"
+                "drupal/page_manager": "4.x-dev",
+                "drupal/redirect": "1.x-dev"
             },
             "type": "drupal-module",
             "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
                 "drupal": {
-                    "version": "8.x-1.8",
-                    "datestamp": "1550692511",
+                    "version": "8.x-1.13",
+                    "datestamp": "1587478404",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5888,8 +5881,9 @@
                 "seo"
             ],
             "support": {
-                "source": "http://cgit.drupalcode.org/metatag",
-                "issues": "http://drupal.org/project/issues/metatag"
+                "source": "https://git.drupalcode.org/project/metatag",
+                "issues": "https://www.drupal.org/project/issues/metatag",
+                "docs": "https://www.drupal.org/docs/8/modules/metatag"
             }
         },
         {
@@ -7326,20 +7320,20 @@
         },
         {
             "name": "drupal/taxonomy_access_fix",
-            "version": "2.6.0",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/taxonomy_access_fix.git",
-                "reference": "8.x-2.6"
+                "reference": "8.x-2.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/taxonomy_access_fix-8.x-2.6.zip",
-                "reference": "8.x-2.6",
-                "shasum": "9d07ab20959bbbfd9fdbbc3e66f7c748d9330dde"
+                "url": "https://ftp.drupal.org/files/projects/taxonomy_access_fix-8.x-2.7.zip",
+                "reference": "8.x-2.7",
+                "shasum": "ec367150f288dd24f1d131554d62d5e2aeaf80e2"
             },
             "require": {
-                "drupal/core": "*"
+                "drupal/core": "^8.6.0"
             },
             "type": "drupal-module",
             "extra": {
@@ -7347,8 +7341,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.6",
-                    "datestamp": "1522702990",
+                    "version": "8.x-2.7",
+                    "datestamp": "1576094595",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -7361,12 +7355,20 @@
             ],
             "authors": [
                 {
+                    "name": "FeyP",
+                    "homepage": "https://www.drupal.org/user/998680"
+                },
+                {
                     "name": "pifagor",
                     "homepage": "https://www.drupal.org/user/2375692"
                 },
                 {
                     "name": "rudiedirkx",
                     "homepage": "https://www.drupal.org/user/890274"
+                },
+                {
+                    "name": "voleger",
+                    "homepage": "https://www.drupal.org/user/3260314"
                 }
             ],
             "description": "Fixes the crooked access checks for Taxonomy pages.",
@@ -13332,16 +13334,16 @@
         },
         {
             "name": "webflo/drupal-core-require-dev",
-            "version": "8.7.12",
+            "version": "8.7.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webflo/drupal-core-require-dev.git",
-                "reference": "11908afc3d07725c93db7ef5f9f4ca3cd6f6a716"
+                "reference": "7ad955c04cfccbcd84b64239b7ed057c50a0a90b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webflo/drupal-core-require-dev/zipball/11908afc3d07725c93db7ef5f9f4ca3cd6f6a716",
-                "reference": "11908afc3d07725c93db7ef5f9f4ca3cd6f6a716",
+                "url": "https://api.github.com/repos/webflo/drupal-core-require-dev/zipball/7ad955c04cfccbcd84b64239b7ed057c50a0a90b",
+                "reference": "7ad955c04cfccbcd84b64239b7ed057c50a0a90b",
                 "shasum": ""
             },
             "require": {
@@ -13349,7 +13351,7 @@
                 "behat/mink-goutte-driver": "^1.2",
                 "behat/mink-selenium2-driver": "1.3.x-dev",
                 "drupal/coder": "^8.3.1",
-                "drupal/core": "8.7.12",
+                "drupal/core": "8.7.14",
                 "jcalderonzumba/gastonjs": "^1.0.2",
                 "jcalderonzumba/mink-phantomjs-driver": "^0.3.1",
                 "justinrainbow/json-schema": "^5.2",
@@ -13367,7 +13369,7 @@
             ],
             "description": "require-dev dependencies from drupal/core",
             "abandoned": "drupal/core-dev",
-            "time": "2020-03-18T17:32:01+00:00"
+            "time": "2020-05-20T15:32:09+00:00"
         },
         {
             "name": "webflo/drupal-finder",
@@ -15024,6 +15026,7 @@
                 }
             ],
             "description": "Allows installation of Components via Composer.",
+            "abandoned": "oomphinc/composer-installers-extender",
             "time": "2015-08-10T12:35:38+00:00"
         }
     ],
