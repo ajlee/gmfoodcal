@@ -21,6 +21,8 @@
     ],
     "require": {
         "php": ">=5.6",
+        "behat/mink": "~1.8",
+        "behat/mink-selenium2-driver": "^1.4",
         "bower-asset/jquery-simple-color": "^1.2",
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
@@ -51,7 +53,7 @@
         "drupal/console": "^1.9",
         "drupal/console-core": "^1.9.0",
         "drupal/console-en": "^1.9.0",
-        "drupal/core": "~8.7.14",
+        "drupal/core": "8.8.8",
         "drupal/ctools": "^3.2",
         "drupal/date_recur": "^1.0",
         "drupal/datetime_extras": "^1.0@alpha",
@@ -94,7 +96,7 @@
         "drupal/multiple_fields_remove_button": "^1.0@alpha",
         "drupal/optional_end_date": "^1.0@beta",
         "drupal/paragraphs": "^1.8",
-        "drupal/pathauto": "^1.4",
+        "drupal/pathauto": "1.8",
         "drupal/permissions_by_term": "^2.10",
         "drupal/phpmailer": "^3.0@beta",
         "drupal/price": "^1.0",
@@ -124,11 +126,14 @@
         "drupal/webform": "^5.2",
         "drupal/xmlsitemap": "^1.0@alpha",
         "drush/drush": "^8.0",
+        "mikey179/vfsstream": "^1.6.8",
         "oomphinc/composer-installers-extender": "^1.1",
         "pear/archive_tar": "~1.4.9",
         "phayes/geophp": "^1.2",
+        "symfony/http-foundation": "^3.4.43",
+        "typo3/phar-stream-wrapper": "^3.1.5",
         "vlucas/phpdotenv": "^2.4",
-        "webflo/drupal-core-require-dev": "~8.7.14",
+        "webflo/drupal-core-require-dev": "~8.8",
         "webflo/drupal-finder": "^1.0.0",
         "webmozart/path-util": "^2.3",
         "zaporylie/composer-drupal-optimizations": "^1.0"
@@ -194,8 +199,7 @@
                     "FullCalendar block error on installing legend": "https://www.drupal.org/files/issues/fullcalendar-notice_undefined_index_module_in_fullcalendar_legend_preprocess_block-2854562-2.patch"
             },
             "drupal/core": {
-                    "Provide default region value for layout builder": "https://www.drupal.org/files/issues/2019-06-18/3053906-11-default-region-value.patch",
-                    "Replace forms in layout builder": "https://www.drupal.org/files/issues/2019-06-28/3045171-71.patch"
+                    "Provide default region value for layout builder": "https://www.drupal.org/files/issues/2019-06-18/3053906-11-default-region-value.patch"
             },
             "drupal/entity_reference_revisions": {
                     "Views does not recognise paragraph to parent relationship": "https://www.drupal.org/files/issues/2018-05-15/2799479-65-views-rel-fix.patch"
